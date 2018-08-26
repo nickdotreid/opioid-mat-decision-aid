@@ -4,4 +4,4 @@ RUN npm install -g @angular/cli
 
 WORKDIR /client
 
-ENTRYPOINT ng serve
+CMD ng serve
