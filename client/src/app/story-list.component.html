@@ -1,4 +1,3 @@
 <ul>
-    <li>First Story</li>
-    <li>Second Story</li>
+    <li *ngFor="let video of videos"><a (click)="showVideo(video)">{{video.title}}</a></li>
 </ul>
