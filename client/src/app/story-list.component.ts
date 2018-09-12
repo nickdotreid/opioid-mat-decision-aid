@@ -1,5 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { PreferencesService } from './preferences.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-story-modal',
@@ -10,14 +12,19 @@ export class StoryModalComponent {
   preferences: any;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any
+    private dialogRef: MatDialogRef<any>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private preferencesService: PreferencesService,
+    private router: Router
   ) {
     this.videoUrl = data.url;
     this.preferences = data.preferences;
   }
 
   accept() {
-
+    this.preferencesService.updatePreferences(this.preferences);
+    this.router.navigateByUrl('medications');
+    this.dialogRef.close();
   }
 }
 
@@ -31,11 +38,17 @@ export class StoryListComponent {
   videos: Array<any> = [{
     title: 'First Story',
     url: '/assets/videos/methadone.mov',
-    preferences: {}
+    preferences: {
+      widthdrawlSymptoms: 'lessSevere',
+      initiation: 'startRightAway'
+    }
   }, {
     title: 'Second Story',
     url: '/assets/videos/naltrexone.mov',
-    preferences: {}
+    preferences: {
+      widthdrawlSymptoms: 'headaches',
+      initiation: 'detoxThenINJ'
+    }
   }];
 
   constructor (

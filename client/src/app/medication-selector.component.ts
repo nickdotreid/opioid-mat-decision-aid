@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { PreferencesService } from './preferences.service';
 
 const attributes: any = {
   initiation: {
@@ -17,7 +18,7 @@ const attributes: any = {
       BPNIMP: 2
     },
     detoxThenINJ: {
-      NTXXR: 1
+      NTXXR: 2
     }
   },
   sideEffects: {
@@ -76,8 +77,20 @@ export class MedicationSelectorComponent {
   });
 
   constructor(
-    private fb: FormBuilder
-  ) {}
+    private fb: FormBuilder,
+    private preferencesService: PreferencesService
+  ) {
+    this.preferencesService.getObservable().subscribe((preferences) => {
+      this.rankMedications(preferences);
+    });
+
+    this.featuresForm.get('initiation').valueChanges.subscribe(() => {
+      this.updatePreferences();
+    });
+    this.featuresForm.get('withdrawlSymptoms').valueChanges.subscribe(() => {
+      this.updatePreferences();
+    });
+  }
 
   rankMedications(preferences: any) {
     const medicationScores: any = {};
@@ -103,18 +116,18 @@ export class MedicationSelectorComponent {
     });
     medications.sort((medA, medB) => {
       if (medicationScores[medA] >= medicationScores[medB]) {
-        return 1;
-      } else {
         return -1;
+      } else {
+        return 1;
       }
     });
 
-    return medications;
+    this.medications = medications;
   }
 
   updatePreferences() {
     if (this.featuresForm.valid) {
-      this.medications = this.rankMedications({
+      this.preferencesService.updatePreferences({
         initiation: this.featuresForm.get('initiation').value,
         withdrawlSymptoms: this.featuresForm.get('withdrawlSymptoms').value
       });
