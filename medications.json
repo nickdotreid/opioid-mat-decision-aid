@@ -25,6 +25,33 @@
                 "day": 365,
                 "mortalityRisk": 35
             }
+            /* withdrawal symptoms just as intense and stopping with no medication, but last longer: 3-4 weeks */
         ]
+    
+        "name": "No Medication",
+        "effects": [
+        { 
+            "day": 0,
+            "cravings": "high",
+            "location": "home",
+            "frequency": "none",
+            "mortalityRisk: 50            
+        },
+        {
+            "day": 2,
+            "cravings": "high", /* still high basically */
+        },
+        {
+            "day": 7,
+            "cravings": "high"
+        },
+        {
+            "day": 90,
+        },
+        {
+            "day": 365,
+            "mortalityRisk": 50 /* didn't change */
+        }
+    
     }
 }
