@@ -1,3 +1,6 @@
+# Medications JSON in client
+client/**/medications.json
+
 # Logs
 logs
 *.log

@@ -1,57 +1,94 @@
 {
-    "mmt": {
-        "name": "Methadone",
-        "effects": [
-            {
-                "day": 0,
-                "cravings": "high",
-                "location": "clinic",
-                "frequency": "daily",
-                "mortalityRisk": 50
-            },
-            {
-                "day": 2,
-                "cravings": "mild",
-            },
-            {
-                "day": 7,
-                "cravings": "none"
-            },
-            {
-                "day": 90,
-                "location": "home"
-            },
-            {
-                "day": 365,
-                "mortalityRisk": 35
-            }
-            /* withdrawal symptoms just as intense and stopping with no medication, but last longer: 3-4 weeks */
-        ]
-    
-        "name": "No Medication",
-        "effects": [
-        { 
-            "day": 0,
-            "cravings": "high",
-            "location": "home",
-            "frequency": "none",
-            "mortalityRisk: 50            
+    "condition": {
+        "cravings": "high"
+    },
+    "effects": [
+        {
+            "key": "location",
+            "name": "Location"
         },
         {
-            "day": 2,
-            "cravings": "high", /* still high basically */
+            "key": "cravings",
+            "name": "Cravings"
         },
         {
-            "day": 7,
-            "cravings": "high"
-        },
-        {
-            "day": 90,
-        },
-        {
-            "day": 365,
-            "mortalityRisk": 50 /* didn't change */
+            "key": "effectivenessCravings",
+            "name": "Effectiveness at Reducing Cravings"
         }
-    
-    }
+    ],
+    "medications": [
+        {
+            "key": "mmt",
+            "name": "Methadone",
+            "effectivenessCravings": 5,
+            "changes": [
+                {
+                    "day": 0,
+                    "cravings": "high",
+                    "location": "clinic",
+                    "frequency": "daily",
+                    "mortalityRisk": 50
+                },
+                {
+                    "day": 2,
+                    "cravings": "mild"
+                },
+                {
+                    "day": 7,
+                    "cravings": "none"
+                },
+                {
+                    "day": 90,
+                    "location": "home"
+                },
+                {
+                    "day": 365,
+                    "mortalityRisk": 35
+                }
+            ]
+        },
+        {
+            "key": "nxxtr",
+            "name": "Naltrexone Injectable",
+            "effectivenessCravings": 1,
+            "changes": [
+                {
+                    "day": 0,
+                    "cravings": "high",
+                    "location": "home",
+                    "frequency": "daily",
+                    "mortalityRisk": 70
+                }
+            ]
+        },
+        {
+            "key": "none",
+            "name": "No Medication",
+            "effectivenessCravings": 0,
+            "changes": [
+                { 
+                    "day": 0,
+                    "cravings": "high",
+                    "location": "home",
+                    "frequency": "none",
+                    "mortalityRisk": 50
+                },
+                {
+                    "day": 2,
+                    "cravings": "high"
+                },
+                {
+                    "day": 7,
+                    "cravings": "high"
+                },
+                {
+                    "day": 90
+                },
+                {
+                    "day": 365,
+                    "mortalityRisk": 50
+                }
+            ]
+        }
+    ]
 }

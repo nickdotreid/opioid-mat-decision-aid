@@ -1,18 +1,28 @@
-<h3>{{currentTime}} Days</h3>
-<app-timeline (currentDay)="updateTime($event)" [days]="times"></app-timeline>
-<table>
-    <thead>
-        <tr>
-            <th>Medication</th>
-            <th *ngFor="let effect of effects">{{effect.name}}</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let medication of medications">
-            <td class="medication">{{medication.name}}</td>
-            <td *ngFor="let effect of effects">
-                {{getValueFor(medication.key, effect.key)}}
-            </td>
-        </tr>
-    </tbody>
-</table>
+<h3 >{{currentDay}} Days</h3>
+<nav>
+    <button *ngIf="!treating" (click)="startTreatment()">Start Treatment</button>
+    <button *ngIf="treating" (click)="stopTreatment()">Stop Treatment</button>
+    <app-timeline (currentDay)="updateDay($event)" [days]="days"></app-timeline>
+</nav>
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Medication</th>
+                <th *ngFor="let effect of effects">{{effect.name}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let medication of medications">
+                <td class="medication">{{medication.name}}</td>
+                <td *ngFor="let effect of effects">
+                    <app-medication-effect
+                        [medication]="medication"
+                        [effect]="effect"
+                        [time]="treatmentDay"
+                    ></app-medication-effect>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

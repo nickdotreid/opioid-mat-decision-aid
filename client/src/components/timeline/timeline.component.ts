@@ -15,7 +15,8 @@ export class TimelineComponent {
     private days: Array<number>;
 
     private sliderValue: number;
-    private sliderRange: number;
+    private sliderMin: number;
+    private sliderMax: number;
 
     constructor() {
         this.sliderValue = 0;
@@ -25,12 +26,13 @@ export class TimelineComponent {
     set setDays(days: Array<number>) {
         if (days) {
             this.days = days;
-            this.sliderRange = this.days.length - 1;
+            this.sliderMin = days[0];
+            this.sliderMax = days[days.length - 1];
         }
     }
 
     private updateDay() {
-        this.currentDay.emit(this.days[this.sliderValue]);
+        this.currentDay.emit(this.sliderValue);
     }
 
 }

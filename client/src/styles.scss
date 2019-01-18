@@ -1,5 +1,35 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    display: block;
+    height: 100%;
+}
+
+app-root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    > * {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        > * {
+            flex: 1 0 auto;
+        }
+    }
+}
+
+router-outlet {
+    display: none;
+    flex-shrink: 1;
+    height: 0px;
+}
+
 .mat-radio-group {
     display: flex;
     flex-direction: column;

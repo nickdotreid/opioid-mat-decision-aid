@@ -6,9 +6,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material';
 
 import { MedicationGridPage } from './medication-grid.page';
-import { MedicationEffectsService } from './medication-effects.service';
 import { FormsModule } from '@angular/forms';
 import { TimelineComponentModule } from '@components/timeline/timeline.module';
+import { MedicationEffectsComponentModule } from '@components/medication-effects/medication-effects.module';
+import { MedicationEffectsDomainModule } from '@domain/medication-effects/medication-effects.module';
 
 @NgModule({
   declarations: [
@@ -24,10 +25,9 @@ import { TimelineComponentModule } from '@components/timeline/timeline.module';
     MatSliderModule,
     MatToolbarModule,
     MatButtonModule,
-    TimelineComponentModule
-  ],
-  providers: [
-    MedicationEffectsService
+    MedicationEffectsDomainModule,
+    TimelineComponentModule,
+    MedicationEffectsComponentModule
   ]
 })
 export class GridPageModule { }
