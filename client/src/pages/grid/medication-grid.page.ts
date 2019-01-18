@@ -2,18 +2,19 @@ import { Component } from '@angular/core';
 import { MedicationEffectsService } from './medication-effects.service';
 
 @Component({
-    selector: 'app-medication-grid',
-    templateUrl: './medication-grid.component.html'
+    templateUrl: './medication-grid.page.html',
+    styleUrls: [
+        './medication-grid.page.scss'
+    ]
 })
-export class MedicationGridComponent {
+// tslint:disable-next-line:component-class-suffix
+export class MedicationGridPage {
     title = 'Grid';
 
-    times: Array<number>;
-    medications: Array<any>;
-    effects: Array<any>;
-
-    sliderValue: number;
-    sliderRange: number;
+    public currentTime: number;
+    public times: Array<number>;
+    public medications: Array<any>;
+    public effects: Array<any>;
 
     constructor(
         private medicationEffects: MedicationEffectsService
@@ -21,16 +22,13 @@ export class MedicationGridComponent {
         this.medications = this.medicationEffects.getMedications();
         this.times = this.medicationEffects.getTimes();
         this.effects = this.medicationEffects.getEffects();
-
-        this.sliderValue = 0;
-        this.sliderRange = this.times.length - 1;
     }
 
-    currentDay() {
-        return this.times[this.sliderValue];
+    updateTime(time: number) {
+        this.currentTime = time;
     }
 
     getValueFor(medication: string, effect: string) {
-        return this.medicationEffects.getEffect(medication, this.currentDay(), effect);
+        return this.medicationEffects.getEffect(medication, this.currentTime, effect);
     }
 }

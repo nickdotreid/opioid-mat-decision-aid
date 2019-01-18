@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-const days: Array<number> = [0, 2, 7, 14, 30, 90, 365, 1095];
+const days: Array<number> = [0, 2, 7, 14, 30, 90];
 
 const effects: Array<any> = [
     {

@@ -5,13 +5,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material';
 
-import { MedicationGridComponent } from './medication-grid.component';
+import { MedicationGridPage } from './medication-grid.page';
 import { MedicationEffectsService } from './medication-effects.service';
 import { FormsModule } from '@angular/forms';
+import { TimelineComponentModule } from '@components/timeline/timeline.module';
 
 @NgModule({
   declarations: [
-    MedicationGridComponent,
+    MedicationGridPage,
+  ],
+  exports: [
+    MedicationGridPage
   ],
   imports: [
     BrowserModule,
@@ -19,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     MatSliderModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    TimelineComponentModule
   ],
   providers: [
     MedicationEffectsService

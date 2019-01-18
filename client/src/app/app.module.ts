@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { MedicationGridComponent } from '@pages/grid/medication-grid.component';
+import { MedicationGridPage } from '@pages/grid/medication-grid.page';
 import { GridPageModule } from '@pages/grid/grid.module';
 
 const appRoutes: Routes = [
-  { path: 'grid', component: MedicationGridComponent },
+  { path: 'grid', component: MedicationGridPage },
   {
     path: '',
     redirectTo: '/grid',

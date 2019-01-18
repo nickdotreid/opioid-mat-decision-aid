@@ -1,0 +1,18 @@
+<h3>{{currentTime}} Days</h3>
+<app-timeline (currentDay)="updateTime($event)" [days]="times"></app-timeline>
+<table>
+    <thead>
+        <tr>
+            <th>Medication</th>
+            <th *ngFor="let effect of effects">{{effect.name}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let medication of medications">
+            <td class="medication">{{medication.name}}</td>
+            <td *ngFor="let effect of effects">
+                {{getValueFor(medication.key, effect.key)}}
+            </td>
+        </tr>
+    </tbody>
+</table>

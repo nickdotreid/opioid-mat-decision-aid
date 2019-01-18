@@ -1,0 +1,9 @@
+<button>Start Treatment</button>
+<mat-slider 
+    [(ngModel)]="sliderValue"
+    (ngModelChange)="updateDay()"
+    min="0"
+    [max]="sliderRange"
+    step="1"
+    tickInterval="1"
+    ></mat-slider>
