@@ -1,6 +1,7 @@
 {
     "condition": {
-        "cravings": "high"
+        "cravings": "high",
+        "mortalityRisk": 0.8
     },
     "effects": [
         {
@@ -31,7 +32,7 @@
                     "cravings": "high",
                     "location": "clinic",
                     "frequency": "daily",
-                    "mortalityRisk": 50
+                    "mortalityRisk": 0.50
                 },
                 {
                     "day": 2,
@@ -47,7 +48,7 @@
                 },
                 {
                     "day": 365,
-                    "mortalityRisk": 35
+                    "mortalityRisk": 0.35
                 }
             ]
         },
@@ -76,7 +77,11 @@
                     "cravings": "high",
                     "location": "home",
                     "frequency": "daily",
-                    "mortalityRisk": 70
+                    "mortalityRisk": 0.70
+                },
+                {
+                    "day": 21,
+                    "mortalityRisk": 0.40
                 }
             ]
         },
@@ -90,7 +95,7 @@
                     "cravings": "high",
                     "location": "home",
                     "frequency": "none",
-                    "mortalityRisk": 50
+                    "mortalityRisk": 0.50
                 },
                 {
                     "day": 2,
@@ -101,11 +106,8 @@
                     "cravings": "high"
                 },
                 {
-                    "day": 90
-                },
-                {
-                    "day": 365,
-                    "mortalityRisk": 50
+                    "day": 90,
+                    "mortalityRisk": 0.70
                 }
             ]
         }

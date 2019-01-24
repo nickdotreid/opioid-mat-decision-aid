@@ -21,6 +21,18 @@
                         [medication]="medication"
                         [effect]="effect"
                     ></app-medication-craving-effectiveness>
+                    <app-medication-location
+                        *ngIf='effect.key=="location"'
+                        [medication]="medication"
+                        [effect]="effect"
+                        [time]="treatmentDay"
+                    ></app-medication-location>
+                    <app-risk-of-death
+                        *ngIf='effect.key=="mortalityRisk"'
+                        [medication]="medication"
+                        [effect]="effect"
+                        [time]="treatmentDay"
+                    ></app-risk-of-death>
                 </td>
             </tr>
         </tbody>

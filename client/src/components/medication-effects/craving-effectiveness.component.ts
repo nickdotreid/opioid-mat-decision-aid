@@ -18,7 +18,6 @@ export class CravingEffectivenessComponent extends EffectComponent {
         )
         .then((value: any) => {
             this.effectiveness = Array(value).fill(true);
-            console.log(this.effectiveness);
         });
     }
 }

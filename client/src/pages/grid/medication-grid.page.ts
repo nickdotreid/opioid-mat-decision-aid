@@ -12,7 +12,7 @@ export class MedicationGridPage implements OnInit, OnDestroy {
     title = 'Grid';
 
     public treating: Boolean = false;
-    public treatmentDay: Number;
+    public treatmentDay: Number = undefined;
     public currentDay: Number = 0;
 
     public days: Array<number> = [0, 2, 7, 14, 30, 90];
@@ -59,7 +59,7 @@ export class MedicationGridPage implements OnInit, OnDestroy {
         if (this.treating) {
             this.treatmentDay = this.currentDay;
         } else {
-            this.treatmentDay = null;
+            this.treatmentDay = undefined;
         }
     }
 }
