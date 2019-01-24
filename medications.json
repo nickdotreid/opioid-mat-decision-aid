@@ -12,6 +12,10 @@
             "name": "Cravings"
         },
         {
+            "key": "mortalityRisk",
+            "name": "Risk of Death"
+        },
+        {
             "key": "effectivenessCravings",
             "name": "Effectiveness at Reducing Cravings"
         }
@@ -46,6 +50,21 @@
                     "mortalityRisk": 35
                 }
             ]
+        },
+        {
+            "key": "bpn-sl",
+            "name": "Buprenorphine Sublingual",
+            "effectivenessCravings": 4
+        },
+        {
+            "key": "bpn-inj",
+            "name": "Buprenorphine Injectable",
+            "effectivenessCravings": 4
+        },
+        {
+            "key": "bpn-imp",
+            "name": "Buprenorphine Implant",
+            "effectivenessCravings": 4
         },
         {
             "key": "nxxtr",
