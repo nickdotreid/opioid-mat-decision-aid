@@ -16,11 +16,11 @@
             <tr *ngFor="let medication of medications">
                 <td class="medication">{{medication.name}}</td>
                 <td *ngFor="let effect of effects">
-                    <app-medication-effect
+                    <app-medication-craving-effectiveness
+                        *ngIf='effect.key=="effectivenessCravings"'
                         [medication]="medication"
                         [effect]="effect"
-                        [time]="treatmentDay"
-                    ></app-medication-effect>
+                    ></app-medication-craving-effectiveness>
                 </td>
             </tr>
         </tbody>

@@ -1,5 +1,5 @@
 import { Component, OnChanges, SimpleChanges, Input } from '@angular/core';
-import { MedicationEffectsService } from '@domain/medication-effects/medication-effects.service';
+import { MedicationEffectsService, Medication, Effect } from '@domain/medication-effects/medication-effects.service';
 
 
 @Component({
@@ -8,12 +8,12 @@ import { MedicationEffectsService } from '@domain/medication-effects/medication-
 })
 export class EffectComponent implements OnChanges {
 
-    @Input('medication') private medication: any;
-    @Input('effect') private effect: string;
-    @Input('time') private time: number;
+    @Input('medication') public medication: Medication;
+    @Input('effect') public effect: Effect;
+    @Input('time') public time: number;
 
     constructor(
-        private medicationEffectsService: MedicationEffectsService
+        public medicationEffectsService: MedicationEffectsService
     ) {}
 
     ngOnChanges(changes: SimpleChanges) {
@@ -29,14 +29,8 @@ export class EffectComponent implements OnChanges {
         this.updateEffect();
     }
 
-    private updateEffect(): void {
+    public updateEffect(): void {
         console.log('update value');
-        // const value = this.medicationEffectsService.getEffect(
-        //     this.medication,
-        //     this.time,
-        //     this.effect
-        // );
-        // console.log(value);
     }
 
 }
