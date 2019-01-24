@@ -103,10 +103,11 @@
                 },
                 {
                     "day": 7,
-                    "cravings": "high"
+                    "cravings": "mild"
                 },
                 {
                     "day": 90,
+                    "cravings": "none",
                     "mortalityRisk": 0.70
                 }
             ]

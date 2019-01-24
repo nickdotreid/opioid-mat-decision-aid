@@ -54,10 +54,12 @@ export class MedicationEffectsService {
     public getMedicationEffect(medication: Medication, effect: Effect): Promise<any> {
         return this.getMedicationData(medication)
         .then((medicationData: any) => {
-            if (!medicationData[effect.key] === undefined) {
-                return Promise.reject('Medication effect not found');
-            } else {
+            if (medicationData[effect.key]) {
                 return Promise.resolve(medicationData[effect.key]);
+            } else if (this.defaultCondition[effect.key]) {
+                return Promise.resolve(this.defaultCondition[effect.key]);
+            } else {
+                return Promise.reject('Effect not found');
             }
         });
     }
@@ -73,27 +75,19 @@ export class MedicationEffectsService {
     public getMedicationEffectAtTime(medication: Medication, effect: Effect, time: number): Promise<any> {
         return this.getMedicationData(medication)
         .then((medicationData: any) => {
-            if (time === undefined) {
-                if (medicationData[effect.key]) {
-                    return Promise.resolve(medicationData[effect.key]);
-                } else if (this.defaultCondition[effect.key]) {
-                    return Promise.resolve(this.defaultCondition[effect.key]);
-                } else {
-                    return Promise.reject('Time undefined');
-                }
-            }
-
             const frames: Array<any> = [];
-            medicationData['changes'].forEach((change: any) => {
-                if (change[effect.key] !== undefined) {
-                    frames.push({
-                        'day': change['day'],
-                        'value': change[effect.key]
-                    });
-                }
-            });
+            if (medicationData['changes']) {
+                medicationData['changes'].forEach((change: any) => {
+                    if (change[effect.key] !== undefined) {
+                        frames.push({
+                            'day': change['day'],
+                            'value': change[effect.key]
+                        });
+                    }
+                });
+            }
             if (frames.length === 0) {
-                return Promise.reject('No data');
+                return this.getMedicationEffect(medication, effect);
             }
             if (frames.length === 1) {
                 return Promise.resolve(frames[0]['value']);
@@ -141,11 +135,9 @@ export class MedicationEffectsService {
                 const value: number = previousFrame['value'] + valueDelta;
                 return Promise.resolve(value);
             } else {
-                const mostRecentValue: any = frames.reverse().reduce((value: any, frame: any) => {
+                const mostRecentValue: any = frames.reduceRight((value: any, frame: any) => {
                     if (frame['day'] < time) {
                         return frame.value;
-                    } else {
-                        return undefined;
                     }
                 });
                 return Promise.resolve(mostRecentValue);

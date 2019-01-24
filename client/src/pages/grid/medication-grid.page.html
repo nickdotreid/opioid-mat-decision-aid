@@ -33,6 +33,12 @@
                         [effect]="effect"
                         [time]="treatmentDay"
                     ></app-risk-of-death>
+                    <app-cravings
+                        *ngIf='effect.key=="cravings"'
+                        [medication]="medication"
+                        [effect]="effect"
+                        [time]="treatmentDay"
+                    ></app-cravings>
                 </td>
             </tr>
         </tbody>
