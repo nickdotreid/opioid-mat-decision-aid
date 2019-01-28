@@ -1,0 +1,24 @@
+.mat-toolbar {
+
+}
+
+.mat-slider {
+
+}
+
+app-medication-grid {
+	font-family: sans-serif;
+
+}
+
+thead {
+	background-color: #FAFAFA;
+}
+
+thead > th {
+	border-bottom: 1px solid #5EB299;
+}
+
+tbody > tr {
+	text-align: center;
+}
