@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
-import { e } from '@angular/core/src/render3';
 
 export class Medication {
     key: string;
@@ -72,12 +71,12 @@ export class MedicationEffectsService {
         }
     }
 
-    public getMedicationEffectAtTime(medication: Medication, effect: Effect, time: number): Promise<any> {
+    private getMedicationChanges(medication: Medication, effect: Effect): Promise<Array<any>> {
         return this.getMedicationData(medication)
-        .then((medicationData: any) => {
+        .then((data) => {
             const frames: Array<any> = [];
-            if (medicationData['changes']) {
-                medicationData['changes'].forEach((change: any) => {
+            if (data['changes']) {
+                data['changes'].forEach((change: any) => {
                     if (change[effect.key] !== undefined) {
                         frames.push({
                             'day': change['day'],
@@ -86,61 +85,88 @@ export class MedicationEffectsService {
                     }
                 });
             }
-            if (frames.length === 0) {
-                return this.getMedicationEffect(medication, effect);
-            }
-            if (frames.length === 1) {
-                return Promise.resolve(frames[0]['value']);
-            }
-
-            const specificTime: any = frames.find((frame: any) => {
-                return frame['day'] === time;
-            });
-            if (specificTime) {
-                return Promise.resolve(specificTime['value']);
-            }
-
-            frames.sort((a, b) => {
-                return a['day'] - b['day'];
-            });
-
-            if (typeof(frames[0]['value']) === 'number') {
-                const previousFrame: any = frames.reduce((pFrame: any, frame: any) => {
-                    if (frame['day'] < time) {
-                        return frame;
-                    } else {
-                        return pFrame;
-                    }
-                });
-                const nextFrame: any = frames.reduceRight((nFrame: any, frame: any) => {
-                    if (frame['day'] > time) {
-                        return frame;
-                    } else {
-                        return nFrame;
-                    }
-                });
-                if (previousFrame === undefined) {
-                    return Promise.resolve(nextFrame['value']);
-                }
-                if (nextFrame === undefined) {
-                    return Promise.resolve(previousFrame['value']);
-                }
-                if (previousFrame === nextFrame) {
-                    return Promise.resolve(previousFrame['value']);
-                }
-                const timeDelta: number = time - previousFrame['day'];
-                const totalTimeDelta: number = nextFrame['day'] - previousFrame['day'];
-                const totalValueDelta: number = nextFrame['value'] - previousFrame['value'];
-                const valueDelta: number = totalValueDelta * (timeDelta / totalTimeDelta);
-                const value: number = previousFrame['value'] + valueDelta;
-                return Promise.resolve(value);
+            if (frames.length) {
+                return Promise.resolve(frames);
             } else {
-                const mostRecentValue: any = frames.reduceRight((value: any, frame: any) => {
-                    if (frame['day'] < time) {
-                        return frame.value;
-                    }
+                return Promise.reject('No changes for medication');
+            }
+        });
+    }
+
+    public getMedicationEffectAtTime(medication: Medication, effect: Effect, time: number): Promise<any> {
+        if (!time) {
+            return this.getMedicationEffect(medication, effect);
+        } else {
+            return this.getMedicationChanges(medication, effect)
+            .then((changes) => {
+                if (changes.length === 1) {
+                    return Promise.resolve(changes[0]['value']);
+                }
+                const specificTime: any = changes.find((change: any) => {
+                    return change['day'] === time;
                 });
-                return Promise.resolve(mostRecentValue);
+                if (specificTime) {
+                    return Promise.resolve(specificTime['value']);
+                }
+                return Promise.resolve(this.interpolateChanges(changes, time));
+            })
+            .catch(() => {
+                return this.getMedicationEffect(medication, effect);
+            });
+        }
+    }
+
+    private interpolateChanges(changes: Array<any>, time: number): any {
+        changes.sort((a, b) => {
+            return a['day'] - b['day'];
+        });
+
+        if (typeof(changes[0]['value']) === 'number') {
+            return this.interpolateNumberValue(changes, time);
+        } else {
+            const previousChange = this.getPreviousChange(changes, time);
+            return previousChange['value'];
+        }
+    }
+
+    private interpolateNumberValue(changes: Array<any>, time) {
+        const previousChange = this.getPreviousChange(changes, time);
+        const nextChange = this.getNextChange(changes, time);
+
+        if (previousChange === undefined) {
+            return nextChange['value'];
+        }
+        if (nextChange === undefined) {
+            return previousChange['value'];
+        }
+        if (previousChange === nextChange) {
+            return previousChange['value'];
+        }
+
+        const timeDelta: number = time - previousChange['day'];
+        const totalTimeDelta: number = nextChange['day'] - previousChange['day'];
+        const totalValueDelta: number = nextChange['value'] - previousChange['value'];
+        const valueDelta: number = totalValueDelta * (timeDelta / totalTimeDelta);
+        const value: number = previousChange['value'] + valueDelta;
+        return value;
+    }
+
+    private getPreviousChange(changes: Array<any>, time: number): any {
+        return changes.reduce((accumulator: any, change: any) => {
+            if (change['day'] < time) {
+                return change;
+            } else {
+                return accumulator;
+            }
+        });
+    }
+
+    private getNextChange(changes: Array<any>, time: number): any {
+        return changes.reduceRight((accumulator: any, change: any) => {
+            if (change['day'] > time) {
+                return change;
+            } else {
+                return accumulator;
             }
         });
     }
