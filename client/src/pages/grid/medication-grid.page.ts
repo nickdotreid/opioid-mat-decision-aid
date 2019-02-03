@@ -13,9 +13,9 @@ export class MedicationGridPage implements OnInit, OnDestroy {
 
     public treating: Boolean = false;
     public treatmentDay: Number = undefined;
-    public currentDay: Number = 0;
+    public currentDay: Number = 1;
 
-    public days: Array<number> = [0, 2, 7, 14, 30, 90];
+    public days: Array<number> = [1, 2, 7, 14, 30, 90];
 
     public medications: Array<Medication>;
     public effects: Array<Effect>;

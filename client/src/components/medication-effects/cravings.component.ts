@@ -17,22 +17,27 @@ export class CravingsComponent extends EffectComponent {
             this.time
         )
         .then((value: any) => {
-            switch (value) {
-                case 'high':
-                    this.radius = 50;
-                    break;
-                case 'mild':
-                    this.radius = 30;
-                    break;
-                case 'none':
-                    this.radius = 10;
-                    break;
-                default:
-                    this.radius = 0;
-            }
+            this.radius = this.getNumericValue(value);
         })
         .catch(() => {
             this.radius = 0;
         });
+    }
+
+    private getNumericValue(value: string) {
+        switch (value) {
+            case 'severe':
+                return 50;
+            case 'high':
+                return 40;
+            case 'moderate':
+                return 30;
+            case 'mild':
+                return 20;
+            case 'none':
+                return 10;
+            default:
+                this.radius = 0;
+        }
     }
 }

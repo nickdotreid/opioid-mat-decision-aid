@@ -15,30 +15,36 @@
         <tbody>
             <tr *ngFor="let medication of medications">
                 <td class="medication">{{medication.name}}</td>
-                <td *ngFor="let effect of effects">
+                <td *ngFor="let effect of effects" [ngSwitch]="effect.key">
                     <app-medication-craving-effectiveness
-                        *ngIf='effect.key=="effectivenessCravings"'
+                        *ngSwitchCase='"symptomRelief"'
                         [medication]="medication"
                         [effect]="effect"
                     ></app-medication-craving-effectiveness>
-                    <app-medication-location
-                        *ngIf='effect.key=="location"'
+                    <app-risk-of-death
+                        *ngSwitchCase='"mortality"'
                         [medication]="medication"
                         [effect]="effect"
                         [time]="treatmentDay"
-                    ></app-medication-location>
+                    ></app-risk-of-death>
                     <app-risk-of-death
-                        *ngIf='effect.key=="mortalityRisk"'
+                        *ngSwitchCase='"relapse"'
                         [medication]="medication"
                         [effect]="effect"
                         [time]="treatmentDay"
                     ></app-risk-of-death>
                     <app-cravings
-                        *ngIf='effect.key=="cravings"'
+                        *ngSwitchCase='"discomfort"'
                         [medication]="medication"
                         [effect]="effect"
                         [time]="treatmentDay"
                     ></app-cravings>
+                    <app-medication-effect
+                        *ngSwitchDefault
+                        [medication]="medication"
+                        [effect]="effect"
+                        [time]="treatmentDay"
+                    ></app-medication-effect>
                 </td>
             </tr>
         </tbody>

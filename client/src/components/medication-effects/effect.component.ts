@@ -12,6 +12,8 @@ export class EffectComponent implements OnChanges {
     @Input('effect') public effect: Effect;
     @Input('time') public time: number;
 
+    public effectValue: string;
+
     constructor(
         public medicationEffectsService: MedicationEffectsService
     ) {}
@@ -30,7 +32,17 @@ export class EffectComponent implements OnChanges {
     }
 
     public updateEffect(): void {
-        console.log('update value');
+        this.medicationEffectsService.getMedicationEffectAtTime(
+            this.medication,
+            this.effect,
+            this.time
+        )
+        .then((value) => {
+            this.effectValue = value;
+        })
+        .catch(() => {
+            this.effectValue = undefined;
+        });
     }
 
 }
