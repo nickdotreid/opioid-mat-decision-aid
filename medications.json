@@ -1,114 +1,250 @@
 {
     "condition": {
-        "cravings": "high",
-        "mortalityRisk": 0.8
+        "discomfort": "high",
+        "mortality": 1,
+        "relapse": 1
     },
+    "times": [
+
+    ],
     "effects": [
         {
+            "key": "symptomRelief",
+            "name": "Symptom relief"
+        },
+        {
+            "key": "discomfort",
+            "name": "Discomfort"
+        },
+        {
+            "key": "mortality",
+            "name": "Mortality risk"
+        },
+        {
+            "key": "relapse",
+            "name": "Relapse risk"
+        },
+        {
+            "key": "treatment",
+            "name": "Treatment step"
+        },
+        {
             "key": "location",
-            "name": "Location"
+            "name": "How do I get the medication"
         },
         {
-            "key": "cravings",
-            "name": "Cravings"
-        },
-        {
-            "key": "mortalityRisk",
-            "name": "Risk of Death"
-        },
-        {
-            "key": "effectivenessCravings",
-            "name": "Effectiveness at Reducing Cravings"
+            "key": "stopping",
+            "name": "What happens if I stop"
         }
     ],
     "medications": [
         {
             "key": "mmt",
             "name": "Methadone",
-            "effectivenessCravings": 5,
+            "symptomRelief": 5,
+            "stopping": "Stopping the medication leads to withdrawal that feels almost as intense as stopping opioid drug of addiction but lasts longer (4-6 weeks).",
             "changes": [
                 {
-                    "day": 0,
-                    "cravings": "high",
-                    "location": "clinic",
-                    "frequency": "daily",
-                    "mortalityRisk": 0.50
-                },
-                {
-                    "day": 2,
-                    "cravings": "mild"
+                    "day": 1,
+                    "treatment": "Start treatment",
+                    "location": "Everyday at clinic",
+                    "discomfort": "mild",
+                    "mortality": 1,
+                    "relapse": 1
                 },
                 {
                     "day": 7,
-                    "cravings": "none"
+                    "treatment": "Feel full effect of medication",
+                    "discomfort": "none"
+                },
+                {
+                    "day": 30,
+                    "mortality": 0.5
                 },
                 {
                     "day": 90,
-                    "location": "home"
+                    "treatment": "Stable enough to treat at home",
+                    "location": "Everyday at home",
+                    "relapse": 0.5
                 },
                 {
                     "day": 365,
-                    "mortalityRisk": 0.35
+                    "mortality": 0.35,
+                    "relapse": 0.4
                 }
             ]
         },
         {
             "key": "bpn-sl",
             "name": "Buprenorphine Sublingual",
-            "effectivenessCravings": 4
+            "symptomRelief": 5,
+            "stopping": "Stopping the medication leads to withdrawal symptoms that are milder than symptoms from drugs like heroin and lasts a week or less.",
+            "changes": [
+                {
+                    "day": 1,
+                    "treatment": "Stop using",
+                    "location": "At clinic",
+                    "discomfort": "moderate",
+                    "mortality": 1,
+                    "relapse": 1
+                },
+                {
+                    "day": 3,
+                    "treatment": "Start treatment",
+                    "location": "Take at home everyday, pick up medication once a week",
+                    "discomfort": "mild",
+                    "mortality": 1,
+                    "relapse": 1
+                },
+                {
+                    "day": 7,
+                    "treatment": "Feel full effect of medication",
+                    "discomfort": "none"
+                },
+                {
+                    "day": 30,
+                    "location": "Take at home everyday, pick up medication once a month"
+                },
+                {
+                    "day": 90,
+                    "mortality": 0.3,
+                    "relapse": 0.5
+                }
+            ]
         },
         {
             "key": "bpn-inj",
             "name": "Buprenorphine Injectable",
-            "effectivenessCravings": 4
+            "symptomRelief": 5,
+            "changes": [
+                {
+                    "day": 1,
+                    "treatment": "Stop using",
+                    "location": "At clinic",
+                    "stopping": "Stopping the medication leads to withdrawal symptoms that are milder than symptoms from drugs like heroin and lasts a week or less.",
+                    "discomfort": "moderate",
+                    "mortality": 1,
+                    "relapse": 1
+                },
+                {
+                    "day": 3,
+                    "treatment": "Start oral treatment",
+                    "location": "Take at home everyday",
+                    "discomfort": "mild",
+                    "mortality": 1,
+                    "relapse": 1
+                },
+                {
+                    "day": 7,
+                    "treatment": "Feel full effect of medication",
+                    "discomfort": "none"
+                },
+                {
+                    "day": 8,
+                    "treatment": "Receive injection",
+                    "location": "At clinic once a month for injection"
+                },
+                {
+                    "day": 90,
+                    "mortality": 0.3,
+                    "relapse": 0.5
+                }
+            ]
         },
         {
             "key": "bpn-imp",
             "name": "Buprenorphine Implant",
-            "effectivenessCravings": 4
+            "symptomRelief": 5,
+            "stopping": "Stopping the medication leads to withdrawal symptoms that are milder than symptoms from drugs like heroin and lasts a week or less.",
+            "changes": [
+                {
+                    "day": 1,
+                    "treatment": "Stop using",
+                    "location": "At clinic",
+                    "discomfort": "moderate",
+                    "mortality": 1,
+                    "relapse": 1
+                },
+                {
+                    "day": 3,
+                    "treatment": "Start treatment",
+                    "location": "Take at home everyday, pick up medication once a week",
+                    "discomfort": "mild",
+                    "mortality": 1,
+                    "relapse": 1
+                },
+                {
+                    "day": 7,
+                    "treatment": "Feel full effect of medication",
+                    "discomfort": "none"
+                },
+                {
+                    "day": 8,
+                    "treatment": "Receive implant",
+                    "location": "Every 6 months get small surgial implant"
+                },
+                {
+                    "day": 90,
+                    "mortality": 0.3,
+                    "relapse": 0.5
+                }
+            ]
         },
         {
             "key": "nxxtr",
             "name": "Naltrexone Injectable",
-            "effectivenessCravings": 1,
+            "symptomRelief": 1,
+            "stopping": "If you stop suddenly, there are no withdrawal symptoms at all.",
             "changes": [
                 {
-                    "day": 0,
-                    "cravings": "high",
-                    "location": "home",
-                    "frequency": "daily",
-                    "mortalityRisk": 0.70
+                    "day": 1,
+                    "treatment": "Stop using for a week",
+                    "location": "At clinic",
+                    "discomfort": "high",
+                    "mortality": 1,
+                    "relapse": 1
                 },
                 {
-                    "day": 21,
-                    "mortalityRisk": 0.40
+                    "day": 7,
+                    "treatment": "Start oral treatment",
+                    "location": "At clinic",
+                    "discomfort": "moderate",
+                    "mortality": 1,
+                    "relapse": 1
+                },
+                {
+                    "day": 10,
+                    "treatment": "Receive injection",
+                    "location": "Go to clinic once a month for injection",
+                    "discomfort": "moderate"
+                },
+                {
+                    "day": 55,
+                    "discomfort": "none"
+                },
+                {
+                    "day": 90,
+                    "mortality": 0.3,
+                    "relapse": 0.5
                 }
             ]
         },
         {
             "key": "none",
             "name": "No Medication",
-            "effectivenessCravings": 0,
+            "symptomRelief": 0,
             "changes": [
                 { 
-                    "day": 0,
-                    "cravings": "high",
+                    "day": 1,
+                    "discomfort": "severe",
                     "location": "home",
                     "frequency": "none",
-                    "mortalityRisk": 0.50
-                },
-                {
-                    "day": 2,
-                    "cravings": "high"
+                    "mortality": 1,
+                    "replase": 1
                 },
                 {
                     "day": 7,
-                    "cravings": "mild"
-                },
-                {
-                    "day": 90,
-                    "cravings": "none",
-                    "mortalityRisk": 0.70
+                    "discomfort": "none"
                 }
             ]
         }
