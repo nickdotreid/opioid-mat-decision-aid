@@ -12,11 +12,11 @@ export class TimelineComponent {
 
     @Output('currentDay') currentDay: EventEmitter<number> = new EventEmitter();
 
-    private days: Array<number>;
+    public days: Array<number>;
 
-    private sliderValue: number;
-    private sliderMin: number;
-    private sliderMax: number;
+    public sliderValue: number;
+    public sliderMin: number;
+    public sliderMax: number;
 
     constructor() {
         this.sliderValue = 0;
@@ -31,7 +31,7 @@ export class TimelineComponent {
         }
     }
 
-    private updateDay() {
+    public updateDay() {
         this.currentDay.emit(this.sliderValue);
     }
 
