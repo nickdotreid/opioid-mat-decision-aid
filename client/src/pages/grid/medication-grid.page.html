@@ -1,8 +1,9 @@
-<h3 >{{currentDay}} Days</h3>
+<h2 *ngIf="treating">{{currentDay}} Days</h2>
+<h2 *ngIf="!treating">Overview</h2>
 <nav>
-    <button *ngIf="!treating" (click)="startTreatment()">Start Treatment</button>
-    <button *ngIf="treating" (click)="stopTreatment()">Stop Treatment</button>
-    <app-timeline (currentDay)="updateDay($event)" [days]="days"></app-timeline>
+    <button *ngIf="!treating" (click)="startTreatment()">Preview</button>
+    <button *ngIf="treating" (click)="stopTreatment()">Return to overview</button>
+    <app-timeline *ngIf="treating" (currentDay)="updateDay($event)" [days]="days"></app-timeline>
 </nav>
 <div class="table-container">
     <table>
