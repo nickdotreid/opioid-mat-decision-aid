@@ -9,18 +9,6 @@
     ],
     "effects": [
         {
-            "key": "discomfort",
-            "name": "Do I feel normal?"
-        },
-        {
-            "key": "mortality",
-            "name": "Mortality risk"
-        },
-        {
-            "key": "relapse",
-            "name": "Relapse risk"
-        },
-        {
             "key": "location",
             "name": "Where do I take the medication?"
         },
@@ -35,6 +23,18 @@
         {
             "key": "stopping",
             "name": "Stopping the medication leads to"
+        },
+        {
+            "key": "discomfort",
+            "name": "Discomfort"
+        },
+        {
+            "key": "mortality",
+            "name": "Mortality risk"
+        },
+        {
+            "key": "relapse",
+            "name": "Relapse risk"
         }
     ],
     "medications": [
@@ -45,6 +45,9 @@
             "stopping": "Severe and prolonged withdrawl symptoms",
             "location": "home",
             "refill": "Pick up every day from clinic in beginning",
+            "mortality": 0.35,
+            "relapse": 0.4,
+            "discomfort": "none",
             "changes": [
                 {
                     "day": 1,
@@ -82,6 +85,9 @@
             "stopping": "Mild short lived withdrawal symptoms",
             "location": "home",
             "refill": "Pick up every week then every month from pharmacy",
+            "mortality": 0.3,
+            "relapse": 0.5,
+            "discomfort": "none",
             "changes": [
                 {
                     "day": 1,
@@ -123,6 +129,9 @@
             "stopping": "Mild short lived withdrawal symptoms",
             "location": "home",
             "refill": "Get from clinic every month",
+            "mortality": 0.3,
+            "relapse": 0.5,
+            "discomfort": "none",
             "changes": [
                 {
                     "day": 1,
@@ -159,6 +168,9 @@
             "stopping": "Mild short lived withdrawal symptoms",
             "location": "home",
             "refill": "Get from clinic every 6 months",
+            "mortality": 0.3,
+            "relapse": 0.5,
+            "discomfort": "none",
             "changes": [
                 {
                     "day": 1,
@@ -195,6 +207,9 @@
             "stopping": "No withdrawl symptoms",
             "location": "home",
             "refill": "Get from clinic every month",
+            "mortality": 0.3,
+            "relapse": 0.5,
+            "discomfort": "none",
             "changes": [
                 {
                     "day": 1,
@@ -230,13 +245,14 @@
             "name": "No medicine",
             "location": "home",
             "symptomRelief": 0,
+            "discomfort": "none",
+            "frequency": "none",
+            "mortality": 1,
+            "replase": 1,
             "changes": [
                 { 
                     "day": 1,
-                    "discomfort": "severe",
-                    "frequency": "none",
-                    "mortality": 1,
-                    "replase": 1
+                    "discomfort": "severe"
                 },
                 {
                     "day": 7,
