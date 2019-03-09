@@ -4,14 +4,13 @@ services:
 before_script:
 - docker-compose build client
 script:
-- docker-compose run client npm build --prod
-- ls
-- ls client
+- docker-compose run client npm run build --prod
 deploy:
   provider: s3
   access_key_id: AKIAJFLFKTTFVASJZ27A
   secret_access_key:
     secure: cLgqhEq5oTOW8BTlWkjUnkyRFdV4Mo7PVMcWsx6wu6+gMOptxrj/O3nMFbmhaF8cV4cl86MFqqG0m9lc92m28J2Zh3AYfjykla5AZICEIkJjg6QMZbgWg/+6jUvwQOkSoI5y4+L/zu2x1qwh6tM53+yNXTJ2WyhsKboTfw3pQbiplajswh8tcR1PZngrIaYh806XWcIE6hay2U8yuXyMhP8yxM2VzpE07oZ2pv6gYP5T3dcWt4yHehIiEpnTs5VhQnT4Ce5pQxFNodHZabIv6ekCO0p3TKJMmOw3rINLOp8atYA3iabqVQLwsYI8etQQt06ilSnwQ69Qvr96N5sptcVHB6YTJBXv/upKbID1Z3wY5wi1OHjc3rq5SnPXseimUJMzzASI7p1CkSgwWyUlM/7SFHYTqqNinMnfJTd3+MrrXcy23cWNWt0ybvLVWD94UFV3S/bBxCtbwtY3aYQTd07JOdD736EbxgHzcL7ht6Ew2xluNZQcOCPoHk1cGzjnzLBS8SHdAFl3lwkVFjW1nY7HPRU5zhlq7PqQqUum9bfy7zxfEsfd9YwmYz01wEwMI5Fldj1OQMbA8+/m5QU303+MW1BgELP2NTHGj3Pi+dggIc1ZW+84VCY+zlSYSPFDOkfY/9ny3m3m0iC1OxNwNBnC8ttp56SFngMSLHEf9yM=
   bucket: opioid-mat
+  local_dir: client/dist/client
   skip_cleanup: true
   acl: public_read
