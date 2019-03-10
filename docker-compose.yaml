@@ -5,8 +5,10 @@ services:
         command: ng serve --host 0.0.0.0
         volumes:
             - ./client:/client
-            - ./client/node_modules:/client/node_modules
+            - client-node-modules:/client/node_modules
         ports:
             - 4200:4200
         environment:
             - CHOKIDAR_USEPOLLING=true
+volumes:
+  client-node-modules:
