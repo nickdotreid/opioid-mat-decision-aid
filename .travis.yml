@@ -3,6 +3,7 @@ services:
 - docker
 before_script:
 - docker-compose build client
+- cp medications.json client/src/assets/medications.json
 script:
 - docker-compose run client npm run build --prod
 deploy:
