@@ -1,0 +1,18 @@
+<p id="field">
+    <ng-content></ng-content>
+</p>
+<mat-radio-group
+    [ngModel]="value"
+    (ngModelChange)="update($event)"
+    >
+    <mat-radio-button
+        [value]="true"
+        >
+        Yes
+    </mat-radio-button>
+    <mat-radio-button
+        [value]="false"
+        >
+        No
+    </mat-radio-button>
+</mat-radio-group>
