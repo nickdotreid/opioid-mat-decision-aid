@@ -5,18 +5,32 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material';
 
-import { MedicationGridPage } from './medication-grid.page';
 import { FormsModule } from '@angular/forms';
 import { TimelineComponentModule } from '@components/timeline/timeline.module';
 import { MedicationEffectsComponentModule } from '@components/medication-effects/medication-effects.module';
 import { MedicationEffectsDomainModule } from '@domain/medication-effects/medication-effects.module';
+import { BenefitsGridComponent } from './benefits-grid.component';
+import { Routes, RouterModule } from '@angular/router';
+import { GridComponent } from './grid.component';
+import { DemandGridComponent } from './demand-grid.component';
+
+const routes: Routes = [{
+  path: 'grid/benefits',
+  component: BenefitsGridComponent
+}, {
+  path: 'grid/demand',
+  component: DemandGridComponent
+}, {
+  path: 'grid',
+  redirectTo: 'grid/benefits',
+  pathMatch: 'full'
+}];
 
 @NgModule({
   declarations: [
-    MedicationGridPage,
-  ],
-  exports: [
-    MedicationGridPage
+    BenefitsGridComponent,
+    DemandGridComponent,
+    GridComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +41,8 @@ import { MedicationEffectsDomainModule } from '@domain/medication-effects/medica
     MatButtonModule,
     MedicationEffectsDomainModule,
     TimelineComponentModule,
-    MedicationEffectsComponentModule
+    MedicationEffectsComponentModule,
+    RouterModule.forChild(routes)
   ]
 })
 export class GridPageModule { }

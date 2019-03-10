@@ -1,0 +1,44 @@
+<table>
+    <thead>
+        <tr>
+            <th>Medication</th>
+            <th *ngFor="let effect of effects">{{effect.name}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let medication of medications">
+            <td class="medication">{{medication.name}}</td>
+            <td *ngFor="let effect of effects" [ngSwitch]="effect.key">
+                <app-medication-craving-effectiveness
+                    *ngSwitchCase='"symptomRelief"'
+                    [medication]="medication"
+                    [effect]="effect"
+                ></app-medication-craving-effectiveness>
+                <app-risk-of-death
+                    *ngSwitchCase='"mortality"'
+                    [medication]="medication"
+                    [effect]="effect"
+                    [time]="treatmentDay"
+                ></app-risk-of-death>
+                <app-risk-of-death
+                    *ngSwitchCase='"relapse"'
+                    [medication]="medication"
+                    [effect]="effect"
+                    [time]="treatmentDay"
+                ></app-risk-of-death>
+                <app-cravings
+                    *ngSwitchCase='"discomfort"'
+                    [medication]="medication"
+                    [effect]="effect"
+                    [time]="treatmentDay"
+                ></app-cravings>
+                <app-medication-effect
+                    *ngSwitchDefault
+                    [medication]="medication"
+                    [effect]="effect"
+                    [time]="treatmentDay"
+                ></app-medication-effect>
+            </td>
+        </tr>
+    </tbody>
+</table>
