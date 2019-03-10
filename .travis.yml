@@ -7,8 +7,9 @@ script:
 - docker-compose run client npm run build --prod
 deploy:
   provider: s3
-  access_key_id: AKIAI2HJ6CE2XNBNALXQ
-  secret_access_key: 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
+  access_key_id: AKIAJ3BZQGZ3B67VTIVA
+  secret_access_key:
+    secure: "bFUUVC+mrdzGQg+o6+UaGvJlDax+2wnXg42f7qy/2dnD4k1o5D9aGxfF5zMwJBTzMdS/j6hMK2e+20H6oboVJ+NqLqzuFKPxfwys9lqucK+kkGIRtTMSgvQ3CQy99j3PU7YF73qJAMOQ2Q+lLFwhILFDm5PwBM89kUCrM1aGdyMqh6BmRsI18bWc+BWUbCASsNlYb+2pecZgaDA5SFiR1MoHKsbqpAl7LFG7/nzG8EtJpF0JFi5CRdTb9U9wpJVeNQL4339ETlRg1brOPByTg4wjbFMqWBGiXIC4UI1GsoHFVhvK5T6FkseKKeF5b3+yKNoQJhauaNRcrrDGgFgJDXTDZRh5TqTgpmEkhU5SfhBrgP3D24eyEObV8bnJhrsB93r5cKCwT1TMe5SWaI4J/dIC6Cq+A11F8r2W+vi/zA4CQ7+b+4mqewuy5Rn8oWS00x9iYxw+2MHGHm2tKkKkvnAMe0D4VED+OVxeCybtlAJOxNpJKP0xr780UfJaVZwQZV6rCZTgjLWcqDbGFES1qFuaS1UrFNcHWjai5na+njr05R6BFwl9INrD6GLBWCeld4eRCqpuDBdEyiBftteTIWuIrJB4T8V9jIG6rd5zO+TG2PuqwEU2YfuqJkmHn1NXGVBcP26Z6IJkgU3s4GA/i29pbjdLrVvwNW+xjmnohY8="
   bucket: opioid-mat
   local_dir: client/dist/client
   skip_cleanup: true
