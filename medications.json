@@ -47,7 +47,7 @@
             "refill": "Go to a clinic every day to take liquid medication by mouth. Once you are stable for 3 months, you can take medication at home every week",
             "mortality": 0.35,
             "relapse": 0.4,
-            "discomfort": "none",
+            "discomfort": "Very effective at improving cravings and withdrawal symptoms 5/5; improve mood",
             "improvement": "Improve relationship, increased chance of working, decreased chance of legal problems",
             "side-effects": "For every 12 people: 3 have Sleepiness; 8 have Weight gain; 6 have Constipation; 6 have Sexual Effects in men over age 40",
             "cost": "$",
@@ -90,7 +90,7 @@
             "refill": "Go to a clinic, you can pick up medications every week for 1 month, then every month, and take them every day at home",
             "mortality": 0.3,
             "relapse": 0.5,
-            "discomfort": "none",
+            "discomfort": "Very effective at improving cravings and withdrawal symptoms 5/5; improve mood",
             "improvement": "Improve relationship, increased chance of working, decreased chance of legal problems",
             "side-effects": "Headaches (for 4 people out of 12); Sleep Changes (for 2 people out of 12)",
             "cost": "$$",
@@ -137,7 +137,7 @@
             "refill": "Go to a clinic once a month to get an injection in muscle",
             "mortality": 0.3,
             "relapse": 0.5,
-            "discomfort": "none",
+            "discomfort": "Has small effect on improving cravings and withdrawal symptoms 1/5",
             "improvement": "Improve relationship, increased chance of working, decreased chance of legal problems",
             "side-effects": "Irritation at medication site (for 8 people in 12)",
             "cost": "$$$",
@@ -172,29 +172,66 @@
             ]
         },
         {
-            "key": "none",
-            "name": "No medicine",
-            "treatment": "Once you stop treatment, withdrawal can take 7 days, with severe discomfort. Cravings may last weeks or months longer",
+            "key": "continue",
+            "name": "Continue to Use",
+            "treatment": "Stop using 1-2 days, feel moderate withdrawal symptoms, start treatment med, feel 5 days mild discomfort, then feel normal",
+            "stopping": "Mild short lived withdrawal symptoms",
             "location": "home",
-            "refill": "No need to obtain any medication",
-            "symptomRelief": 0,
+            "refill": "Go to a clinic, you can pick up medications every week for 1 month, then every month, and take them every day at home",
+            "mortality": 0.3,
+            "relapse": 0.5,
             "discomfort": "none",
-            "frequency": "none",
-            "mortality": 1,
-            "replase": 1,
             "improvement": "Improve relationship, increased chance of working, decreased chance of legal problems",
-            "side-effects": "High risk of relapse",
-            "cost": "",
+            "side-effects": "Headaches (for 4 people out of 12); Sleep Changes (for 2 people out of 12)",
+            "cost": "$$",
             "changes": [
-                { 
+                {
                     "day": 1,
-                    "discomfort": "severe"
+                    "location": "clinic",
+                    "discomfort": "moderate",
+                    "mortality": 1,
+                    "relapse": 1,
+                    "refill": "Pick up every week from pharmacy"
+                },
+                {
+                    "day": 3,
+                    "location": "home",
+                    "discomfort": "mild",
+                    "mortality": 1,
+                    "relapse": 1
                 },
                 {
                     "day": 7,
                     "discomfort": "none"
+                },
+                {
+                    "day": 30
+                },
+                {
+                    "day": 60,
+                    "refill": "Pick up every month from pharmacy"
+                },
+                {
+                    "day": 90,
+                    "mortality": 0.3,
+                    "relapse": 0.5
                 }
             ]
-        }
+        },
+        {
+            "key": "none",
+            "name": "No medicine",
+            "treatment": "N/A",
+            "location": "home",
+            "refill": "Need to obtain opioid drug daily or multiple times a day",
+            "symptomRelief": 0,
+            "discomfort": "Cravings 5/5 unless you can find more opioid drug",
+            "frequency": "none",
+            "mortality": 1,
+            "replase": 1,
+            "improvement": "Problems with relationships, difficulty with employment, increased risk of legal problems",
+            "side-effects": "Sleepiness (3 people in 12); Weight gain (8 people in 12); Constipation (6 people in 12); Sexual Effects (6 in 12 men over age 40); if injecting, irritation or infection at site of injection",
+            "cost": "$$",
+        },
     ]
 }
