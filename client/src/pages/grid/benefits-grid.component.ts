@@ -11,7 +11,7 @@ export class BenefitsGridComponent {
 
     constructor() {
         this.effects = [{
-            key: 'discomfort',
+            key: 'symprelief',
             name: 'Symptom relief'
         }, {
             key: 'mortality',
