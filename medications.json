@@ -48,6 +48,7 @@
             "mortality": 0.35,
             "relapse": 0.4,
             "discomfort": "none",
+            "improvement": "Improve relationship, increased chance of working, decreased chance of legal problems",
             "changes": [
                 {
                     "day": 1,
@@ -88,6 +89,7 @@
             "mortality": 0.3,
             "relapse": 0.5,
             "discomfort": "none",
+            "improvement": "Improve relationship, increased chance of working, decreased chance of legal problems",
             "changes": [
                 {
                     "day": 1,
@@ -123,84 +125,6 @@
             ]
         },
         {
-            "key": "bpn-inj",
-            "name": "Buprenorphine Injectable",
-            "treatment": "Injection under the skin every month",
-            "stopping": "Mild short lived withdrawal symptoms",
-            "location": "home",
-            "refill": "Get from clinic every month",
-            "mortality": 0.3,
-            "relapse": 0.5,
-            "discomfort": "none",
-            "changes": [
-                {
-                    "day": 1,
-                    "location": "clinic",
-                    "discomfort": "moderate",
-                    "mortality": 1,
-                    "relapse": 1
-                },
-                {
-                    "day": 3,
-                    "location": "home",
-                    "discomfort": "mild",
-                    "mortality": 1,
-                    "relapse": 1
-                },
-                {
-                    "day": 7,
-                    "discomfort": "none"
-                },
-                {
-                    "day": 8
-                },
-                {
-                    "day": 90,
-                    "mortality": 0.3,
-                    "relapse": 0.5
-                }
-            ]
-        },
-        {
-            "key": "bpn-imp",
-            "name": "Buprenorphine Implant",
-            "treatment": "Implant under skin every 6 months",
-            "stopping": "Mild short lived withdrawal symptoms",
-            "location": "home",
-            "refill": "Get from clinic every 6 months",
-            "mortality": 0.3,
-            "relapse": 0.5,
-            "discomfort": "none",
-            "changes": [
-                {
-                    "day": 1,
-                    "location": "clinic",
-                    "discomfort": "moderate",
-                    "mortality": 1,
-                    "relapse": 1
-                },
-                {
-                    "day": 3,
-                    "location": "home",
-                    "discomfort": "mild",
-                    "mortality": 1,
-                    "relapse": 1
-                },
-                {
-                    "day": 7,
-                    "discomfort": "none"
-                },
-                {
-                    "day": 8
-                },
-                {
-                    "day": 90,
-                    "mortality": 0.3,
-                    "relapse": 0.5
-                }
-            ]
-        },
-        {
             "key": "nxxtr",
             "name": "Naltrexone Injectable",
             "treatment": "Injection in the muscle every month",
@@ -210,6 +134,7 @@
             "mortality": 0.3,
             "relapse": 0.5,
             "discomfort": "none",
+            "improvement": "Improve relationship, increased chance of working, decreased chance of legal problems",
             "changes": [
                 {
                     "day": 1,
@@ -249,6 +174,7 @@
             "frequency": "none",
             "mortality": 1,
             "replase": 1,
+            "improvement": "Improve relationship, increased chance of working, decreased chance of legal problems",
             "changes": [
                 { 
                     "day": 1,
