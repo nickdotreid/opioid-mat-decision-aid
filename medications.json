@@ -25,10 +25,6 @@
             "name": "Stopping the medication leads to"
         },
         {
-            "key": "discomfort",
-            "name": "Discomfort"
-        },
-        {
             "key": "mortality",
             "name": "Mortality risk"
         },
