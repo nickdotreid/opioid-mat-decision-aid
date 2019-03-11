@@ -21,8 +21,7 @@ const appRoutes: Routes = [
     GridPageModule,
     QuizModule,
     RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true }
+      appRoutes
     )
   ],
   bootstrap: [AppComponent]

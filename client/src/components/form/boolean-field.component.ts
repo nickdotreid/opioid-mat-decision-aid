@@ -5,6 +5,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 @Component({
     selector: 'app-boolean-field',
     templateUrl: './boolean-field.component.html',
+    styleUrls: ['./boolean-field.component.scss'],
     providers: [{
         provide: NG_VALUE_ACCESSOR,
         useExisting: BooleanFieldComponent,

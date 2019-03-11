@@ -11,17 +11,19 @@ body {
     height: 100%;
 }
 
-app-root {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    > * {
-        flex: 1 1 auto;
-        display: flex;
-        flex-direction: column;
-        > * {
-            flex: 1 0 auto;
-        }
+app-root > * {
+    padding: 1em 2em;
+}
+
+app-root > header {
+    background-color: #cccccc;
+
+    a {
+        padding: 1em;
+    }
+
+    a.active {
+        background-color: #ffffff;
     }
 }
 
@@ -29,44 +31,4 @@ router-outlet {
     display: none;
     flex-shrink: 1;
     height: 0px;
-}
-
-.mat-radio-group {
-    display: flex;
-    flex-direction: column;
-  }
-
-.mat-card {
-    margin: 0.5em 0em;
-}
-
-.content {
-    display: flex;
-    flex-direction: column;
-}
-
-.content > * {
-    margin: 1em;
-    flex-grow: 1;
-}
-
-.content > form {
-    flex-grow: 0;
-}
-
-form {
-    background: #FFF;
-    width: 350px;
-    float: left;
-    margin: 0em 2em;
-    padding: 2em;
-}
-
-form > label {
-    display: block;
-    font-weight: bold;
-    margin-top: 1em;
-}
-form > * {
-    margin-top: 0.5em;
 }

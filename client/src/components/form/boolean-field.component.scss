@@ -1,0 +1,20 @@
+:host {
+    display: flex;
+    flex-direction: row;
+
+    > * {
+        margin: 1em;
+    }
+
+    p {
+        flex: 1 1 auto;
+    }
+
+    mat-radio-group {
+        flex: 0 0 auto;
+    }
+
+    mat-radio-button {
+        margin: 0em 1em;
+    }
+}
