@@ -18,7 +18,7 @@
         },
         {
             "key": "refill",
-            "name": "How do I pick up the medication?"
+            "name": "How do I get the medication?"
         },
         {
             "key": "stopping",
@@ -36,23 +36,21 @@
             "key": "relapse",
             "name": "Relapse risk"
         }
-        {
-            "key": "improvement",
-            "name": "Functional improvement"
-        }
     ],
     "medications": [
         {
             "key": "mmt",
             "name": "Methadone",
-            "treatment": "Take by mouth every day",
+            "treatment": "Start day 1, feel mild discomfort for 7 days, then feel normal",
             "stopping": "Severe and prolonged withdrawl symptoms",
             "location": "home",
-            "refill": "Pick up every day from clinic in beginning",
+            "refill": "Go to a clinic every day to take liquid medication by mouth. Once you are stable for 3 months, you can take medication at home every week",
             "mortality": 0.35,
             "relapse": 0.4,
             "discomfort": "none",
             "improvement": "Improve relationship, increased chance of working, decreased chance of legal problems",
+            "side-effects": "For every 12 people: 3 have Sleepiness; 8 have Weight gain; 6 have Constipation; 6 have Sexual Effects in men over age 40",
+            "cost": "$",
             "changes": [
                 {
                     "day": 1,
@@ -86,14 +84,16 @@
         {
             "key": "bpn-sl",
             "name": "Buprenorphine Sublingual",
-            "treatment": "Take by mouth every day",
+            "treatment": "Stop using 1-2 days, feel moderate withdrawal symptoms, start treatment med, feel 5 days mild discomfort, then feel normal",
             "stopping": "Mild short lived withdrawal symptoms",
             "location": "home",
-            "refill": "Pick up every week then every month from pharmacy",
+            "refill": "Go to a clinic, you can pick up medications every week for 1 month, then every month, and take them every day at home",
             "mortality": 0.3,
             "relapse": 0.5,
             "discomfort": "none",
             "improvement": "Improve relationship, increased chance of working, decreased chance of legal problems",
+            "side-effects": "Headaches (for 4 people out of 12); Sleep Changes (for 2 people out of 12)",
+            "cost": "$$",
             "changes": [
                 {
                     "day": 1,
@@ -131,14 +131,16 @@
         {
             "key": "nxxtr",
             "name": "Naltrexone Injectable",
-            "treatment": "Injection in the muscle every month",
+            "treatment": "Stop using 7 days, with some meds to help, then start treatment medication orally for 3 days, then receive injection. Feel normal after 4-6 weeks",
             "stopping": "No withdrawl symptoms",
             "location": "home",
-            "refill": "Get from clinic every month",
+            "refill": "Go to a clinic once a month to get an injection in muscle",
             "mortality": 0.3,
             "relapse": 0.5,
             "discomfort": "none",
             "improvement": "Improve relationship, increased chance of working, decreased chance of legal problems",
+            "side-effects": "Irritation at medication site (for 8 people in 12)",
+            "cost": "$$$",
             "changes": [
                 {
                     "day": 1,
@@ -172,13 +174,17 @@
         {
             "key": "none",
             "name": "No medicine",
+            "treatment": "Once you stop treatment, withdrawal can take 7 days, with severe discomfort. Cravings may last weeks or months longer",
             "location": "home",
+            "refill": "No need to obtain any medication",
             "symptomRelief": 0,
             "discomfort": "none",
             "frequency": "none",
             "mortality": 1,
             "replase": 1,
             "improvement": "Improve relationship, increased chance of working, decreased chance of legal problems",
+            "side-effects": "High risk of relapse",
+            "cost": "",
             "changes": [
                 { 
                     "day": 1,
