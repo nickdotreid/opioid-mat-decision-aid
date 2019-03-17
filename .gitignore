@@ -1,5 +1,6 @@
 # Medications JSON in client
 client/**/medications.json
+client/**/charts.json
 
 # Logs
 logs
