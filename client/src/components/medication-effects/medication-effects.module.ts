@@ -6,6 +6,7 @@ import { CravingEffectivenessComponent } from './craving-effectiveness.component
 import { RiskOfDeathComponent } from './risk-of-death.component';
 import { LocationComponent } from './location.component';
 import { CravingsComponent } from './cravings.component';
+import { SideEffectsComponent } from './side-effects.component';
 
 
 
@@ -19,14 +20,16 @@ import { CravingsComponent } from './cravings.component';
         CravingEffectivenessComponent,
         EffectComponent,
         LocationComponent,
-        RiskOfDeathComponent
+        RiskOfDeathComponent,
+        SideEffectsComponent
     ],
     exports: [
         CravingsComponent,
         CravingEffectivenessComponent,
         EffectComponent,
         LocationComponent,
-        RiskOfDeathComponent
+        RiskOfDeathComponent,
+        SideEffectsComponent
     ]
 })
 export class MedicationEffectsComponentModule {}

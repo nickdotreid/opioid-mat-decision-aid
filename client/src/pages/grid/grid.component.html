@@ -34,6 +34,12 @@
                     [effect]="effect"
                     [time]="treatmentDay"
                 ></app-cravings>
+                <app-side-effects
+                    *ngSwitchCase='"sideEffects"'
+                    [medication]="medication"
+                    [effect]="effect"
+                    [time]="treatmentDay"
+                ></app-side-effects>
                 <app-medication-effect
                     *ngSwitchDefault
                     [medication]="medication"
