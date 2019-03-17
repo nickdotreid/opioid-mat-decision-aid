@@ -1,0 +1,20 @@
+<h2>Do I have opioid use disorder?</h2>
+<form
+    [formGroup]="form"
+    (ngSubmit)="next()"
+    >
+    <p *ngIf="error"
+        class="error"
+        >
+        {{error}}
+    </p>
+    <fieldset>
+        <legend>Have you ever taken any of the following drugs?</legend>
+        <app-boolean-field *ngFor="let drug of drugs"
+            [formControlName]="drug"
+            >
+            {{drug}}
+        </app-boolean-field>
+    </fieldset>
+    <input type="submit" value="Next" />
+</form>

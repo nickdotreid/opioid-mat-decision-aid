@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { FormGroup, AbstractControl, Validators, FormControl } from '@angular/forms';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
 
 @Component({
-    templateUrl: './quiz.component.html'
+    templateUrl: './quiz-opioid-use.page.html'
 })
-export class QuizComponent {
+export class QuizOpioidUsePageComponent {
 
     public form: FormGroup;
     public drugs: Array<string> = [
@@ -20,6 +20,8 @@ export class QuizComponent {
         'Other opioid analgesics'
     ];
 
+    public error: string;
+
     constructor(
         private router: Router
     ) {
@@ -30,8 +32,11 @@ export class QuizComponent {
     }
 
     public next() {
+        this.error = undefined;
         if (this.form.valid) {
             this.redirect();
+        } else {
+            this.error = 'Please complete this form';
         }
     }
 
@@ -43,7 +48,7 @@ export class QuizComponent {
             }
         });
         if (hasUsed) {
-            this.router.navigate(['quiz', 'yes']);
+            this.router.navigate(['quiz', 'dependency']);
         } else {
             this.router.navigate(['quiz', 'no']);
         }
