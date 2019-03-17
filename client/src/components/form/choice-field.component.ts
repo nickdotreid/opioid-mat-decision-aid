@@ -4,6 +4,7 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 @Component({
     selector: 'app-choice-field',
     templateUrl: './choice-field.component.html',
+    styleUrls: ['./choice-field.component.scss'],
     providers: [{
         provide: NG_VALUE_ACCESSOR,
         useExisting: ChoiceFieldComponent,
