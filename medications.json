@@ -18,11 +18,31 @@
         },
         {
             "key": "refill",
-            "name": "How do I get the medication?"
+            "name": "How do I pick up the medication?"
+        },
+        {
+            "key": "starting",
+            "name": "How do I start treatment"
+        },
+        {
+            "key": "gettingMedication",
+            "name": "How do I get the medication"
+        },
+        {
+            "key": "sideEffects",
+            "name": "Common side effects"
+        },
+        {
+            "key": "cost",
+            "name": "Cost without insurance"
         },
         {
             "key": "stopping",
             "name": "Stopping the medication leads to"
+        },
+        {
+            "key": "discomfort",
+            "name": "Discomfort"
         },
         {
             "key": "mortality",
@@ -31,22 +51,46 @@
         {
             "key": "relapse",
             "name": "Relapse risk"
+        },
+        {
+            "key": "stoppingWithdrawl",
+            "name": "Withdrawl if you stop"
+        }, {
+            "key": "stoppingMortality",
+            "name": "Risk of death if you stop"
         }
     ],
     "medications": [
         {
             "key": "mmt",
             "name": "Methadone",
-            "treatment": "Start day 1, feel mild discomfort for 7 days, then feel normal",
+            "treatment": "Take by mouth every day",
+            "starting": "Start day 1",
+            "gettingMedication": "Go to a clinic every day to take liquid medication by mouth. Once you are stable for 3 months, you can take medication at home every week.",
             "stopping": "Severe and prolonged withdrawl symptoms",
             "location": "home",
-            "refill": "Go to a clinic every day to take liquid medication by mouth. Once you are stable for 3 months, you can take medication at home every week",
+            "refill": "Pick up every day from clinic in beginning",
             "mortality": 0.35,
             "relapse": 0.4,
-            "symprelief": "Very effective at improving cravings and withdrawal symptoms 5/5; improve mood",
-            "improvement": "Improve relationship, increased chance of working, decreased chance of legal problems",
-            "side-effects": "For every 12 people: 3 have Sleepiness; 8 have Weight gain; 6 have Constipation; 6 have Sexual Effects in men over age 40",
+            "discomfort": "none",
+            "sideEffects": [
+                {
+                    "name": "Sleepiness",
+                    "rate": "3 in 12"
+                }, {
+                    "name": "Weight gain",
+                    "rate": "8 in 12"
+                }, {
+                    "name": "Constipation",
+                    "rate": "6 in 12"
+                }, {
+                    "name": "Sexual effects in men over 40",
+                    "rate": "6 in 12"
+                }
+            ],
             "cost": "$",
+            "stoppingWithdrawl": "Stopping the medication leads to withdrawl that feels almost as intense as stopping opioid drug of addiction but lasts longer (4 to 6 weeks).",
+            "stoppingMortality": "Goes up, higher than continuing to use",
             "changes": [
                 {
                     "day": 1,
@@ -80,16 +124,27 @@
         {
             "key": "bpn-sl",
             "name": "Buprenorphine Sublingual",
-            "treatment": "Stop using 1-2 days, feel moderate withdrawal symptoms, start treatment med, feel 5 days mild discomfort, then feel normal",
+            "treatment": "Take by mouth every day",
+            "starting": "Stop using 6-12 hours, feel moderate withdrawal symptoms, then start",
+            "gettingMedication": "Go to a clinic, you can pick up medications every week for 1 month, then every month, and take them every day at home",
+            "sideEffects": [
+                {
+                    "name": "Headaches",
+                    "rate": "4 in 12"
+                }, {
+                    "name": "Sleep changes",
+                    "rate": "2 in 12"
+                }
+            ],
+            "cost": "$$",
             "stopping": "Mild short lived withdrawal symptoms",
             "location": "home",
-            "refill": "Go to a clinic, you can pick up medications every week for 1 month, then every month, and take them every day at home",
+            "refill": "Pick up every week then every month from pharmacy",
             "mortality": 0.3,
             "relapse": 0.5,
-            "symprelief": "Very effective at improving cravings and withdrawal symptoms 5/5; improve mood",
-            "improvement": "Improve relationship, increased chance of working, decreased chance of legal problems",
-            "side-effects": "Headaches (for 4 people out of 12); Sleep Changes (for 2 people out of 12)",
-            "cost": "$$",
+            "discomfort": "none",
+            "stoppingWithdrawl": "Stopping the medication leads to withdrawal symptoms that are milder than symptoms from drugs like heroin and lasts a week or less.",
+            "stoppingMortality": "Goes up, higher than continuing to use",
             "changes": [
                 {
                     "day": 1,
@@ -127,15 +182,23 @@
         {
             "key": "nxxtr",
             "name": "Naltrexone Injectable",
-            "treatment": "Stop using 7 days, with some meds to help, then start treatment medication orally for 3 days, then receive injection. Feel normal after 4-6 weeks",
+            "treatment": "Injection in the muscle every month",
             "stopping": "No withdrawl symptoms",
             "location": "home",
-            "refill": "Go to a clinic once a month to get an injection in muscle",
+            "refill": "Get from clinic every month",
             "mortality": 0.3,
             "relapse": 0.5,
-            "symprelief": "Has small effect on improving cravings and withdrawal symptoms 1/5",
-            "improvement": "Improve relationship, increased chance of working, decreased chance of legal problems",
-            "side-effects": "Irritation at medication site (for 8 people in 12)",
+            "discomfort": "none",
+            "starting": "Stop using 7 days, feel severe withdrawl, then start",
+            "gettingMedication": "Go to a clinic once a month to get an injection in the muscle",
+            "stoppingMortality": "Goes up, higher than continuing to use",
+            "stoppingWithdrawl": "If you stop suddenly, there are no withdrawl symptoms",
+            "sideEffects": [
+                {
+                    "name": "Irritation at medication site",
+                    "rate": "8 in 12"
+                }
+            ],
             "cost": "$$$",
             "changes": [
                 {
@@ -168,38 +231,20 @@
             ]
         },
         {
-            "key": "continue",
-            "name": "Continue to Use",
-            "treatment": "N/A",
-            "stopping": "Mild short lived withdrawal symptoms",
-            "location": "home",
-            "refill": "Need to obtain opioid drug daily or multiple times a day",
-            "mortality": "Increased risk of death",
-            "relapse": "N/A",
-            "symprelief": "Cravings 5/5 unless you can find more opioid drug",
-            "improvement": "Problems with relationships, difficulty with employment, increased risk of legal problems",
-            "side-effects": "Sleepiness 3 in 12; Weight gain 8 in 12; Constipation 6 in 12; Sexual Effects 6 in 12 men over age 40; if injecting, irritation or infection at site of injection",
-            "cost": "$$",
-            "changes": [
-                { 
-                    "day": 1,
-                    "discomfort": "severe"
-                }
-            ]
-        },
-        {
             "key": "none",
             "name": "No medicine",
-            "treatment": "Once you stop treatment, withdrawal can take 7 days, with severe discomfort. Cravings may last weeks or months longer",
             "location": "home",
-            "refill": "No need to obtain any medication",
             "symptomRelief": 0,
-            "symprelief": "none",
+            "discomfort": "none",
             "frequency": "none",
             "mortality": 1,
             "replase": 1,
-            "improvement": "Improve relationship, increased chance of working, decreased chance of legal problems",
-            "side-effects": "High risk of relapse",
+            "starting": "Stop using, 7 days feel severe withdrawl",
+            "gettingMedication": "No need to obtain any medication",
+            "stoppingMortality": "Can be higher than continuing to use",
+            "sideEffects": [{
+                "name": "High risk of relapse"
+            }],
             "cost": "",
             "changes": [
                 { 
@@ -211,14 +256,31 @@
                     "discomfort": "none"
                 }
             ]
+        },
+        {
+            "key": "continue",
+            "name": "Continue using",
+            "cost": "$$",
+            "stoppingWithdrawl": "Once you stop using, withdrawl can take 7 days, with severe discomfort. Cravings may last weeks of months longer.",
+            "stoppingMortality": "Continues to be high (higher than being on medication)",
+            "gettingMedication": "Need to obtain opioid drug daily or multiple times a day",
+            "sideEffects": [
+                {
+                    "name": "Sleepiness",
+                    "rate": "3 in 12"
+                }, {
+                    "name": "Weight gain",
+                    "rate": "8 in 12"
+                }, {
+                    "name": "Constipation",
+                    "rate": "6 in 12"
+                }, {
+                    "name": "Sexual effects in men over 40",
+                    "rate": "6 in 12"
+                }, {
+                    "name": "If injecting, irritation or infection at site of injection"
+                }
+            ]
         }
     ]
 }
-
-
-
-
-
-
-
-
