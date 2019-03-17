@@ -1,0 +1,17 @@
+<fieldset>
+    <legend>{{label}}</legend>
+    <ul *ngIf="options">
+        <li *ngFor="let option of options; index as i">
+            <input type="radio"
+                id="{{formControlName}}-{{i}}"
+                [name]="formControlName"
+                [value]="option"
+                [ngModel]="value"
+                (ngModelChange)="updateValue($event)"
+                />
+            <label for="{{formControlName}}-{{i}}">
+                {{option}}
+            </label>
+        </li>
+    </ul>
+</fieldset>

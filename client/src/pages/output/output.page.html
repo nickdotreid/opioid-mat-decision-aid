@@ -1,0 +1,40 @@
+<h2>Output Page</h2>
+<p>Please use this page to summarize your thoughts after using this decision aid. All saved responses will be shared with the doctor.</p>
+
+<form [formGroup]="form">
+    <app-choice-field
+        formControlName="favorite"
+        label="What medication are you most interested in?"
+        [options]="medications"
+        >
+    </app-choice-field>
+    <app-choice-field
+        formControlName="secondFavorite"
+        label="What medication is your second favorite?"
+        [options]="secondMedications"
+        >
+    </app-choice-field>
+    <fieldset>
+        <legend>Which attributes matter most to you?</legend>
+        <ul>
+            <li>Symptom relief</li>
+            <li>Mortality</li>
+            <li>Risk of relapse</li>
+            <li>impact on my function <em>(relationships, employment, legal trouble)</em></li>
+            <li>how hard it is to start the medication</li>
+            <li>convenience <em>(how often I have to pick up the medication)</em></li>
+            <li>How the medication gets in my body</li>
+            <li>Side effects</li>
+            <li>Cost</li>
+            <li>Withdrawl symptoms if I stop this medication on my own</li>
+        </ul>
+    </fieldset>
+    <fieldset>
+        <legend>What questions would you like to ask the doctor?</legend>
+        <div>
+            <label>Enter a question</label>
+            <input type="text" />
+        </div>
+    </fieldset>
+    <input type="submit" value="Save" />
+</form>

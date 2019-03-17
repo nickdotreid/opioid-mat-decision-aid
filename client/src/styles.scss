@@ -1,8 +1,9 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 $color-text: #333333;
-$color-background: #ffffff;
+$color-link: #0000FF;
 
+$color-background: #ffffff;
 $color-background-alternative: #f4f4f4;
 
 html {
@@ -73,8 +74,18 @@ app-root header nav {
         margin: 1em 0em;
     }
 
-    a.active {
+    a {
+        color: $color-link;
         text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    a.active {
+        color: $color-text;
+        text-decoration: underline;
     }
 }
 
