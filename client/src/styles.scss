@@ -50,7 +50,13 @@ app-root {
     }
 }
 
-app-root #content {
+.app-content {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+    margin: 0em;
 
     > * {
         display: block;
@@ -61,7 +67,13 @@ app-root #content {
     > table {
         display: table;
         width: auto;
+        margin: 0em;
     }
+}
+
+app-root #content,
+app-root > #content > app-grid {
+    @extend .app-content;
 }
 
 

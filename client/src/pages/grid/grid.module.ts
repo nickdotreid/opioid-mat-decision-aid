@@ -9,27 +9,17 @@ import { FormsModule } from '@angular/forms';
 import { TimelineComponentModule } from '@components/timeline/timeline.module';
 import { MedicationEffectsComponentModule } from '@components/medication-effects/medication-effects.module';
 import { MedicationEffectsDomainModule } from '@domain/medication-effects/medication-effects.module';
-import { BenefitsGridComponent } from './benefits-grid.component';
 import { Routes, RouterModule } from '@angular/router';
 import { GridComponent } from './grid.component';
-import { DemandGridComponent } from './demand-grid.component';
+import { GridService } from './grid.service';
 
 const routes: Routes = [{
-  path: 'grid/benefits',
-  component: BenefitsGridComponent
-}, {
-  path: 'grid/demand',
-  component: DemandGridComponent
-}, {
-  path: 'grid',
-  redirectTo: 'grid/benefits',
-  pathMatch: 'full'
+  path: 'grid/:name',
+  component: GridComponent
 }];
 
 @NgModule({
   declarations: [
-    BenefitsGridComponent,
-    DemandGridComponent,
     GridComponent
   ],
   imports: [
@@ -43,6 +33,9 @@ const routes: Routes = [{
     TimelineComponentModule,
     MedicationEffectsComponentModule,
     RouterModule.forChild(routes)
+  ],
+  providers: [
+    GridService
   ]
 })
 export class GridPageModule { }
