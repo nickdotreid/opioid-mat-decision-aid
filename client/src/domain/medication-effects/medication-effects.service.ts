@@ -53,9 +53,9 @@ export class MedicationEffectsService {
     public getMedicationEffect(medication: Medication, effect: Effect): Promise<any> {
         return this.getMedicationData(medication)
         .then((medicationData: any) => {
-            if (medicationData[effect.key]) {
+            if (medicationData[effect.key] !== undefined) {
                 return Promise.resolve(medicationData[effect.key]);
-            } else if (this.defaultCondition[effect.key]) {
+            } else if (this.defaultCondition[effect.key] !== undefined) {
                 return Promise.resolve(this.defaultCondition[effect.key]);
             } else {
                 return Promise.reject('Effect not found');

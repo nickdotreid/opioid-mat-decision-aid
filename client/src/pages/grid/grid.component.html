@@ -15,21 +15,21 @@
         <tr *ngFor="let medication of medications">
             <th class="medication">{{medication.name}}</th>
             <td *ngFor="let effect of effects" [ngSwitch]="effect.key">
-                <app-medication-craving-effectiveness
+                <app-risk-of-death
                     *ngSwitchCase='"symptomRelief"'
                     [medication]="medication"
                     [effect]="effect"
                     [expanded]="selectedAttribute === effect.key"
-                ></app-medication-craving-effectiveness>
+                ></app-risk-of-death>
                 <app-risk-of-death
-                    *ngSwitchCase='"mortality"'
+                    *ngSwitchCase='"lifeSaving"'
                     [medication]="medication"
                     [effect]="effect"
                     [time]="treatmentDay"
                     [expanded]="selectedAttribute === effect.key"
                 ></app-risk-of-death>
                 <app-risk-of-death
-                    *ngSwitchCase='"relapse"'
+                    *ngSwitchCase='"relapsePrevention"'
                     [medication]="medication"
                     [effect]="effect"
                     [time]="treatmentDay"
@@ -49,6 +49,27 @@
                     [time]="treatmentDay"
                     [expanded]="selectedAttribute === effect.key"
                 ></app-side-effects>
+                <app-effect-checkbox
+                    *ngSwitchCase='"relationships"'
+                    [medication]="medication"
+                    [effect]="effect"
+                    [time]="treatmentDay"
+                    [expanded]="selectedAttribute === effect.key"
+                ></app-effect-checkbox>
+                <app-effect-checkbox
+                    *ngSwitchCase='"legal"'
+                    [medication]="medication"
+                    [effect]="effect"
+                    [time]="treatmentDay"
+                    [expanded]="selectedAttribute === effect.key"
+                ></app-effect-checkbox>
+                <app-effect-checkbox
+                    *ngSwitchCase='"work"'
+                    [medication]="medication"
+                    [effect]="effect"
+                    [time]="treatmentDay"
+                    [expanded]="selectedAttribute === effect.key"
+                ></app-effect-checkbox>
                 <app-medication-effect
                     *ngSwitchDefault
                     [medication]="medication"

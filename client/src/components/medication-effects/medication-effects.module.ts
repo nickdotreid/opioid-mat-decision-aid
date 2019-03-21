@@ -8,6 +8,7 @@ import { LocationComponent } from './location.component';
 import { CravingsComponent } from './cravings.component';
 import { SideEffectsComponent } from './side-effects.component';
 import { LineChartComponent } from './line-chart.component';
+import { CheckboxComponent } from './checkbox.component';
 
 
 
@@ -19,6 +20,7 @@ import { LineChartComponent } from './line-chart.component';
     declarations: [
         CravingsComponent,
         CravingEffectivenessComponent,
+        CheckboxComponent,
         EffectComponent,
         LineChartComponent,
         LocationComponent,
@@ -28,6 +30,7 @@ import { LineChartComponent } from './line-chart.component';
     exports: [
         CravingsComponent,
         CravingEffectivenessComponent,
+        CheckboxComponent,
         EffectComponent,
         LocationComponent,
         RiskOfDeathComponent,
