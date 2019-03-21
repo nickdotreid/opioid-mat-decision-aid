@@ -9,7 +9,8 @@ import * as d3 from 'd3';
 export class LineChartComponent implements AfterViewInit {
 
     @ViewChild('svg') svg: ElementRef;
-    @Input('data') data: Array<number>;
+    @Input('ticks') ticks: Array<number>;
+    public data: Array<number>;
 
     constructor(
         private elementRef: ElementRef
@@ -19,18 +20,35 @@ export class LineChartComponent implements AfterViewInit {
         this.drawChart();
     }
 
+    @Input('data')
+    set setData(value) {
+        if (value) {
+            this.data = value;
+            this.drawChart();
+        }
+    }
+
     private drawChart() {
+        if (!this.data || this.data.length === 0) {
+            return false;
+        }
+        const xAxisHeight = 15;
+        const width = this.elementRef.nativeElement.offsetWidth;
+        const height = this.elementRef.nativeElement.offsetHeight - xAxisHeight;
+
+        const xScaleMax = this.ticks.reduce((a, b) => {
+            return Math.max(a, b);
+        });
+
         const xScale = d3.scaleLinear()
-            .domain([0, this.data.length - 1])
-            .range([0, this.elementRef.nativeElement.offsetWidth]);
+            .domain([0, xScaleMax])
+            .range([0, width]);
         const yScale = d3.scaleLinear()
-            .domain([0, this.data.reduce((a, b) => {
-                return Math.max(a, b);
-            })])
-            .range([this.elementRef.nativeElement.offsetHeight, 0]);
+            .domain([0, 1])
+            .range([height, 0]);
         const line = d3.line()
             .x((d, i) => {
-                return xScale(i);
+                return xScale(this.ticks[i]);
             })
             .y((d) => {
                 return yScale(d);
@@ -40,10 +58,16 @@ export class LineChartComponent implements AfterViewInit {
         const svg = d3.select(this.svg.nativeElement);
         svg.attr('width', this.elementRef.nativeElement.offsetWidth);
         svg.attr('height', this.elementRef.nativeElement.offsetHeight);
-        svg.append('path')
-            .datum(this.data)
-            .attr('class', 'line')
+
+        const chartLine = svg.select('.chart path');
+        chartLine.datum(this.data)
             .attr('d', line);
+
+        const xAxis = d3.axisBottom().scale(xScale);
+
+        svg.select('.labels')
+            .attr('transform', `translate(0, ${height})`)
+            .call(xAxis);
     }
 
 }

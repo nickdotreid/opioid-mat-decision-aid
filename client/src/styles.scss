@@ -152,8 +152,13 @@ table tbody th {
 
 
 // SVG chart styles
+
 svg .line {
     stroke: #000000;
     stroke-width: 2;
     fill: none;
+}
+
+svg .labels {
+    color: #AAA;
 }
