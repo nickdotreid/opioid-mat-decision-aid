@@ -13,7 +13,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let medication of medications">
-            <td class="medication">{{medication.name}}</td>
+            <th class="medication">{{medication.name}}</th>
             <td *ngFor="let effect of effects" [ngSwitch]="effect.key">
                 <app-medication-craving-effectiveness
                     *ngSwitchCase='"symptomRelief"'

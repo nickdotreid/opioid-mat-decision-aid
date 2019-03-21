@@ -7,6 +7,7 @@ import { RiskOfDeathComponent } from './risk-of-death.component';
 import { LocationComponent } from './location.component';
 import { CravingsComponent } from './cravings.component';
 import { SideEffectsComponent } from './side-effects.component';
+import { LineChartComponent } from './line-chart.component';
 
 
 
@@ -19,6 +20,7 @@ import { SideEffectsComponent } from './side-effects.component';
         CravingsComponent,
         CravingEffectivenessComponent,
         EffectComponent,
+        LineChartComponent,
         LocationComponent,
         RiskOfDeathComponent,
         SideEffectsComponent
