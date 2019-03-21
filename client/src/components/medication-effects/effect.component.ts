@@ -11,6 +11,7 @@ export class EffectComponent implements OnChanges {
     @Input('medication') public medication: Medication;
     @Input('effect') public effect: Effect;
     @Input('time') public time: number;
+    @Input('expanded') public expanded: boolean;
 
     public effectValue: string;
 
@@ -27,6 +28,9 @@ export class EffectComponent implements OnChanges {
         }
         if (changes.time && this.time !== changes.time.currentValue) {
             this.time = changes.time.currentValue;
+        }
+        if (changes.expanded && this.expanded !== changes.expanded.currentValue) {
+            this.expanded = changes.expanded.currentValue;
         }
         this.updateEffect();
     }

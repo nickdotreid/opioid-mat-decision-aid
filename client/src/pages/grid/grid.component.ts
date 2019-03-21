@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MedicationEffectsService, Medication, Effect } from '@domain/medication-effects/medication-effects.service';
 import { GridService } from './grid.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GridComponent implements OnInit {
 
+    public selectedAttribute: string;
     public attributes: Array<string>;
     public title: string;
     public caption: string;
@@ -20,15 +21,21 @@ export class GridComponent implements OnInit {
     constructor(
         private medicationEffectsService: MedicationEffectsService,
         private gridService: GridService,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        private router: Router
     ) {
         this.activatedRoute.params.subscribe((params) => {
             this.gridService.get(params.name)
             .then((chart) => {
                 this.title = chart.title;
                 this.caption = chart.caption;
-                this.updateEffects(chart.attributes);
+                this.attributes = chart.attributes;
+                this.updateEffects();
             });
+        });
+        this.activatedRoute.queryParams.subscribe((queryParams) => {
+            this.selectedAttribute = queryParams.attribute;
+            this.updateEffects();
         });
     }
 
@@ -40,22 +47,46 @@ export class GridComponent implements OnInit {
 
         this.medicationEffectsService.effects
         .subscribe(() => {
-            this.updateEffects(this.attributes);
+            this.updateEffects();
         });
     }
 
-    private updateEffects(attributes?: Array<string>) {
-        if (!attributes) {
+    public toggleEffect(effect: Effect) {
+        if (this.selectedAttribute === effect.key) {
+            this.router.navigate([], {
+                relativeTo: this.activatedRoute,
+                queryParams: {
+                    attribute: undefined
+                },
+                queryParamsHandling: 'merge'
+            });
+        } else {
+            this.router.navigate([], {
+                relativeTo: this.activatedRoute,
+                queryParams: {
+                    attribute: effect.key
+                },
+                queryParamsHandling: 'merge'
+            });
+        }
+    }
+
+    private updateEffects() {
+        if (!this.attributes) {
             this.effects = [];
         } else {
-            this.attributes = attributes;
+            let attributes = this.attributes;
+            if (this.selectedAttribute) {
+                attributes = [this.selectedAttribute];
+            }
+
             const allEffects = this.medicationEffectsService.effects.value;
             if (!allEffects) {
                 this.effects = [];
                 return false;
             }
             this.effects = allEffects.filter((effect) => {
-                if (this.attributes.indexOf(effect.key) >= 0) {
+                if (attributes.indexOf(effect.key) >= 0) {
                     return true;
                 } else {
                     return false;
