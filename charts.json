@@ -5,16 +5,16 @@
         "expectations"
     ],
     "benefits": {
-        "title": "Benefits of Medication",
         "attributes": [
             "symptomRelief",
-            "mortality",
-            "relapse"
+            "lifeSaving",
+            "relapsePrevention",
+            "relationships",
+            "work",
+            "legal"
         ]
     },
     "demand": {
-        "title": "Demand Characteristics",
-        "caption": "Different medications will affect your day to day life differently and this will change over time",
         "attributes": [
             "starting",
             "gettingMedication",
@@ -23,7 +23,6 @@
         ]
     },
     "expectations": {
-        "title": "What happens if you stop medication on your own",
         "attributes": [
             "stoppingWithdrawl",
             "stoppingMortality"

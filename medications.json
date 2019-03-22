@@ -9,6 +9,10 @@
     ],
     "effects": [
         {
+            "key": "symptomRelief",
+            "name": "Symptom Relief"
+        },
+        {
             "key": "location",
             "name": "Where do I take the medication?"
         },
@@ -58,6 +62,26 @@
         }, {
             "key": "stoppingMortality",
             "name": "Risk of death if you stop"
+        },
+        {
+            "key": "lifeSaving",
+            "name": "Life Saving"
+        },
+        {
+            "key": "relapsePrevention",
+            "name": "Relapse prevention"
+        },
+        {
+            "key": "relationships",
+            "name": "Interpersonal Relationships"
+        },
+        {
+            "key": "work",
+            "name": "Chance of working"
+        },
+        {
+            "key": "legal",
+            "name": "Legal problems"
         }
     ],
     "medications": [
@@ -70,9 +94,13 @@
             "stopping": "Severe and prolonged withdrawl symptoms",
             "location": "home",
             "refill": "Pick up every day from clinic in beginning",
-            "mortality": 0.35,
-            "relapse": 0.4,
+            "lifeSaving": 0.65,
+            "relapsePrevention": 0.6,
             "discomfort": "none",
+            "relationships": true,
+            "work": true,
+            "legal": true,
+            "symptomRelief": 1,
             "sideEffects": [
                 {
                     "name": "Sleepiness",
@@ -96,8 +124,8 @@
                     "day": 1,
                     "location": "clinic",
                     "discomfort": "mild",
-                    "mortality": 1,
-                    "relapse": 1,
+                    "lifeSaving": 0,
+                    "relapsePrevention": 0,
                     "refill": "Pick up every day from clinic"
                 },
                 {
@@ -106,18 +134,18 @@
                 },
                 {
                     "day": 30,
-                    "mortality": 0.5
+                    "lifeSaving": 0.5
                 },
                 {
                     "day": 90,
                     "location": "home",
                     "refill": "Get weekly amount to take home",
-                    "relapse": 0.5
+                    "relapsePrevention": 0.5
                 },
                 {
                     "day": 365,
-                    "mortality": 0.35,
-                    "relapse": 0.4
+                    "lifeSaving": 0.35,
+                    "relapsePrevention": 0.4
                 }
             ]
         },
@@ -127,6 +155,9 @@
             "treatment": "Take by mouth every day",
             "starting": "Stop using 6-12 hours, feel moderate withdrawal symptoms, then start",
             "gettingMedication": "Go to a clinic, you can pick up medications every week for 1 month, then every month, and take them every day at home",
+            "relationships": "Improved",
+            "work": "Improved",
+            "legal": "Improved",
             "sideEffects": [
                 {
                     "name": "Headaches",
@@ -140,26 +171,27 @@
             "stopping": "Mild short lived withdrawal symptoms",
             "location": "home",
             "refill": "Pick up every week then every month from pharmacy",
-            "mortality": 0.3,
-            "relapse": 0.5,
+            "lifeSaving": 0.7,
+            "relapsePrevention": 0.5,
             "discomfort": "none",
             "stoppingWithdrawl": "Stopping the medication leads to withdrawal symptoms that are milder than symptoms from drugs like heroin and lasts a week or less.",
             "stoppingMortality": "Goes up, higher than continuing to use",
+            "symptomRelief": 1,
             "changes": [
                 {
                     "day": 1,
                     "location": "clinic",
                     "discomfort": "moderate",
-                    "mortality": 1,
-                    "relapse": 1,
+                    "lifeSaving": 0,
+                    "relapsePrevention": 0,
                     "refill": "Pick up every week from pharmacy"
                 },
                 {
                     "day": 3,
                     "location": "home",
                     "discomfort": "mild",
-                    "mortality": 1,
-                    "relapse": 1
+                    "lifeSaving": 0,
+                    "relapsePrevention": 0
                 },
                 {
                     "day": 7,
@@ -174,8 +206,8 @@
                 },
                 {
                     "day": 90,
-                    "mortality": 0.3,
-                    "relapse": 0.5
+                    "lifeSaving": 0.7,
+                    "relapsePrevention": 0.5
                 }
             ]
         },
@@ -186,13 +218,17 @@
             "stopping": "No withdrawl symptoms",
             "location": "home",
             "refill": "Get from clinic every month",
-            "mortality": 0.3,
-            "relapse": 0.5,
+            "lifeSaving": 0.7,
+            "relapsePrevention": 0.5,
+            "relationships": "Improved",
+            "work": "Improved",
+            "legal": "Improved",
             "discomfort": "none",
             "starting": "Stop using 7 days, feel severe withdrawl, then start",
             "gettingMedication": "Go to a clinic once a month to get an injection in the muscle",
             "stoppingMortality": "Goes up, higher than continuing to use",
             "stoppingWithdrawl": "If you stop suddenly, there are no withdrawl symptoms",
+            "symptomRelief": 0.35,
             "sideEffects": [
                 {
                     "name": "Irritation at medication site",
@@ -205,15 +241,15 @@
                     "day": 1,
                     "location": "clinic",
                     "discomfort": "high",
-                    "mortality": 1,
-                    "relapse": 1
+                    "lifeSaving": 0,
+                    "relapsePrevention": 0
                 },
                 {
                     "day": 7,
                     "location": "home",
                     "discomfort": "moderate",
-                    "mortality": 1,
-                    "relapse": 1
+                    "lifeSaving": 0,
+                    "relapsePrevention": 0
                 },
                 {
                     "day": 10,
@@ -225,8 +261,8 @@
                 },
                 {
                     "day": 90,
-                    "mortality": 0.3,
-                    "relapse": 0.5
+                    "lifeSaving": 0.3,
+                    "relapsePrevention": 0.5
                 }
             ]
         },
@@ -237,8 +273,11 @@
             "symptomRelief": 0,
             "discomfort": "none",
             "frequency": "none",
-            "mortality": 1,
-            "replase": 1,
+            "lifeSaving": 0,
+            "relapsePrevention": 0,
+            "relationships": "Improved",
+            "work": "Improved",
+            "legal": "Improved",
             "starting": "Stop using, 7 days feel severe withdrawl",
             "gettingMedication": "No need to obtain any medication",
             "stoppingMortality": "Can be higher than continuing to use",
@@ -261,9 +300,12 @@
             "key": "continue",
             "name": "Continue using",
             "cost": "$$",
+            "symptomRelief": 0,
             "stoppingWithdrawl": "Once you stop using, withdrawl can take 7 days, with severe discomfort. Cravings may last weeks of months longer.",
             "stoppingMortality": "Continues to be high (higher than being on medication)",
             "gettingMedication": "Need to obtain opioid drug daily or multiple times a day",
+            "lifeSaving": 0,
+            "relapsePrevention": 0,
             "sideEffects": [
                 {
                     "name": "Sleepiness",
