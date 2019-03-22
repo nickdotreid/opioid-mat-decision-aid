@@ -8,7 +8,6 @@ import { EffectComponent } from './effect.component';
 export class RiskOfDeathComponent extends EffectComponent {
 
     public riskOfDeath: number;
-    public radius = 0;
 
     public days: Array<number> = [0, 2, 14, 30, 60, 90];
     public dayValues: Array<number> = [];
@@ -21,7 +20,6 @@ export class RiskOfDeathComponent extends EffectComponent {
         )
         .then((value: any) => {
             this.riskOfDeath = value;
-            this.radius = this.riskOfDeath * 50;
         })
         .catch(() => {
             this.riskOfDeath = undefined;

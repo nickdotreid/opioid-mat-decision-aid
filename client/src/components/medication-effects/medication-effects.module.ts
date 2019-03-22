@@ -9,6 +9,7 @@ import { CravingsComponent } from './cravings.component';
 import { SideEffectsComponent } from './side-effects.component';
 import { LineChartComponent } from './line-chart.component';
 import { CheckboxComponent } from './checkbox.component';
+import { BubbleComponent } from './bubble.component';
 
 
 
@@ -18,6 +19,7 @@ import { CheckboxComponent } from './checkbox.component';
         MedicationEffectsDomainModule
     ],
     declarations: [
+        BubbleComponent,
         CravingsComponent,
         CravingEffectivenessComponent,
         CheckboxComponent,

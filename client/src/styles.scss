@@ -165,3 +165,13 @@ svg .line {
 svg .labels {
     color: #AAA;
 }
+
+svg .bubble {
+    fill: #000000;
+}
+
+svg .bubble-outline {
+    fill: none;
+    stroke: #AAA;
+    stroke-width: 1;
+}
