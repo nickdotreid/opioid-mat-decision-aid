@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GridPageModule } from '@pages/grid/grid.module';
+import { GridPageModule } from '@components/grid/grid.module';
 import { OverviewPageComponent } from './overview.page';
 import { StoppingPageComponent } from './stopping.page';
 

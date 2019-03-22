@@ -3,7 +3,7 @@ import { MedicationsPageComponent } from './medications.page';
 import { OverviewPageComponent } from './overview.page';
 import { BenefitsPageComponent } from './benefits.page';
 import { Routes, RouterModule } from '@angular/router';
-import { GridPageModule } from '@pages/grid/grid.module';
+import { GridPageModule } from '@components/grid/grid.module';
 
 const routes: Routes = [
     {

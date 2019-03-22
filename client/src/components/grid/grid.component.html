@@ -4,17 +4,19 @@
     <thead>
         <tr>
             <th>Medication</th>
-            <th *ngFor="let effect of effects">
-                <a (click)="toggleEffect(effect)">
-                    {{effect.name}}
-                </a>
+            <th *ngFor="let effect of effects"
+                (click)="toggleEffect(effect)"
+                >
+                {{effect.name}}
             </th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let medication of medications">
             <th class="medication">{{medication.name}}</th>
-            <td *ngFor="let effect of effects" [ngSwitch]="effect.key">
+            <td *ngFor="let effect of effects"
+                (click)="toggleEffect(effect)"
+                [ngSwitch]="effect.key">
                 <app-risk-of-death
                     *ngSwitchCase='"symptomRelief"'
                     [medication]="medication"

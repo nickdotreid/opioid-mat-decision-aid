@@ -9,14 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { TimelineComponentModule } from '@components/timeline/timeline.module';
 import { MedicationEffectsComponentModule } from '@components/medication-effects/medication-effects.module';
 import { MedicationEffectsDomainModule } from '@domain/medication-effects/medication-effects.module';
-import { Routes, RouterModule } from '@angular/router';
 import { GridComponent } from './grid.component';
 import { GridService } from './grid.service';
-
-const routes: Routes = [{
-  path: 'grid/:name',
-  component: GridComponent
-}];
 
 @NgModule({
   declarations: [
@@ -34,8 +28,7 @@ const routes: Routes = [{
     MatButtonModule,
     MedicationEffectsDomainModule,
     TimelineComponentModule,
-    MedicationEffectsComponentModule,
-    RouterModule.forChild(routes)
+    MedicationEffectsComponentModule
   ],
   providers: [
     GridService
