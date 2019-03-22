@@ -34,48 +34,51 @@ app-root {
     height: 100%;
     width: 100%;
 
-    > * {
-        padding: 2em;
-    }
-
     header {
         flex: 0 0 auto;
         background-color: $color-background-alternative;
+        padding: 2em;
     }
 
     #content {
         flex: 1 1 auto;
         overflow: auto;
         background-color: $color-background;
+
+        display: flex;
+        flex-direction: column;
+
+        > * {
+            flex: 0 0 auto;
+        }
     }
 }
 
-.app-content {
+.content {
+    display: block;
+    width: 540px;
+    padding: 1em 2em;
+    margin: 2em auto;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+    border: 1px #000 solid;
+    box-shadow: #666 0px 0px 2em;
+}
+
+.content-full {
+    @extend .content;
+    width: auto;
     margin: 0em;
-
-    > * {
-        display: block;
-        margin: 0em auto;
-        width: 540px;
-    }
-
-    > table {
-        display: table;
-        width: 100%;
-        margin: 0em;
-    }
+    border: 0px;
+    box-shadow: unset;
 }
 
-app-root #content,
-app-root > #content > app-grid {
-    @extend .app-content;
+#content > ng-component {
+    @extend .content
 }
 
+#content > ng-component.full {
+    @extend .content-full;
+}
 
 // Header
 

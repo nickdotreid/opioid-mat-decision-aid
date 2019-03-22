@@ -22,6 +22,9 @@ const routes: Routes = [{
   declarations: [
     GridComponent
   ],
+  exports: [
+    GridComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

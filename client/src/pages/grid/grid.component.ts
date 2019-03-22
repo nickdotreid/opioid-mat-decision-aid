@@ -24,15 +24,6 @@ export class GridComponent implements OnInit {
         private activatedRoute: ActivatedRoute,
         private router: Router
     ) {
-        this.activatedRoute.params.subscribe((params) => {
-            this.gridService.get(params.name)
-            .then((chart) => {
-                this.title = chart.title;
-                this.caption = chart.caption;
-                this.attributes = chart.attributes;
-                this.updateEffects();
-            });
-        });
         this.activatedRoute.queryParams.subscribe((queryParams) => {
             this.selectedAttribute = queryParams.attribute;
             this.updateEffects();
@@ -49,6 +40,19 @@ export class GridComponent implements OnInit {
         .subscribe(() => {
             this.updateEffects();
         });
+    }
+
+    @Input('chart')
+    set loadChart(chartName: string) {
+        console.log(chartName);
+        if (chartName) {
+            this.gridService.get(chartName)
+            .then((chart) => {
+                this.caption = chart.caption;
+                this.attributes = chart.attributes;
+                this.updateEffects();
+            });
+        }
     }
 
     public toggleEffect(effect: Effect) {
