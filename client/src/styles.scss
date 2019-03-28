@@ -61,7 +61,7 @@ app-root {
     margin: 2em auto;
 
     border: 1px #000 solid;
-    box-shadow: #666 0px 0px 2em;
+    box-shadow: #666 10px 10px 2em 0px;
 }
 
 .content-full {
@@ -151,6 +151,10 @@ table tbody th {
     font-weight: normal;
     text-align: left;
     width: 150px;
+}
+
+table th, td {
+  border-bottom: 0.5em solid $color-text;
 }
 
 
