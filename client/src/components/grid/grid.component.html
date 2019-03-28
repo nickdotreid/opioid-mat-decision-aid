@@ -8,6 +8,8 @@
                 (click)="toggleEffect(effect)"
                 >
                 {{effect.name}}
+                <a *ngIf="selectedAttribute===effect.key">Close</a>
+                <a *ngIf="selectedAttribute!==effect.key">Expand</a>
             </th>
         </tr>
     </thead>

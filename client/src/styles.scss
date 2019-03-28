@@ -153,6 +153,13 @@ table tbody th {
     width: 150px;
 }
 
+table thead th a {
+    display: block;
+    font-weight: normal;
+    color: $color-link;
+    cursor: pointer;
+}
+
 
 // SVG chart styles
 
