@@ -1,7 +1,7 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 $color-text: #333333;
-$color-link: #0000FF;
+$color-link: #0078a4;
 
 $color-background: #ffffff;
 $color-background-alternative: #f4f4f4;
@@ -94,6 +94,7 @@ app-root header nav {
         text-decoration: none;
 
         &:hover {
+            color: #ed1e79;
             text-decoration: underline;
         }
     }
@@ -126,8 +127,14 @@ h2 {
 }
 
 nav > a {
-  text-decoration: none;
-}
+        color: $color-link;
+        text-decoration: none;
+
+            &:hover {
+               color: #ed1e79;
+               text-decoration: underline;
+            }
+         }
 
 // Form Styles
 
