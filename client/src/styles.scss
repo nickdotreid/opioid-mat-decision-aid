@@ -121,6 +121,13 @@ app-root header nav {
     flex-grow: 0;
 }
 
+h2 {
+    color: #0078a4;
+}
+
+nav > a {
+  text-decoration: none;
+}
 
 // Form Styles
 
@@ -160,6 +167,10 @@ table thead th a {
     cursor: pointer;
 }
 
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
 
 // SVG chart styles
 
@@ -174,7 +185,7 @@ svg .labels {
 }
 
 svg .bubble {
-    fill: #000000;
+    fill: #0078a4;
 }
 
 svg .bubble-outline {
