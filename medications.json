@@ -50,11 +50,11 @@
         },
         {
             "key": "mortality",
-            "name": "Mortality risk"
+            "name": "Mortality Risk"
         },
         {
             "key": "relapse",
-            "name": "Relapse risk"
+            "name": "Relapse Risk"
         },
         {
             "key": "stoppingWithdrawl",
@@ -69,15 +69,15 @@
         },
         {
             "key": "relapsePrevention",
-            "name": "Relapse prevention"
+            "name": "Stop Relapse"
         },
         {
             "key": "relationships",
-            "name": "Interpersonal Relationships"
+            "name": "Relationships"
         },
         {
             "key": "work",
-            "name": "Chance of working"
+            "name": "Ability to Work"
         },
         {
             "key": "legal",
@@ -97,9 +97,9 @@
             "lifeSaving": 0.65,
             "relapsePrevention": 0.6,
             "discomfort": "none",
-            "relationships": true,
-            "work": true,
-            "legal": true,
+            "relationships": "Better",
+            "work": "Better",
+            "legal": "Better",
             "symptomRelief": 1,
             "sideEffects": [
                 {
@@ -155,9 +155,9 @@
             "treatment": "Take by mouth every day",
             "starting": "Stop using 6-12 hours, feel moderate withdrawal symptoms, then start",
             "gettingMedication": "Go to a clinic, you can pick up medications every week for 1 month, then every month, and take them every day at home",
-            "relationships": "Improved",
-            "work": "Improved",
-            "legal": "Improved",
+            "relationships": "Better",
+            "work": "Better",
+            "legal": "Better",
             "sideEffects": [
                 {
                     "name": "Headaches",
@@ -220,9 +220,9 @@
             "refill": "Get from clinic every month",
             "lifeSaving": 0.7,
             "relapsePrevention": 0.5,
-            "relationships": "Improved",
-            "work": "Improved",
-            "legal": "Improved",
+            "relationships": "Better",
+            "work": "Better",
+            "legal": "Better",
             "discomfort": "none",
             "starting": "Stop using 7 days, feel severe withdrawl, then start",
             "gettingMedication": "Go to a clinic once a month to get an injection in the muscle",
@@ -275,9 +275,9 @@
             "frequency": "none",
             "lifeSaving": 0,
             "relapsePrevention": 0,
-            "relationships": "Possibly improved",
-            "work": "Possibly improved",
-            "legal": "Possibly improved",
+            "relationships": "No or small change",
+            "work": "No or small change",
+            "legal": "No or small change",
             "starting": "Stop using, 7 days feel severe withdrawl",
             "gettingMedication": "No need to obtain any medication",
             "stoppingMortality": "Can be higher than continuing to use",
@@ -306,6 +306,9 @@
             "gettingMedication": "Need to obtain opioid drug daily or multiple times a day",
             "lifeSaving": 0,
             "relapsePrevention": 0,
+            "relationships": "Worse",
+            "work": "Worse",
+            "legal": "Worse",
             "sideEffects": [
                 {
                     "name": "Sleepiness",

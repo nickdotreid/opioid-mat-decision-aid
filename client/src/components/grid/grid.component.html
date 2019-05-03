@@ -53,27 +53,6 @@
                     [time]="treatmentDay"
                     [expanded]="selectedAttribute === effect.key"
                 ></app-side-effects>
-                <app-effect-checkbox
-                    *ngSwitchCase='"relationships"'
-                    [medication]="medication"
-                    [effect]="effect"
-                    [time]="treatmentDay"
-                    [expanded]="selectedAttribute === effect.key"
-                ></app-effect-checkbox>
-                <app-effect-checkbox
-                    *ngSwitchCase='"legal"'
-                    [medication]="medication"
-                    [effect]="effect"
-                    [time]="treatmentDay"
-                    [expanded]="selectedAttribute === effect.key"
-                ></app-effect-checkbox>
-                <app-effect-checkbox
-                    *ngSwitchCase='"work"'
-                    [medication]="medication"
-                    [effect]="effect"
-                    [time]="treatmentDay"
-                    [expanded]="selectedAttribute === effect.key"
-                ></app-effect-checkbox>
                 <app-medication-effect
                     *ngSwitchDefault
                     [medication]="medication"

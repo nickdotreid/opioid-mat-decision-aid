@@ -161,6 +161,11 @@ form fieldset {
 
 
 // Table sytles
+table th,
+table td {
+    padding: 0.5em;
+}
+
 table tbody th {
     font-weight: normal;
     text-align: left;
