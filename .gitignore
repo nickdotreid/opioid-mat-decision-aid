@@ -66,3 +66,5 @@ typings/
 
 # Videos
 *.mov
+
+.vscode
