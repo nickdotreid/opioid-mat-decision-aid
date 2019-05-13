@@ -2,6 +2,7 @@ Django==2.2.1
 django-admin-ordering==0.11.0
 django-environ==0.4.5
 django-js-asset==1.2.2
+gunicorn==19.9.0
 honcho==1.0.1
 psycopg2==2.8.2
 pytz==2019.1

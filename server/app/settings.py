@@ -2,6 +2,9 @@ import os
 import environ
 
 env = environ.Env()
+env_file_path = '/server/.env'
+if os.path.isfile(env_file_path):
+    env.read_env(env_file_path)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

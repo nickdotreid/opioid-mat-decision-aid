@@ -5,3 +5,5 @@ WORKDIR /server
 COPY . /server
 
 RUN pip install -r requirements.txt
+
+CMD honcho start prod

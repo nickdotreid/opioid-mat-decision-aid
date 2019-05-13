@@ -1,0 +1,109 @@
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cloudsql
+  labels:
+    app: cloudsql
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cloudsql
+    spec:
+      containers:
+      - name: cloudsql
+        image: gcr.io/cloudsql-docker/gce-proxy:1.11
+        command: [
+          "./cloud_sql_proxy",
+          "-instances=opioid-mat:us-west1:opioid-mat=tcp:0.0.0.0:5432",
+          "-credential_file=/credentials/gcloud.json"
+        ]
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - name: gcloud-credentials
+          mountPath: /credentials
+          readOnly: true
+      volumes:
+      - name: gcloud-credentials
+        secret:
+          secretName: gcloud-credentials
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloudsql
+  labels:
+    run: cloudsql
+spec:
+  ports:
+  - port: 5432
+    targetPort: 5432
+  selector:
+    app: cloudsql
+
+---
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: opioid-mat-server
+  labels:
+    app: opioid-mat-server
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: opioid-mat-server
+    spec:
+      containers:
+      - name: opioid-mat-app
+        image: gcr.io/opioid-mat/opioid-mat-server:latest
+        imagePullPolicy: Always
+        command: ['honcho', 'start', 'prod']
+        env:
+          - name: BUILD_NUMBER
+            value: DEFAULT_BUILD_NUMBER
+          - name: ALLOWED_HOSTS
+            value: 'opioid-mat.nickreid.com'
+          - name: SECRET_KEY
+            value: 'kp#614ikwcgrrr+4!sso*g)1jxgdd-@-b#*9*_+g(o80(x%xtn'
+          - name: DATABASE_URL
+            value: 'psql://opioid-mat:opioid-mat@cloudsql:5432/opioid-mat'
+          - name: DEBUG
+            value: "True"
+        ports:
+        - containerPort: 8000
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: server
+  labels:
+    app: opioid-mat-server
+spec:
+  ports:
+  - port: 8000
+    targetPort: 8000
+  selector:
+    app: opioid-mat-server
+
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: opioid-mat-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: opioid-mat-global
+spec:
+  backend:
+    serviceName: heartsteps-nginx
+    servicePort: 8000

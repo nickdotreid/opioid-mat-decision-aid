@@ -17,6 +17,11 @@ services:
         image: postgres
         volumes:
             - db-pgdata:/var/lib/postgresql/data
+    cloudsql:
+        image: gcr.io/cloudsql-docker/gce-proxy:1.11
+        command:  /cloud_sql_proxy -instances=opioid-mat:us-west1:opioid-mat=tcp:0.0.0.0:5432 -credential_file=/gcloud.json
+        volumes:
+            - ./gcloud.json:/gcloud.json
     server:
         build: ./server
         command: honcho start dev
@@ -28,6 +33,16 @@ services:
             - DATABASE_URL=psql://postgres@db:5432/postgres
         ports:
             - 8000:8000
+        volumes:
+            - ./server:/server
+    server-gcloud:
+        image: opioid-mat-decision-aid_server
+        depends_on:
+            - cloudsql
+        environment:
+            - ALLOWED_HOSTS=localhost,192.168.99.100
+            - DEBUG=True
+            - DATABASE_URL=psql://opioid-mat:opioid-mat@cloudsql:5432/opioid-mat
         volumes:
             - ./server:/server
 volumes:
