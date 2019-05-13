@@ -26,7 +26,7 @@ class ChartEffect(ChartOrdable):
         related_name='effects'    
     )
 
-class ChartMedication(models.Model):
+class ChartMedication(ChartOrdable):
     medication = models.ForeignKey(
         Medication,
         on_delete=models.CASCADE,
