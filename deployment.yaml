@@ -85,10 +85,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: server
+  name: opioid-mat-server
   labels:
     app: opioid-mat-server
 spec:
+  type: NodePort
   ports:
   - port: 8000
     targetPort: 8000
