@@ -105,5 +105,5 @@ metadata:
     kubernetes.io/ingress.global-static-ip-name: opioid-mat-global
 spec:
   backend:
-    serviceName: heartsteps-nginx
+    serviceName: opioid-mat-server
     servicePort: 8000
