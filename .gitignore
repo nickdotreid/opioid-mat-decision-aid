@@ -2,6 +2,9 @@
 client/**/medications.json
 client/**/charts.json
 
+# Files with secrect keys
+gcloud.json
+
 # Logs
 logs
 *.log

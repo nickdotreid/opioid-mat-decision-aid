@@ -2,16 +2,7 @@ language: nodejs
 services:
 - docker
 before_script:
-- docker-compose build client
-- cp medications.json client/src/assets/medications.json
-- cp charts.json client/src/assets/charts.json
+- openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_iv -in gcloud.json.enc -out gcloud.json -d
+- docker-compose build client server
 script:
 - docker-compose run client npm run build --prod
-deploy:
-  provider: s3
-  access_key_id: $s3KeyId
-  secret_access_key: $s3AccessKey
-  bucket: $s3Bucket
-  local_dir: client/dist/client
-  skip_cleanup: true
-  acl: public_read
