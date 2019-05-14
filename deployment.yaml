@@ -70,15 +70,30 @@ spec:
           - name: BUILD_NUMBER
             value: DEFAULT_BUILD_NUMBER
           - name: ALLOWED_HOSTS
-            value: 'opioid-mat.nickreid.com'
-          - name: SECRET_KEY
-            value: 'kp#614ikwcgrrr+4!sso*g)1jxgdd-@-b#*9*_+g(o80(x%xtn'
+            value: '35.244.232.139,34.96.96.155,opioid-mat.nickreid.com,opioid-mat-server'
           - name: DATABASE_URL
-            value: 'psql://opioid-mat:opioid-mat@cloudsql:5432/opioid-mat'
+            value: "psql://opioid-mat:opioid-mat@cloudsql:5432/opioid-mat"
           - name: DEBUG
             value: "True"
         ports:
         - containerPort: 8000
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8000
+            httpHeaders:
+              - name: Host
+                value: opioid-mat-server
+          periodSeconds: 20
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8000
+            httpHeaders:
+              - name: Host
+                value: opioid-mat-server
+          initialDelaySeconds: 30
+          periodSeconds: 10
 
 ---
 

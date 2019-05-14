@@ -43,6 +43,8 @@ services:
             - ALLOWED_HOSTS=localhost,192.168.99.100
             - DEBUG=True
             - DATABASE_URL=psql://opioid-mat:opioid-mat@cloudsql:5432/opioid-mat
+        ports:
+            - 8000:8000
         volumes:
             - ./server:/server
 volumes:
