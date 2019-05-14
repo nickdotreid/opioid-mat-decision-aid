@@ -3,8 +3,8 @@ client/**/medications.json
 client/**/charts.json
 
 # Files with secrect keys
-gcloud.json
-.env-production
+credentials/*
+credentials.tar
 
 # Logs
 logs
