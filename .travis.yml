@@ -29,6 +29,13 @@ after_success:
 # Upload static files to bucket
 - docker-compose run server python manage.py collectstatic
 - gsutil -m rsync -d -r server/static/ gs://opioid-mat-static/static
+# Upload website files to bucket
+- docker-compose run client npm run build --prod
+- gsutil -m rsync -d -r client/dist gs://opioid-mat-static/website
+# Update nginx
+- docker-compose build nginx
+- docker-compose tag opioid-mat-decision-aid_nginx gcr.io/${GCLOUD_PROJECT_ID}/opioid-mat-nginx
+- docker push gcr.io/${GCLOUD_PROJECT_ID}/opioid-mat-nginx
 # Update server
 - cp credentials/.env-production server/.env
 - docker-compose build server

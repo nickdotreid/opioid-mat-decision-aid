@@ -76,11 +76,11 @@ spec:
           - name: DEBUG
             value: "True"
         ports:
-        - containerPort: 8000
+        - containerPort: 8080
         livenessProbe:
           httpGet:
             path: /
-            port: 8000
+            port: 8080
             httpHeaders:
               - name: Host
                 value: opioid-mat-server
@@ -88,7 +88,7 @@ spec:
         readinessProbe:
           httpGet:
             path: /
-            port: 8000
+            port: 8080
             httpHeaders:
               - name: Host
                 value: opioid-mat-server
@@ -106,10 +106,51 @@ metadata:
 spec:
   type: NodePort
   ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: opioid-mat-server
+
+---
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: opioid-mat-nginx
+  labels:
+    app: opioid-mat-nginx
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: opioid-mat-nginx
+    spec:
+      containers:
+      - name: nginx
+        image: gcr.io/opioid-mat/opioid-mat-nginx
+        imagePullPolicy: Always
+        env:
+          - name: BUILD_NUMBER
+            value: DEFAULT_BUILD_NUMBER
+        ports:
+        - containerPort: 8000
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: opioid-mat-nginx
+  labels:
+    app: opioid-mat-nginx
+spec:
+  type: NodePort
+  ports:
   - port: 8000
     targetPort: 8000
   selector:
-    app: opioid-mat-server
+    app: opioid-mat-nginx
 
 ---
 
@@ -121,5 +162,5 @@ metadata:
     kubernetes.io/ingress.global-static-ip-name: opioid-mat-global
 spec:
   backend:
-    serviceName: opioid-mat-server
+    serviceName: opioid-mat-nginx
     servicePort: 8000
