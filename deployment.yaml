@@ -100,9 +100,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: opioid-mat-server
+  name: server
   labels:
-    app: opioid-mat-server
+    app: server
 spec:
   type: NodePort
   ports:
@@ -141,9 +141,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: opioid-mat-nginx
+  name: nginx
   labels:
-    app: opioid-mat-nginx
+    app: nginx
 spec:
   type: NodePort
   ports:
@@ -162,5 +162,5 @@ metadata:
     kubernetes.io/ingress.global-static-ip-name: opioid-mat-global
 spec:
   backend:
-    serviceName: opioid-mat-nginx
+    serviceName: nginx
     servicePort: 8000
