@@ -4,6 +4,7 @@ client/**/charts.json
 
 # Files with secrect keys
 gcloud.json
+.env-production
 
 # Logs
 logs

@@ -39,6 +39,7 @@ services:
         image: opioid-mat-decision-aid_server
         depends_on:
             - cloudsql
+        env_file: .env-production
         environment:
             - ALLOWED_HOSTS=localhost,192.168.99.100
             - DEBUG=True
