@@ -34,12 +34,12 @@ after_success:
 - gsutil -m rsync -d -r client/dist/client gs://opioid-mat-static/website
 # Update nginx
 - docker-compose build nginx
-- docker-compose tag opioid-mat-decision-aid_nginx gcr.io/${GCLOUD_PROJECT_ID}/opioid-mat-nginx
+- docker tag opioid-mat-nginx gcr.io/${GCLOUD_PROJECT_ID}/opioid-mat-nginx
 - docker push gcr.io/${GCLOUD_PROJECT_ID}/opioid-mat-nginx
 # Update server
 - cp credentials/.env-production server/.env
 - docker-compose build server
-- docker tag opioid-mat-decision-aid_server gcr.io/${GCLOUD_PROJECT_ID}/opioid-mat-server
+- docker tag opioid-mat-server gcr.io/${GCLOUD_PROJECT_ID}/opioid-mat-server
 - docker push gcr.io/${GCLOUD_PROJECT_ID}/opioid-mat-server
 - docker-compose run server-gcloud python manage.py migrate
 # Redeploy kubernetes

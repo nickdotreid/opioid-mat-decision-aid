@@ -24,6 +24,7 @@ services:
             - ./gcloud.json:/gcloud.json
     nginx:
         build: ./nginx
+        image: opioid-mat-nginx
         volumes:
             - ./nginx/nginx.conf:/etc/nginx/nginx.conf
         ports:
@@ -39,12 +40,13 @@ services:
             - ALLOWED_HOSTS=localhost,server,192.168.99.100
             - DEBUG=True
             - DATABASE_URL=psql://postgres@db:5432/postgres
+        image: opioid-mat-server
         ports:
             - 8080:8080
         volumes:
             - ./server:/server
     server-gcloud:
-        image: opioid-mat-decision-aid_server
+        image: opioid-mat-server
         depends_on:
             - cloudsql
         env_file: credentials/.env-production
