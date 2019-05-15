@@ -21,7 +21,7 @@ services:
         image: gcr.io/cloudsql-docker/gce-proxy:1.11
         command:  /cloud_sql_proxy -instances=opioid-mat:us-west1:opioid-mat=tcp:0.0.0.0:5432 -credential_file=/gcloud.json
         volumes:
-            - ./gcloud.json:/gcloud.json
+            - ./credentials/gcloud.json:/gcloud.json
     nginx:
         build: ./nginx
         image: opioid-mat-nginx
@@ -55,7 +55,7 @@ services:
             - DEBUG=True
             - DATABASE_URL=psql://opioid-mat:opioid-mat@cloudsql:5432/opioid-mat
         ports:
-            - 8000:8000
+            - 8080:8080
         volumes:
             - ./server:/server
 volumes:

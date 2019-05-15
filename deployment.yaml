@@ -159,7 +159,7 @@ kind: Ingress
 metadata:
   name: opioid-mat-ingress
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: opioid-mat-global
+    kubernetes.io/ingress.global-static-ip-name: opioid-mat-web
 spec:
   backend:
     serviceName: nginx
