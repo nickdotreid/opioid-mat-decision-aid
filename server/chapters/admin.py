@@ -7,6 +7,7 @@ from .models import Page
 
 class PageInline(OrderableAdmin, admin.TabularInline):
     model = Page
+    fields = ['order', 'title', 'published']
     ordering = ['order']
     ordering_field = 'order'
 
@@ -20,4 +21,19 @@ class ChapterAdmin(OrderableAdmin, admin.ModelAdmin):
 
     inlines = [
         PageInline
+    ]
+
+@admin.register(Page)
+class PageAdmin(admin.ModelAdmin):
+    ordering = ['chapter__order', 'order']
+
+    list_display = ['title', 'published']
+
+    fields = [
+        'chapter',
+        'title',
+        'slug',
+        'published',
+        'content',
+        'chart'
     ]
