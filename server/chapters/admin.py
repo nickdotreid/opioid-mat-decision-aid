@@ -19,6 +19,10 @@ class ChapterAdmin(OrderableAdmin, admin.ModelAdmin):
     list_display = ['title', 'order']
     list_editable = ['order']
 
+    fields = [
+        'title',
+        'published'
+    ]
     inlines = [
         PageInline
     ]
@@ -31,9 +35,8 @@ class PageAdmin(admin.ModelAdmin):
 
     fields = [
         'chapter',
-        'title',
-        'slug',
         'published',
+        'title',
         'content',
         'chart'
     ]
