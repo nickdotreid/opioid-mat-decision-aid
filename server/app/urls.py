@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from chapters.views import ListContent
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/chapters/', ListContent.as_view(), name="chapters-content")
 ]

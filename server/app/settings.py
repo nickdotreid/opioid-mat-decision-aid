@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'admin_ordering',
     'ckeditor',
+    'rest_framework',
     'medications',
     'charts',
     'chapters',
