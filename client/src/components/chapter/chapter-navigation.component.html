@@ -1,0 +1,8 @@
+<nav>
+    <a *ngFor="let chapter of chapters"
+        [routerLink]="[chapter.slug]"
+        routerLinkActive="active"
+        >
+        {{chapter.title}}
+    </a> 
+</nav>

@@ -7,6 +7,7 @@ import { OutputModule } from '@pages/output/output.module';
 import { TreatmentModule } from '@pages/treatment/treatment.module';
 import { DemandPageModule } from '@pages/demand/demand.module';
 import { ExpectationsPageModule } from '@pages/expectations/expectations.module';
+import { ChapterModule } from '@components/chapter/chapters.module';
 
 const appRoutes: Routes = [
   {
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
     AppComponent,
   ],
   imports: [
+    ChapterModule,
     DemandPageModule,
     ExpectationsPageModule,
     TreatmentModule,
