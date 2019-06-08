@@ -12,12 +12,25 @@ export class Chapter {
     public slug: string;
     public title: string;
     public pages: Array<Page>;
+
+    constructor(
+        private chapterService?: ChapterService
+    ) {}
+
+    public getNextChapter(): Promise<Chapter> {
+        if (this.chapterService) {
+            return this.chapterService.getChapterAfter(this);
+        } else {
+            return Promise.reject('No chapter service');
+        }
+    }
 }
 
 @Injectable()
 export class ChapterService {
 
     public chapters: ReplaySubject<Array<Chapter>> = new ReplaySubject(1);
+    private _chapters: Array<Chapter>;
 
     constructor(
         private httpClient: HttpClient
@@ -29,16 +42,88 @@ export class ChapterService {
         .then((chapterList: Array<any>) => {
             const chapters = [];
             chapterList.forEach(element => {
-                const chapter = new Chapter();
-                chapter.slug = element.slug;
-                chapter.title = element.title;
-                chapters.push(chapter);
+                chapters.push(this.deserializeChapter(element));
             });
+            this._chapters = chapters;
             this.chapters.next(chapters);
         })
         .then(() => {
             return Promise.resolve(true);
         });
+    }
+
+    public getChapter(slug: string): Promise<Chapter> {
+        return this.getAllChapters()
+        .then((chapters) => {
+            const chapter = chapters.find((_chapter: Chapter) => {
+                if (_chapter.slug === slug) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+            if (chapter) {
+                return Promise.resolve(chapter);
+            } else {
+                return Promise.reject('Chapter not found');
+            }
+        });
+    }
+
+    public getFirstChapter(): Promise<Chapter> {
+        return this.getAllChapters()
+        .then((chapters) => {
+            return chapters[0];
+        });
+    }
+
+    public getChapterAfter(chapter: Chapter): Promise<Chapter> {
+        return this.getAllChapters()
+        .then((chapters) => {
+            const currentIndex = chapters.findIndex((_chapter) => {
+                if (chapter.slug === _chapter.slug) {
+                    return true;
+                }
+            });
+            const nextIndex = currentIndex + 1;
+            if (nextIndex < chapters.length) {
+                return Promise.resolve(chapters[nextIndex]);
+            } else {
+                return Promise.reject('No next chapter');
+            }
+        });
+    }
+
+    public getAllChapters(): Promise<Array<Chapter>> {
+        if (this._chapters) {
+            return Promise.resolve(this._chapters);
+        } else {
+            return this.update()
+            .then(() => {
+                return this.getAllChapters();
+            });
+        }
+    }
+
+    private deserializeChapter(data: any): Chapter {
+        const chapter = new Chapter(this);
+        chapter.slug = data.slug;
+        chapter.title = data.title;
+        chapter.pages = [];
+        if (data.pages && data.pages.length) {
+            data.pages.forEach((element) => {
+                chapter.pages.push(this.deserializePage(element));
+            });
+        }
+        return chapter;
+    }
+
+    private deserializePage(data: any): Page {
+        const page = new Page();
+        page.slug = data.slug;
+        page.title = data.title;
+        page.content = data.content;
+        return page;
     }
 
 }
