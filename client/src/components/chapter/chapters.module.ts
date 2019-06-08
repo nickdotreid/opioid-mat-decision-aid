@@ -5,8 +5,8 @@ import { ChapterService } from './chapters.service';
 import { RouterModule, Route } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ChapterPageComponent } from './chapter-page.component';
-import { PageResolver } from './page.resolver';
-import { ChapterResolver } from './chapter.resolver';
+import { PageResolver, DefaultPageResolver } from './page.resolver';
+import { ChapterResolver, DefaultChapterResolver } from './chapter.resolver';
 
 const routes: Array<Route> = [
     {
@@ -20,8 +20,16 @@ const routes: Array<Route> = [
     {
         path: ':chapter',
         redirectTo: ':chapter/'
+    },
+    {
+        path: '',
+        pathMatch: 'full',
+        component: ChapterPageComponent,
+        resolve: {
+            page: DefaultPageResolver,
+            chapter: DefaultChapterResolver
+        }
     }
-
 ];
 
 @NgModule({
@@ -38,6 +46,8 @@ const routes: Array<Route> = [
         RouterModule.forChild(routes)
     ],
     providers: [
+        DefaultChapterResolver,
+        DefaultPageResolver,
         ChapterResolver,
         ChapterService,
         PageResolver

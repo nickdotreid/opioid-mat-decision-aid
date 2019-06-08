@@ -1,21 +1,8 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes} from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { QuizModule } from '@pages/quiz/quiz.module';
-import { OutputModule } from '@pages/output/output.module';
-import { TreatmentModule } from '@pages/treatment/treatment.module';
-import { DemandPageModule } from '@pages/demand/demand.module';
-import { ExpectationsPageModule } from '@pages/expectations/expectations.module';
 import { ChapterModule } from '@components/chapter/chapters.module';
-
-const appRoutes: Routes = [
-  {
-    path: '',
-    redirectTo: 'quiz/introduction',
-    pathMatch: 'full'
-  }
-];
 
 @NgModule({
   declarations: [
@@ -23,14 +10,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     ChapterModule,
-    DemandPageModule,
-    ExpectationsPageModule,
-    TreatmentModule,
-    QuizModule,
-    OutputModule,
-    RouterModule.forRoot(
-      appRoutes
-    )
+    RouterModule.forRoot([])
   ],
   bootstrap: [AppComponent]
 })

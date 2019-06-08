@@ -29,3 +29,18 @@ export class PageResolver implements Resolve<Page> {
         });
     }
 }
+
+@Injectable()
+export class DefaultPageResolver implements Resolve<Page> {
+
+    constructor (
+        private chapterService: ChapterService
+    ) {}
+
+    resolve(): Promise<Page> {
+        return this.chapterService.getAllChapters()
+        .then((chapters) => {
+            return Promise.resolve(chapters[0].pages[0]);
+        });
+    }
+}

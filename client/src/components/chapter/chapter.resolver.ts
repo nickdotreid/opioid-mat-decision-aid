@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Chapter, ChapterService, Page } from './chapters.service';
+import { Chapter, ChapterService } from './chapters.service';
 import { ActivatedRouteSnapshot, Resolve, Router } from '@angular/router';
 
 
@@ -29,5 +29,19 @@ export class ChapterResolver implements Resolve<Chapter> {
             this.router.navigate([chapter.slug]);
         });
     }
+}
 
+@Injectable()
+export class DefaultChapterResolver implements Resolve<Chapter> {
+
+    constructor (
+        private chapterService: ChapterService
+    ) {}
+
+    resolve(): Promise<Chapter> {
+        return this.chapterService.getAllChapters()
+        .then((chapters) => {
+            return Promise.resolve(chapters[0]);
+        });
+    }
 }
