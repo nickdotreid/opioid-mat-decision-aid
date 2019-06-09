@@ -32,7 +32,7 @@ class MedicationEffect(models.Model):
         on_delete=models.CASCADE
     )
 
-    short_description = models.CharField(max_length=250, null=True, blank=True)
+    value = models.CharField(max_length=250, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
 
     def __str__(self):
