@@ -1,4 +1,5 @@
 from django.db import models
+from stringcase import camelcase
 
 class BaseObject(models.Model):
     name = models.CharField(max_length=150)
@@ -6,6 +7,10 @@ class BaseObject(models.Model):
 
     class Meta:
         abstract = True
+
+    @property
+    def key(self):
+        return camelcase(self.slug.replace('-','_'))
 
     def __str__(self):
         return self.name
@@ -17,8 +22,15 @@ class Effect(BaseObject):
     pass
 
 class MedicationEffect(models.Model):
-    medication = models.ForeignKey(Medication, on_delete=models.CASCADE)
-    effect = models.ForeignKey(Effect, on_delete=models.CASCADE)
+    medication = models.ForeignKey(
+        Medication,
+        on_delete=models.CASCADE,
+        related_name='effects'
+    )
+    effect = models.ForeignKey(
+        Effect,
+        on_delete=models.CASCADE
+    )
 
     short_description = models.CharField(max_length=250, null=True, blank=True)
     description = models.TextField(null=True, blank=True)

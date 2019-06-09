@@ -10,4 +10,5 @@ psycopg2==2.8.2
 python-slugify==3.0.2
 pytz==2019.1
 sqlparse==0.3.0
+stringcase==1.2.0
 text-unidecode==1.2

@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path
 
 from chapters.views import ListContent
+from medications.views import ListAllMedications
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/chapters/', ListContent.as_view(), name="chapters-content")
+    path('api/chapters/', ListContent.as_view(), name="chapters-content"),
+    path('api/medications/', ListAllMedications.as_view(), name="medications-all")
 ]
