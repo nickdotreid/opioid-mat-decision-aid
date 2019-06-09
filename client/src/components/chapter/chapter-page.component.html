@@ -1,5 +1,13 @@
 <h2>{{page.title}}</h2>
 <div [innerHTML]="page.content"></div>
+<div *ngIf="page.chart">
+    <h3>{{page.chart.title}}</h3>
+    <app-grid
+        [effects] = "page.chart.effects"
+        [medications] = "page.chart.medications"
+        >
+    </app-grid>
+</div>
 <nav>
     <button (click)="goToNextPage()">Next</button>
 </nav>

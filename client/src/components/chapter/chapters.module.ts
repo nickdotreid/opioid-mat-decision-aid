@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ChapterPageComponent } from './chapter-page.component';
 import { PageResolver, DefaultPageResolver } from './page.resolver';
 import { ChapterResolver, DefaultChapterResolver } from './chapter.resolver';
+import { GridPageModule } from '@components/grid/grid.module';
 
 const routes: Array<Route> = [
     {
@@ -42,6 +43,7 @@ const routes: Array<Route> = [
     ],
     imports: [
         BrowserModule,
+        GridPageModule,
         HttpClientModule,
         RouterModule.forChild(routes)
     ],

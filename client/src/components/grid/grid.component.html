@@ -1,5 +1,3 @@
-<h2>{{title}}</h2>
-<p>{{caption}}</p>
 <table>
     <thead>
         <tr>
@@ -18,48 +16,13 @@
             <th class="medication">{{medication.name}}</th>
             <td *ngFor="let effect of effects"
                 (click)="toggleEffect(effect)"
-                [ngSwitch]="effect.key">
-                <app-risk-of-death
-                    *ngSwitchCase='"symptomRelief"'
-                    [medication]="medication"
-                    [effect]="effect"
-                    [expanded]="selectedAttribute === effect.key"
-                ></app-risk-of-death>
-                <app-risk-of-death
-                    *ngSwitchCase='"lifeSaving"'
-                    [medication]="medication"
-                    [effect]="effect"
-                    [time]="treatmentDay"
-                    [expanded]="selectedAttribute === effect.key"
-                ></app-risk-of-death>
-                <app-risk-of-death
-                    *ngSwitchCase='"relapsePrevention"'
-                    [medication]="medication"
-                    [effect]="effect"
-                    [time]="treatmentDay"
-                    [expanded]="selectedAttribute === effect.key"
-                ></app-risk-of-death>
-                <app-cravings
-                    *ngSwitchCase='"discomfort"'
-                    [medication]="medication"
-                    [effect]="effect"
-                    [time]="treatmentDay"
-                    [expanded]="selectedAttribute === effect.key"
-                ></app-cravings>
-                <app-side-effects
-                    *ngSwitchCase='"sideEffects"'
-                    [medication]="medication"
-                    [effect]="effect"
-                    [time]="treatmentDay"
-                    [expanded]="selectedAttribute === effect.key"
-                ></app-side-effects>
+                >
                 <app-medication-effect
-                    *ngSwitchDefault
                     [medication]="medication"
                     [effect]="effect"
-                    [time]="treatmentDay"
                     [expanded]="selectedAttribute === effect.key"
-                ></app-medication-effect>
+                    >
+                </app-medication-effect>
             </td>
         </tr>
     </tbody>

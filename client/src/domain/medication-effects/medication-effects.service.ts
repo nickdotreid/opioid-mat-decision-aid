@@ -50,10 +50,6 @@ export class MedicationEffectsService {
                 this.data[medication.key] = {..._medication};
             });
             this.medications.next(medications);
-
-            console.log(effects);
-            console.log(medications);
-            console.log(this.data);
         });
     }
 
@@ -61,7 +57,7 @@ export class MedicationEffectsService {
         return this.getMedicationData(medication)
         .then((medicationData: any) => {
             if (medicationData[effect.key] !== undefined) {
-                return Promise.resolve(medicationData[effect.key]);
+                return Promise.resolve(medicationData[effect.key].value);
             } else if (this.defaultCondition[effect.key] !== undefined) {
                 return Promise.resolve(this.defaultCondition[effect.key]);
             } else {

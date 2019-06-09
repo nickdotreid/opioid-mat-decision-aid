@@ -2,10 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ReplaySubject } from 'rxjs';
 
+export class Chart {
+    title: string;
+    effects: Array<string>;
+    medications: Array<string>;
+}
+
 export class Page {
     public slug: string;
     public title: string;
     public content: string;
+    public chart: Chart;
 }
 
 export class Chapter {
@@ -123,6 +130,12 @@ export class ChapterService {
         page.slug = data.slug;
         page.title = data.title;
         page.content = data.content;
+        if (data.chart) {
+            page.chart = new Chart();
+            page.chart.title = data.chart.title;
+            page.chart.effects = data.chart.effects;
+            page.chart.medications = data.chart.medications;
+        }
         return page;
     }
 

@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MedicationEffectsService, Medication, Effect } from '@domain/medication-effects/medication-effects.service';
-import { GridService } from './grid.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
@@ -8,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
     selector: 'app-grid',
     templateUrl: './grid.component.html'
 })
-export class GridComponent implements OnInit {
+export class GridComponent {
 
     public selectedAttribute: string;
     public attributes: Array<string>;
@@ -20,39 +19,36 @@ export class GridComponent implements OnInit {
 
     constructor(
         private medicationEffectsService: MedicationEffectsService,
-        private gridService: GridService,
         private activatedRoute: ActivatedRoute,
         private router: Router
     ) {
         this.activatedRoute.queryParams.subscribe((queryParams) => {
             this.selectedAttribute = queryParams.attribute;
-            this.updateEffects();
         });
     }
 
-    ngOnInit() {
+    @Input('medications')
+    set setMedications(medicationsList: Array<string>) {
         this.medicationEffectsService.medications
         .subscribe((medications) => {
-            this.medications = medications;
-        });
-
-        this.medicationEffectsService.effects
-        .subscribe(() => {
-            this.updateEffects();
+            this.medications = medications.filter((medication) => {
+                if (medicationsList.includes(medication.key)) {
+                    return true;
+                }
+            });
         });
     }
 
-    @Input('chart')
-    set loadChart(chartName: string) {
-        console.log(chartName);
-        if (chartName) {
-            this.gridService.get(chartName)
-            .then((chart) => {
-                this.caption = chart.caption;
-                this.attributes = chart.attributes;
-                this.updateEffects();
+    @Input('effects')
+    set setEffects(effectsList: Array<string>) {
+        this.medicationEffectsService.effects
+        .subscribe((effects) => {
+            this.effects = effects.filter((effect) => {
+                if (effectsList.includes(effect.key)) {
+                    return true;
+                }
             });
-        }
+        });
     }
 
     public toggleEffect(effect: Effect) {
@@ -71,30 +67,6 @@ export class GridComponent implements OnInit {
                     attribute: effect.key
                 },
                 queryParamsHandling: 'merge'
-            });
-        }
-    }
-
-    private updateEffects() {
-        if (!this.attributes) {
-            this.effects = [];
-        } else {
-            let attributes = this.attributes;
-            if (this.selectedAttribute) {
-                attributes = [this.selectedAttribute];
-            }
-
-            const allEffects = this.medicationEffectsService.effects.value;
-            if (!allEffects) {
-                this.effects = [];
-                return false;
-            }
-            this.effects = allEffects.filter((effect) => {
-                if (attributes.indexOf(effect.key) >= 0) {
-                    return true;
-                } else {
-                    return false;
-                }
             });
         }
     }
