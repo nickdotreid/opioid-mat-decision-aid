@@ -12,6 +12,20 @@ class Chart(models.Model):
     def __str__(self):
         return self.title
 
+    @property
+    def effects(self):
+        chart_effects = ChartEffect.objects.filter(
+            chart = self
+        ).order_by('order').all()
+        return [ch.effect for ch in chart_effects]
+
+    @property
+    def medications(self):
+        chart_medications = ChartMedication.objects.filter(
+            chart = self
+        ).order_by('order').all()
+        return [ch.medication for ch in chart_medications]
+
 class ChartOrdable(models.Model):
     chart = models.ForeignKey(Chart, on_delete=models.CASCADE)
     order = models.PositiveIntegerField()
