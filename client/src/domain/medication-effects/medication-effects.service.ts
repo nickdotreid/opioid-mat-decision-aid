@@ -23,9 +23,12 @@ export class MedicationEffectsService {
 
     constructor(
         private httpClient: HttpClient
-    ) {
-        this.httpClient.get('/assets/medications.json')
-        .subscribe((data: any) => {
+    ) {}
+
+    public update() {
+        this.httpClient.get('/api/medications')
+        .toPromise()
+        .then((data: any) => {
             this.defaultCondition = data['condition'];
 
             const effects: Array<Effect> = [];
@@ -47,6 +50,10 @@ export class MedicationEffectsService {
                 this.data[medication.key] = {..._medication};
             });
             this.medications.next(medications);
+
+            console.log(effects);
+            console.log(medications);
+            console.log(this.data);
         });
     }
 

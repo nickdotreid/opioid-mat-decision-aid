@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ChapterModule } from '@components/chapter/chapters.module';
+import { MedicationEffectsDomainModule } from '@domain/medication-effects/medication-effects.module';
 
 @NgModule({
   declarations: [
@@ -10,6 +11,7 @@ import { ChapterModule } from '@components/chapter/chapters.module';
   ],
   imports: [
     ChapterModule,
+    MedicationEffectsDomainModule,
     RouterModule.forRoot([])
   ],
   bootstrap: [AppComponent]
