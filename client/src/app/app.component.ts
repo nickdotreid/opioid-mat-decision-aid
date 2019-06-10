@@ -10,11 +10,21 @@ import { MedicationEffectsService } from '@domain/medication-effects/medication-
 export class AppComponent {
     title = 'client';
 
+    public navigationCollapsed = true;
+
     constructor(
         private chapterService: ChapterService,
         private medicationEffectsService: MedicationEffectsService
     ) {
         this.chapterService.update();
         this.medicationEffectsService.update();
+    }
+
+    public collapseNavigation() {
+        this.navigationCollapsed = true;
+    }
+
+    public expandNavigation() {
+        this.navigationCollapsed = false;
     }
 }

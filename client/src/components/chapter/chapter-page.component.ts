@@ -4,7 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
-    templateUrl: './chapter-page.component.html'
+    templateUrl: './chapter-page.component.html',
+    styleUrls: [
+        './chapter-page.component.scss'
+    ]
 })
 export class ChapterPageComponent {
 
@@ -19,6 +22,7 @@ export class ChapterPageComponent {
         .subscribe((data) => {
             this.chapter = data.chapter;
             this.page = data.page;
+            console.log(data.chapter);
         });
     }
 

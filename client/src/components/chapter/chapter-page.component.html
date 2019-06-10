@@ -1,6 +1,20 @@
+<nav>
+    <a [routerLink]="['/', chapter.slug]">{{chapter.title}}</a>
+    <ul class="bullets">
+        <li *ngFor="let page of chapter.pages">
+            <a [routerLink]="['/', chapter.slug, page.slug]"
+                routerLinkActive="active"
+                >
+                {{page.title}}
+            </a>
+        </li>
+    </ul>
+</nav>
 <h2>{{page.title}}</h2>
 <div [innerHTML]="page.content"></div>
-<div *ngIf="page.chart">
+<div *ngIf="page.chart"
+    class="chart"
+    >
     <h3>{{page.chart.title}}</h3>
     <app-grid
         [effects] = "page.chart.effects"

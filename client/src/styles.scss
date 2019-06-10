@@ -10,6 +10,7 @@ html {
     height: 100%;
     font-family: 'arial', 'sans-serif';
     color: $color-text;
+    background-color: $color-background;
 }
 
 body {
@@ -36,14 +37,12 @@ app-root {
 
     header {
         flex: 0 0 auto;
-        background-color: $color-background-alternative;
-        padding: 2em;
+        flex-direction: column;
     }
 
     #content {
         flex: 1 1 auto;
         overflow: auto;
-        background-color: $color-background;
 
         display: flex;
         flex-direction: column;
@@ -54,33 +53,97 @@ app-root {
     }
 }
 
-.content {
-    display: block;
-    width: 540px;
-    padding: 1em 2em;
-    margin: 2em auto;
+app-root #content nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    
+    > * {
+        flex-grow: 0;
+    }
 
-    border: 1px #000 solid;
-    box-shadow: #a6d3eb 20px 20px 0.8em 0px;
-}
+    > .bullets {
+        display: flex;
 
-.content-full {
-    @extend .content;
-    width: auto;
-    margin: 0em;
-    border: 0px;
-    box-shadow: unset;
-}
+        list-style-type: none;
+        padding: 0px;
+        margin: 0px;
 
-#content > ng-component {
-    @extend .content
-}
-
-#content > ng-component.full {
-    @extend .content-full;
+        a {
+            display: block;
+            width: 1em;
+            height: 1em;
+            margin: 0.5em;
+            overflow:hidden;
+            text-indent: 3000em;
+            background-color: $color-text;
+            border-radius: 1em;
+        }
+        a.active {
+            background-color: $color-link;
+        }
+    }
 }
 
 // Header
+
+app-root header {
+    background-color: $color-background-alternative;
+    padding: 2em;
+}
+
+app-root header > button {
+    background-color: transparent;
+    border-width: 0px;
+    position: relative;
+    display: block;
+    width: 2em;
+    height: 2em;
+    text-indent: -3000em;
+    overflow: hidden;
+    background-color: $color-background-alternative;
+    &:hover, &:focus {
+        &:after {
+            background-color: $color-link;
+        }
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+        background-color: $color-text;
+        mask: url('/assets/toc.svg');
+        mask-size: 100% 100%;       
+
+    }
+
+    &.collapse {
+        &:after {
+            mask: url('/assets/clear.svg');
+        }
+    }
+}
+
+app-root header.collapsed {
+    > * {
+        display: none;
+    }
+
+    > button {
+        display: block;
+    }
+}
+
+app-root header > * {
+    display: block;
+    flex-grow: 1;
+}
 
 app-root header nav {
     
@@ -103,23 +166,6 @@ app-root header nav {
         color: $color-text;
         text-decoration: underline;
     }
-}
-
-
-// Content Styles
-
-.content {
-    display: flex;
-    flex-direction: column;
-}
-
-.content > * {
-    margin: 1em;
-    flex-grow: 1;
-}
-
-.content > form {
-    flex-grow: 0;
 }
 
 h2 {
@@ -161,6 +207,10 @@ form fieldset {
 
 
 // Table sytles
+table {
+    margin: 2em auto;
+}
+
 table th,
 table td {
     padding: 0.5em;

@@ -1,4 +1,16 @@
-<header>
+<header [ngClass]="{collapsed: navigationCollapsed}">
+    <button *ngIf="!navigationCollapsed"
+        (click)="collapseNavigation()"
+        class="collapse"
+        >
+        Hide navigation
+    </button>
+    <button *ngIf="navigationCollapsed"
+        (click)="expandNavigation()"
+        class="expand"
+        >
+        Show navigation
+    </button>
     <app-chapter-navigation></app-chapter-navigation>
 </header>
 <article id="content">
