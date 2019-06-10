@@ -11,7 +11,7 @@ class EffectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Effect
-        fields = ('key', 'name')
+        fields = ('key', 'name', 'category', 'description')
 
 class MedicationEffectSerializer(serializers.ModelSerializer):
 

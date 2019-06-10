@@ -1,6 +1,8 @@
 from django.db import models
 from stringcase import camelcase
 
+from ckeditor.fields import RichTextField
+
 class BaseObject(models.Model):
     name = models.CharField(max_length=150)
     slug = models.CharField(max_length=250)
@@ -19,7 +21,16 @@ class Medication(BaseObject):
     pass
 
 class Effect(BaseObject):
-    pass
+
+    CATEGORIES = [
+        ('circle', 'Circle chart'),
+        ('icon', 'Icon'),
+        ('list', 'List of values'),
+        ('timeline', 'Timeline of values')
+    ]
+
+    category = models.CharField(max_length=250, choices=CATEGORIES, null=True, blank=True)
+    description = RichTextField(null=True, blank=True)
 
 class MedicationEffect(models.Model):
     medication = models.ForeignKey(
