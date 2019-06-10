@@ -34,6 +34,7 @@ class MedicationEffect(models.Model):
 
     label = models.CharField(max_length=250, null=True, blank=True)
     value = models.CharField(max_length=250, null=True, blank=True)
+    comparison = models.CharField(max_length=250, null=True, blank=True)
 
     day = models.PositiveIntegerField(null=True, blank=True)
     order = models.PositiveIntegerField(null=True, blank=True)

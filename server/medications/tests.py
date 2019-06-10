@@ -17,8 +17,8 @@ class AllMedicationsViewTest(APITestCase):
                 name = 'Sample Effect',
                 slug = 'sample-effect'
             ),
-            value = 'Sample value',
-            description = 'This is the longer description.'
+            label = 'Sample label',
+            value = 'Sample value'
         )
         Effect.objects.create(
             name = 'Other Effect',
@@ -38,5 +38,5 @@ class AllMedicationsViewTest(APITestCase):
         self.assertEqual(medication_keys, ['sampleMedication'])
         medication = response.data['medications'][0]
         self.assertEqual(medication['sampleEffect']['value'], 'Sample value')
-        self.assertEqual(medication['sampleEffect']['description'], 'This is the longer description.')
+        self.assertEqual(medication['sampleEffect']['label'], 'Sample label')
         self.assertFalse('otherEffect' in medication)
