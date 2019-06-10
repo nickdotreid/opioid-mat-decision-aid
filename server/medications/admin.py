@@ -1,13 +1,17 @@
 from django.contrib import admin
 
+from admin_ordering.admin import OrderableAdmin
+
 from .models import Effect
 from .models import Medication
 from .models import MedicationEffect
 
 def medication_effect_factory(medication=None, effect=None):
-    class MedicationEffectInline(admin.TabularInline):
+    class MedicationEffectInline(OrderableAdmin, admin.TabularInline):
         model = MedicationEffect
         extra = 0
+        ordering = ['day', 'order']
+        ordering_field = 'order'
         
         @property
         def verbose_name_plural(self):
