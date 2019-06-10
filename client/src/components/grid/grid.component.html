@@ -2,19 +2,19 @@
     <thead>
         <tr>
             <th>Medication</th>
-            <th *ngFor="let effect of effects"
-                (click)="toggleEffect(effect)"
-                >
-                {{effect.name}}
-                <a *ngIf="selectedAttribute===effect.key">Close</a>
-                <a *ngIf="selectedAttribute!==effect.key">Expand</a>
+            <th *ngFor="let medication of medications">
+                {{medication.name}}
             </th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let medication of medications">
-            <th class="medication">{{medication.name}}</th>
-            <td *ngFor="let effect of effects"
+        <tr *ngFor="let effect of effects">
+            <th (click)="toggleEffect(effect)">
+                {{effect.name}}
+                <a *ngIf="selectedAttribute===effect.key">Close</a>
+                <a *ngIf="selectedAttribute!==effect.key">Expand</a>
+            </th>
+            <td *ngFor="let medication of medications"
                 (click)="toggleEffect(effect)"
                 >
                 <app-medication-effect
