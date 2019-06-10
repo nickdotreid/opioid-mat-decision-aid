@@ -10,6 +10,8 @@ export class Medication {
 export class Effect {
     key: string;
     name: string;
+    category: string;
+    description: string;
 }
 
 @Injectable()
@@ -36,6 +38,8 @@ export class MedicationEffectsService {
                 const effect: Effect = new Effect();
                 effect.key = _effect['key'];
                 effect.name = _effect['name'];
+                effect.category = _effect['category'];
+                effect.description = _effect['description'];
                 effects.push(effect);
             });
             this.effects.next(effects);
@@ -53,16 +57,23 @@ export class MedicationEffectsService {
         });
     }
 
-    public getMedicationEffect(medication: Medication, effect: Effect): Promise<any> {
+    public getMedicationEffect(medication: Medication, effect: Effect): Promise<Array<any>> {
         return this.getMedicationData(medication)
         .then((medicationData: any) => {
             if (medicationData[effect.key] !== undefined) {
-                return Promise.resolve(medicationData[effect.key].value);
+                return Promise.resolve(medicationData[effect.key]);
             } else if (this.defaultCondition[effect.key] !== undefined) {
                 return Promise.resolve(this.defaultCondition[effect.key]);
             } else {
                 return Promise.reject('Effect not found');
             }
+        });
+    }
+
+    public getMedicationEffectValue(medication: Medication, effect: Effect): Promise<any> {
+        return this.getMedicationEffect(medication, effect)
+        .then((medicationEffects) => {
+            return medicationEffects[0].value;
         });
     }
 
@@ -76,18 +87,14 @@ export class MedicationEffectsService {
 
     private getMedicationChanges(medication: Medication, effect: Effect): Promise<Array<any>> {
         return this.getMedicationData(medication)
-        .then((data) => {
+        .then((effectsList) => {
             const frames: Array<any> = [];
-            if (data['changes']) {
-                data['changes'].forEach((change: any) => {
-                    if (change[effect.key] !== undefined) {
-                        frames.push({
-                            'day': change['day'],
-                            'value': change[effect.key]
-                        });
-                    }
+            effectsList.forEach((_effect: any) => {
+                frames.push({
+                    'day': _effect.day,
+                    'value': _effect.value
                 });
-            }
+            });
             if (frames.length) {
                 return Promise.resolve(frames);
             } else {
@@ -98,7 +105,7 @@ export class MedicationEffectsService {
 
     public getMedicationEffectAtTime(medication: Medication, effect: Effect, time: number): Promise<any> {
         if (!time) {
-            return this.getMedicationEffect(medication, effect);
+            return this.getMedicationEffectValue(medication, effect);
         } else {
             return this.getMedicationChanges(medication, effect)
             .then((changes) => {

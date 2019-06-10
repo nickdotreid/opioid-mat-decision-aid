@@ -11,7 +11,7 @@ export class CheckboxComponent extends EffectComponent {
     public checked: boolean;
 
     public updateEffect() {
-        this.medicationEffectsService.getMedicationEffect(
+        this.medicationEffectsService.getMedicationEffectValue(
             this.medication,
             this.effect
         )

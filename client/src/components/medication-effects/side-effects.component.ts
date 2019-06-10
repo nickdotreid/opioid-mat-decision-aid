@@ -8,4 +8,23 @@ import { EffectComponent } from './effect.component';
 })
 export class SideEffectsComponent extends EffectComponent {
 
+    public sideEffectsList: Array<string>;
+
+    updateEffect() {
+        this.medicationEffectsService.getMedicationEffect(
+            this.medication,
+            this.effect
+        )
+        .then((effects) => {
+            const sideEffects = [];
+            effects.forEach((effect) => {
+                sideEffects.push(effect.label + ': ' + effect.value + ' of ' + effect.comparison);
+            });
+            this.sideEffectsList = sideEffects;
+        })
+        .catch(() => {
+            console.log('no side effects');
+        });
+    }
+
 }

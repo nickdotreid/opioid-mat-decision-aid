@@ -9,38 +9,36 @@ export class RiskOfDeathComponent extends EffectComponent {
 
     public riskOfDeath: number;
 
-    public days: Array<number> = [0, 2, 14, 30, 60, 90];
+    public days: Array<number> = [];
     public dayValues: Array<number> = [];
 
     updateEffect() {
-        this.medicationEffectsService.getMedicationEffectAtTime(
+        this.medicationEffectsService.getMedicationEffect(
             this.medication,
-            this.effect,
-            this.time
+            this.effect
         )
-        .then((value: any) => {
-            this.riskOfDeath = value;
+        .then((effectValues: Array<any>) => {
+            const days: Array<number> = [];
+            const values: Array<number> = [];
+            effectValues.forEach((effect) => {
+                if (effect.day !== undefined) {
+                    const day = parseInt(effect.day, 10);
+                    const value = parseInt(effect.value, 10);
+                    const comparison = parseInt(effect.comparison, 10);
+                    days.push(day);
+                    if (comparison) {
+                        values.push(value / comparison);
+                    } else {
+                        values.push(value);
+                    }
+                }
+            });
+            this.days = days;
+            this.dayValues = values;
         })
         .catch(() => {
-            this.riskOfDeath = undefined;
-        });
-        this.getEffectTimes();
-    }
-
-    getEffectTimes() {
-        const promises = [];
-        this.days.forEach((day) => {
-            const p = this.medicationEffectsService.getMedicationEffectAtTime(
-                this.medication,
-                this.effect,
-                day
-            );
-            promises.push(p);
-        });
-
-        Promise.all(promises)
-        .then((values) => {
-            this.dayValues = values;
+            this.days = [];
+            this.dayValues = [];
         });
     }
 }

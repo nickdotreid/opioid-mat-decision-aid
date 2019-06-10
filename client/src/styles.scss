@@ -237,10 +237,17 @@ tr:nth-child(even) {
 // SVG chart styles
 
 svg .line {
-    stroke: #000000;
+    stroke: $color-text;
     stroke-width: 2;
     fill: none;
 }
+
+svg .area {
+    stroke: none;
+    fill: $color-link;
+    opacity: 0.7;
+}
+
 
 svg .labels {
     color: #AAA;

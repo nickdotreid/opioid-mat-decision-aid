@@ -25,6 +25,7 @@ before_script:
 - docker-compose build client
 script:
 - docker-compose run client npm run build --prod
+- docker-compose run server python manage.py test
 after_success:
 # Upload static files to bucket
 - docker-compose run server python manage.py collectstatic

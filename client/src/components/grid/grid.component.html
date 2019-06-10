@@ -11,13 +11,34 @@
         <tr *ngFor="let effect of effects">
             <th (click)="toggleEffect(effect)">
                 {{effect.name}}
-                <a *ngIf="selectedAttribute===effect.key">Close</a>
-                <a *ngIf="selectedAttribute!==effect.key">Expand</a>
             </th>
             <td *ngFor="let medication of medications"
                 (click)="toggleEffect(effect)"
+                [ngSwitch]="effect.category"
                 >
+                <app-cravings
+                    *ngSwitchCase="'circle'"
+                    [medication] = "medication"
+                    [effect]="effect"
+                    [expanded]="selectedAttribute === effect.key"
+                    >
+                </app-cravings>
+                <app-risk-of-death
+                    *ngSwitchCase="'timeline'"
+                    [medication] = "medication"
+                    [effect]="effect"
+                    [expanded]="selectedAttribute === effect.key"
+                    >
+                </app-risk-of-death>
+                <app-side-effects
+                    *ngSwitchCase="'list'"
+                    [medication] = "medication"
+                    [effect]="effect"
+                    [expanded]="selectedAttribute === effect.key"
+                    >
+                </app-side-effects>
                 <app-medication-effect
+                    *ngSwitchDefault
                     [medication]="medication"
                     [effect]="effect"
                     [expanded]="selectedAttribute === effect.key"

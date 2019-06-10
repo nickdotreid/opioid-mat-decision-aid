@@ -8,36 +8,26 @@ import { EffectComponent } from './effect.component';
 })
 export class CravingsComponent extends EffectComponent {
 
-    public radius = 0;
+    public percentage = 0;
 
     updateEffect() {
-        this.medicationEffectsService.getMedicationEffectAtTime(
+        this.medicationEffectsService.getMedicationEffect(
             this.medication,
-            this.effect,
-            this.time
+            this.effect
         )
-        .then((value: any) => {
-            this.radius = this.getNumericValue(value);
+        .then((effects) => {
+            if (effects.length > 0) {
+                const value = parseInt(effects[0].value, 10);
+                const comparison = parseInt(effects[0].comparison, 10);
+                if (comparison) {
+                    this.percentage = value / comparison;
+                } else {
+                    this.percentage = 1;
+                }
+            }
         })
         .catch(() => {
-            this.radius = 0;
+            this.percentage = 0;
         });
-    }
-
-    private getNumericValue(value: string) {
-        switch (value) {
-            case 'severe':
-                return 50;
-            case 'high':
-                return 40;
-            case 'moderate':
-                return 30;
-            case 'mild':
-                return 20;
-            case 'none':
-                return 10;
-            default:
-                this.radius = 0;
-        }
     }
 }

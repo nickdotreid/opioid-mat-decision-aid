@@ -30,8 +30,10 @@ class MedicationSerializer(serializers.ModelSerializer):
         
         for medicationEffect in instance.effects.all():
             key = medicationEffect.effect.key
+            if key not in representation:
+                representation[key] = []
             serializer = MedicationEffectSerializer(medicationEffect)
-            representation[key] = serializer.data
+            representation[key].append(serializer.data)
 
         return representation
 

@@ -32,11 +32,13 @@ export class LineChartComponent implements AfterViewInit {
         if (!this.data || this.data.length === 0) {
             return false;
         }
-        const xAxisHeight = 15;
         const width = this.elementRef.nativeElement.offsetWidth;
-        const height = this.elementRef.nativeElement.offsetHeight - xAxisHeight;
+        const height = this.elementRef.nativeElement.offsetHeight;
 
         const xScaleMax = this.ticks.reduce((a, b) => {
+            return Math.max(a, b);
+        });
+        const yScaleMax = this.data.reduce((a, b) => {
             return Math.max(a, b);
         });
 
@@ -44,7 +46,7 @@ export class LineChartComponent implements AfterViewInit {
             .domain([0, xScaleMax])
             .range([0, width]);
         const yScale = d3.scaleLinear()
-            .domain([0, 1])
+            .domain([0, yScaleMax])
             .range([height, 0]);
         const line = d3.line()
             .x((d, i) => {
@@ -54,20 +56,28 @@ export class LineChartComponent implements AfterViewInit {
                 return yScale(d);
             })
             .curve(d3.curveBasis);
+        const area = d3.area()
+        .x((d, i) => {
+            return xScale(this.ticks[i]);
+        })
+        .y0(height)
+        .y1((d) => {
+            return yScale(d);
+        })
+        .curve(d3.curveBasis);
+
 
         const svg = d3.select(this.svg.nativeElement);
         svg.attr('width', this.elementRef.nativeElement.offsetWidth);
         svg.attr('height', this.elementRef.nativeElement.offsetHeight);
 
-        const chartLine = svg.select('.chart path');
+        const chartArea = svg.select('.chart path.area');
+        chartArea.datum(this.data)
+        .attr('d', area);
+
+        const chartLine = svg.select('.chart path.line');
         chartLine.datum(this.data)
-            .attr('d', line);
-
-        const xAxis = d3.axisBottom().scale(xScale);
-
-        svg.select('.labels')
-            .attr('transform', `translate(0, ${height})`)
-            .call(xAxis);
+        .attr('d', line);
     }
 
 }

@@ -1,7 +1,4 @@
-<app-bubble *ngIf="!expanded"
-    [size]="riskOfDeath"
-></app-bubble>
-<app-line-chart *ngIf="expanded"
+<app-line-chart
     [data]="dayValues"
     [ticks]="days"
     >
