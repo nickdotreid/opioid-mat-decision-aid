@@ -37,6 +37,6 @@ class AllMedicationsViewTest(APITestCase):
         self.assertEqual(medication_names, ['Sample Medication'])
         self.assertEqual(medication_keys, ['sampleMedication'])
         medication = response.data['medications'][0]
-        self.assertEqual(medication['sampleEffect']['value'], 'Sample value')
-        self.assertEqual(medication['sampleEffect']['label'], 'Sample label')
+        self.assertEqual(medication['sampleEffect'][0]['value'], 'Sample value')
+        self.assertEqual(medication['sampleEffect'][0]['label'], 'Sample label')
         self.assertFalse('otherEffect' in medication)
