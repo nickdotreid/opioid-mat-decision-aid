@@ -57,6 +57,42 @@ export class MedicationEffectsService {
         });
     }
 
+    public getMedication(key: string): Promise<Medication> {
+        return new Promise((resolve, reject) => {
+            this.medications
+            .subscribe((medications) => {
+                const medication = medications.find((_medication) => {
+                    if (_medication.key === key) {
+                        return true;
+                    }
+                });
+                if (medication) {
+                    resolve(medication);
+                } else {
+                    reject('Medication not found');
+                }
+            });
+        });
+    }
+
+    public getEffect(key: string): Promise<Effect> {
+        return new Promise((resolve, reject) => {
+            this.effects
+            .subscribe((effects) => {
+                const effect = effects.find((_effect) => {
+                    if (_effect.key === key) {
+                        return true;
+                    }
+                });
+                if (effect) {
+                    resolve(effect);
+                } else {
+                    return reject('Effect not found');
+                }
+            });
+        });
+    }
+
     public getMedicationEffect(medication: Medication, effect: Effect): Promise<Array<any>> {
         return this.getMedicationData(medication)
         .then((medicationData: any) => {

@@ -29,13 +29,21 @@ export class GridComponent {
 
     @Input('medications')
     set setMedications(medicationsList: Array<string>) {
+        console.log(medicationsList);
         this.medicationEffectsService.medications
         .subscribe((medications) => {
-            this.medications = medications.filter((medication) => {
-                if (medicationsList.includes(medication.key)) {
-                    return true;
+            const orderedMedications: Array<Medication> = [];
+            medicationsList.forEach((medicationKey) => {
+                const medication = medications.find((med) => {
+                    if (med.key === medicationKey) {
+                        return true;
+                    }
+                });
+                if (medication) {
+                    orderedMedications.push(medication);
                 }
             });
+            this.medications = orderedMedications;
         });
     }
 
