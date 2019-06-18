@@ -59,12 +59,10 @@ export class MedicationEffectsService {
 
     public getMedication(key: string): Promise<Medication> {
         return new Promise((resolve, reject) => {
-            console.log("gimmie medication: " + key);
             this.medications
             .subscribe((medications) => {
                 let medication: Medication;
-                if(medications) {
-                    console.log("got medications");
+                if (medications) {
                     medication = medications.find((_medication) => {
                         if (_medication.key === key) {
                             return true;

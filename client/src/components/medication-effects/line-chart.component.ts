@@ -68,8 +68,8 @@ export class LineChartComponent implements AfterViewInit {
 
 
         const svg = d3.select(this.svg.nativeElement);
-        svg.attr('width', this.elementRef.nativeElement.offsetWidth);
-        svg.attr('height', this.elementRef.nativeElement.offsetHeight);
+        svg.attr('width', width);
+        svg.attr('height', height);
 
         const chartArea = svg.select('.chart path.area');
         chartArea.datum(this.data)

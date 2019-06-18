@@ -216,10 +216,9 @@ table td {
     padding: 0.5em;
 }
 
-table tbody th {
-    font-weight: normal;
+table th {
     text-align: left;
-    width: 150px;
+    white-space: nowrap;
 }
 
 table thead th a {
@@ -231,6 +230,12 @@ table thead th a {
 
 tr:nth-child(even) {
     background-color: #f2f2f2;
+}
+
+tbody tr > *:first-child {
+    font-weight: normal;
+    text-align: left;
+    min-width: 150px;
 }
 
 
