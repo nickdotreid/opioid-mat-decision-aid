@@ -29,33 +29,25 @@ export class GridComponent {
 
     @Input('medications')
     set setMedications(medicationsList: Array<string>) {
-        console.log(medicationsList);
-        this.medicationEffectsService.medications
-        .subscribe((medications) => {
-            const orderedMedications: Array<Medication> = [];
-            medicationsList.forEach((medicationKey) => {
-                const medication = medications.find((med) => {
-                    if (med.key === medicationKey) {
-                        return true;
-                    }
-                });
-                if (medication) {
-                    orderedMedications.push(medication);
-                }
-            });
-            this.medications = orderedMedications;
+        const promises: Array<Promise<Medication>> = [];
+        medicationsList.forEach((_medicationKey) => {
+            return this.medicationEffectsService.getMedication(_medicationKey);
+        });
+        Promise.all(promises)
+        .then((medications) => {
+            this.medications = medications;
         });
     }
 
     @Input('effects')
     set setEffects(effectsList: Array<string>) {
-        this.medicationEffectsService.effects
-        .subscribe((effects) => {
-            this.effects = effects.filter((effect) => {
-                if (effectsList.includes(effect.key)) {
-                    return true;
-                }
-            });
+        const promises: Array<Promise<Effect>> = [];
+        effectsList.forEach((_effectKey) => {
+            return this.medicationEffectsService.getEffect(_effectKey);
+        });
+        Promise.all(promises)
+        .then((effects) => {
+            this.effects = effects;
         });
     }
 
