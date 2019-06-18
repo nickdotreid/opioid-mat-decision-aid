@@ -1,0 +1,1307 @@
+[
+{
+    "model": "medications.medication",
+    "pk": 1,
+    "fields": {
+        "name": "Buprenorphine Sublingual",
+        "slug": "buprenorphine-sublingual"
+    }
+},
+{
+    "model": "medications.medication",
+    "pk": 2,
+    "fields": {
+        "name": "Naltrexone Injectable",
+        "slug": "naltrexone-injectable"
+    }
+},
+{
+    "model": "medications.medication",
+    "pk": 3,
+    "fields": {
+        "name": "Methadone",
+        "slug": "methadone"
+    }
+},
+{
+    "model": "medications.medication",
+    "pk": 4,
+    "fields": {
+        "name": "No Medicine",
+        "slug": "no-medicine"
+    }
+},
+{
+    "model": "medications.medication",
+    "pk": 5,
+    "fields": {
+        "name": "Continue Using",
+        "slug": "continue-using"
+    }
+},
+{
+    "model": "medications.effect",
+    "pk": 1,
+    "fields": {
+        "name": "Symptom Relief",
+        "slug": "symptom-relief",
+        "category": "circle",
+        "description": "<p>Some medications help you feel better. When stopping opioids you can get withdrawal symptoms, which includes body aches, anxiety, fatigue, sweating, fatigue, cravings for drug, nausea, vomiting and diarrhea. You can also have cravings - a strong desire for opioids - that can be very strong in the beginning, but get&nbsp;better with time.&nbsp;</p>\r\n\r\n<p>Methadone and buprenorphine at the right dose can&nbsp;stop withdrawal symptoms and reduce cravings.&nbsp;&nbsp;</p>\r\n\r\n<p>Naltrexone cannot relieve withdrawal symptoms but your doctor can provide other medications for relief while the opioids leave your system. Naltrexone helps a little bit with craving.&nbsp;</p>"
+    }
+},
+{
+    "model": "medications.effect",
+    "pk": 2,
+    "fields": {
+        "name": "Where do I take the medication?",
+        "slug": "location",
+        "category": null,
+        "description": null
+    }
+},
+{
+    "model": "medications.effect",
+    "pk": 3,
+    "fields": {
+        "name": "How the medicine gets in the body",
+        "slug": "treatment",
+        "category": null,
+        "description": null
+    }
+},
+{
+    "model": "medications.effect",
+    "pk": 4,
+    "fields": {
+        "name": "How do I pick up the medication?",
+        "slug": "refill",
+        "category": null,
+        "description": null
+    }
+},
+{
+    "model": "medications.effect",
+    "pk": 5,
+    "fields": {
+        "name": "How do I start treatment?",
+        "slug": "starting",
+        "category": null,
+        "description": ""
+    }
+},
+{
+    "model": "medications.effect",
+    "pk": 6,
+    "fields": {
+        "name": "How do I pick up the medication?",
+        "slug": "getting-medication",
+        "category": null,
+        "description": ""
+    }
+},
+{
+    "model": "medications.effect",
+    "pk": 7,
+    "fields": {
+        "name": "Common side effects",
+        "slug": "side-effects",
+        "category": null,
+        "description": null
+    }
+},
+{
+    "model": "medications.effect",
+    "pk": 8,
+    "fields": {
+        "name": "Cost without insurance",
+        "slug": "cost",
+        "category": null,
+        "description": null
+    }
+},
+{
+    "model": "medications.effect",
+    "pk": 9,
+    "fields": {
+        "name": "Stopping the medication leads to",
+        "slug": "stopping",
+        "category": null,
+        "description": null
+    }
+},
+{
+    "model": "medications.effect",
+    "pk": 10,
+    "fields": {
+        "name": "Discomfort",
+        "slug": "discomfort",
+        "category": null,
+        "description": null
+    }
+},
+{
+    "model": "medications.effect",
+    "pk": 11,
+    "fields": {
+        "name": "Risk of Death Without Treatment",
+        "slug": "mortality",
+        "category": "icon",
+        "description": ""
+    }
+},
+{
+    "model": "medications.effect",
+    "pk": 12,
+    "fields": {
+        "name": "Risk of relapse",
+        "slug": "relapse",
+        "category": null,
+        "description": "<p>The longer you stay on medications like methadone and buprenorphine, the&nbsp;longer you are able to stay off opioids like heroin.</p>\r\n\r\n<p>Naltrexone also helps you staff off opioids as long as you continue to use it. Some people have trouble staying on this medication.&nbsp;</p>"
+    }
+},
+{
+    "model": "medications.effect",
+    "pk": 13,
+    "fields": {
+        "name": "Withdrawl if you stop",
+        "slug": "stoppingWithdrawl",
+        "category": null,
+        "description": null
+    }
+},
+{
+    "model": "medications.effect",
+    "pk": 14,
+    "fields": {
+        "name": "Risk of death if you stop",
+        "slug": "stoppingMortality",
+        "category": null,
+        "description": null
+    }
+},
+{
+    "model": "medications.effect",
+    "pk": 15,
+    "fields": {
+        "name": "Life saving",
+        "slug": "life-saving",
+        "category": "circle",
+        "description": "<p>Opioid use disorder increases the risk of death, from overdose, infection and other problems. In a room of 30 people with opioid use disorder, 3 people can die.&nbsp;&nbsp;</p>\r\n\r\n<p>life saving 1</p>\r\n\r\n<p>Medications help save lives by reducing this risk by up to half</p>\r\n\r\n<p>life saving 2&nbsp;</p>\r\n\r\n<p>Stopping opioid use without&nbsp;medication is also risky. The risk of relapse is high and using after stopping for a while&nbsp;you lose your tolerance - meaning a smaller dose may still cause an overdose.&nbsp;</p>"
+    }
+},
+{
+    "model": "medications.effect",
+    "pk": 16,
+    "fields": {
+        "name": "Stop Relapse",
+        "slug": "relapsePrevention",
+        "category": "timeline",
+        "description": "<p>The longer you stay on medications like methadone and buprenorphine, the&nbsp;longer you are able to stay off opioids like heroin.</p>\r\n\r\n<p>Naltrexone also helps you staff off opioids as long as you continue to use it. Some people have trouble staying on this medication.&nbsp;</p>"
+    }
+},
+{
+    "model": "medications.effect",
+    "pk": 19,
+    "fields": {
+        "name": "Improved Life Function",
+        "slug": "legal",
+        "category": null,
+        "description": "<p>Research shows medication&nbsp;can improve your abilities for day-to-day life</p>\r\n\r\n<p>(1)&nbsp;&darr; Legal problems - you will less likely be arrested&nbsp;</p>\r\n\r\n<p>(2)&nbsp;&uarr; Relationships - you will more likely improve your relationships with friends or family&nbsp;</p>\r\n\r\n<p>(3)&nbsp;&uarr; Employment - you will more likely be able to work&nbsp;</p>\r\n\r\n<p>Stopping opioid use without medication you will get&nbsp;better at first, but there is a high risk of relapse and then getting worse.&nbsp;</p>"
+    }
+},
+{
+    "model": "medications.effect",
+    "pk": 20,
+    "fields": {
+        "name": "How the medicine gets in the body",
+        "slug": "medicine-in-body",
+        "category": "list",
+        "description": ""
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 1,
+    "fields": {
+        "medication": 1,
+        "effect": 1,
+        "label": null,
+        "value": "4",
+        "comparison": "4",
+        "day": null,
+        "order": null
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 2,
+    "fields": {
+        "medication": 3,
+        "effect": 1,
+        "label": null,
+        "value": "4",
+        "comparison": "4",
+        "day": null,
+        "order": null
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 3,
+    "fields": {
+        "medication": 2,
+        "effect": 1,
+        "label": null,
+        "value": "1",
+        "comparison": "4",
+        "day": null,
+        "order": null
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 4,
+    "fields": {
+        "medication": 4,
+        "effect": 1,
+        "label": null,
+        "value": "0",
+        "comparison": "4",
+        "day": null,
+        "order": null
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 5,
+    "fields": {
+        "medication": 5,
+        "effect": 1,
+        "label": null,
+        "value": "0",
+        "comparison": "4",
+        "day": null,
+        "order": null
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 6,
+    "fields": {
+        "medication": 3,
+        "effect": 15,
+        "label": null,
+        "value": "3",
+        "comparison": "4",
+        "day": null,
+        "order": null
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 7,
+    "fields": {
+        "medication": 1,
+        "effect": 15,
+        "label": null,
+        "value": "3",
+        "comparison": "4",
+        "day": null,
+        "order": null
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 8,
+    "fields": {
+        "medication": 2,
+        "effect": 15,
+        "label": null,
+        "value": "2",
+        "comparison": "4",
+        "day": null,
+        "order": null
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 9,
+    "fields": {
+        "medication": 4,
+        "effect": 15,
+        "label": null,
+        "value": "0",
+        "comparison": "4",
+        "day": null,
+        "order": null
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 10,
+    "fields": {
+        "medication": 5,
+        "effect": 15,
+        "label": null,
+        "value": "0",
+        "comparison": "4",
+        "day": null,
+        "order": null
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 11,
+    "fields": {
+        "medication": 3,
+        "effect": 2,
+        "label": null,
+        "value": "home",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 12,
+    "fields": {
+        "medication": 3,
+        "effect": 3,
+        "label": null,
+        "value": "Take by mouth everyday",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 13,
+    "fields": {
+        "medication": 3,
+        "effect": 4,
+        "label": null,
+        "value": "Pick up every day from clinic in beginning",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 14,
+    "fields": {
+        "medication": 3,
+        "effect": 5,
+        "label": null,
+        "value": "Start day 1",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 15,
+    "fields": {
+        "medication": 3,
+        "effect": 6,
+        "label": null,
+        "value": "Go to a clinic every day. Once you are stable for 3 months, you can take medication at home every week.",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 16,
+    "fields": {
+        "medication": 3,
+        "effect": 7,
+        "label": "Sleepiness",
+        "value": "3",
+        "comparison": "12",
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 17,
+    "fields": {
+        "medication": 3,
+        "effect": 7,
+        "label": "Weight gain",
+        "value": "8",
+        "comparison": "12",
+        "day": null,
+        "order": 20
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 18,
+    "fields": {
+        "medication": 3,
+        "effect": 7,
+        "label": "Constipation",
+        "value": "6",
+        "comparison": "12",
+        "day": null,
+        "order": 30
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 19,
+    "fields": {
+        "medication": 3,
+        "effect": 7,
+        "label": "Sexual effects for men over 40",
+        "value": "6",
+        "comparison": "12",
+        "day": null,
+        "order": 40
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 20,
+    "fields": {
+        "medication": 3,
+        "effect": 8,
+        "label": null,
+        "value": "$",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 21,
+    "fields": {
+        "medication": 3,
+        "effect": 9,
+        "label": null,
+        "value": "Stopping the medication leads to withdrawl that feels almost as intense as stopping opioid drug of addiction but lasts longer (4 to 6 weeks).",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 22,
+    "fields": {
+        "medication": 3,
+        "effect": 10,
+        "label": null,
+        "value": "None",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 23,
+    "fields": {
+        "medication": 3,
+        "effect": 11,
+        "label": null,
+        "value": null,
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 24,
+    "fields": {
+        "medication": 3,
+        "effect": 13,
+        "label": null,
+        "value": "Stopping the medication leads to withdrawl that feels almost as intense as stopping opioid drug of addiction but lasts longer (4 to 6 weeks).",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 25,
+    "fields": {
+        "medication": 3,
+        "effect": 14,
+        "label": null,
+        "value": "Goes up, higher than continuing to use",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 26,
+    "fields": {
+        "medication": 3,
+        "effect": 16,
+        "label": null,
+        "value": "0",
+        "comparison": "10",
+        "day": 1,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 27,
+    "fields": {
+        "medication": 1,
+        "effect": 19,
+        "label": null,
+        "value": "Better",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 28,
+    "fields": {
+        "medication": 2,
+        "effect": 19,
+        "label": null,
+        "value": "Better",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 29,
+    "fields": {
+        "medication": 4,
+        "effect": 19,
+        "label": null,
+        "value": "Better at first, but then worse",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 30,
+    "fields": {
+        "medication": 5,
+        "effect": 19,
+        "label": null,
+        "value": "Worse",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 31,
+    "fields": {
+        "medication": 3,
+        "effect": 19,
+        "label": null,
+        "value": "Better",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 42,
+    "fields": {
+        "medication": 1,
+        "effect": 16,
+        "label": null,
+        "value": "0",
+        "comparison": "10",
+        "day": 1,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 43,
+    "fields": {
+        "medication": 2,
+        "effect": 16,
+        "label": null,
+        "value": "0",
+        "comparison": "10",
+        "day": 1,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 44,
+    "fields": {
+        "medication": 4,
+        "effect": 16,
+        "label": null,
+        "value": "10",
+        "comparison": "0",
+        "day": 1,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 45,
+    "fields": {
+        "medication": 5,
+        "effect": 16,
+        "label": null,
+        "value": "0",
+        "comparison": "100",
+        "day": 1,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 46,
+    "fields": {
+        "medication": 1,
+        "effect": 16,
+        "label": null,
+        "value": "0",
+        "comparison": "10",
+        "day": 3,
+        "order": 20
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 47,
+    "fields": {
+        "medication": 1,
+        "effect": 16,
+        "label": null,
+        "value": "5",
+        "comparison": "10",
+        "day": 90,
+        "order": 30
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 48,
+    "fields": {
+        "medication": 2,
+        "effect": 16,
+        "label": null,
+        "value": "0",
+        "comparison": "10",
+        "day": 7,
+        "order": 20
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 49,
+    "fields": {
+        "medication": 2,
+        "effect": 16,
+        "label": null,
+        "value": "5",
+        "comparison": "10",
+        "day": 90,
+        "order": 30
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 50,
+    "fields": {
+        "medication": 4,
+        "effect": 16,
+        "label": null,
+        "value": "10",
+        "comparison": "0",
+        "day": 90,
+        "order": 20
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 51,
+    "fields": {
+        "medication": 5,
+        "effect": 16,
+        "label": null,
+        "value": "0",
+        "comparison": "100",
+        "day": 90,
+        "order": 20
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 52,
+    "fields": {
+        "medication": 3,
+        "effect": 16,
+        "label": null,
+        "value": "5",
+        "comparison": "10",
+        "day": 90,
+        "order": 20
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 53,
+    "fields": {
+        "medication": 1,
+        "effect": 11,
+        "label": "smile1",
+        "value": "smile1",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 54,
+    "fields": {
+        "medication": 1,
+        "effect": 5,
+        "label": null,
+        "value": "Stop using opioid for 6-12 hours, feel moderate withdrawal, then start medicine",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 55,
+    "fields": {
+        "medication": 2,
+        "effect": 5,
+        "label": null,
+        "value": "Stop using opioid for 7 days, feel withdrawal with medical support, then start medicine",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 56,
+    "fields": {
+        "medication": 4,
+        "effect": 5,
+        "label": null,
+        "value": "Stop using opioid, feel severe withdrawal for 7 days, cravings may last months or longer",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 57,
+    "fields": {
+        "medication": 5,
+        "effect": 5,
+        "label": null,
+        "value": "not applicable",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 58,
+    "fields": {
+        "medication": 1,
+        "effect": 6,
+        "label": null,
+        "value": "Go to a clinic. Once you are stable in 3 days, you can pick up medication every week or month.",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 59,
+    "fields": {
+        "medication": 4,
+        "effect": 6,
+        "label": null,
+        "value": "No pick up.",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 60,
+    "fields": {
+        "medication": 5,
+        "effect": 6,
+        "label": null,
+        "value": "Obtain opioid daily or multiple times a day.",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 61,
+    "fields": {
+        "medication": 1,
+        "effect": 20,
+        "label": null,
+        "value": "Take a dissolving tab by mouth every day",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 62,
+    "fields": {
+        "medication": 2,
+        "effect": 20,
+        "label": null,
+        "value": "Get an injection once a month in the buttock",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 63,
+    "fields": {
+        "medication": 4,
+        "effect": 20,
+        "label": null,
+        "value": "No medication to take",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 64,
+    "fields": {
+        "medication": 5,
+        "effect": 20,
+        "label": null,
+        "value": "Taking by pill, injection, or snorting daily or multiple times a day",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "medications.medicationeffect",
+    "pk": 65,
+    "fields": {
+        "medication": 3,
+        "effect": 20,
+        "label": null,
+        "value": "Take a liquid by mouth everyday",
+        "comparison": null,
+        "day": null,
+        "order": 10
+    }
+},
+{
+    "model": "charts.chart",
+    "pk": 1,
+    "fields": {
+        "title": "Benefits of Medication",
+        "slug": "benefits-of-medication",
+        "description": ""
+    }
+},
+{
+    "model": "charts.chart",
+    "pk": 2,
+    "fields": {
+        "title": "Burdens of Medication",
+        "slug": "burdens-of-medication",
+        "description": ""
+    }
+},
+{
+    "model": "charts.chart",
+    "pk": 3,
+    "fields": {
+        "title": "What happens if you stop medication on your own",
+        "slug": "stopping",
+        "description": ""
+    }
+},
+{
+    "model": "charts.charteffect",
+    "pk": 1,
+    "fields": {
+        "chart": 1,
+        "order": 10,
+        "effect": 1
+    }
+},
+{
+    "model": "charts.charteffect",
+    "pk": 2,
+    "fields": {
+        "chart": 1,
+        "order": 20,
+        "effect": 15
+    }
+},
+{
+    "model": "charts.charteffect",
+    "pk": 3,
+    "fields": {
+        "chart": 1,
+        "order": 30,
+        "effect": 16
+    }
+},
+{
+    "model": "charts.charteffect",
+    "pk": 6,
+    "fields": {
+        "chart": 1,
+        "order": 60,
+        "effect": 19
+    }
+},
+{
+    "model": "charts.charteffect",
+    "pk": 7,
+    "fields": {
+        "chart": 2,
+        "order": 10,
+        "effect": 5
+    }
+},
+{
+    "model": "charts.charteffect",
+    "pk": 8,
+    "fields": {
+        "chart": 2,
+        "order": 20,
+        "effect": 6
+    }
+},
+{
+    "model": "charts.charteffect",
+    "pk": 9,
+    "fields": {
+        "chart": 2,
+        "order": 30,
+        "effect": 7
+    }
+},
+{
+    "model": "charts.charteffect",
+    "pk": 10,
+    "fields": {
+        "chart": 2,
+        "order": 40,
+        "effect": 8
+    }
+},
+{
+    "model": "charts.charteffect",
+    "pk": 11,
+    "fields": {
+        "chart": 3,
+        "order": 10,
+        "effect": 13
+    }
+},
+{
+    "model": "charts.charteffect",
+    "pk": 12,
+    "fields": {
+        "chart": 3,
+        "order": 20,
+        "effect": 14
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 1,
+    "fields": {
+        "chart": 1,
+        "order": 10,
+        "medication": 3
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 2,
+    "fields": {
+        "chart": 1,
+        "order": 20,
+        "medication": 1
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 3,
+    "fields": {
+        "chart": 1,
+        "order": 30,
+        "medication": 2
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 4,
+    "fields": {
+        "chart": 1,
+        "order": 40,
+        "medication": 4
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 5,
+    "fields": {
+        "chart": 1,
+        "order": 50,
+        "medication": 5
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 6,
+    "fields": {
+        "chart": 2,
+        "order": 10,
+        "medication": 3
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 7,
+    "fields": {
+        "chart": 2,
+        "order": 20,
+        "medication": 1
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 8,
+    "fields": {
+        "chart": 2,
+        "order": 30,
+        "medication": 2
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 9,
+    "fields": {
+        "chart": 2,
+        "order": 40,
+        "medication": 4
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 10,
+    "fields": {
+        "chart": 2,
+        "order": 50,
+        "medication": 5
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 11,
+    "fields": {
+        "chart": 3,
+        "order": 10,
+        "medication": 3
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 12,
+    "fields": {
+        "chart": 3,
+        "order": 20,
+        "medication": 1
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 13,
+    "fields": {
+        "chart": 3,
+        "order": 30,
+        "medication": 2
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 14,
+    "fields": {
+        "chart": 3,
+        "order": 40,
+        "medication": 4
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 15,
+    "fields": {
+        "chart": 3,
+        "order": 50,
+        "medication": 5
+    }
+},
+{
+    "model": "chapters.chapter",
+    "pk": 2,
+    "fields": {
+        "order": 1,
+        "title": "What is opioid use disorder?",
+        "slug": "d1",
+        "published": true
+    }
+},
+{
+    "model": "chapters.chapter",
+    "pk": 3,
+    "fields": {
+        "order": 2,
+        "title": "Treatment",
+        "slug": "treatment",
+        "published": true
+    }
+},
+{
+    "model": "chapters.chapter",
+    "pk": 4,
+    "fields": {
+        "order": 3,
+        "title": "Burdens",
+        "slug": "burdens",
+        "published": true
+    }
+},
+{
+    "model": "chapters.chapter",
+    "pk": 5,
+    "fields": {
+        "order": 4,
+        "title": "Stopping",
+        "slug": "stopping",
+        "published": true
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 4,
+    "fields": {
+        "order": 10,
+        "title": "What are opioids?",
+        "slug": "edit-1",
+        "published": true,
+        "chapter": 2,
+        "content": "<p>Opioids are a type of drug that includes heroin and prescription pain medications.&nbsp;</p>\r\n\r\n<p>Examples include:</p>\r\n\r\n<ul>\r\n\t<li>Percocet</li>\r\n\t<li>Vicodin</li>\r\n\t<li>oxycodone</li>\r\n\t<li>Oxycontin Dilaudid</li>\r\n\t<li>Fentanyl</li>\r\n</ul>",
+        "chart": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 5,
+    "fields": {
+        "order": 20,
+        "title": "What is an opioid use disorder?",
+        "slug": "second-page",
+        "published": true,
+        "chapter": 2,
+        "content": "<p><strong>At first,&nbsp;</strong>a person might take these opioid drugs for medical reasons, or because of how these drugs make&nbsp;them feel.</p>\r\n\r\n<p><strong>Over time</strong>, some people need to continue taking these drugs just to feel normal, even if it causes problems for themselves and their loved ones, or even if it takes over their life.</p>\r\n\r\n<p>They can find it difficult to quit on their own.</p>",
+        "chart": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 6,
+    "fields": {
+        "order": 10,
+        "title": "What does treatment for opioid use disorder look like?",
+        "slug": "what-does-treatment-for-opioid-use-disorder-look-like",
+        "published": true,
+        "chapter": 3,
+        "content": "<p>Using medications has <strong>the most success</strong> for opioid use disorder.</p>\r\n\r\n<hr />\r\n<p><strong>Immediate Effects</strong></p>\r\n\r\n<div style=\"background:#eeeeee; border:1px solid #cccccc; padding:5px 10px\">Most medications&nbsp;for opioid use disorder will calm the body&rsquo;s system as the body&nbsp;gets used to being away from the drug. Medications&nbsp;<strong>treat withdrawal symptoms and decrease&nbsp;cravings</strong>.</div>\r\n\r\n<p>Over time, medications help&nbsp;you:</p>\r\n\r\n<ul>\r\n<li>Stay <strong>OFF </strong>illegal opioids</li>\r\n\r\n<li>Reduce the risk of death from drugs and legal problems</li>\r\n<li>Medications improve your health and mood and help you enjoy things that matter to you, such as work or family</li>\r\n</ul>",
+        "chart": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 7,
+    "fields": {
+        "order": 20,
+        "title": "What are my choices for medications?",
+        "slug": "what-kind-of-medications-are-there",
+        "published": true,
+        "chapter": 3,
+        "content": "<p>There are 3&nbsp;medications proven to help opioid use disorder.&nbsp;</p>\r\n\r\n<h2>(1) Methadone</h2>\r\n\r\n<p>This medication is <strong>taken by mouth, once a day</strong>.</p>\r\n\r\n<p>In the beginning you will need to <strong>go to a clinic every day</strong> to take your&nbsp;medication. As you get stable over several months,&nbsp;you may be able to take medication at home.</p>\r\n\r\n<p>This medicine works by sticking to brain cells that heroin and similar opioids affect -- but it stays for a longer time, stabilizing the brain for the whole day, allowing you to continue your activities, instead of needing to get more opioids. It also takes up the space in the cell so&nbsp;opioids like heroin cannot easily affect you.&nbsp;</p>\r\n\r\n<h2>(2) Buprenorphine&nbsp;</h2>\r\n\r\n<p>This medication is usually<strong> taken by mouth, once a day</strong>.</p>\r\n\r\n<p>In the beginning <strong>you will need to stop using opioids like heroin for several hours</strong>,&nbsp;then you can start this medicine. After you get to a stable dose, you can take this medication at home.&nbsp;</p>\r\n\r\n<p>There are new versions of this medicine that can be taken by injection (lasts 1 month) or by surgical implant (lasts 6 months). These are not available now but will be in the future.&nbsp;</p>\r\n\r\n<p>This medicine works by both sticking to&nbsp;and blocking the brain cells that heroin and similar opioids affect -- but it stays for a longer time, stabilizing the brain for the whole day. It also blocks the cell from opioids like heroin.&nbsp;</p>\r\n\r\n<h2>(3) Naltrexone</h2>\r\n\r\n<p>This medication is <strong>taken by an injection, once a month</strong>.</p>\r\n\r\n<p>The pill version does not work as well&nbsp;for opioid disorder, only for alcohol.</p>\r\n\r\n<p><strong>You must stop using any opioids for at least 7 days before starting</strong> this medication. You can get the injection in the clinic.&nbsp;</p>\r\n\r\n<p>This medicine works by blocking the brain cells that heroin and similar opioids affect. Taking any opioids has no affect on the brain.&nbsp;</p>\r\n\r\n<hr />\r\n<p>All of these medications must be taken at the right dose and for a long time:</p>\r\n\r\n<div style=\"background:#eeeeee; border:1px solid #cccccc; padding:5px 10px\">At minimum 1 year, usually 3-5 years, to let the brain heal.</div>\r\n\r\n<p>Methadone and buprenorphine can stop withdrawal.&nbsp;All the medicines decrease the risk of death, reduce opioid use,&nbsp;reduce cravings, and help people function better -- meaning think and feel better, better health, relationships, ability to work, and less legal problems.</p>",
+        "chart": 1
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 10,
+    "fields": {
+        "order": 10,
+        "title": "Daily life on medications",
+        "slug": "burdens-of-medication",
+        "published": true,
+        "chapter": 4,
+        "content": "",
+        "chart": 2
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 11,
+    "fields": {
+        "order": 10,
+        "title": "Stopping Medications",
+        "slug": "stopping-medications",
+        "published": true,
+        "chapter": 5,
+        "content": "<p>Stopping medications can be difficult because....</p>",
+        "chart": 3
+    }
+}
+]
