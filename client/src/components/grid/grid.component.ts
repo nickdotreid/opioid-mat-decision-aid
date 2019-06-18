@@ -31,7 +31,7 @@ export class GridComponent {
     set setMedications(medicationsList: Array<string>) {
         const promises: Array<Promise<Medication>> = [];
         medicationsList.forEach((_medicationKey) => {
-            return this.medicationEffectsService.getMedication(_medicationKey);
+            promises.push(this.medicationEffectsService.getMedication(_medicationKey));
         });
         Promise.all(promises)
         .then((medications) => {
@@ -43,7 +43,7 @@ export class GridComponent {
     set setEffects(effectsList: Array<string>) {
         const promises: Array<Promise<Effect>> = [];
         effectsList.forEach((_effectKey) => {
-            return this.medicationEffectsService.getEffect(_effectKey);
+            promises.push(this.medicationEffectsService.getEffect(_effectKey));
         });
         Promise.all(promises)
         .then((effects) => {

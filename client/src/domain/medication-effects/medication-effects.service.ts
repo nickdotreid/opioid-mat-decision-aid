@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, ReplaySubject } from 'rxjs';
 
 export class Medication {
     key: string;
@@ -59,13 +59,19 @@ export class MedicationEffectsService {
 
     public getMedication(key: string): Promise<Medication> {
         return new Promise((resolve, reject) => {
+            console.log("gimmie medication: " + key);
             this.medications
             .subscribe((medications) => {
-                const medication = medications.find((_medication) => {
-                    if (_medication.key === key) {
-                        return true;
-                    }
-                });
+                let medication: Medication;
+                if(medications) {
+                    console.log("got medications");
+                    medication = medications.find((_medication) => {
+                        if (_medication.key === key) {
+                            return true;
+                        }
+                    });
+                }
+
                 if (medication) {
                     resolve(medication);
                 } else {
