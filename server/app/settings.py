@@ -17,6 +17,8 @@ DATABASES = {
     'default': env.db(),
 }
 
+FIXTURE_DIRS = ['fixtures']
+
 # Application definition
 
 INSTALLED_APPS = [
