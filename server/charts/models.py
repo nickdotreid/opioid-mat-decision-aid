@@ -32,6 +32,7 @@ class ChartOrdable(models.Model):
 
     class Meta:
         abstract = True
+        ordering = ['order']
 
 class ChartEffect(ChartOrdable):
     effect = models.ForeignKey(
