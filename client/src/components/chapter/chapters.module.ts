@@ -8,6 +8,7 @@ import { ChapterPageComponent } from './chapter-page.component';
 import { PageResolver, DefaultPageResolver } from './page.resolver';
 import { ChapterResolver, DefaultChapterResolver } from './chapter.resolver';
 import { GridPageModule } from '@components/grid/grid.module';
+import { FormModule } from '@components/form/form.module';
 
 const routes: Array<Route> = [
     {
@@ -43,6 +44,7 @@ const routes: Array<Route> = [
     ],
     imports: [
         BrowserModule,
+        FormModule,
         GridPageModule,
         HttpClientModule,
         RouterModule.forChild(routes)

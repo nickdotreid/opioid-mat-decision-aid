@@ -22,6 +22,14 @@
         >
     </app-grid>
 </div>
+<div *ngIf="page.quiz">
+    <form> 
+        <h3>{{page.quiz.title}}</h3>
+        <app-boolean-field *ngFor="let question of page.quiz.questions">
+            {{question.text}}
+        </app-boolean-field>
+    </form>
+</div>
 <nav>
     <button (click)="goToNextPage()">Next</button>
 </nav>

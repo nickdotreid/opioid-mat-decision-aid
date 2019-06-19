@@ -8,11 +8,24 @@ export class Chart {
     medications: Array<string>;
 }
 
+export class Question {
+    public text: string;
+    public options: Array<any>;
+}
+
+export class Quiz {
+    public slug: string;
+    public title: string;
+
+    public questions: Array<Question>;
+}
+
 export class Page {
     public slug: string;
     public title: string;
     public content: string;
     public chart: Chart;
+    public quiz: Quiz;
 }
 
 export class Chapter {
@@ -135,6 +148,13 @@ export class ChapterService {
             page.chart.title = data.chart.title;
             page.chart.effects = data.chart.effects;
             page.chart.medications = data.chart.medications;
+        }
+        if (data.quiz) {
+            page.quiz = new Quiz();
+            page.quiz.title = data.quiz.title;
+            page.quiz.slug = data.quiz.slug;
+            page.quiz.questions = data.quiz.questions;
+
         }
         return page;
     }
