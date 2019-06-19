@@ -9,6 +9,7 @@ import { PageResolver, DefaultPageResolver } from './page.resolver';
 import { ChapterResolver, DefaultChapterResolver } from './chapter.resolver';
 import { GridPageModule } from '@components/grid/grid.module';
 import { FormModule } from '@components/form/form.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Array<Route> = [
     {
@@ -47,6 +48,7 @@ const routes: Array<Route> = [
         FormModule,
         GridPageModule,
         HttpClientModule,
+        ReactiveFormsModule,
         RouterModule.forChild(routes)
     ],
     providers: [

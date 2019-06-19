@@ -9,7 +9,7 @@ class QuizSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Quiz
-        fields = ('slug', 'title')
+        fields = ('slug', 'title', 'description', 'points_to_pass')
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)

@@ -22,14 +22,32 @@
         >
     </app-grid>
 </div>
-<div *ngIf="page.quiz">
-    <form> 
+<div *ngIf="page.quiz && !quizFailed">
+    <form [formGroup]="form"
+        (ngSubmit)="submitForm()"
+        > 
         <h3>{{page.quiz.title}}</h3>
-        <app-boolean-field *ngFor="let question of page.quiz.questions">
-            {{question.text}}
-        </app-boolean-field>
+        <fieldset>
+            <legend>{{page.quiz.description}}</legend>
+            <app-boolean-field *ngFor="let question of page.quiz.questions; let name = index"
+                [formControlName]="name"
+                >
+                {{question.text}}
+            </app-boolean-field>
+        </fieldset>
+        <p *ngIf="error"
+            class="error"
+            >
+            {{error}}
+        </p>
+        <input type="submit" value="Next" />
     </form>
 </div>
-<nav>
+<div *ngIf="page.quiz && quizFailed">
+    <p>You may be using opioids in a way that is causing problems in your life, but not to the level that medications will be helpful. Talk to your doctor about additional options.</p>
+    <p>Learn about medication assisted treatment options, even though you are not eligible.</p>
+    <button (click)="goToNextChapter()">Next</button>
+</div>
+<nav *ngIf="!page.quiz">
     <button (click)="goToNextPage()">Next</button>
 </nav>

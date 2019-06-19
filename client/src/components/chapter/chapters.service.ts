@@ -16,7 +16,8 @@ export class Question {
 export class Quiz {
     public slug: string;
     public title: string;
-
+    public description: string;
+    public points_to_pass: number;
     public questions: Array<Question>;
 }
 
@@ -153,8 +154,9 @@ export class ChapterService {
             page.quiz = new Quiz();
             page.quiz.title = data.quiz.title;
             page.quiz.slug = data.quiz.slug;
+            page.quiz.description = data.quiz.description;
+            page.quiz.points_to_pass = data.quiz.points_to_pass;
             page.quiz.questions = data.quiz.questions;
-
         }
         return page;
     }
