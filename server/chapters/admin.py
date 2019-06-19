@@ -38,5 +38,6 @@ class PageAdmin(admin.ModelAdmin):
         'published',
         'title',
         'content',
-        'chart'
+        'chart',
+        'quiz'
     ]

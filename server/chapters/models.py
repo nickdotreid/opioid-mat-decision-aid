@@ -6,6 +6,7 @@ from ckeditor.fields import RichTextField
 from slugify import slugify
 
 from charts.models import Chart
+from quizes.models import Quiz
 
 class Orderable(models.Model):
     order = models.PositiveIntegerField()
@@ -19,10 +20,11 @@ class Orderable(models.Model):
         abstract = True
         ordering = ['order']
 
-class Chapter(Orderable):
-
     def __str__(self):
         return self.title
+
+class Chapter(Orderable):
+    pass
 
 class Page(Orderable):
     chapter = models.ForeignKey(
@@ -37,6 +39,15 @@ class Page(Orderable):
         null = True,
         blank = True
     )
+    quiz = models.ForeignKey(
+        Quiz,
+        blank = True,
+        null = True,
+        on_delete = models.SET_NULL
+    )
+
+    def __str__(self):
+        return "%s: %s" % (self.chapter.title, self.title)
 
 def set_slug(sender, instance, **kwargs):
     if not instance.slug:
