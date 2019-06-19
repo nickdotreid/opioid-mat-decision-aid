@@ -73,8 +73,6 @@ spec:
             value: '35.244.232.139,34.96.96.155,opioid-mat.nickreid.com,opioid-mat-server'
           - name: DATABASE_URL
             value: "psql://opioid-mat:opioid-mat@cloudsql:5432/opioid-mat"
-          - name: DEBUG
-            value: "True"
         ports:
         - containerPort: 8080
         livenessProbe:
