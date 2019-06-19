@@ -1,4 +1,7 @@
 from django.db import models
+from django.db.models.signals import pre_save
+
+from slugify import slugify
 
 class Quiz(models.Model):
     title = models.CharField(
@@ -24,3 +27,9 @@ class Question(models.Model):
 
     def __str__(self):
         return self.text
+
+def set_slug(sender, instance, **kwargs):
+    if not instance.slug:
+        instance.slug = slugify(instance.title)
+
+pre_save.connect(set_slug, sender=Quiz)
