@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-grid',
+    styleUrls: ['./grid.component.scss'],
     templateUrl: './grid.component.html'
 })
 export class GridComponent {
@@ -68,6 +69,14 @@ export class GridComponent {
                 },
                 queryParamsHandling: 'merge'
             });
+        }
+    }
+
+    public isExpanded(effect: Effect): boolean {
+        if (this.selectedAttribute === effect.key) {
+            return true;
+        } else {
+            return false;
         }
     }
 

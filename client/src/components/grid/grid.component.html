@@ -1,16 +1,19 @@
 <table>
     <thead>
         <tr>
-            <th>Medication</th>
+            <th>Effect</th>
             <th *ngFor="let medication of medications">
                 {{medication.name}}
             </th>
+            <th>Description</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let effect of effects">
+        <tr *ngFor="let effect of effects"
+            [ngClass]="{expanded: isExpanded(effect)}"
+            >
             <th (click)="toggleEffect(effect)">
-                {{effect.name}}
+                <div>{{effect.name}}</div>
             </th>
             <td *ngFor="let medication of medications"
                 (click)="toggleEffect(effect)"
@@ -44,6 +47,9 @@
                     [expanded]="selectedAttribute === effect.key"
                     >
                 </app-medication-effect>
+            </td>
+            <td class="explination">
+                <div [innerHTML]="effect.description"></div>
             </td>
         </tr>
     </tbody>

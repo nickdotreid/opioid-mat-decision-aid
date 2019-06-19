@@ -216,11 +216,6 @@ table td {
     padding: 0.5em;
 }
 
-table th {
-    text-align: left;
-    white-space: nowrap;
-}
-
 table thead th a {
     display: block;
     font-weight: normal;
@@ -233,9 +228,73 @@ tr:nth-child(even) {
 }
 
 tbody tr > *:first-child {
-    font-weight: normal;
     text-align: left;
-    min-width: 150px;
+}
+
+
+app-grid {
+
+    table tr {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        > * {
+            display: block;
+            overflow: hidden;
+            width: 100px;
+            padding: 9px;
+        }
+
+        > * > * {
+            display: block;
+            margin: 0px auto;
+        }
+    }
+
+    table tbody tr {
+        > th,
+        > td.explination {
+            width: 100%;
+            padding: 0px;
+            > div {
+                width: 560px;
+                padding: 1em;
+                margin: 0px auto;
+            }
+        }
+
+        > td.explination {
+            display:none;
+        }
+    }
+
+    table tbody tr.expanded {
+        > td.explination  {
+            display: block;
+        }
+    }
+
+    table thead tr {
+        th:first-child,
+        th:last-child {
+            display: none;
+        }
+    }
+}
+
+@media(min-width: 650px) {
+    app-grid {
+        table tr > * {
+            width: 120px;
+            padding: 15px;
+        }
+
+        table tbody tr > th > div,
+        table tbody tr > td.explination > div {
+            width: 750px;
+        }
+    }
 }
 
 
