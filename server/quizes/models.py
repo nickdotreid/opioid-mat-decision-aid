@@ -9,6 +9,15 @@ class Quiz(models.Model):
         unique=True
         )
     slug = models.CharField(max_length=250, unique=True)
+    description = models.CharField(
+        max_length = 250,
+        null = True,
+        blank = True
+    )
+    points_to_pass = models.PositiveIntegerField(
+        null = True,
+        blank = True
+    )
     
     def __str__(self):
         return self.title
