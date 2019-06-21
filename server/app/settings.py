@@ -109,7 +109,8 @@ STATIC_ROOT = 'static'
 # MEDIA
 
 MEDIA_ROOT = 'media'
-MEDIA_URL = '/media/'
+MEDIA_URL_DEFAULT = '/media/'
+MEDIA_URL = env.str('MEDIA_URL', default=MEDIA_URL_DEFAULT)
 
 # CKEDITOR
 

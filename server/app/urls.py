@@ -29,4 +29,4 @@ urlpatterns = [
     path('api/chapters/', ListContent.as_view(), name="chapters-content"),
     path('api/charts/', ListCharts.as_view(), name="charts-all"),
     path('api/medications/', ListAllMedications.as_view(), name="medications-all")
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL_DEFAULT, document_root=settings.MEDIA_ROOT)
