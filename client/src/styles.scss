@@ -6,6 +6,8 @@ $color-link: #0078a4;
 $color-background: #ffffff;
 $color-background-alternative: #f4f4f4;
 
+$color-grid: #B4B4B4;
+
 html {
     height: 100%;
     font-family: 'arial', 'sans-serif';
@@ -26,14 +28,14 @@ router-outlet {
 // Application Layout
 
 app-root {
-    display: flex;
-    flex-direction: row;
+    // display: flex;
+    // flex-direction: row;
 
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    height: 100%;
-    width: 100%;
+    // position: absolute;
+    // top: 0px;
+    // left: 0px;
+    // height: 100%;
+    // width: 100%;
 
     header {
         flex: 0 0 auto;
@@ -223,76 +225,157 @@ table thead th a {
     cursor: pointer;
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
+
 
 tbody tr > *:first-child {
     text-align: left;
 }
 
 
-app-grid {
+.grid {
 
-    table tr {
+    > * > ul,
+    > ul {
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+
         > * {
             display: block;
+            margin: 0px;
+            padding: 10px;
+
+            flex-grow: 1;
+            flex-wrap: nowrap;
+
             overflow: hidden;
-            width: 100px;
-            padding: 9px;
-        }
-
-        > * > * {
-            display: block;
-            margin: 0px auto;
         }
     }
 
-    table tbody tr {
-        > th,
-        > td.explination {
+    > ul {
+        display: none;
+    }
+
+    > article {
+        display: flex;
+        flex-direction: column;
+
+        > h3 {
+            font-size: 1em;
+            margin: 0em;
+            padding: 1em 2em;
             width: 100%;
-            padding: 0px;
-            > div {
-                width: 560px;
-                padding: 1em;
-                margin: 0px auto;
-            }
+            flex-grow: 1;
         }
 
-        > td.explination {
-            display:none;
+        > .explanation {
+            order: 100;
+            padding:0em 2em;
         }
-    }
 
-    table tbody tr.expanded {
-        > td.explination  {
-            display: block;
-        }
-    }
-
-    table thead tr {
-        th:first-child,
-        th:last-child {
-            display: none;
-        }
     }
 }
 
 @media(min-width: 650px) {
-    app-grid {
-        table tr > * {
-            width: 120px;
-            padding: 15px;
+    .grid {
+        background-color: $color-background-alternative;
+        overflow: hidden;
+        padding-top: 3em;
+
+        > ul,
+        > * {
+            width: 650px;
+            margin: 0px auto;
+            justify-content: flex-end;
         }
 
-        table tbody tr > th > div,
-        table tbody tr > td.explination > div {
-            width: 750px;
+        > * > ul > li,
+        > ul > li {
+            flex-grow: 0;
+            width: 70px;
+            border-left: $color-grid 1px solid;
+        } 
+
+        > article {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        > article:nth-child(even) {
+            background-color: $color-background;
+        }
+
+        > ul {
+            display: flex;
+            font-weight: bold;
+            > li {
+                white-space: nowrap;
+                transform: rotate(-25deg) translate(-20px, 0px);
+                border-left-width: 0px;
+                overflow: visible;
+            }
+        }
+
+        > article > h3 {
+            text-align: right;
+            width: 125px;
+            flex-grow: 0;
+        }
+
+        > article > .explanation {
+            display: none;
+            width: 100%;
+            > * {
+                width: 560px;
+                margin: 1em auto;
+            }
+        }
+
+        > article.expanded > .explanation {
+            display: block;
+        }
+
+    }
+}
+
+@media(min-width: 750px) {
+    .grid {
+        padding-top: 1em;
+        > ul,
+        > * {
+            width: 745px;
+        }
+
+        > * > ul > li,
+        > ul > li {
+            width: 90px;
+        } 
+    }
+}
+
+@media(min-width: 1000px) {
+    .grid {
+        padding-top: 0em;
+        > ul,
+        > * {
+            width: 996px;
+        }
+
+        > * > ul > li,
+        > ul > li {
+            width: 120px;
+        }
+
+        > article > h3 {
+            width: 225px;
+        }
+
+        > ul > li {
+            transform: rotate(0) translate(0px, 0px);
         }
     }
 }

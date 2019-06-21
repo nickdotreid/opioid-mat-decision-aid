@@ -1,22 +1,21 @@
-<table>
-    <thead>
-        <tr>
-            <th>Effect</th>
-            <th *ngFor="let medication of medications">
-                {{medication.name}}
-            </th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let effect of effects"
-            [ngClass]="{expanded: isExpanded(effect)}"
+<div class="grid">
+    <ul class="column-names">
+        <li *ngFor="let medication of medications"
             >
-            <th (click)="toggleEffect(effect)">
-                <div>{{effect.name}}</div>
-            </th>
-            <td *ngFor="let medication of medications"
-                (click)="toggleEffect(effect)"
+            {{medication.name}}
+        </li>
+    </ul>
+    <article *ngFor="let effect of effects"
+        [ngClass]="{expanded: isExpanded(effect)}"
+        (click)="toggleEffect(effect)"
+        >
+        <h3>{{effect.name}}</h3>
+        <div class="explanation" 
+            [innerHTML]="effect.description"
+            >
+        </div>
+        <ul>
+            <li *ngFor="let medication of medications"
                 [ngSwitch]="effect.category"
                 >
                 <app-cravings
@@ -47,10 +46,7 @@
                     [expanded]="selectedAttribute === effect.key"
                     >
                 </app-medication-effect>
-            </td>
-            <td class="explination">
-                <div [innerHTML]="effect.description"></div>
-            </td>
-        </tr>
-    </tbody>
-</table>
+            </li>
+        </ul>
+    </article>
+</div>
