@@ -72,7 +72,17 @@ spec:
           - name: ALLOWED_HOSTS
             value: '35.244.232.139,34.96.96.155,opioid-mat.nickreid.com,opioid-mat-server'
           - name: DATABASE_URL
-            value: "psql://opioid-mat:opioid-mat@cloudsql:5432/opioid-mat"
+            value: 'psql://opioid-mat:opioid-mat@cloudsql:5432/opioid-mat'
+          - name: GS_CREDENTIALS_FILE
+            value: '/credentials/gcloud.server.json'
+          - name: GS_BUCKET_NAME
+            value: 'opioid-mat-static'
+          - name: GS_PROJECT_ID
+            value: 'opioid-mat'
+          - name: MEDIA_URL
+            value: '/media/'
+          - name: DEBUG
+            value: 'True'
         ports:
         - containerPort: 8080
         livenessProbe:
@@ -92,6 +102,14 @@ spec:
                 value: opioid-mat-server
           initialDelaySeconds: 30
           periodSeconds: 10
+        volumeMounts:
+        - name: gcloud-credentials
+          mountPath: /credentials
+          readOnly: true
+      volumes:
+      - name: gcloud-credentials
+        secret:
+          secretName: gcloud-credentials
 
 ---
 
@@ -125,7 +143,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: gcr.io/opioid-mat/opioid-mat-nginx
+        image: gcr.io/opioid-mat/opioid-mat-nginx:latest
         imagePullPolicy: Always
         env:
           - name: BUILD_NUMBER

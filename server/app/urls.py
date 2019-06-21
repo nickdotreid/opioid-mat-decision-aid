@@ -25,7 +25,7 @@ from medications.views import ListAllMedications
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('api/chapters/', ListContent.as_view(), name="chapters-content"),
     path('api/charts/', ListCharts.as_view(), name="charts-all"),
     path('api/medications/', ListAllMedications.as_view(), name="medications-all")

@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'storages',
     'admin_ordering',
     'ckeditor',
     'ckeditor_uploader',
@@ -120,4 +119,11 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 # STORAGES
 GS_BUCKET_NAME = env.str('GS_BUCKET_NAME', default='')
 if GS_BUCKET_NAME:
+    INSTALLED_APPS += ['storages']
+    from google.oauth2 import service_account
+    GS_PROJECT_ID = env.str('GS_PROJECT_ID')
+    GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+        env.str('GS_CREDENTIALS_FILE')
+    )
     DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+
