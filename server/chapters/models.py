@@ -3,6 +3,7 @@ from django.db.models.signals import pre_save
 from django.dispatch import receiver
 
 from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField 
 from slugify import slugify
 
 from charts.models import Chart
@@ -32,7 +33,7 @@ class Page(Orderable):
         on_delete=models.CASCADE,
         related_name="pages"
     )
-    content = RichTextField(null=True, blank=True)
+    content = RichTextUploadingField(null=True, blank=True)
     chart = models.ForeignKey(
         Chart,
         on_delete = models.SET_NULL,

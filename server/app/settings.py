@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'admin_ordering',
     'ckeditor',
+    'ckeditor_uploader',
     'rest_framework',
     'medications',
     'charts',
@@ -104,3 +105,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static'
+
+# MEDIA
+
+MEDIA_ROOT = 'media'
+MEDIA_URL = '/media/'
+
+# CKEDITOR
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
