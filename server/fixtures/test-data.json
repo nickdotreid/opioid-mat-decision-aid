@@ -1,5 +1,23 @@
 [
 {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$dSoCTotKOJLj$SzGbY6Ookbgf0SfU9z6UicwEOPBoVeFnnu3EDcjDLEo=",
+        "last_login": null,
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@nickreid.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2019-06-21T01:09:43.713Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
     "model": "medications.medication",
     "pk": 1,
     "fields": {
@@ -1289,6 +1307,422 @@
     }
 },
 {
+    "model": "charts.chart",
+    "pk": 1,
+    "fields": {
+        "title": "Benefits of Medication",
+        "slug": "benefits-of-medication",
+        "description": ""
+    }
+},
+{
+    "model": "charts.chart",
+    "pk": 2,
+    "fields": {
+        "title": "Burdens of Medication",
+        "slug": "burdens-of-medication",
+        "description": ""
+    }
+},
+{
+    "model": "charts.chart",
+    "pk": 3,
+    "fields": {
+        "title": "What happens if you stop medication on your own",
+        "slug": "stopping",
+        "description": ""
+    }
+},
+{
+    "model": "charts.charteffect",
+    "pk": 1,
+    "fields": {
+        "chart": 1,
+        "order": 10,
+        "effect": 1
+    }
+},
+{
+    "model": "charts.charteffect",
+    "pk": 2,
+    "fields": {
+        "chart": 1,
+        "order": 20,
+        "effect": 15
+    }
+},
+{
+    "model": "charts.charteffect",
+    "pk": 3,
+    "fields": {
+        "chart": 1,
+        "order": 30,
+        "effect": 16
+    }
+},
+{
+    "model": "charts.charteffect",
+    "pk": 6,
+    "fields": {
+        "chart": 1,
+        "order": 60,
+        "effect": 19
+    }
+},
+{
+    "model": "charts.charteffect",
+    "pk": 7,
+    "fields": {
+        "chart": 2,
+        "order": 10,
+        "effect": 5
+    }
+},
+{
+    "model": "charts.charteffect",
+    "pk": 9,
+    "fields": {
+        "chart": 2,
+        "order": 40,
+        "effect": 7
+    }
+},
+{
+    "model": "charts.charteffect",
+    "pk": 10,
+    "fields": {
+        "chart": 2,
+        "order": 50,
+        "effect": 8
+    }
+},
+{
+    "model": "charts.charteffect",
+    "pk": 11,
+    "fields": {
+        "chart": 3,
+        "order": 10,
+        "effect": 13
+    }
+},
+{
+    "model": "charts.charteffect",
+    "pk": 12,
+    "fields": {
+        "chart": 3,
+        "order": 20,
+        "effect": 14
+    }
+},
+{
+    "model": "charts.charteffect",
+    "pk": 13,
+    "fields": {
+        "chart": 2,
+        "order": 20,
+        "effect": 4
+    }
+},
+{
+    "model": "charts.charteffect",
+    "pk": 14,
+    "fields": {
+        "chart": 2,
+        "order": 30,
+        "effect": 3
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 1,
+    "fields": {
+        "chart": 1,
+        "order": 10,
+        "medication": 3
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 2,
+    "fields": {
+        "chart": 1,
+        "order": 20,
+        "medication": 1
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 3,
+    "fields": {
+        "chart": 1,
+        "order": 30,
+        "medication": 2
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 4,
+    "fields": {
+        "chart": 1,
+        "order": 40,
+        "medication": 4
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 5,
+    "fields": {
+        "chart": 1,
+        "order": 50,
+        "medication": 5
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 6,
+    "fields": {
+        "chart": 2,
+        "order": 10,
+        "medication": 3
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 7,
+    "fields": {
+        "chart": 2,
+        "order": 20,
+        "medication": 1
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 8,
+    "fields": {
+        "chart": 2,
+        "order": 30,
+        "medication": 2
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 9,
+    "fields": {
+        "chart": 2,
+        "order": 40,
+        "medication": 4
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 10,
+    "fields": {
+        "chart": 2,
+        "order": 50,
+        "medication": 5
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 11,
+    "fields": {
+        "chart": 3,
+        "order": 10,
+        "medication": 3
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 12,
+    "fields": {
+        "chart": 3,
+        "order": 20,
+        "medication": 1
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 13,
+    "fields": {
+        "chart": 3,
+        "order": 30,
+        "medication": 2
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 14,
+    "fields": {
+        "chart": 3,
+        "order": 40,
+        "medication": 4
+    }
+},
+{
+    "model": "charts.chartmedication",
+    "pk": 15,
+    "fields": {
+        "chart": 3,
+        "order": 50,
+        "medication": 5
+    }
+},
+{
+    "model": "quizes.quiz",
+    "pk": 1,
+    "fields": {
+        "title": "Have you ever taken any of the following drugs?",
+        "slug": "have-you-ever-taken-any-of-the-following-drugs",
+        "description": "Have you ever taken any of the following drugs",
+        "points_to_pass": 3
+    }
+},
+{
+    "model": "quizes.quiz",
+    "pk": 3,
+    "fields": {
+        "title": "Do I have opioid use disorder?",
+        "slug": "do-i-have-opioid-use-disorder",
+        "description": "Based on your previous use of opioids, answer the following questions:",
+        "points_to_pass": 3
+    }
+},
+{
+    "model": "quizes.question",
+    "pk": 1,
+    "fields": {
+        "text": "Heroin",
+        "quiz": 1,
+        "order": 10
+    }
+},
+{
+    "model": "quizes.question",
+    "pk": 2,
+    "fields": {
+        "text": "Methadone",
+        "quiz": 1,
+        "order": 20
+    }
+},
+{
+    "model": "quizes.question",
+    "pk": 3,
+    "fields": {
+        "text": "Buprenorphine",
+        "quiz": 1,
+        "order": 30
+    }
+},
+{
+    "model": "quizes.question",
+    "pk": 4,
+    "fields": {
+        "text": "Morphine",
+        "quiz": 1,
+        "order": 40
+    }
+},
+{
+    "model": "quizes.question",
+    "pk": 5,
+    "fields": {
+        "text": "MS Contin",
+        "quiz": 1,
+        "order": 50
+    }
+},
+{
+    "model": "quizes.question",
+    "pk": 6,
+    "fields": {
+        "text": "Oxycontin",
+        "quiz": 1,
+        "order": 60
+    }
+},
+{
+    "model": "quizes.question",
+    "pk": 7,
+    "fields": {
+        "text": "Oxycodone",
+        "quiz": 1,
+        "order": 70
+    }
+},
+{
+    "model": "quizes.question",
+    "pk": 8,
+    "fields": {
+        "text": "Other opioid analgesics",
+        "quiz": 1,
+        "order": 80
+    }
+},
+{
+    "model": "quizes.question",
+    "pk": 9,
+    "fields": {
+        "text": "Did you ever need to use more opioids to get the same high as when you first started using opioids?",
+        "quiz": 3,
+        "order": 10
+    }
+},
+{
+    "model": "quizes.question",
+    "pk": 10,
+    "fields": {
+        "text": "Did the idea of missing a fix (or dose) ever make you anxious or worried?",
+        "quiz": 3,
+        "order": 20
+    }
+},
+{
+    "model": "quizes.question",
+    "pk": 11,
+    "fields": {
+        "text": "In the morning, did you ever use opioids to keep from feeling \"dope sick\" or did you ever feel \"dope sick\"?",
+        "quiz": 3,
+        "order": 30
+    }
+},
+{
+    "model": "quizes.question",
+    "pk": 12,
+    "fields": {
+        "text": "Did you worry about your use of opioids?",
+        "quiz": 3,
+        "order": 40
+    }
+},
+{
+    "model": "quizes.question",
+    "pk": 13,
+    "fields": {
+        "text": "Did you find it difficult to stop or not use opioids?",
+        "quiz": 3,
+        "order": 50
+    }
+},
+{
+    "model": "quizes.question",
+    "pk": 14,
+    "fields": {
+        "text": "Did you ever need to spend a lot of time/energy on finding opioids or recovering from feeling high?",
+        "quiz": 3,
+        "order": 60
+    }
+},
+{
+    "model": "quizes.question",
+    "pk": 15,
+    "fields": {
+        "text": "Did you ever miss important things like doctor's appointments, family/friend activities, or other things because of opioids?",
+        "quiz": 3,
+        "order": 70
+    }
+},
+{
     "model": "chapters.chapter",
     "pk": 2,
     "fields": {
@@ -1592,161 +2026,6 @@
         "content": "<p>&nbsp;</p>\r\n\r\n<ul>\r\n\t<li>Percocet</li>\r\n\t<li>Vicodin</li>\r\n\t<li>oxycodone</li>\r\n\t<li>Oxycontin Dilaudid</li>\r\n\t<li>Fentanyl</li>\r\n</ul>",
         "chart": null,
         "quiz": null
-    }
-},
-{
-    "model": "quizes.quiz",
-    "pk": 1,
-    "fields": {
-        "title": "Have you ever taken any of the following drugs?",
-        "slug": "have-you-ever-taken-any-of-the-following-drugs",
-        "description": "Have you ever taken any of the following drugs",
-        "points_to_pass": 3
-    }
-},
-{
-    "model": "quizes.quiz",
-    "pk": 3,
-    "fields": {
-        "title": "Do I have opioid use disorder?",
-        "slug": "do-i-have-opioid-use-disorder",
-        "description": "Based on your previous use of opioids, answer the following questions:",
-        "points_to_pass": 3
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 1,
-    "fields": {
-        "text": "Heroin",
-        "quiz": 1,
-        "order": 10
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 2,
-    "fields": {
-        "text": "Methadone",
-        "quiz": 1,
-        "order": 20
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 3,
-    "fields": {
-        "text": "Buprenorphine",
-        "quiz": 1,
-        "order": 30
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 4,
-    "fields": {
-        "text": "Morphine",
-        "quiz": 1,
-        "order": 40
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 5,
-    "fields": {
-        "text": "MS Contin",
-        "quiz": 1,
-        "order": 50
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 6,
-    "fields": {
-        "text": "Oxycontin",
-        "quiz": 1,
-        "order": 60
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 7,
-    "fields": {
-        "text": "Oxycodone",
-        "quiz": 1,
-        "order": 70
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 8,
-    "fields": {
-        "text": "Other opioid analgesics",
-        "quiz": 1,
-        "order": 80
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 9,
-    "fields": {
-        "text": "Did you ever need to use more opioids to get the same high as when you first started using opioids?",
-        "quiz": 3,
-        "order": 10
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 10,
-    "fields": {
-        "text": "Did the idea of missing a fix (or dose) ever make you anxious or worried?",
-        "quiz": 3,
-        "order": 20
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 11,
-    "fields": {
-        "text": "In the morning, did you ever use opioids to keep from feeling \"dope sick\" or did you ever feel \"dope sick\"?",
-        "quiz": 3,
-        "order": 30
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 12,
-    "fields": {
-        "text": "Did you worry about your use of opioids?",
-        "quiz": 3,
-        "order": 40
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 13,
-    "fields": {
-        "text": "Did you find it difficult to stop or not use opioids?",
-        "quiz": 3,
-        "order": 50
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 14,
-    "fields": {
-        "text": "Did you ever need to spend a lot of time/energy on finding opioids or recovering from feeling high?",
-        "quiz": 3,
-        "order": 60
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 15,
-    "fields": {
-        "text": "Did you ever miss important things like doctor's appointments, family/friend activities, or other things because of opioids?",
-        "quiz": 3,
-        "order": 70
     }
 }
 ]
