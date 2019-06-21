@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
     'admin_ordering',
     'ckeditor',
     'ckeditor_uploader',
@@ -115,3 +116,8 @@ MEDIA_URL = env.str('MEDIA_URL', default=MEDIA_URL_DEFAULT)
 # CKEDITOR
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
+
+# STORAGES
+GS_BUCKET_NAME = env.str('GS_BUCKET_NAME', default='')
+if GS_BUCKET_NAME:
+    DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'

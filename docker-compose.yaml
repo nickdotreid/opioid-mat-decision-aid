@@ -55,10 +55,14 @@ services:
             - ALLOWED_HOSTS=localhost,192.168.99.100
             - DEBUG=True
             - DATABASE_URL=psql://opioid-mat:opioid-mat@cloudsql:5432/opioid-mat
+            - GOOGLE_APPLICATION_CREDENTIALS=/credentials/gcloud.django.json
+            - GS_BUCKET_NAME=opioid-mat-static
+            - MEDIA_URL=http://localhost:8080/media/
         ports:
             - 8080:8080
         volumes:
             - ./server:/server
+            - ./credentials:/credentials
 volumes:
   client-node-modules:
   db-pgdata:
