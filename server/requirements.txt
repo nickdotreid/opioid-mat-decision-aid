@@ -3,8 +3,10 @@ certifi==2019.6.16
 chardet==3.0.4
 Django==2.2.1
 django-admin-ordering==0.11.0
+django-appconf==1.0.3
 django-ckeditor==5.7.1
 django-environ==0.4.5
+django-imagekit==4.0.2
 django-js-asset==1.2.2
 django-storages==1.7.1
 djangorestframework==3.9.4
@@ -17,6 +19,8 @@ googleapis-common-protos==1.6.0
 gunicorn==19.9.0
 honcho==1.0.1
 idna==2.8
+pilkit==2.0
+Pillow==6.0.0
 protobuf==3.8.0
 psycopg2==2.8.2
 pyasn1==0.4.5

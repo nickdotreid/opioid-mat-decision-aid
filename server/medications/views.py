@@ -18,6 +18,12 @@ class MedicationEffectSerializer(serializers.ModelSerializer):
     class Meta:
         model = MedicationEffect
         fields = ('label', 'value', 'comparison', 'day')
+    
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        if instance.icon:
+            representation['icon'] = instance.icon.thumbnail.url
+        return representation
 
 class MedicationSerializer(serializers.ModelSerializer):
 

@@ -1,6 +1,7 @@
+from admin_ordering.admin import OrderableAdmin
 from django.contrib import admin
 
-from admin_ordering.admin import OrderableAdmin
+from medication_icons.models import Icon
 
 from .models import Effect
 from .models import Medication

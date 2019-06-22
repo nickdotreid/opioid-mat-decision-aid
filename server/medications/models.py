@@ -3,6 +3,8 @@ from stringcase import camelcase
 
 from ckeditor.fields import RichTextField
 
+from medication_icons.models import Icon
+
 class BaseObject(models.Model):
     name = models.CharField(max_length=150)
     slug = models.CharField(max_length=250)
@@ -41,6 +43,12 @@ class MedicationEffect(models.Model):
     effect = models.ForeignKey(
         Effect,
         on_delete=models.CASCADE
+    )
+    icon = models.ForeignKey(
+        Icon,
+        null = True,
+        blank = True,
+        on_delete=models.SET_NULL
     )
 
     label = models.CharField(max_length=250, null=True, blank=True)
