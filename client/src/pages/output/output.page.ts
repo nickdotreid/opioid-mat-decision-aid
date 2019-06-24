@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MedicationEffectsService, Effect, Medication } from '@domain/medication-effects/medication-effects.service';
 import { Option } from '@components/form/option.model';
@@ -15,6 +15,8 @@ export class OutputPageComponent {
     public attributes: Array<string>;
 
     public form: FormGroup;
+
+    @Output('completed') completed: EventEmitter<boolean> = new EventEmitter();
 
     constructor(
         private medicationEffectsService: MedicationEffectsService
@@ -56,6 +58,10 @@ export class OutputPageComponent {
                 }
             });
         });
+    }
+
+    public submit() {
+        this.completed.emit(true);
     }
 
 }

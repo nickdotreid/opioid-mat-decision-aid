@@ -7,6 +7,7 @@ import { MedicationEffectsDomainModule } from '@domain/medication-effects/medica
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSidenavModule } from '@angular/material';
 import { OutputModule } from '@pages/output/output.module';
+import { ParticipantModule } from '@domain/participant/participant.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { OutputModule } from '@pages/output/output.module';
     MedicationEffectsDomainModule,
     MatSidenavModule,
     OutputModule,
+    ParticipantModule,
     RouterModule.forRoot([])
   ],
   bootstrap: [AppComponent]

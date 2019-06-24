@@ -9,7 +9,7 @@
         position="end"
         fixedInViewport
         >
-        <app-output-page></app-output-page>
+        <app-output-page (completed)="clearParticipant()"></app-output-page>
     </mat-sidenav>
     <header>
         <nav>
@@ -18,10 +18,15 @@
                 >
                 Navigation
             </button>
-            <button class="sidebar-button"
+            <button *ngIf="!participant"
+                (click)="createParticipant()"
+                >
+                Start
+            </button>
+            <button *ngIf="participant"
                 (click)="output.open()"
                 >
-                Output
+                {{participant.id}}
             </button>
         </nav>
         <nav *ngIf="currentPage && currentChapter">

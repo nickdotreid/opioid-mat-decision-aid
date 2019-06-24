@@ -1,7 +1,8 @@
-<h2>Output Page</h2>
-<p>Please use this page to summarize your thoughts after using this decision aid. All saved responses will be shared with the doctor.</p>
-
-<form [formGroup]="form">
+<h2>Summary</h2>
+<p>Please use this page to summarize your thoughts after using this decision aid.</p>
+<form [formGroup]="form"
+    (ngSubmit)="submit()"
+    >
     <app-choice-field
         formControlName="favorite"
         label="What medication are you most interested in?"
@@ -19,12 +20,5 @@
         [options]="attributes"
         >
     </app-list-field>
-    <fieldset>
-        <legend>What questions would you like to ask the doctor?</legend>
-        <div>
-            <label>Enter a question</label>
-            <input type="text" />
-        </div>
-    </fieldset>
-    <input type="submit" value="Save" />
+    <button mat-raised-button color="primary">Save</button>
 </form>
