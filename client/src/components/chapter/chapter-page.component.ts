@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Chapter, Page } from './chapters.service';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { Chapter, Page, ChapterService } from './chapters.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 
@@ -19,15 +19,21 @@ export class ChapterPageComponent {
     public error: string;
     public quizFailed: boolean;
 
+    @Output('reachedEnd') reachedEnd: EventEmitter<boolean> = new EventEmitter();
+
     constructor (
+        private chapterService: ChapterService,
         private activatedRoute: ActivatedRoute,
         private router: Router
     ) {
         this.activatedRoute.data
         .subscribe((data) => {
+            this.resetForm();
             this.chapter = data.chapter;
             this.page = data.page;
-            console.log(data.chapter);
+
+            this.chapterService.setCurrentChapter(this.chapter);
+            this.chapterService.setCurrentPage(this.page);
 
             if (this.page.quiz) {
                 this.form = new FormGroup({});
@@ -38,11 +44,14 @@ export class ChapterPageComponent {
         });
     }
 
+    private resetForm() {
+        this.error = undefined;
+        this.quizFailed = undefined;
+    }
+
     public submitForm() {
         this.error = undefined;
         this.quizFailed = undefined;
-        console.log('#submit form');
-        console.log(this.form.value);
         let answeredQuestions = 0;
         let points = 0;
         Object.values(this.form.value).forEach((answer) => {
@@ -86,7 +95,7 @@ export class ChapterPageComponent {
             this.router.navigate([chapter.slug]);
         })
         .catch(() => {
-            console.log('No more chapters');
+            this.chapterService.completedContent.next(true);
         });
     }
 

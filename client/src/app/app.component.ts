@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { ChapterService } from '@components/chapter/chapters.service';
+import {ViewChild} from '@angular/core';
+import {MatSidenav} from '@angular/material/sidenav';
+import { ChapterService, Page, Chapter } from '@components/chapter/chapters.service';
 import { MedicationEffectsService } from '@domain/medication-effects/medication-effects.service';
 
 @Component({
@@ -8,9 +10,14 @@ import { MedicationEffectsService } from '@domain/medication-effects/medication-
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+    @ViewChild('navigation') navigation: MatSidenav;
+    @ViewChild('output') output: MatSidenav;
     title = 'client';
 
     public navigationCollapsed = true;
+
+    public currentPage: Page;
+    public currentChapter: Chapter;
 
     constructor(
         private chapterService: ChapterService,
@@ -18,6 +25,20 @@ export class AppComponent {
     ) {
         this.chapterService.update();
         this.medicationEffectsService.update();
+
+        this.chapterService.completedContent.subscribe(() => {
+            this.output.open();
+        });
+
+        this.chapterService.currentChapter
+        .subscribe((chapter) => {
+            this.currentChapter = chapter;
+        });
+
+        this.chapterService.currentPage.subscribe((page) => {
+            this.currentPage = page;
+        });
+
     }
 
     public collapseNavigation() {

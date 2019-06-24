@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ReplaySubject } from 'rxjs';
+import { ReplaySubject, BehaviorSubject } from 'rxjs';
 
 export class Chart {
     title: string;
@@ -52,6 +52,11 @@ export class ChapterService {
 
     public chapters: ReplaySubject<Array<Chapter>> = new ReplaySubject(1);
     private _chapters: Array<Chapter>;
+
+    public currentChapter: BehaviorSubject<Chapter> = new BehaviorSubject(null);
+    public currentPage: BehaviorSubject<Page> = new BehaviorSubject(null);
+
+    public completedContent: EventEmitter<boolean> = new EventEmitter();
 
     constructor(
         private httpClient: HttpClient
@@ -124,6 +129,14 @@ export class ChapterService {
                 return this.getAllChapters();
             });
         }
+    }
+
+    public setCurrentPage(page: Page) {
+        this.currentPage.next(page);
+    }
+
+    public setCurrentChapter(chapter: Chapter) {
+        this.currentChapter.next(chapter);
     }
 
     private deserializeChapter(data: any): Chapter {

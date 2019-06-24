@@ -1,16 +1,4 @@
-<nav>
-    <a [routerLink]="['/', chapter.slug]">{{chapter.title}}</a>
-    <ul class="bullets">
-        <li *ngFor="let page of chapter.pages">
-            <a [routerLink]="['/', chapter.slug, page.slug]"
-                routerLinkActive="active"
-                >
-                {{page.title}}
-            </a>
-        </li>
-    </ul>
-</nav>
-<h2>{{page.title}}</h2>
+<h1>{{page.title}}</h1>
 <div [innerHTML]="page.content"></div>
 <div *ngIf="page.chart"
     class="chart"

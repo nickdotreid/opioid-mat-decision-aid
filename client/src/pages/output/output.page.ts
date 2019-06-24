@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
+    selector: 'app-output-page',
     templateUrl: './output.page.html'
 })
 export class OutputPageComponent {

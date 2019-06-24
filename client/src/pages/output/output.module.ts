@@ -14,6 +14,9 @@ const routes: Routes = [{
     declarations: [
         OutputPageComponent
     ],
+    exports: [
+        OutputPageComponent
+    ],
     imports: [
         FormModule,
         ReactiveFormsModule,

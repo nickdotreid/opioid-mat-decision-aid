@@ -1,18 +1,43 @@
-<!-- <header [ngClass]="{collapsed: navigationCollapsed}">
-    <button *ngIf="!navigationCollapsed"
-        (click)="collapseNavigation()"
-        class="collapse"
+<mat-sidenav-container>
+    <mat-sidenav #navigation
+        position="start"
+        fixedInViewport
         >
-        Hide navigation
-    </button>
-    <button *ngIf="navigationCollapsed"
-        (click)="expandNavigation()"
-        class="expand"
+        <app-chapter-navigation></app-chapter-navigation>
+    </mat-sidenav>
+    <mat-sidenav #output
+        position="end"
+        fixedInViewport
         >
-        Show navigation
-    </button>
-    <app-chapter-navigation></app-chapter-navigation>
-</header> -->
-<article id="content">
-    <router-outlet></router-outlet>
-</article>
+        <app-output-page></app-output-page>
+    </mat-sidenav>
+    <header>
+        <nav>
+            <button class="sidebar-button"
+                (click)="navigation.open()"
+                >
+                Navigation
+            </button>
+            <button class="sidebar-button"
+                (click)="output.open()"
+                >
+                Output
+            </button>
+        </nav>
+        <nav *ngIf="currentPage && currentChapter">
+            <a [routerLink]="['/', currentChapter.slug]">{{currentChapter.title}}</a>
+            <ul class="bullets">
+                <li *ngFor="let page of currentChapter.pages">
+                    <a [routerLink]="['/', currentChapter.slug, page.slug]"
+                        [ngClass]="{active: (page.slug === currentPage.slug)}"
+                        >
+                        {{page.title}}
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <article id="content">
+        <router-outlet></router-outlet>
+    </article>
+</mat-sidenav-container>
