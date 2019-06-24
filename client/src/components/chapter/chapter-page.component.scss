@@ -5,6 +5,16 @@
         margin: 1em auto;
     }
 
+    > nav {
+        display: flex;
+        flex-direction: row;
+
+        > button {
+            display: block;
+            flex-grow: 1;
+        }
+    }
+
     > .chart {
         width: auto;
         > * {

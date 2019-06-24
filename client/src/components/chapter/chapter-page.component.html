@@ -22,7 +22,7 @@
         >
     </app-grid>
 </div>
-<div *ngIf="page.quiz && !quizFailed">
+<div *ngIf="page.quiz">
     <form [formGroup]="form"
         (ngSubmit)="submitForm()"
         > 
@@ -40,14 +40,23 @@
             >
             {{error}}
         </p>
-        <input type="submit" value="Next" />
+        <button *ngIf="!quizFailed"
+            mat-raised-button
+            color="primary"
+            >
+            Answer
+        </button>
     </form>
 </div>
-<div *ngIf="page.quiz && quizFailed">
+<aside *ngIf="page.quiz && quizFailed">
     <p>You may be using opioids in a way that is causing problems in your life, but not to the level that medications will be helpful. Talk to your doctor about additional options.</p>
     <p>Learn about medication assisted treatment options, even though you are not eligible.</p>
-    <button (click)="goToNextChapter()">Next</button>
-</div>
-<nav *ngIf="!page.quiz">
-    <button (click)="goToNextPage()">Next</button>
+</aside>
+<nav *ngIf="!page.quiz || (page.quiz && quizFailed)">
+    <button mat-raised-button
+        color="primary"
+        (click)="goToNextPage()"
+        >
+        Next
+    </button>
 </nav>

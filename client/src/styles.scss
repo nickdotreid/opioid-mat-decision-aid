@@ -55,7 +55,7 @@ app-root {
     }
 }
 
-app-root #content nav {
+app-root article nav {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -205,6 +205,10 @@ form fieldset {
     margin: 0em;
     padding: 0em;
     border: 0px;
+}
+
+form > button {
+    width: 100%;
 }
 
 

@@ -10,6 +10,7 @@ import { ChapterResolver, DefaultChapterResolver } from './chapter.resolver';
 import { GridPageModule } from '@components/grid/grid.module';
 import { FormModule } from '@components/form/form.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
 
 const routes: Array<Route> = [
     {
@@ -48,6 +49,7 @@ const routes: Array<Route> = [
         FormModule,
         GridPageModule,
         HttpClientModule,
+        MatButtonModule,
         ReactiveFormsModule,
         RouterModule.forChild(routes)
     ],
