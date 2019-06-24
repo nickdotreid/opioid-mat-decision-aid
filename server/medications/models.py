@@ -1,7 +1,7 @@
 from django.db import models
 from stringcase import camelcase
 
-from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 from medication_icons.models import Icon
 
@@ -32,7 +32,7 @@ class Effect(BaseObject):
     ]
 
     category = models.CharField(max_length=250, choices=CATEGORIES, null=True, blank=True)
-    description = RichTextField(null=True, blank=True)
+    description = RichTextUploadingField(null=True, blank=True)
 
 class MedicationEffect(models.Model):
     medication = models.ForeignKey(
