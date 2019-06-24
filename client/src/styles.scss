@@ -205,7 +205,8 @@ form fieldset legend {
 }
 
 form > * {
-    margin-top: 0.5em;
+    display: block;
+    margin: 0.5em 0em;
 }
 
 form fieldset {
@@ -216,6 +217,11 @@ form fieldset {
 
 form > button {
     width: 100%;
+}
+
+form mat-checkbox label,
+form mat-radio-button label {
+    font-weight: normal;
 }
 
 

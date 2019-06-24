@@ -1,26 +1,30 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BooleanFieldComponent } from './boolean-field.component';
-import { MatRadioModule } from '@angular/material';
+import { MatRadioModule, MatCheckboxModule } from '@angular/material';
 import { ChoiceFieldComponent } from './choice-field.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { ListFieldComponent } from './list-field.component';
 
 
 
 @NgModule({
     declarations: [
         BooleanFieldComponent,
-        ChoiceFieldComponent
+        ChoiceFieldComponent,
+        ListFieldComponent
     ],
     imports: [
         BrowserModule,
+        MatCheckboxModule,
         MatRadioModule,
         FormsModule,
         ReactiveFormsModule
     ],
     exports: [
         BooleanFieldComponent,
-        ChoiceFieldComponent
+        ChoiceFieldComponent,
+        ListFieldComponent
     ]
 })
 export class FormModule {}

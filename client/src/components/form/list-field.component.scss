@@ -1,9 +1,10 @@
 :host {
-    mat-radio-button {
+    mat-checkbox {
         display: block;
         margin: 0.25em 0em;
     }
-    mat-radio-button > label {
+
+    mat-checkbox label {
         font-weight: normal;
     }
 }

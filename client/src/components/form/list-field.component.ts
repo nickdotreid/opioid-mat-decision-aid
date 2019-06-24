@@ -1,18 +1,22 @@
 import { Component, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { Option } from './option.model';
+
+export class Choice {
+    value: string;
+    name: string;
+}
 
 @Component({
-    selector: 'app-choice-field',
-    templateUrl: './choice-field.component.html',
-    styleUrls: ['./choice-field.component.scss'],
+    selector: 'app-list-field',
+    templateUrl: './list-field.component.html',
+    styleUrls: ['./list-field.component.scss'],
     providers: [{
         provide: NG_VALUE_ACCESSOR,
-        useExisting: ChoiceFieldComponent,
+        useExisting: ListFieldComponent,
         multi: true
       }]
 })
-export class ChoiceFieldComponent implements ControlValueAccessor {
+export class ListFieldComponent implements ControlValueAccessor {
 
     private onChange: Function;
     private onTouch: Function;
@@ -22,7 +26,7 @@ export class ChoiceFieldComponent implements ControlValueAccessor {
     public value: string;
 
     @Input('formControlName') formControlName: string;
-    @Input('options') options: Array<Option>;
+    @Input('options') options: Array<Choice>;
     @Input('label') label: string;
 
     constructor() {}

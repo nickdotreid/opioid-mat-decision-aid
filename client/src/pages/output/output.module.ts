@@ -3,6 +3,9 @@ import { OutputPageComponent } from './output.page';
 import { Routes, RouterModule } from '@angular/router';
 import { FormModule } from '@components/form/form.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MedicationEffectsDomainModule } from '@domain/medication-effects/medication-effects.module';
+import { MatCheckboxModule } from '@angular/material';
+import { BrowserModule } from '@angular/platform-browser';
 
 const routes: Routes = [{
     path: 'output',
@@ -18,7 +21,10 @@ const routes: Routes = [{
         OutputPageComponent
     ],
     imports: [
+        BrowserModule,
         FormModule,
+        MatCheckboxModule,
+        MedicationEffectsDomainModule,
         ReactiveFormsModule,
         RouterModule.forChild(routes)
     ]

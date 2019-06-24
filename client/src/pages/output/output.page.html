@@ -14,21 +14,11 @@
         [options]="secondMedications"
         >
     </app-choice-field>
-    <fieldset>
-        <legend>Which attributes matter most to you?</legend>
-        <ul class="checkbox">
-            <p><input type="checkbox">Symptom relief</p>
-            <p><input type="checkbox">Mortality</p>
-            <p><input type="checkbox">Risk of relapse</p>
-            <p><input type="checkbox">Impact on my function <em>(relationships, employment, legal trouble)</em></p>
-            <p><input type="checkbox">How hard it is to start the medication</p>
-            <p><input type="checkbox">Convenience <em>(how often I have to pick up the medication)</em></p>
-            <p><input type="checkbox">How the medication gets in my body</p>
-            <p><input type="checkbox">Side effects</p>
-            <p><input type="checkbox">Cost</p>
-            <p><input type="checkbox">Withdrawl symptoms if I stop this medication on my own</p>
-        </ul>
-    </fieldset>
+    <app-list-field
+        label="Which attributes matter most to you?"
+        [options]="attributes"
+        >
+    </app-list-field>
     <fieldset>
         <legend>What questions would you like to ask the doctor?</legend>
         <div>
