@@ -62,16 +62,16 @@ export class ChapterPageComponent {
                 points++;
             }
         });
-
-        if (answeredQuestions < this.page.quiz.questions.length) {
-            this.error = 'Answer all questions';
-        } else {
-            if (points < this.page.quiz.points_to_pass) {
-                this.quizFailed = true;
-            } else {
-                this.goToNextPage();
-            }
-        }
+        this.goToNextPage();
+        // if (answeredQuestions < this.page.quiz.questions.length) {
+        //     this.error = 'Answer all questions';
+        // } else {
+        //     if (points < this.page.quiz.points_to_pass) {
+        //         this.quizFailed = true;
+        //     } else {
+        //         this.goToNextPage();
+        //     }
+        // }
     }
 
     public goToNextPage() {
