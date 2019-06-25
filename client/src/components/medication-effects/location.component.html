@@ -1,1 +1,4 @@
-<p *ngIf="location">{{location}}</p>
+<img *ngFor="let icon of icons;"
+    [src]="icon.url"
+    [alt]="icon.text"
+    />

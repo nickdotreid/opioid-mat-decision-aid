@@ -39,6 +39,13 @@
                     [expanded]="selectedAttribute === effect.key"
                     >
                 </app-side-effects>
+                <app-medication-location
+                    *ngSwitchCase="'icon'"
+                    [medication] = "medication"
+                    [effect] = "effect"
+                    [expanded]="selectedAttribute === effect.key"
+                    >
+                </app-medication-location>
                 <app-medication-effect
                     *ngSwitchDefault
                     [medication]="medication"

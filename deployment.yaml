@@ -63,7 +63,7 @@ spec:
     spec:
       containers:
       - name: opioid-mat-app
-        image: gcr.io/opioid-mat/opioid-mat-server:latest
+        image: gcr.io/opioid-mat/opioid-mat-server
         imagePullPolicy: Always
         command: ['honcho', 'start', 'prod']
         env:
@@ -143,7 +143,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: gcr.io/opioid-mat/opioid-mat-nginx:latest
+        image: gcr.io/opioid-mat/opioid-mat-nginx
         imagePullPolicy: Always
         env:
           - name: BUILD_NUMBER
