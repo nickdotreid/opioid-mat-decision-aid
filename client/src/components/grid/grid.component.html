@@ -5,13 +5,13 @@
             {{medication.name}}
         </li>
     </ul>
-    <article *ngFor="let effect of effects"
+    <article *ngFor="let effect of effects; index as i"
         [ngClass]="{expanded: isExpanded(effect)}"
         (click)="toggleEffect(effect)"
         >
         <h3>{{effect.name}}</h3>
         <div class="explanation content" 
-            [innerHTML]="effect.description"
+            [innerHTML]="effectExplanations[i]"
             >
         </div>
         <ul>

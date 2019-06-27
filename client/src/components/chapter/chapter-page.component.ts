@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 import { Chapter, Page, ChapterService } from './chapters.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 
 @Component({
@@ -15,6 +16,8 @@ export class ChapterPageComponent {
     public chapter: Chapter;
     public page: Page;
 
+
+    public content: SafeHtml;
     public form: FormGroup;
     public error: string;
     public quizFailed: boolean;
@@ -24,13 +27,15 @@ export class ChapterPageComponent {
     constructor (
         private chapterService: ChapterService,
         private activatedRoute: ActivatedRoute,
-        private router: Router
+        private router: Router,
+        private santizer: DomSanitizer
     ) {
         this.activatedRoute.data
         .subscribe((data) => {
             this.resetForm();
             this.chapter = data.chapter;
             this.page = data.page;
+            this.content = this.santizer.bypassSecurityTrustHtml(data.page.content);
 
             this.chapterService.setCurrentChapter(this.chapter);
             this.chapterService.setCurrentPage(this.page);

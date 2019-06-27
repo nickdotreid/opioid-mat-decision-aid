@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MedicationEffectsService, Medication, Effect } from '@domain/medication-effects/medication-effects.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 
 @Component({
@@ -17,11 +18,13 @@ export class GridComponent {
 
     public medications: Array<Medication>;
     public effects: Array<Effect>;
+    public effectExplanations: Array<SafeHtml>;
 
     constructor(
         private medicationEffectsService: MedicationEffectsService,
         private activatedRoute: ActivatedRoute,
-        private router: Router
+        private router: Router,
+        private santizer: DomSanitizer
     ) {
         this.activatedRoute.queryParams.subscribe((queryParams) => {
             this.selectedAttribute = queryParams.attribute;
@@ -48,6 +51,11 @@ export class GridComponent {
         });
         Promise.all(promises)
         .then((effects) => {
+            const explanations: Array<SafeHtml> = [];
+            effects.forEach((effect) => {
+                explanations.push(this.santizer.bypassSecurityTrustHtml(effect.description));
+            });
+            this.effectExplanations = explanations;
             this.effects = effects;
         });
     }

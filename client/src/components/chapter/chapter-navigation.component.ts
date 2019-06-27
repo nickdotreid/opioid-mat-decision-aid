@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-chapter-navigation',
-    templateUrl: './chapter-navigation.component.html',
+    templateUrl: './chapter-navigation.component.html'
 })
 export class ChapterNavigationComponent implements OnInit, OnDestroy {
 
