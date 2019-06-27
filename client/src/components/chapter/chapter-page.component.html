@@ -1,50 +1,50 @@
-<h1>{{page.title}}</h1>
-<div [innerHTML]="page.content"></div>
-<div *ngIf="page.chart"
-    class="chart"
-    >
-    <h3>{{page.chart.title}}</h3>
-    <app-grid
-        [effects] = "page.chart.effects"
-        [medications] = "page.chart.medications"
+<div class="content">
+    <h1>{{page.title}}</h1>
+    <div [innerHTML]="page.content"></div>
+    <div *ngIf="page.chart"
+        class="chart"
         >
-    </app-grid>
-</div>
-<div *ngIf="page.quiz">
-    <form [formGroup]="form"
-        (ngSubmit)="submitForm()"
-        > 
-        <h3>{{page.quiz.title}}</h3>
-        <fieldset>
-            <legend>{{page.quiz.description}}</legend>
-            <app-boolean-field *ngFor="let question of page.quiz.questions; let name = index"
-                [formControlName]="name"
+        <app-grid
+            [effects] = "page.chart.effects"
+            [medications] = "page.chart.medications"
+            >
+        </app-grid>
+    </div>
+    <div *ngIf="page.quiz">
+        <form [formGroup]="form"
+            (ngSubmit)="submitForm()"
+            > 
+            <fieldset>
+                <legend>{{page.quiz.description}}</legend>
+                <app-boolean-field *ngFor="let question of page.quiz.questions; let name = index"
+                    [formControlName]="name"
+                    >
+                    {{question.text}}
+                </app-boolean-field>
+            </fieldset>
+            <p *ngIf="error"
+                class="error"
                 >
-                {{question.text}}
-            </app-boolean-field>
-        </fieldset>
-        <p *ngIf="error"
-            class="error"
-            >
-            {{error}}
-        </p>
-        <button *ngIf="!quizFailed"
-            mat-raised-button
+                {{error}}
+            </p>
+            <button *ngIf="!quizFailed"
+                mat-raised-button
+                color="primary"
+                >
+                Answer
+            </button>
+        </form>
+    </div>
+    <aside *ngIf="page.quiz && quizFailed">
+        <p>You may be using opioids in a way that is causing problems in your life, but not to the level that medications will be helpful. Talk to your doctor about additional options.</p>
+        <p>Learn about medication assisted treatment options, even though you are not eligible.</p>
+    </aside>
+    <nav *ngIf="!page.quiz || (page.quiz && quizFailed)">
+        <button mat-raised-button
             color="primary"
+            (click)="goToNextPage()"
             >
-            Answer
+            Next
         </button>
-    </form>
+    </nav>
 </div>
-<aside *ngIf="page.quiz && quizFailed">
-    <p>You may be using opioids in a way that is causing problems in your life, but not to the level that medications will be helpful. Talk to your doctor about additional options.</p>
-    <p>Learn about medication assisted treatment options, even though you are not eligible.</p>
-</aside>
-<nav *ngIf="!page.quiz || (page.quiz && quizFailed)">
-    <button mat-raised-button
-        color="primary"
-        (click)="goToNextPage()"
-        >
-        Next
-    </button>
-</nav>
