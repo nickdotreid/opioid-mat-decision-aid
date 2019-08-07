@@ -1,6 +1,4 @@
 from django.db import models
-from django.db.models.signals import pre_save
-from django.dispatch import receiver
 
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField 
@@ -21,19 +19,44 @@ class Orderable(models.Model):
         abstract = True
         ordering = ['order']
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.title
 
 class Chapter(Orderable):
-    pass
+    
+    @property
+    def pages(self):
+        pages = Page.objects.filter(chapter = self).all()
+        return list(pages)
+
+    def save(self, *args, **kwargs):
+        if not self.order:
+            total_pages = Chapter.objects.count()
+            self.order = (total_pages + 1) * 10
+        super().save(*args, **kwargs)
 
 class Page(Orderable):
+    content = RichTextUploadingField(null=True, blank=True)
+    
     chapter = models.ForeignKey(
         Chapter,
-        on_delete=models.CASCADE,
-        related_name="pages"
+        null = True,
+        on_delete=models.SET_NULL,
+        related_name = '+'
     )
-    content = RichTextUploadingField(null=True, blank=True)
+    next_page = models.ForeignKey(
+        'self',
+        null = True,
+        on_delete = models.SET_NULL,
+        related_name = '+'
+    )
+    
     chart = models.ForeignKey(
         Chart,
         on_delete = models.SET_NULL,
@@ -47,25 +70,37 @@ class Page(Orderable):
         on_delete = models.SET_NULL
     )
 
+    def save(self, *args, **kwargs):
+        if not self.order:
+            total_pages = Page.objects.filter(chapter=self.chapter).count()
+            self.order = (total_pages + 1) * 10
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return "%s: %s" % (self.chapter.title, self.title)
 
-def set_slug(sender, instance, **kwargs):
-    if not instance.slug:
-        instance.slug = slugify(instance.title)
+class PageRedirect(models.Model):
+    test_page = models.ForeignKey(
+        Page,
+        on_delete = models.CASCADE,
+        related_name = '+'
+    )
+    target_page = models.ForeignKey(
+        Page,
+        null = True,
+        on_delete = models.SET_NULL,
+        related_name = '+'
+    )
 
-pre_save.connect(set_slug, sender=Chapter)
-pre_save.connect(set_slug, sender=Page)
-
-
-@receiver(pre_save, sender=Chapter)
-def chapter_set_order(sender, instance, **kwargs):
-    if not instance.order:
-        total_pages = Chapter.objects.count()
-        instance.order = (total_pages + 1) * 10
-
-@receiver(pre_save, sender=Page)
-def page_set_order(sender, instance, **kwargs):
-    if not instance.order:
-        total_pages = Page.objects.filter(chapter=instance.chapter).count()
-        instance.order = (total_pages + 1) * 10
+class PageRedirectCondition(models.Model):
+    redirect = models.ForeignKey(
+        PageRedirect,
+        on_delete = models.CASCADE,
+        related_name = '+'
+    )
+    quiz = models.ForeignKey(
+        Quiz,
+        on_delete = models.CASCADE,
+        related_name = '+'
+    )
+    score_to_pass = models.PositiveIntegerField()

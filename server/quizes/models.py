@@ -14,10 +14,6 @@ class Quiz(models.Model):
         null = True,
         blank = True
     )
-    points_to_pass = models.PositiveIntegerField(
-        null = True,
-        blank = True
-    )
     
     def __str__(self):
         return self.title

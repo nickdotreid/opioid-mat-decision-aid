@@ -30,3 +30,10 @@ class ListContent(APIView):
         chapters = Chapter.objects.filter(published=True).all()
         serializer = ChapterSerializer(chapters, many=True)
         return Response(serializer.data)
+
+class PageListView(APIView):
+
+    def get(self, request):
+        pages = Page.objects.all()
+        serialized = PageSerializer(pages, many=True)
+        return Response(serialized.data)

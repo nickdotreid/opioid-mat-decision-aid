@@ -54,3 +54,21 @@ class ContentViewTest(APITestCase):
         chapter_titles = [chapter['title'] for chapter in response.data]
         self.assertEqual(chapter_titles, ['Example', 'Test'])
 
+class PageViewTests(APITestCase):
+
+    def test_view_page_list(self):
+        Page.objects.create(
+            title = 'First page',
+            content = '<p>Example paragraph</p>'
+        )
+        Page.objects.create(
+            title = 'Second page',
+            content = '<p>Another paragraph with <a href="#">a link</a></p>'
+        )
+
+        response = self.client.get(reverse('page-list'))
+
+        self.assertEqual(response.status_code, 200)
+        page_titles = [page['title'] for page in response.data]
+        self.assertEqual(page_titles, ['First page', 'Second page'])
+
