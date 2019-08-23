@@ -15,8 +15,7 @@ class QuizAdmin(admin.ModelAdmin):
     list_display = ['title']
     fields = [
         'title',
-        'description',
-        'points_to_pass'
+        'description'
     ]
     inlines = [
         QuestionInline
