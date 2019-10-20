@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import {ViewChild} from '@angular/core';
 import {MatSidenav} from '@angular/material/sidenav';
 import { ChapterService, Page, Chapter } from '@components/chapter/chapters.service';
 import { MedicationEffectsService } from '@domain/medication-effects/medication-effects.service';
-import { Router, NavigationEnd } from '@angular/router';
-import { environment } from 'environments/environment.prod';
+import { Router, NavigationEnd, NavigationStart, Event } from '@angular/router';
 import { ParticipantService, Participant } from '@domain/participant/participant.service';
 
 declare var gtag: any;
@@ -15,11 +14,10 @@ declare var gtag: any;
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    @ViewChild('navigation') navigation: MatSidenav;
-    @ViewChild('output') output: MatSidenav;
     title = 'client';
 
     public navigationCollapsed = true;
+    public outputCollapsed = true;
 
     public currentPage: Page;
     public currentChapter: Chapter;
@@ -30,13 +28,20 @@ export class AppComponent {
         private chapterService: ChapterService,
         private medicationEffectsService: MedicationEffectsService,
         private router: Router,
-        private participantService: ParticipantService
+        private participantService: ParticipantService,
+        private element: ElementRef
     ) {
         this.chapterService.update();
         this.medicationEffectsService.update();
 
+        this.router.events.subscribe((event: Event) => {
+            if (event instanceof NavigationStart) {
+                this.focusMain();
+            }
+        });
+
         this.chapterService.completedContent.subscribe(() => {
-            this.output.open();
+            this.outputCollapsed = false;
         });
 
         this.chapterService.currentChapter
@@ -63,12 +68,24 @@ export class AppComponent {
 
     }
 
+    public navigationToggle() {
+        this.navigationCollapsed = !this.navigationCollapsed;
+    }
+
+    public outputToggle() {
+        this.outputCollapsed = !this.outputCollapsed;
+    }
+
     public createParticipant() {
         this.participantService.create();
     }
 
     public clearParticipant() {
         this.participantService.clear();
-        this.output.close();
+    }
+
+    public focusMain() {
+        this.navigationCollapsed = true;
+        this.outputCollapsed = true;
     }
 }

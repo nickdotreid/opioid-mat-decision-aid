@@ -1,20 +1,8 @@
-<mat-sidenav-container>
-    <mat-sidenav #navigation
-        position="start"
-        fixedInViewport
-        >
-        <app-chapter-navigation></app-chapter-navigation>
-    </mat-sidenav>
-    <mat-sidenav #output
-        position="end"
-        fixedInViewport
-        >
-        <app-output-page (completed)="clearParticipant()"></app-output-page>
-    </mat-sidenav>
+<div id="main">
     <header>
         <nav>
             <button class="sidebar-button"
-                (click)="navigation.open()"
+                (click)="navigationToggle()"
                 >
                 Navigation
             </button>
@@ -24,12 +12,14 @@
                 Start
             </button>
             <button *ngIf="participant"
-                (click)="output.open()"
+                (click)="outputToggle()"
                 >
                 {{participant.id}}
             </button>
         </nav>
-        <nav *ngIf="currentPage && currentChapter">
+        <nav *ngIf="currentPage && currentChapter"
+            class="chapter-navigation"
+            >
             <a [routerLink]="['/', currentChapter.slug]">{{currentChapter.title}}</a>
             <ul class="bullets">
                 <li *ngFor="let page of currentChapter.pages">
@@ -45,4 +35,18 @@
     <article id="content">
         <router-outlet></router-outlet>
     </article>
-</mat-sidenav-container>
+</div>
+<div id="sidenav"
+    [ngClass]="{opened: !navigationCollapsed}"
+    >
+    <app-chapter-navigation></app-chapter-navigation>
+</div>
+<div id="output"
+    [ngClass]="{opened: !outputCollapsed}"
+    >
+    <app-output-page (completed)="clearParticipant()"></app-output-page>
+</div>
+<div id="blocker"
+    [ngClass]="{'navigation-opened': !navigationCollapsed, 'output-opened': !outputCollapsed}"
+    (click)="focusMain()"
+></div>
