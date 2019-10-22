@@ -20,7 +20,7 @@ gunicorn==19.9.0
 honcho==1.0.1
 idna==2.8
 pilkit==2.0
-Pillow==6.0.0
+Pillow==6.2.0
 protobuf==3.8.0
 psycopg2==2.8.2
 pyasn1==0.4.5
