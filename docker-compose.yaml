@@ -17,11 +17,6 @@ services:
         image: postgres
         volumes:
             - db-pgdata:/var/lib/postgresql/data
-    cloudsql:
-        image: gcr.io/cloudsql-docker/gce-proxy:1.11
-        command:  /cloud_sql_proxy -instances=opioid-mat:us-west1:opioid-mat=tcp:0.0.0.0:5432 -credential_file=/gcloud.json
-        volumes:
-            - ./credentials/gcloud.json:/gcloud.json
     nginx:
         build: ./nginx
         image: opioid-mat-nginx
@@ -46,24 +41,6 @@ services:
             - 8080:8080
         volumes:
             - ./server:/server
-    server-gcloud:
-        image: opioid-mat-server
-        depends_on:
-            - cloudsql
-        env_file: credentials/.env-production
-        environment:
-            - ALLOWED_HOSTS=localhost,192.168.99.100
-            - DEBUG=True
-            - DATABASE_URL=psql://opioid-mat:opioid-mat@cloudsql:5432/opioid-mat
-            - GS_BUCKET_NAME=opioid-mat-static
-            - GS_CREDENTIALS_FILE=/credentials/gcloud.server.json
-            - GS_PROJECT_ID=opioid-mat
-            - MEDIA_URL=http://localhost:8080/media/
-        ports:
-            - 8080:8080
-        volumes:
-            - ./server:/server
-            - ./credentials:/credentials
 volumes:
   client-node-modules:
   db-pgdata:
