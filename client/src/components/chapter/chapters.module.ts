@@ -11,6 +11,8 @@ import { GridPageModule } from '@components/grid/grid.module';
 import { FormModule } from '@components/form/form.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+import { MatDialogModule, MatInputModule } from '@angular/material';
+import { ChapterCreateComponent } from './chapter-create.component';
 
 const routes: Array<Route> = [
     {
@@ -38,8 +40,12 @@ const routes: Array<Route> = [
 
 @NgModule({
     declarations: [
+        ChapterCreateComponent,
         ChapterPageComponent,
         ChapterNavigationComponent
+    ],
+    entryComponents: [
+        ChapterCreateComponent
     ],
     exports: [
         ChapterNavigationComponent
@@ -50,6 +56,8 @@ const routes: Array<Route> = [
         GridPageModule,
         HttpClientModule,
         MatButtonModule,
+        MatDialogModule,
+        MatInputModule,
         ReactiveFormsModule,
         RouterModule.forChild(routes)
     ],

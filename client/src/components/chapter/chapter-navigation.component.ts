@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ChapterService, Chapter } from './chapters.service';
 import { Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material';
+import { ChapterCreateComponent } from './chapter-create.component';
 
 
 @Component({
@@ -14,7 +16,8 @@ export class ChapterNavigationComponent implements OnInit, OnDestroy {
     private chapterSubscription: Subscription;
 
     constructor (
-        private chapterService: ChapterService
+        private chapterService: ChapterService,
+        public dialog: MatDialog
     ) {}
 
     ngOnInit() {
@@ -27,6 +30,10 @@ export class ChapterNavigationComponent implements OnInit, OnDestroy {
         if (this.chapterSubscription) {
             this.chapterSubscription.unsubscribe();
         }
+    }
+
+    public addChapter() {
+        this.dialog.open(ChapterCreateComponent);
     }
 
 }

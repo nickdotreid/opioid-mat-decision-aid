@@ -96,6 +96,26 @@ export class ChapterService {
         });
     }
 
+    public createChapter(slug: string, title: string): Promise<Chapter> {
+        return this.httpClient.post('api/chapters/', {
+            slug: slug,
+            title: title
+        })
+        .toPromise()
+        .then((data: any) => {
+            const chapter = new Chapter(this);
+            chapter.slug = data.slug;
+            chapter.title = data.title;
+            return this.update().then(() => {
+                return chapter;
+            });
+        })
+        .catch((error) => {
+            console.error('Error is', error);
+            return Promise.reject(error);
+        });
+    }
+
     public getFirstChapter(): Promise<Chapter> {
         return this.getAllChapters()
         .then((chapters) => {

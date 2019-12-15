@@ -1,6 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
-import {ViewChild} from '@angular/core';
-import {MatSidenav} from '@angular/material/sidenav';
+import { Component } from '@angular/core';
 import { ChapterService, Page, Chapter } from '@components/chapter/chapters.service';
 import { MedicationEffectsService } from '@domain/medication-effects/medication-effects.service';
 import { Router, NavigationEnd, NavigationStart, Event } from '@angular/router';
@@ -28,8 +26,7 @@ export class AppComponent {
         private chapterService: ChapterService,
         private medicationEffectsService: MedicationEffectsService,
         private router: Router,
-        private participantService: ParticipantService,
-        private element: ElementRef
+        private participantService: ParticipantService
     ) {
         this.chapterService.update();
         this.medicationEffectsService.update();

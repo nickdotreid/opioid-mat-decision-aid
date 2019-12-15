@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import serializers
+from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -30,6 +31,17 @@ class ListContent(APIView):
         chapters = Chapter.objects.filter(published=True).all()
         serializer = ChapterSerializer(chapters, many=True)
         return Response(serializer.data)
+
+    def post(self, request):
+        serializer = ChapterSerializer(data=request.data)
+        if serializer.is_valid():
+            chapter = serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(
+                serializer.errors,
+                status = status.HTTP_400_BAD_REQUEST
+            )
 
 class PageListView(APIView):
 
