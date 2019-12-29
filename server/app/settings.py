@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'imagekit',
     'rest_framework',
+    'rest_framework.authtoken',
     'medications',
     'medication_icons',
     'charts',

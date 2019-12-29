@@ -4,6 +4,8 @@ from django.contrib import admin
 from django.urls import include
 from django.urls import path
 
+from rest_framework.authtoken.views import obtain_auth_token
+
 from chapters.views import ListContent
 from chapters.views import PageListView
 from charts.views import ListCharts
@@ -14,6 +16,7 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('api/chapters/', ListContent.as_view(), name='chapters-content'),
     path('api/charts/', ListCharts.as_view(), name='charts-all'),
+    path('api/login/', obtain_auth_token, name='api-login'),
     path('api/medications/', ListAllMedications.as_view(), name='medications-all'),
     path('api/pages/', PageListView.as_view(), name='page-list')
 ] + static(settings.MEDIA_URL_DEFAULT, document_root=settings.MEDIA_ROOT)
