@@ -13,7 +13,6 @@ export class ChapterResolver implements Resolve<Chapter> {
     ) {}
 
     public resolve(activatedRoute: ActivatedRouteSnapshot): Promise<Chapter> {
-        console.log(activatedRoute.paramMap.get('chapter'));
         return this.chapterService.getChapter(activatedRoute.paramMap.get('chapter'))
         .then((chapter) => {
             return Promise.resolve(chapter);
