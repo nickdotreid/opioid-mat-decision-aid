@@ -8,6 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatSidenavModule } from '@angular/material';
 import { OutputModule } from '@pages/output/output.module';
 import { ParticipantModule } from '@domain/participant/participant.module';
+import { LoginModule } from '@components/login/login.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ParticipantModule } from '@domain/participant/participant.module';
   ],
   imports: [
     BrowserModule,
+    LoginModule,
     ChapterModule,
     MedicationEffectsDomainModule,
     MatSidenavModule,

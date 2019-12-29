@@ -3,6 +3,7 @@ import { ChapterService, Chapter } from './chapters.service';
 import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material';
 import { ChapterCreateComponent } from './chapter-create.component';
+import { ChapterRouter } from './chapter-router.service';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class ChapterNavigationComponent implements OnInit, OnDestroy {
     private chapterSubscription: Subscription;
 
     constructor (
+        private chapterRouter: ChapterRouter,
         private chapterService: ChapterService,
         public dialog: MatDialog
     ) {}
@@ -34,6 +36,10 @@ export class ChapterNavigationComponent implements OnInit, OnDestroy {
 
     public addChapter() {
         this.dialog.open(ChapterCreateComponent);
+    }
+
+    public routerLink(chapter: Chapter) {
+        return this.chapterRouter.chapterCommands(chapter);
     }
 
 }

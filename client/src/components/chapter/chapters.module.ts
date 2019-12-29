@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { MatDialogModule, MatInputModule } from '@angular/material';
 import { ChapterCreateComponent } from './chapter-create.component';
+import { ChapterRouter } from './chapter-router.service';
 
 const routes: Array<Route> = [
     {
@@ -25,7 +26,11 @@ const routes: Array<Route> = [
     },
     {
         path: ':chapter',
-        redirectTo: ':chapter/'
+        component: ChapterPageComponent,
+        resolve: {
+            page: DefaultPageResolver,
+            chapter: ChapterResolver
+        }
     },
     {
         path: '',
@@ -66,6 +71,7 @@ const routes: Array<Route> = [
         DefaultPageResolver,
         ChapterResolver,
         ChapterService,
+        ChapterRouter,
         PageResolver
     ]
 })

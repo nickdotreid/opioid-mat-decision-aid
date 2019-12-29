@@ -1,8 +1,9 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Chapter, Page, ChapterService } from './chapters.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { ChapterRouter } from './chapter-router.service';
 
 
 @Component({
@@ -27,7 +28,7 @@ export class ChapterPageComponent {
     constructor (
         private chapterService: ChapterService,
         private activatedRoute: ActivatedRoute,
-        private router: Router,
+        private chapterRouter: ChapterRouter,
         private santizer: DomSanitizer
     ) {
         this.activatedRoute.data
@@ -88,7 +89,7 @@ export class ChapterPageComponent {
         const nextIndex = index + 1;
         if (nextIndex < this.chapter.pages.length) {
             const nextPage = this.chapter.pages[nextIndex];
-            this.router.navigate([this.chapter.slug, nextPage.slug]);
+            this.chapterRouter.navigateToPage(this.chapter, nextPage);
         } else {
             this.goToNextChapter();
         }
@@ -96,8 +97,8 @@ export class ChapterPageComponent {
 
     public goToNextChapter() {
         this.chapter.getNextChapter()
-        .then((chapter) => {
-            this.router.navigate([chapter.slug]);
+        .then((nextChapter) => {
+            this.chapterRouter.navigateToChapter(nextChapter);
         })
         .catch(() => {
             this.chapterService.completedContent.next(true);

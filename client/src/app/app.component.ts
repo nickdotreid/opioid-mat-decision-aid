@@ -3,6 +3,7 @@ import { ChapterService, Page, Chapter } from '@components/chapter/chapters.serv
 import { MedicationEffectsService } from '@domain/medication-effects/medication-effects.service';
 import { Router, NavigationEnd, NavigationStart, Event } from '@angular/router';
 import { ParticipantService, Participant } from '@domain/participant/participant.service';
+import { TouchSequence } from 'selenium-webdriver';
 
 declare var gtag: any;
 
@@ -63,6 +64,10 @@ export class AppComponent {
             }
         });
 
+    }
+
+    public login() {
+        this.router.navigate(['login']);
     }
 
     public navigationToggle() {
