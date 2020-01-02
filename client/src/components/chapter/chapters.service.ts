@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { ReplaySubject, BehaviorSubject } from 'rxjs';
+import { ServerService } from '@components/server/server.service';
 
 export class Chart {
     title: string;
@@ -59,12 +59,11 @@ export class ChapterService {
     public completedContent: EventEmitter<boolean> = new EventEmitter();
 
     constructor(
-        private httpClient: HttpClient
+        private serverService: ServerService
     ) {}
 
     public update(): Promise<boolean> {
-        return this.httpClient.get('api/chapters/')
-        .toPromise()
+        return this.serverService.get('chapters/')
         .then((chapterList: Array<any>) => {
             const chapters = [];
             chapterList.forEach(element => {
@@ -97,11 +96,10 @@ export class ChapterService {
     }
 
     public createChapter(slug: string, title: string): Promise<Chapter> {
-        return this.httpClient.post('api/chapters/', {
+        return this.serverService.post('api/chapters/', {
             slug: slug,
             title: title
         })
-        .toPromise()
         .then((data: any) => {
             const chapter = new Chapter(this);
             chapter.slug = data.slug;

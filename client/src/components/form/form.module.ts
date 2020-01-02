@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BooleanFieldComponent } from './boolean-field.component';
-import { MatRadioModule, MatCheckboxModule } from '@angular/material';
+import { MatRadioModule, MatCheckboxModule, MatInputModule, MatFormFieldModule } from '@angular/material';
 import { ChoiceFieldComponent } from './choice-field.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { ListFieldComponent } from './list-field.component';
+import { FieldComponent } from './field.component';
+import { TextFieldComponent } from './text-field.component';
+import { PasswordFieldComponent } from './password-field.component';
 
 
 
@@ -12,11 +15,16 @@ import { ListFieldComponent } from './list-field.component';
     declarations: [
         BooleanFieldComponent,
         ChoiceFieldComponent,
-        ListFieldComponent
+        FieldComponent,
+        ListFieldComponent,
+        PasswordFieldComponent,
+        TextFieldComponent
     ],
     imports: [
         BrowserModule,
         MatCheckboxModule,
+        MatFormFieldModule,
+        MatInputModule,
         MatRadioModule,
         FormsModule,
         ReactiveFormsModule
@@ -24,7 +32,10 @@ import { ListFieldComponent } from './list-field.component';
     exports: [
         BooleanFieldComponent,
         ChoiceFieldComponent,
-        ListFieldComponent
+        FieldComponent,
+        ListFieldComponent,
+        PasswordFieldComponent,
+        TextFieldComponent
     ]
 })
 export class FormModule {}

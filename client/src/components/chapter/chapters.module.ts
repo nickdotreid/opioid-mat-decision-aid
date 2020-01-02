@@ -14,6 +14,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatDialogModule, MatInputModule } from '@angular/material';
 import { ChapterCreateComponent } from './chapter-create.component';
 import { ChapterRouter } from './chapter-router.service';
+import { ServerModule } from '@components/server/server.module';
 
 const routes: Array<Route> = [
     {
@@ -64,7 +65,8 @@ const routes: Array<Route> = [
         MatDialogModule,
         MatInputModule,
         ReactiveFormsModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        ServerModule
     ],
     providers: [
         DefaultChapterResolver,

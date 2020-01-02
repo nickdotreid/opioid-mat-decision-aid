@@ -1,1 +1,15 @@
-<p>Yo!</p>
+
+
+<form [formGroup]="form"
+    (ngSubmit)="submit()"
+    >
+    <app-text-field formControlName="username"
+        label="Username"
+        >
+    </app-text-field>
+    <app-password-field formControlName="password"
+        label="Password"
+        >
+    </app-password-field>
+    <button>Save</button>
+</form>

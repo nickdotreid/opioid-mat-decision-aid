@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
-import { Chapter, Page } from "./chapters.service";
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { Chapter, Page } from './chapters.service';
 
 
 @Injectable()
