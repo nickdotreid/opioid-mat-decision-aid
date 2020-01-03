@@ -1,6 +1,4 @@
-
-
-<form [formGroup]="form"
+<form *ngIf="!editor" [formGroup]="form"
     (ngSubmit)="submit()"
     >
     <app-text-field formControlName="username"
@@ -11,5 +9,9 @@
         label="Password"
         >
     </app-password-field>
-    <button>Save</button>
+    <button>Login</button>
 </form>
+<nav *ngIf="editor">
+    <p>{{editor.email}}</p>
+    <button>Logout</button>
+</nav>

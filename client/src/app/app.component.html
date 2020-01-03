@@ -6,10 +6,7 @@
                 >
                 Navigation
             </button>
-            <button (click)="login()"
-                >
-                Login
-            </button>
+            <app-login></app-login>
             <button *ngIf="!participant"
                 (click)="createParticipant()"
                 >

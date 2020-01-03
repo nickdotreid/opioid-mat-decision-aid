@@ -8,7 +8,6 @@ RUN apt-get update && apt-get install -y google-chrome-stable
 WORKDIR /client
 ADD . /client
 
-RUN npm install -g @angular/cli@6.2.1
 RUN npm install
 
 CMD ng serve --host 0.0.0.0
