@@ -12,6 +12,7 @@ services:
             - 4200:4200
         volumes:
             - ./client:/client
+            - client-node-modules:/client/node_modules
     db:
         image: postgres
         volumes:
@@ -42,3 +43,4 @@ services:
             - ./server:/server
 volumes:
   db-pgdata:
+  client-node-modules:
