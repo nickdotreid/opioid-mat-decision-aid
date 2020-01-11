@@ -13,5 +13,5 @@
 </form>
 <nav *ngIf="editor">
     <p>{{editor.email}}</p>
-    <button>Logout</button>
+    <button (click)="logout()">Logout</button>
 </nav>

@@ -25,6 +25,10 @@ export class LoginComponent {
         });
     }
 
+    public logout() {
+        this.loginService.logout();
+    }
+
     public submit() {
         if (!this.form.invalid) {
             const username = this.form.get('username').value;

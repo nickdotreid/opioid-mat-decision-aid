@@ -10,7 +10,17 @@ export class LoginService {
 
     constructor(
         private serverService: ServerService
-    ) {}
+    ) {
+        this.serverService.authenticated
+        .subscribe((isAuthenticated) => {
+            console.log('Login Service:', isAuthenticated);
+            if (isAuthenticated) {
+                this.updateEditor();
+            } else {
+                this.removeEditor();
+            }
+        });
+    }
 
     public login(username: string, password: string): Promise<void> {
         const payload = {
@@ -26,11 +36,15 @@ export class LoginService {
             }
         })
         .then((token) => {
-            return this.serverService.setAuthorizationToken(token)
+            return this.serverService.setAuthorizationToken(token);
         })
         .then(() => {
             return this.updateEditor();
         });
+    }
+
+    public logout(): Promise<void> {
+        return this.serverService.clearAuthorizationToken();
     }
 
     private updateEditor(): Promise<void> {
@@ -45,5 +59,9 @@ export class LoginService {
         const editor = new Editor();
         editor.email = 'foooooo';
         return Promise.resolve(editor);
+    }
+
+    private removeEditor() {
+        this.editor.next(undefined);
     }
 }
