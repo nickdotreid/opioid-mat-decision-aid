@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'imagekit',
     'rest_framework',
     'rest_framework.authtoken',
+    'editors',
     'medications',
     'medication_icons',
     'charts',

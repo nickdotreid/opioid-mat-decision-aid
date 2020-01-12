@@ -20,7 +20,7 @@ export class LoginComponent {
             this.editor = editor;
         });
         this.form = new FormGroup({
-            'username': new FormControl(undefined, Validators.required),
+            'email': new FormControl(undefined, Validators.required),
             'password': new FormControl(undefined, Validators.required)
         });
     }
@@ -31,9 +31,9 @@ export class LoginComponent {
 
     public submit() {
         if (!this.form.invalid) {
-            const username = this.form.get('username').value;
+            const email = this.form.get('email').value;
             const password = this.form.get('password').value;
-            this.loginService.login(username, password)
+            this.loginService.login(email, password)
             .then(() => {
 
             });

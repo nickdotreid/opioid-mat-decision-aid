@@ -1,7 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { ServerService } from '@components/server/server.service';
 import { Editor } from './editor.model';
 import { ReplaySubject } from 'rxjs';
+import { StorageService, SESSION_STORAGE } from 'ngx-webstorage-service';
+
+const STORAGE_KEY = 'editor-email';
 
 @Injectable()
 export class LoginService {
@@ -9,7 +12,8 @@ export class LoginService {
     public editor: ReplaySubject<Editor> = new ReplaySubject(1);
 
     constructor(
-        private serverService: ServerService
+        private serverService: ServerService,
+        @Inject(SESSION_STORAGE) private storage: StorageService
     ) {
         this.serverService.authenticated
         .subscribe((isAuthenticated) => {
@@ -22,24 +26,23 @@ export class LoginService {
         });
     }
 
-    public login(username: string, password: string): Promise<void> {
+    public login(email: string, password: string): Promise<void> {
         const payload = {
-            'username': username,
+            'email': email,
             'password': password
         };
         return this.serverService.post('login/', payload)
         .then((response) => {
-            if (response['token']) {
-                return response['token'];
+            const token = response['token'];
+            if (token) {
+                return this.serverService.setAuthorizationToken(token);
             } else {
                 return Promise.reject('Did not receive authorization token in response');
             }
         })
-        .then((token) => {
-            return this.serverService.setAuthorizationToken(token);
-        })
         .then(() => {
-            return this.updateEditor();
+            this.setEditor(email);
+            return undefined;
         });
     }
 
@@ -47,18 +50,20 @@ export class LoginService {
         return this.serverService.clearAuthorizationToken();
     }
 
-    private updateEditor(): Promise<void> {
-        return this.getEditorInformation()
-        .then((editor) => {
-            this.editor.next(editor);
-            return undefined;
-        });
+    private setEditor(email: string): Promise<void> {
+        this.storage.set(STORAGE_KEY, email);
+        return this.updateEditor();
     }
 
-    private getEditorInformation(): Promise<Editor> {
+    private updateEditor(): Promise<void> {
+        if (!this.storage.has(STORAGE_KEY)) {
+            return Promise.reject('No saved email');
+        }
+        const email = this.storage.get(STORAGE_KEY);
         const editor = new Editor();
-        editor.email = 'foooooo';
-        return Promise.resolve(editor);
+        editor.email = email;
+        this.editor.next(editor);
+        return Promise.resolve(undefined);
     }
 
     private removeEditor() {

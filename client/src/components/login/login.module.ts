@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ServerModule } from '@components/server/server.module';
 import { LoginService } from './login.service';
 import { LoginComponent } from './login.component';
+import { StorageServiceModule } from 'ngx-webstorage-service';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import { LoginComponent } from './login.component';
         BrowserModule,
         FormModule,
         ReactiveFormsModule,
-        ServerModule
+        ServerModule,
+        StorageServiceModule
     ],
     providers: [
         LoginService
