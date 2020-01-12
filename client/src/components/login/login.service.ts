@@ -17,7 +17,6 @@ export class LoginService {
     ) {
         this.serverService.authenticated
         .subscribe((isAuthenticated) => {
-            console.log('Login Service:', isAuthenticated);
             if (isAuthenticated) {
                 this.updateEditor();
             } else {

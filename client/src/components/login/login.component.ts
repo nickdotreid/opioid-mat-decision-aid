@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
 import { Editor } from './editor.model';
+import { MatDialog } from '@angular/material';
+import { LoginDialogComponent } from './login-dialog.component';
 
 
 @Component({
@@ -10,18 +11,14 @@ import { Editor } from './editor.model';
 })
 export class LoginComponent {
 
-    public form: FormGroup;
     public editor: Editor;
 
     constructor(
-        private loginService: LoginService
+        private loginService: LoginService,
+        public dialog: MatDialog
     ) {
         this.loginService.editor.subscribe((editor) => {
             this.editor = editor;
-        });
-        this.form = new FormGroup({
-            'email': new FormControl(undefined, Validators.required),
-            'password': new FormControl(undefined, Validators.required)
         });
     }
 
@@ -29,16 +26,7 @@ export class LoginComponent {
         this.loginService.logout();
     }
 
-    public submit() {
-        if (!this.form.invalid) {
-            const email = this.form.get('email').value;
-            const password = this.form.get('password').value;
-            this.loginService.login(email, password)
-            .then(() => {
-
-            });
-        } else {
-            console.log('Invalid form', this.form.value);
-        }
+    public showLogin() {
+        this.dialog.open(LoginDialogComponent);
     }
 }

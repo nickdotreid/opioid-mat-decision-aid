@@ -1,16 +1,6 @@
-<form *ngIf="!editor" [formGroup]="form"
-    (ngSubmit)="submit()"
-    >
-    <app-text-field formControlName="email"
-        label="Email Address"
-        >
-    </app-text-field>
-    <app-password-field formControlName="password"
-        label="Password"
-        >
-    </app-password-field>
-    <button>Login</button>
-</form>
+<nav *ngIf="!editor" >
+    <button (click)="showLogin()">Login</button>
+</nav>
 <nav *ngIf="editor">
     <p>{{editor.email}}</p>
     <button (click)="logout()">Logout</button>

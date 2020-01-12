@@ -1,0 +1,13 @@
+<form *ngIf="!editor" [formGroup]="form"
+    (ngSubmit)="submit()"
+    >
+    <app-text-field formControlName="email"
+        label="Email Address"
+        >
+    </app-text-field>
+    <app-password-field formControlName="password"
+        label="Password"
+        >
+    </app-password-field>
+    <button>Login</button>
+</form>
