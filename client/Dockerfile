@@ -11,8 +11,11 @@ RUN mkdir /client && chown node:node /client
 USER node
 
 WORKDIR /client
-ADD . /client
 
+ADD package.json /client/package.json
+ADD package-lock.json /client/package-lock.json
 RUN npm install
+
+ADD . /client
 
 CMD ng serve --host 0.0.0.0
