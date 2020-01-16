@@ -28,7 +28,7 @@ services:
             - server
     server:
         build: ./server
-        command: honcho start dev
+        command: /server/start_dev.sh
         depends_on:
             - db
         environment:
