@@ -26,7 +26,7 @@ export class ChapterResolver implements Resolve<Chapter> {
     private navigateToDefaultChapter() {
         this.chapterService.getFirstChapter()
         .then((chapter) => {
-            this.router.navigate([chapter.slug]);
+            this.router.navigate([chapter.id]);
         });
     }
 }

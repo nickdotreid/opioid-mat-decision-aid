@@ -16,34 +16,6 @@ import { ChapterCreateComponent } from './chapter-create.component';
 import { ChapterRouter } from './chapter-router.service';
 import { ServerModule } from '@components/server/server.module';
 
-const routes: Array<Route> = [
-    {
-        path: ':chapter/:page',
-        component: ChapterPageComponent,
-        resolve: {
-            page: PageResolver,
-            chapter: ChapterResolver
-        }
-    },
-    {
-        path: ':chapter',
-        component: ChapterPageComponent,
-        resolve: {
-            page: DefaultPageResolver,
-            chapter: ChapterResolver
-        }
-    },
-    {
-        path: '',
-        pathMatch: 'full',
-        component: ChapterPageComponent,
-        resolve: {
-            page: DefaultPageResolver,
-            chapter: DefaultChapterResolver
-        }
-    }
-];
-
 @NgModule({
     declarations: [
         ChapterCreateComponent,
@@ -65,7 +37,7 @@ const routes: Array<Route> = [
         MatDialogModule,
         MatInputModule,
         ReactiveFormsModule,
-        RouterModule.forChild(routes),
+        RouterModule.forChild([]),
         ServerModule
     ],
     providers: [

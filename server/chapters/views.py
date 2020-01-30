@@ -23,7 +23,7 @@ class ChapterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Chapter
-        fields = ('slug', 'title', 'pages')
+        fields = ('id', 'title', 'pages')
 
 class ListContent(APIView):
 

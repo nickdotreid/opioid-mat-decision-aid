@@ -19,7 +19,7 @@ export class ChapterRouter {
     }
 
     public chapterCommands(chapter: Chapter): Array<any> {
-        return this.routerCommands([chapter.slug]);
+        return this.routerCommands([chapter.id]);
     }
 
     public pageCommands(chapter: Chapter, page: Page): Array<any> {

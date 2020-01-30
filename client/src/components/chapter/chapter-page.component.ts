@@ -34,11 +34,22 @@ export class ChapterPageComponent {
         this.activatedRoute.data
         .subscribe((data) => {
             this.resetForm();
-            this.chapter = data.chapter;
-            this.page = data.page;
-            this.content = this.santizer.bypassSecurityTrustHtml(data.page.content);
+            this.update(data.chapter, data.page);
+        });
+    }
 
+    private update(chapter: Chapter, page: Page ) {
+
+        if (chapter) {
+            this.chapter = chapter;
             this.chapterService.setCurrentChapter(this.chapter);
+        } else {
+            this.chapter = undefined;
+        }
+
+        if (page) {
+            this.page = page;
+            this.content = this.santizer.bypassSecurityTrustHtml(page.content);
             this.chapterService.setCurrentPage(this.page);
 
             if (this.page.quiz) {
@@ -47,7 +58,9 @@ export class ChapterPageComponent {
                     this.form.addControl(String(index), new FormControl());
                 });
             }
-        });
+        } else {
+            this.page = undefined;
+        }
     }
 
     private resetForm() {

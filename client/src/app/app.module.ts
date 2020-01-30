@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Route } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ChapterModule } from '@components/chapter/chapters.module';
@@ -9,6 +9,39 @@ import { MatSidenavModule } from '@angular/material';
 import { OutputModule } from '@pages/output/output.module';
 import { ParticipantModule } from '@domain/participant/participant.module';
 import { LoginModule } from '@components/login/login.module';
+import { ChapterPageComponent } from '@components/chapter/chapter-page.component';
+import { PageResolver, DefaultPageResolver } from '@components/chapter/page.resolver';
+import { ChapterResolver, DefaultChapterResolver } from '@components/chapter/chapter.resolver';
+
+
+const routes: Array<Route> = [
+  {
+      path: ':chapter/:page',
+      component: ChapterPageComponent,
+      resolve: {
+          page: PageResolver,
+          chapter: ChapterResolver
+      }
+  },
+  {
+      path: ':chapter',
+      component: ChapterPageComponent,
+      resolve: {
+          page: DefaultPageResolver,
+          chapter: ChapterResolver
+      }
+  },
+  {
+      path: '',
+      pathMatch: 'full',
+      component: ChapterPageComponent,
+      resolve: {
+          page: DefaultPageResolver,
+          chapter: DefaultChapterResolver
+      }
+  }
+];
+
 
 @NgModule({
   declarations: [
@@ -22,7 +55,7 @@ import { LoginModule } from '@components/login/login.module';
     MatSidenavModule,
     OutputModule,
     ParticipantModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot(routes)
   ],
   bootstrap: [AppComponent]
 })

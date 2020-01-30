@@ -17,16 +17,14 @@ export class ChapterCreateComponent {
         private chapterService: ChapterService
     ) {
         this.form = new FormGroup({
-            slug: new FormControl(undefined, Validators.required),
             title: new FormControl(undefined, Validators.required)
         });
     }
 
     public create() {
         if (!this.form.invalid) {
-            const slug = this.form.get('slug').value;
             const title = this.form.get('title').value;
-            this.chapterService.createChapter(slug, title)
+            this.chapterService.createChapter(title)
             .then(() => {
                 this.dialog.close();
             })

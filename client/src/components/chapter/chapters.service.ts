@@ -30,7 +30,7 @@ export class Page {
 }
 
 export class Chapter {
-    public slug: string;
+    public id: string;
     public title: string;
     public pages: Array<Page>;
 
@@ -77,11 +77,11 @@ export class ChapterService {
         });
     }
 
-    public getChapter(slug: string): Promise<Chapter> {
+    public getChapter(id: string): Promise<Chapter> {
         return this.getAllChapters()
         .then((chapters) => {
             const chapter = chapters.find((_chapter: Chapter) => {
-                if (_chapter.slug === slug) {
+                if (_chapter.id.toString() === id) {
                     return true;
                 } else {
                     return false;
@@ -95,14 +95,12 @@ export class ChapterService {
         });
     }
 
-    public createChapter(slug: string, title: string): Promise<Chapter> {
-        return this.serverService.post('api/chapters/', {
-            slug: slug,
+    public createChapter(title: string): Promise<Chapter> {
+        return this.serverService.post('chapters/', {
             title: title
         })
         .then((data: any) => {
             const chapter = new Chapter(this);
-            chapter.slug = data.slug;
             chapter.title = data.title;
             return this.update().then(() => {
                 return chapter;
@@ -125,7 +123,7 @@ export class ChapterService {
         return this.getAllChapters()
         .then((chapters) => {
             const currentIndex = chapters.findIndex((_chapter) => {
-                if (chapter.slug === _chapter.slug) {
+                if (chapter.id === _chapter.id) {
                     return true;
                 }
             });
@@ -159,7 +157,7 @@ export class ChapterService {
 
     private deserializeChapter(data: any): Chapter {
         const chapter = new Chapter(this);
-        chapter.slug = data.slug;
+        chapter.id = data.id;
         chapter.title = data.title;
         chapter.pages = [];
         if (data.pages && data.pages.length) {
