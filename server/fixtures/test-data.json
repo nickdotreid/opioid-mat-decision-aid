@@ -1573,8 +1573,7 @@
     "fields": {
         "title": "Have you ever taken any of the following drugs?",
         "slug": "have-you-ever-taken-any-of-the-following-drugs",
-        "description": "Have you ever taken any of the following drugs",
-        "points_to_pass": 3
+        "description": "Have you ever taken any of the following drugs"
     }
 },
 {
@@ -1583,8 +1582,7 @@
     "fields": {
         "title": "Do I have opioid use disorder?",
         "slug": "do-i-have-opioid-use-disorder",
-        "description": "Based on your previous use of opioids, answer the following questions:",
-        "points_to_pass": 3
+        "description": "Based on your previous use of opioids, answer the following questions:"
     }
 },
 {
