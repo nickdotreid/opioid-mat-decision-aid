@@ -14,7 +14,9 @@ services:
             - ./client:/client
             - client-node-modules:/client/node_modules
     db:
-        image: postgres
+        environment: 
+            - POSTGRES_HOST_AUTH_METHOD=trust
+        image: postgres:12.2
         volumes:
             - db-pgdata:/var/lib/postgresql/data
     nginx:
