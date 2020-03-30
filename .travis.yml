@@ -43,7 +43,7 @@ after_success:
 - docker-compose build server
 - docker tag opioid-mat-server gcr.io/${GCLOUD_PROJECT_ID}/opioid-mat-server
 - docker push gcr.io/${GCLOUD_PROJECT_ID}/opioid-mat-server
-- docker-compose run server-gcloud python manage.py migrate
+- docker-compose -f docker-compose.yaml -f docker-compose.gcloud.yaml run server python manage.py migrate
 # Redeploy kubernetes
 - sed -i "s/DEFAULT_BUILD_NUMBER/'$TRAVIS_BUILD_NUMBER'/g" deployment.yaml
 - kubectl apply -f deployment.yaml

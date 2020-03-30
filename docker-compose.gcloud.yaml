@@ -11,7 +11,7 @@ services:
             - cloudsql
         env_file: credentials/.env-production
         environment:
-            - ALLOWED_HOSTS=localhost,192.168.99.100
+            - ALLOWED_HOSTS=localhost
             - DEBUG=True
             - DATABASE_URL=psql://opioid-mat:opioid-mat@cloudsql:5432/opioid-mat
             - GS_BUCKET_NAME=opioid-mat-static
