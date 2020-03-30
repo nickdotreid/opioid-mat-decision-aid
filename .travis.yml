@@ -17,7 +17,7 @@ install:
 - sudo apt-get update && sudo apt-get install google-cloud-sdk
 - sudo apt-get install kubectl
 # Set credentials for docker/kubernetes
-- gcloud auth activate-service-account --key-file=credentials/gcloud.json
+- gcloud auth activate-service-account --key-file=credentials/gcloud-travis.json
 - gcloud auth configure-docker -q
 - gcloud config set project ${GCLOUD_PROJECT_ID}
 - gcloud container clusters get-credentials ${GCLOUD_CLUSTER_NAME} --region=${GCLOUD_PROJECT_REGION}
