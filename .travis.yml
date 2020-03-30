@@ -22,10 +22,11 @@ install:
 - gcloud config set project ${GCLOUD_PROJECT_ID}
 - gcloud container clusters get-credentials ${GCLOUD_CLUSTER_NAME} --region=${GCLOUD_PROJECT_REGION}
 before_script:
+- docker-compose build server
 - docker-compose build client
 script:
-- docker-compose run client npm run build --prod
 - docker-compose run server python manage.py test
+- docker-compose run client npm run build --prod
 after_success:
 # Upload static files to bucket
 - docker-compose run server python manage.py collectstatic
