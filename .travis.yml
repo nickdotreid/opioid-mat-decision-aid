@@ -24,7 +24,6 @@ install:
 before_script:
 - docker-compose build server
 - docker-compose build client
-- ls -la client
 script:
 - docker-compose run server python manage.py test
 - docker-compose run client npm run build --prod
