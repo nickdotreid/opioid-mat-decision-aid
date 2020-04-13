@@ -2,9 +2,9 @@ version: '2'
 services:
     cloudsql:
         image: gcr.io/cloudsql-docker/gce-proxy:1.11
-        command:  /cloud_sql_proxy -instances=opioid-mat:us-west1:opioid-mat=tcp:0.0.0.0:5432 -credential_file=/gcloud.json
+        command:  /cloud_sql_proxy -instances=opioid-mat:us-west1:opioid-mat=tcp:0.0.0.0:5432 -credential_file=/credentials/gcloud.server.json
         volumes:
-            - ./credentials/gcloud.json:/gcloud.json
+            - ./credentials/:/credentials/
     server:
         image: opioid-mat-server
         depends_on:
