@@ -6,9 +6,9 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
     apt-get update && apt-get install -y google-chrome-stable
 
 RUN npm install -g @angular/cli@v6-lts
-RUN mkdir /client && chown node:node /client
 
-USER node
+# RUN mkdir /client && chown node:node /client
+# USER node
 
 WORKDIR /client
 
