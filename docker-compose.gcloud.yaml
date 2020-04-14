@@ -2,7 +2,7 @@ version: '2'
 services:
     cloudsql:
         image: gcr.io/cloudsql-docker/gce-proxy:1.11
-        command:  /cloud_sql_proxy -instances=opioid-mat:us-west1:opioid-mat=tcp:0.0.0.0:5432 -credential_file=/credentials/gcloud.server.json
+        command:  /cloud_sql_proxy -instances=opioid-mat:us-west1:opioid-mat=tcp:0.0.0.0:5432 -credential_file=/credentials/gcloud-django.json
         volumes:
             - ./credentials/:/credentials/
     server:
@@ -15,7 +15,7 @@ services:
             - DEBUG=True
             - DATABASE_URL=psql://opioid-mat:opioid-mat@cloudsql:5432/opioid-mat
             - GS_BUCKET_NAME=opioid-mat-static
-            - GS_CREDENTIALS_FILE=/credentials/gcloud.server.json
+            - GS_CREDENTIALS_FILE=/credentials/gcloud-django.json
             - GS_PROJECT_ID=opioid-mat
             - MEDIA_URL=http://localhost:8080/media/
         ports:
