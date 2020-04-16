@@ -38,8 +38,10 @@ after_success:
 - docker-compose build nginx
 - docker tag opioid-mat-nginx gcr.io/${GCLOUD_PROJECT_ID}/opioid-mat-nginx
 - docker push gcr.io/${GCLOUD_PROJECT_ID}/opioid-mat-nginx
+# Update kubernetes secret files
+- kubectl create secret generic gcloud-django --from-file=./credentials/gcloud-django.json
 # Update server
-- cp credentials/.env-production server/.env
+- cp credentials/.env server/.env
 - docker-compose build server
 - docker tag opioid-mat-server gcr.io/${GCLOUD_PROJECT_ID}/opioid-mat-server
 - docker push gcr.io/${GCLOUD_PROJECT_ID}/opioid-mat-server
