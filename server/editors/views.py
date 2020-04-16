@@ -2,7 +2,7 @@ from django.contrib.auth import authenticate
 from django.shortcuts import render
 from rest_framework import serializers
 from rest_framework import status
-from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 
@@ -15,7 +15,7 @@ class EditorAuthTokenSerializer(serializers.Serializer):
     )
 
 
-class EditorLogin(ObtainAuthToken):
+class EditorLogin(APIView):
 
     def post(self, request, *args, **kwargs):
         serializer = EditorAuthTokenSerializer(
@@ -31,7 +31,7 @@ class EditorLogin(ObtainAuthToken):
         try:
             
             editor = Editor.objects.get(user__email=email)
-        except EditorDoesNotExist:
+        except Editor.DoesNotExist:
             return Response(
                 'Editor does not exist',
                 status_code = status.HTTP_401_UNAUTHORIZED
