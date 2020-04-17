@@ -26,6 +26,9 @@ spec:
         - name: gcloud-credentials
           mountPath: /credentials
           readOnly: true
+          env:
+            - name: BUILD_NUMBER
+              value: DEFAULT_BUILD_NUMBER
       volumes:
       - name: gcloud-django
         secret:
