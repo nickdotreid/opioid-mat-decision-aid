@@ -9,7 +9,7 @@ services:
         image: opioid-mat-server
         depends_on:
             - cloudsql
-        env_file: credentials/.env-production
+        env_file: credentials/.env
         environment:
             - ALLOWED_HOSTS=localhost
             - DEBUG=True
