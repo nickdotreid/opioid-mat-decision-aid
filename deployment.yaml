@@ -23,12 +23,12 @@ spec:
         ports:
         - containerPort: 5432
         volumeMounts:
-        - name: gcloud-credentials
+        - name: gcloud-django
           mountPath: /credentials
           readOnly: true
-          env:
-            - name: BUILD_NUMBER
-              value: DEFAULT_BUILD_NUMBER
+        env:
+          - name: BUILD_NUMBER
+            value: DEFAULT_BUILD_NUMBER
       volumes:
       - name: gcloud-django
         secret:
