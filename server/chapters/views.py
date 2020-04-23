@@ -16,14 +16,14 @@ class PageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Page
-        fields = ('slug', 'title', 'content', 'chart', 'quiz')
+        fields = ('id', 'title', 'content', 'chart', 'quiz')
 
 class ChapterSerializer(serializers.ModelSerializer):
     pages = PageSerializer(many=True, read_only=True)
 
     class Meta:
         model = Chapter
-        fields = ('id', 'title', 'slug', 'pages')
+        fields = ('id', 'title', 'pages')
 
 class ListContent(APIView):
 

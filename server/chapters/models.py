@@ -11,19 +11,12 @@ class Orderable(models.Model):
     order = models.PositiveIntegerField()
 
     title = models.CharField(max_length=250)
-    slug = models.CharField(max_length=250, unique=True)
 
     published = models.BooleanField(default=True)
 
     class Meta:
         abstract = True
         ordering = ['order']
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
-
-        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title

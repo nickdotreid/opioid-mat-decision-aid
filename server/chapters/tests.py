@@ -28,11 +28,8 @@ class ContentViewTest(APITestCase):
         
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.data), 2)
-        self.assertEqual(response.data[1]['slug'], 'second-chapter')
         first_chapter = response.data[0]
-        self.assertEqual(first_chapter['slug'], 'first-chapter')
         self.assertEqual(len(first_chapter['pages']), 2)
-        self.assertEqual(first_chapter['pages'][0]['slug'], 'first-page')
         self.assertEqual(first_chapter['pages'][0]['title'], 'First page')
         self.assertEqual(first_chapter['pages'][0]['content'], '<p>Example paragraph</p>')
 
