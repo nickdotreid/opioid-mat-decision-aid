@@ -82,20 +82,11 @@ export class ChapterPageComponent {
             }
         });
         this.goToNextPage();
-        // if (answeredQuestions < this.page.quiz.questions.length) {
-        //     this.error = 'Answer all questions';
-        // } else {
-        //     if (points < this.page.quiz.points_to_pass) {
-        //         this.quizFailed = true;
-        //     } else {
-        //         this.goToNextPage();
-        //     }
-        // }
     }
 
     public goToNextPage() {
         const index = this.chapter.pages.findIndex((_page) => {
-            if (this.page.slug === _page.slug) {
+            if (this.page.id === _page.id) {
                 return true;
             }
         });

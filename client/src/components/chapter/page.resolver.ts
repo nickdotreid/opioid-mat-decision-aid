@@ -15,7 +15,7 @@ export class PageResolver implements Resolve<Page> {
         return this.chapterService.getChapter(chapterParam)
         .then((chapter) => {
             const page = chapter.pages.find((_page) => {
-                if (_page.slug === pageParam) {
+                if (_page.id === pageParam) {
                     return true;
                 } else {
                     return false;

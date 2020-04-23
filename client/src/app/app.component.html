@@ -24,8 +24,8 @@
             <a [routerLink]="['/', currentChapter.slug]">{{currentChapter.title}}</a>
             <ul class="bullets">
                 <li *ngFor="let page of currentChapter.pages">
-                    <a [routerLink]="['/', currentChapter.slug, page.slug]"
-                        [ngClass]="{active: (page.slug === currentPage.slug)}"
+                    <a [routerLink]="['/', currentChapter.id, page.id]"
+                        [ngClass]="{active: (page.id === currentPage.id)}"
                         >
                         {{page.title}}
                     </a>

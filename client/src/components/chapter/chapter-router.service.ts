@@ -24,7 +24,7 @@ export class ChapterRouter {
 
     public pageCommands(chapter: Chapter, page: Page): Array<any> {
         const commands = this.chapterCommands(chapter);
-        return commands.concat([page.slug]);
+        return commands.concat([page.id]);
     }
 
     public routerCommands(commands: Array<any>): Array<any> {

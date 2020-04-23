@@ -14,7 +14,7 @@ export class Question {
 }
 
 export class Quiz {
-    public slug: string;
+    public id: string;
     public title: string;
     public description: string;
     public points_to_pass: number;
@@ -22,7 +22,7 @@ export class Quiz {
 }
 
 export class Page {
-    public slug: string;
+    public id: string;
     public title: string;
     public content: string;
     public chart: Chart;
@@ -170,7 +170,7 @@ export class ChapterService {
 
     private deserializePage(data: any): Page {
         const page = new Page();
-        page.slug = data.slug;
+        page.id = data.id;
         page.title = data.title;
         page.content = data.content;
         if (data.chart) {
@@ -182,7 +182,7 @@ export class ChapterService {
         if (data.quiz) {
             page.quiz = new Quiz();
             page.quiz.title = data.quiz.title;
-            page.quiz.slug = data.quiz.slug;
+            page.quiz.id = data.quiz.id;
             page.quiz.description = data.quiz.description;
             page.quiz.points_to_pass = data.quiz.points_to_pass;
             page.quiz.questions = data.quiz.questions;
