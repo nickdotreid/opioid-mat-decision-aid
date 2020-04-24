@@ -15,7 +15,7 @@ export class PageResolver implements Resolve<Page> {
         return this.chapterService.getChapter(chapterParam)
         .then((chapter) => {
             const page = chapter.pages.find((_page) => {
-                if (_page.id === pageParam) {
+                if (_page.id.toString() === pageParam) {
                     return true;
                 } else {
                     return false;
@@ -37,10 +37,11 @@ export class DefaultPageResolver implements Resolve<Page> {
         private chapterService: ChapterService
     ) {}
 
-    resolve(): Promise<Page> {
-        return this.chapterService.getAllChapters()
-        .then((chapters) => {
-            return Promise.resolve(chapters[0].pages[0]);
+    resolve(route: ActivatedRouteSnapshot): Promise<Page> {
+        const chapterParam = route.paramMap.get('chapter');
+        return this.chapterService.getChapter(chapterParam)
+        .then((chapter) => {
+            return Promise.resolve(chapter.pages[0]);
         });
     }
 }

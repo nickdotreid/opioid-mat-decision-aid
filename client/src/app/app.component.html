@@ -18,20 +18,7 @@
                 {{participant.id}}
             </button>
         </nav>
-        <nav *ngIf="currentPage && currentChapter"
-            class="chapter-navigation"
-            >
-            <a [routerLink]="['/', currentChapter.slug]">{{currentChapter.title}}</a>
-            <ul class="bullets">
-                <li *ngFor="let page of currentChapter.pages">
-                    <a [routerLink]="['/', currentChapter.id, page.id]"
-                        [ngClass]="{active: (page.id === currentPage.id)}"
-                        >
-                        {{page.title}}
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        <app-page-navigation></app-page-navigation>
     </header>
     <article id="content">
         <router-outlet></router-outlet>

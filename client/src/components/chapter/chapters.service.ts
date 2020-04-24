@@ -112,6 +112,20 @@ export class ChapterService {
         });
     }
 
+    public createPage(chapter: Chapter, title: string): Promise<Page> {
+        return this.serverService.post('pages/', {
+            chapterId: chapter.id,
+            title: title
+        })
+        .then((data: any) => {
+            const page = new Page();
+            page.title = data.title;
+            return this.update().then(() => {
+                return page;
+            });
+        });
+    }
+
     public getFirstChapter(): Promise<Chapter> {
         return this.getAllChapters()
         .then((chapters) => {

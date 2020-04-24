@@ -15,18 +15,24 @@ import { MatDialogModule, MatInputModule } from '@angular/material';
 import { ChapterCreateComponent } from './chapter-create.component';
 import { ChapterRouter } from './chapter-router.service';
 import { ServerModule } from '@components/server/server.module';
+import { PageCreateComponent } from './page-create.component';
+import { PageNavigationComponent } from './page-navigation.component';
 
 @NgModule({
     declarations: [
         ChapterCreateComponent,
         ChapterPageComponent,
-        ChapterNavigationComponent
+        ChapterNavigationComponent,
+        PageCreateComponent,
+        PageNavigationComponent
     ],
     entryComponents: [
-        ChapterCreateComponent
+        ChapterCreateComponent,
+        PageCreateComponent
     ],
     exports: [
-        ChapterNavigationComponent
+        ChapterNavigationComponent,
+        PageNavigationComponent
     ],
     imports: [
         BrowserModule,

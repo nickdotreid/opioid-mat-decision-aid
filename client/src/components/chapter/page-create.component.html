@@ -1,0 +1,11 @@
+<form [formGroup]="form"
+    (ngSubmit)="create()"
+    >
+    <mat-form-field>
+        <input matInput
+            placeholder="Title"
+            formControlName="title"
+            />
+    </mat-form-field>
+    <button mat-raised-button color="primary">Create</button>
+</form>

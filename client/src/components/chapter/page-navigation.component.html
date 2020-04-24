@@ -1,0 +1,15 @@
+<nav *ngIf="chapter"
+    class="chapter-navigation"
+    >
+    <a [routerLink]="['/', chapter.id]">{{chapter.title}}</a>
+    <ul class="bullets">
+        <li *ngFor="let _page of chapter.pages">
+            <a [routerLink]="['/', chapter.id, _page.id]"
+                [ngClass]="{active: (page && _page.id === page.id)}"
+                >
+                {{_page.title}}
+            </a>
+        </li>
+    </ul>
+    <button (click)="createPage()">Add Page</button>
+</nav>

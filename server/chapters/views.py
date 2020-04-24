@@ -49,3 +49,23 @@ class PageListView(APIView):
         pages = Page.objects.all()
         serialized = PageSerializer(pages, many=True)
         return Response(serialized.data)
+
+    def post(self, request):
+        if 'chapterId' in request.data:
+            try:
+                chapter = Chapter.objects.get(id = request.data['chapterId'])
+            except Chapter.DoesNotExist:
+                return Response('Chapter does not exist', status=status.HTTP_400_BAD_REQUEST)
+        else:
+             return Response('chapterId not specified', status=status.HTTP_400_BAD_REQUEST)
+        serializer = PageSerializer(data=request.data)
+        if serializer.is_valid():
+            page = serializer.save(
+                chapter = chapter
+            )
+            return Response(serializer.data)
+        else:
+            return Response(
+                serializer.errors,
+                status = status.HTTP_400_BAD_REQUEST
+            )
