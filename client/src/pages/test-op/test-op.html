@@ -1,0 +1,74 @@
+<head>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+
+<!DOCTYPE HTML>
+
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <title>Test Page Popper</title> 
+
+  <link rel="stylesheet" href="testop.css" type="text/css" media="screen" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+
+</head>
+
+<body>
+
+
+<h2>What kind of medications are there?</h2>
+<p>Currently there are categories types of medications proven to help long term. They can come in different versions and have different brand names</p>
+
+<button id="Tooltip" data-template="one"><img src="images/methadone-info.jpg" alt="image of methadone"></button>
+
+<div style="display: none;">
+  <div id="one">
+    <p>First paragraph. Nibh sit amet commodo nulla facilisi nullam vehicula. Sit amet est placerat in. Consequat interdum varius sit amet. Sit amet luctus venenatis lectus magna fringilla. In arcu cursus euismod quis viverra nibh cras. Donec pretium vulputate sapien.</p>
+    <p>Second paragraph.</p>
+    <ul>
+      <li>List 1</li>
+      <li>List 2</li>
+    </ul>
+  </div>
+</div>
+
+<ul>
+    <li>Methadone</li>
+    <li>Buprenorphine and buprenorphine-nalaxone</li>
+    <li>Naltrexone (Vivitrol)</li>
+</ul>
+<a [routerLink]="['/treatment/benefits']"
+    class="button"
+    >
+    Next
+</a>
+
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+
+<script>
+tippy('#Tooltip', {
+  trigger: 'click',
+  placement: 'right',
+  content(reference) {
+    const id = reference.getAttribute('data-template');
+    const template = document.getElementById(id);
+    return template.innerHTML;
+  },
+  popperOptions: {
+    name: 'preventOverflow',
+    options: {
+      mainAxis: true,
+      padding: 10,
+    }
+  },
+  allowHTML: true,
+});
+</script>
+
+
+</body>
