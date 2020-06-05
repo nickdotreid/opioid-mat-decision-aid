@@ -1,7 +1,7 @@
 cachetools==3.1.1
 certifi==2019.6.16
 chardet==3.0.4
-Django==2.2.1
+Django==2.2.13
 django-admin-ordering==0.11.0
 django-appconf==1.0.3
 django-ckeditor==5.7.1
