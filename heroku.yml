@@ -5,3 +5,8 @@ setup:
 build:
     docker:
         web: server/Dockerfile
+release:
+    image: web
+    command:
+        - python manage.py collectstatic --noinput
+        - python manage.py migrate
