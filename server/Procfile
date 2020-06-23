@@ -1,3 +1,3 @@
-dev: python manage.py runserver 0.0.0.0:8080
-prod: gunicorn -b :8080 app.wsgi:application --log-level debug
+dev: python manage.py runserver 0.0.0.0:$PORT
+prod: gunicorn -b 0.0.0.0:$PORT app.wsgi:application --log-level debug
 

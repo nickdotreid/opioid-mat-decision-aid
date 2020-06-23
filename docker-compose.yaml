@@ -38,6 +38,7 @@ services:
             - DEBUG=True
             - DATABASE_URL=psql://postgres@db:5432/postgres
             - MEDIA_URL=http://localhost:8080/media/
+            - PORT=8080
         image: opioid-mat-server
         ports:
             - 8080:8080
