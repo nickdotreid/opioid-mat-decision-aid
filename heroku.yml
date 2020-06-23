@@ -4,8 +4,7 @@ setup:
           as: DATABASE
 build:
     docker:
-        web: server/Dockerfile
-        client: client/Dockerfile
+        web: ./Dockerfile
 release:
     image: web
     command:
