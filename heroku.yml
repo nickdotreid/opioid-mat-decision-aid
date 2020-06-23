@@ -5,6 +5,7 @@ setup:
 build:
     docker:
         web: server/Dockerfile
+        client: client/Dockerfile
 release:
     image: web
     command:
