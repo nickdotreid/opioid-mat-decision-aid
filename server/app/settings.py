@@ -13,8 +13,16 @@ DEBUG = env.bool('DEBUG', default=False)
 
 ALLOWED_HOSTS = env.str('ALLOWED_HOSTS', default='localhost,127.0.0.1').split(',')
 
-DATABASES = {
-    'default': env.db(),
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': env.db(),
+    }
+else:
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'tempdb',
+    }
 }
 
 FIXTURE_DIRS = ['fixtures']
