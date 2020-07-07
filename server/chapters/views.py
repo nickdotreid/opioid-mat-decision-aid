@@ -33,6 +33,10 @@ class ListContent(APIView):
         return Response(serializer.data)
 
     def post(self, request):
+        if not request.user.is_authenticated:
+            return Response(
+                status = status.HTTP_401_UNAUTHORIZED
+            )
         serializer = ChapterSerializer(data=request.data)
         if serializer.is_valid():
             chapter = serializer.save()
@@ -51,6 +55,10 @@ class PageListView(APIView):
         return Response(serialized.data)
 
     def post(self, request):
+        if not request.user.is_authenticated:
+            return Response(
+                status = status.HTTP_401_UNAUTHORIZED
+            )
         if 'chapterId' in request.data:
             try:
                 chapter = Chapter.objects.get(id = request.data['chapterId'])
