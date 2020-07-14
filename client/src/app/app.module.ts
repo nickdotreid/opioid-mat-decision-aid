@@ -12,9 +12,14 @@ import { LoginModule } from '@components/login/login.module';
 import { ChapterPageComponent } from '@components/chapter/chapter-page.component';
 import { PageResolver, DefaultPageResolver } from '@components/chapter/page.resolver';
 import { ChapterResolver, DefaultChapterResolver } from '@components/chapter/chapter.resolver';
+import { ChaptersEditComponent } from '@components/chapter/chapters-edit.component';
 
 
 const routes: Array<Route> = [
+  {
+    path: 'chapters/edit',
+    component: ChaptersEditComponent
+  },
   {
       path: ':chapter/:page',
       component: ChapterPageComponent,

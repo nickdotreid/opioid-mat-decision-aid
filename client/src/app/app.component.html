@@ -7,15 +7,10 @@
                 Navigation
             </button>
             <app-login></app-login>
-            <button *ngIf="!participant"
-                (click)="createParticipant()"
+            <button *ngIf="isEditor"
+                (click)="editDecisionAid()"
                 >
-                Start
-            </button>
-            <button *ngIf="participant"
-                (click)="outputToggle()"
-                >
-                {{participant.id}}
+                Edit Decision Aid
             </button>
         </nav>
         <app-page-navigation></app-page-navigation>

@@ -17,12 +17,15 @@ import { ChapterRouter } from './chapter-router.service';
 import { ServerModule } from '@components/server/server.module';
 import { PageCreateComponent } from './page-create.component';
 import { PageNavigationComponent } from './page-navigation.component';
+import { LoginModule } from '@components/login/login.module';
+import { ChaptersEditComponent } from './chapters-edit.component';
 
 @NgModule({
     declarations: [
         ChapterCreateComponent,
         ChapterPageComponent,
         ChapterNavigationComponent,
+        ChaptersEditComponent,
         PageCreateComponent,
         PageNavigationComponent
     ],
@@ -32,6 +35,7 @@ import { PageNavigationComponent } from './page-navigation.component';
     ],
     exports: [
         ChapterNavigationComponent,
+        ChaptersEditComponent,
         PageNavigationComponent
     ],
     imports: [
@@ -44,7 +48,8 @@ import { PageNavigationComponent } from './page-navigation.component';
         MatInputModule,
         ReactiveFormsModule,
         RouterModule.forChild([]),
-        ServerModule
+        ServerModule,
+        LoginModule
     ],
     providers: [
         DefaultChapterResolver,

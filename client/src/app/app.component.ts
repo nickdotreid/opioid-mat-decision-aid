@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 import { ChapterService, Page, Chapter } from '@components/chapter/chapters.service';
-import { MedicationEffectsService } from '@domain/medication-effects/medication-effects.service';
-import { Router, NavigationEnd, NavigationStart, Event } from '@angular/router';
+import { Router, NavigationStart, Event } from '@angular/router';
 import { ParticipantService, Participant } from '@domain/participant/participant.service';
-import { TouchSequence } from 'selenium-webdriver';
-
-declare var gtag: any;
+import { LoginService } from '@components/login/login.service';
 
 @Component({
     selector: 'app-root',
@@ -14,6 +11,8 @@ declare var gtag: any;
 })
 export class AppComponent {
     title = 'client';
+
+    public isEditor: Boolean = false;
 
     public navigationCollapsed = true;
     public outputCollapsed = true;
@@ -25,18 +24,25 @@ export class AppComponent {
 
     constructor(
         private chapterService: ChapterService,
-        private medicationEffectsService: MedicationEffectsService,
         private router: Router,
-        private participantService: ParticipantService
+        private participantService: ParticipantService,
+        private loginService: LoginService
     ) {
         this.chapterService.update();
-        this.medicationEffectsService.update();
 
         this.router.events.subscribe((event: Event) => {
             if (event instanceof NavigationStart) {
                 this.focusMain();
             }
         });
+
+        this.loginService.editor.subscribe((editor) => {
+            if (editor) {
+                this.isEditor = true;
+            } else {
+                this.isEditor = false;
+            }
+        })
 
         this.chapterService.completedContent.subscribe(() => {
             this.outputCollapsed = false;
@@ -55,19 +61,14 @@ export class AppComponent {
             this.participant = participant;
         });
 
-        router.events.subscribe(event => {
-            if (event instanceof NavigationEnd && this.participant) {
-                gtag('config', 'UA-142595118-1', {
-                    'page_path': event.url,
-                    'user_id': this.participant.id
-                });
-            }
-        });
-
     }
 
     public login() {
         this.router.navigate(['login']);
+    }
+
+    public editDecisionAid() {
+        this.router.navigate(['chapters', 'edit']);
     }
 
     public navigationToggle() {
