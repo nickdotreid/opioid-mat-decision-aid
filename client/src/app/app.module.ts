@@ -13,9 +13,14 @@ import { ChapterPageComponent } from '@components/chapter/chapter-page.component
 import { PageResolver, DefaultPageResolver } from '@components/chapter/page.resolver';
 import { ChapterResolver, DefaultChapterResolver } from '@components/chapter/chapter.resolver';
 import { ChaptersEditComponent } from '@components/chapter/chapters-edit.component';
+import { TestPageComponent } from './test-page.component';
 
 
 const routes: Array<Route> = [
+  {
+    path: 'test',
+    component: TestPageComponent
+  },
   {
     path: 'chapters/edit',
     component: ChaptersEditComponent
@@ -51,6 +56,7 @@ const routes: Array<Route> = [
 @NgModule({
   declarations: [
     AppComponent,
+    TestPageComponent
   ],
   imports: [
     BrowserModule,
