@@ -1,6 +1,11 @@
 <form *ngIf="!editor" [formGroup]="form"
     (ngSubmit)="submit()"
     >
+    <p  *ngIf="error"
+        class="error"
+        >
+        {{error}}
+    </p>
     <app-text-field formControlName="email"
         label="Email Address"
         >

@@ -13,6 +13,8 @@ export class LoginDialogComponent {
     public form: FormGroup;
     public editor: Editor;
 
+    public error: String;
+
     constructor(
         private loginService: LoginService,
         public dialog: MatDialogRef<LoginDialogComponent>,
@@ -38,9 +40,12 @@ export class LoginDialogComponent {
             .then(() => {
                 this.form.reset();
                 this.dialog.close();
+            })
+            .catch((error) => {
+                this.error = error;
             });
         } else {
-            console.log('Invalid form', this.form.value);
+            this.error = "Invalid form";
         }
     }
 }

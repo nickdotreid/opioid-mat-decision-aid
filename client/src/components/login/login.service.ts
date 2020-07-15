@@ -42,6 +42,16 @@ export class LoginService {
         .then(() => {
             this.setEditor(email);
             return undefined;
+        })
+        .catch((error) => {
+            if (typeof(error.error) === 'string') {
+                return Promise.reject(error.error);
+            } else if (typeof(error.error) === 'object') {
+                const keys = Object.keys(error.error);
+                return Promise.reject(error.error[keys[0]]);
+            } else {
+                return Promise.reject('Unknown error');
+            }
         });
     }
 

@@ -24,7 +24,7 @@ class EditorLogin(APIView):
         if not serializer.is_valid():
             return Response(
                 data = serializer.errors,
-                status_code = status.HTTP_400_BAD_REQUEST
+                status = status.HTTP_400_BAD_REQUEST
             )
         email = serializer.validated_data['email']
         password = serializer.validated_data['password']
@@ -34,7 +34,7 @@ class EditorLogin(APIView):
         except Editor.DoesNotExist:
             return Response(
                 'Editor does not exist',
-                status_code = status.HTTP_401_UNAUTHORIZED
+                status = status.HTTP_401_UNAUTHORIZED
             )
         user = authenticate(
             request=request,
@@ -44,7 +44,7 @@ class EditorLogin(APIView):
         if not user:
             return Response(
                 'Incorrect password',
-                status_code = status.HTTP_401_UNAUTHORIZED
+                status = status.HTTP_401_UNAUTHORIZED
             )
         token, created = Token.objects.get_or_create(user=user)
         return Response(
