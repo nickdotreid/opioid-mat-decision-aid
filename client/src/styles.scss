@@ -119,6 +119,11 @@ app-root {
         }
     }
 
+    #sidenav {
+        text-decoration: underline;
+        text-decoration-color: $color-secondary;
+    }
+
     #output {
         right: 0px;
     }
