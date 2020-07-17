@@ -2,6 +2,7 @@
 @include mat-core();
 
 $color-primary: #673AB7;
+$color-secondary: #FFC300;
 
 $color-text: #333333;
 $color-link: #0078a4;
@@ -42,8 +43,15 @@ a {
     text-decoration: underline;
 }
 
-nav a {
-    text-decoration: none;
+nav 
+    a {
+        color: $color-primary;
+        text-decoration: underline;
+        text-decoration-color: $color-secondary;
+}
+
+    a.active {
+        background-color: $color-background;
 }
 
 router-outlet {
@@ -145,7 +153,9 @@ app-root #blocker.output-opened {
     }
 }
 
-
+app-root nav {
+    background-color: $color-background-alternative; 
+}
 
 app-root nav > .bullets {
     display: flex;
@@ -265,6 +275,7 @@ app-root header nav {
     a {
         color: $color-primary;
         text-decoration: none;
+
     }
 
     a.active {
@@ -328,6 +339,10 @@ app-root .content {
     }
 
 
+}
+
+app-root header app-page-navigation {
+    font-weight: bold;
 }
 
 // Form Styles
