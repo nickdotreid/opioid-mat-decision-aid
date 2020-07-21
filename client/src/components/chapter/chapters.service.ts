@@ -112,6 +112,12 @@ export class ChapterService {
         });
     }
 
+    public updateChapter(chapter: Chapter): Promise<Chapter> {
+        return this.serverService.post('chapters/' + chapter.id + '/', {
+            title: chapter.title
+        });
+    }
+
     public createPage(chapter: Chapter, title: string): Promise<Page> {
         return this.serverService.post('pages/', {
             chapterId: chapter.id,

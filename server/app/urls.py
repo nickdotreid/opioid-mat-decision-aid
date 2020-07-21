@@ -7,14 +7,17 @@ from django.urls import path
 from rest_framework.authtoken.views import obtain_auth_token
 
 from chapters.views import ListContent
+from chapters.views import ChapterDetailsView
 from chapters.views import PageListView
 from charts.views import ListCharts
 from editors.views import EditorLogin
 from medications.views import ListAllMedications
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('api/chapters/<chapter_id>/', ChapterDetailsView.as_view(), name='chapters-detail'),
     path('api/chapters/', ListContent.as_view(), name='chapters-content'),
     path('api/charts/', ListCharts.as_view(), name='charts-all'),
     path('api/login/', EditorLogin.as_view(), name='api-login'),

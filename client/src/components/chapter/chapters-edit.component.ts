@@ -35,6 +35,11 @@ export class ChaptersEditComponent implements OnInit, OnDestroy {
     }
 
     public editChapter(chapter: Chapter) {
+        this.dialog.open(ChapterCreateComponent, {
+            data: {
+                chapter: chapter
+            }
+        });
         console.log('Edit chapter', chapter.title);
     }
 
