@@ -1,1 +1,12 @@
-<p>Hi</p>
+<button (click)="createChapter()">Add Chapter</button>
+<ul>
+    <li *ngFor="let chapter of chapters">
+        {{chapter.title}}
+        <button (click)="editChapter(chapter)">
+            Edit
+        </button>
+        <button (click)="deleteChapter(chapter)">
+            Delete
+        </button>
+    </li>
+</ul>

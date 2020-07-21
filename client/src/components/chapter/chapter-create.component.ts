@@ -22,7 +22,7 @@ export class ChapterCreateComponent {
     }
 
     public create() {
-        if (!this.form.invalid) {
+        if (this.form.valid) {
             const title = this.form.get('title').value;
             this.chapterService.createChapter(title)
             .then(() => {

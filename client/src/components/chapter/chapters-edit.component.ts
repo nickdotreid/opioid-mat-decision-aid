@@ -1,10 +1,45 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ChapterService, Chapter } from './chapters.service';
+import { Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material';
+import { ChapterCreateComponent } from './chapter-create.component';
 
 @Component({
     templateUrl: './chapters-edit.component.html'
 })
-export class ChaptersEditComponent {
+export class ChaptersEditComponent implements OnInit, OnDestroy {
 
-    constructor() {}
+    public chapters: Array<Chapter>;
+
+    private chaptersSubscription: Subscription;
+
+    constructor(
+        private chapterService: ChapterService,
+        public dialog: MatDialog
+    ) {}
+
+    ngOnInit() {
+        this.chaptersSubscription = this.chapterService.chapters.subscribe((chapters) => {
+            this.chapters = chapters;
+        });
+    }
+
+    ngOnDestroy() {
+        if (this.chaptersSubscription) {
+            this.chaptersSubscription.unsubscribe();
+        }
+    }
+
+    public createChapter() {
+        this.dialog.open(ChapterCreateComponent);
+    }
+
+    public editChapter(chapter: Chapter) {
+        console.log('Edit chapter', chapter.title);
+    }
+
+    public deleteChapter(chapter: Chapter) {
+        console.log('Delete chapter', chapter.title);
+    }
 }
 
