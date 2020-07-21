@@ -39,6 +39,13 @@ export class ServerService {
         });
     }
 
+    public delete(url: string): Promise<any> {
+        return this.httpClient.delete('api/' + url, {
+            headers: this.formatHeaders()
+        })
+        .toPromise();
+    }
+
     private formatHeaders(obj?: any): any {
         if (!obj) {
             obj = {};

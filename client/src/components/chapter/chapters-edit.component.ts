@@ -40,11 +40,13 @@ export class ChaptersEditComponent implements OnInit, OnDestroy {
                 chapter: chapter
             }
         });
-        console.log('Edit chapter', chapter.title);
     }
 
     public deleteChapter(chapter: Chapter) {
-        console.log('Delete chapter', chapter.title);
+        this.chapterService.deleteChapter(chapter)
+        .then(() => {
+            this.chapterService.update();
+        });
     }
 }
 

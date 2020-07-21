@@ -118,6 +118,13 @@ export class ChapterService {
         });
     }
 
+    public deleteChapter(chapter: Chapter): Promise<void> {
+        return this.serverService.delete('chapters/' + chapter.id + '/')
+        .then(() => {
+            return undefined;
+        });
+    }
+
     public createPage(chapter: Chapter, title: string): Promise<Page> {
         return this.serverService.post('pages/', {
             chapterId: chapter.id,

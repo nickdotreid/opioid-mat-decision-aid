@@ -75,6 +75,11 @@ class ChapterDetailsView(APIView):
             return Response(serializer.data)
         return self.get(request, chapter_id)
 
+    def delete(self, request, chapter_id):
+        chapter = self.get_chapter(chapter_id)
+        chapter.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 class PageListView(APIView):
 
     def get(self, request):
