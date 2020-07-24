@@ -8,16 +8,15 @@ import { ChapterPageComponent } from './chapter-page.component';
 import { PageResolver, DefaultPageResolver } from './page.resolver';
 import { ChapterResolver, DefaultChapterResolver } from './chapter.resolver';
 import { GridPageModule } from '@components/grid/grid.module';
-import { FormModule } from '@components/form/form.module';
+import { FormModule } from '../form/form.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { MatDialogModule, MatInputModule } from '@angular/material';
 import { ChapterCreateComponent } from './chapter-create.component';
 import { ChapterRouter } from './chapter-router.service';
-import { ServerModule } from '@components/server/server.module';
+import { ServerModule } from '../server/server.module';
 import { PageCreateComponent } from './page-create.component';
 import { PageNavigationComponent } from './page-navigation.component';
-import { LoginModule } from '@components/login/login.module';
 import { ChaptersEditComponent } from './chapters-edit.component';
 
 @NgModule({
@@ -48,8 +47,7 @@ import { ChaptersEditComponent } from './chapters-edit.component';
         MatInputModule,
         ReactiveFormsModule,
         RouterModule.forChild([]),
-        ServerModule,
-        LoginModule
+        ServerModule
     ],
     providers: [
         DefaultChapterResolver,

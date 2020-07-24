@@ -24,12 +24,3 @@
     >
     <app-chapter-navigation></app-chapter-navigation>
 </div>
-<div id="output"
-    [ngClass]="{opened: !outputCollapsed}"
-    >
-    <app-output-page (completed)="clearParticipant()"></app-output-page>
-</div>
-<div id="blocker"
-    [ngClass]="{'navigation-opened': !navigationCollapsed, 'output-opened': !outputCollapsed}"
-    (click)="focusMain()"
-></div>

@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { ReplaySubject, BehaviorSubject } from 'rxjs';
-import { ServerService } from '@components/server/server.service';
+import { ServerService } from '../server/server.service';
 
 export class Chart {
     title: string;

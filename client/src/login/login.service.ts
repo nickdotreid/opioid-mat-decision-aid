@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { ServerService } from '@components/server/server.service';
+import { ServerService } from '../server/server.service';
 import { Editor } from './editor.model';
 import { ReplaySubject } from 'rxjs';
 import { StorageService, SESSION_STORAGE } from 'ngx-webstorage-service';

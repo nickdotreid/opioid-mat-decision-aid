@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { ChapterService, Page, Chapter } from '@components/chapter/chapters.service';
+import { ChapterService, Page, Chapter } from '../chapters/chapters.service';
 import { Router, NavigationStart, Event } from '@angular/router';
-import { ParticipantService, Participant } from '@domain/participant/participant.service';
-import { LoginService } from '@components/login/login.service';
+import { LoginService } from '../login/login.service';
 
 @Component({
     selector: 'app-root',
@@ -15,17 +14,13 @@ export class AppComponent {
     public isEditor: Boolean = false;
 
     public navigationCollapsed = true;
-    public outputCollapsed = true;
 
     public currentPage: Page;
     public currentChapter: Chapter;
 
-    public participant: Participant;
-
     constructor(
         private chapterService: ChapterService,
         private router: Router,
-        private participantService: ParticipantService,
         private loginService: LoginService
     ) {
         this.chapterService.update();
@@ -42,10 +37,6 @@ export class AppComponent {
             } else {
                 this.isEditor = false;
             }
-        })
-
-        this.chapterService.completedContent.subscribe(() => {
-            this.outputCollapsed = false;
         });
 
         this.chapterService.currentChapter
@@ -55,10 +46,6 @@ export class AppComponent {
 
         this.chapterService.currentPage.subscribe((page) => {
             this.currentPage = page;
-        });
-
-        this.participantService.participant.subscribe((participant) => {
-            this.participant = participant;
         });
 
     }
@@ -75,20 +62,7 @@ export class AppComponent {
         this.navigationCollapsed = !this.navigationCollapsed;
     }
 
-    public outputToggle() {
-        this.outputCollapsed = !this.outputCollapsed;
-    }
-
-    public createParticipant() {
-        this.participantService.create();
-    }
-
-    public clearParticipant() {
-        this.participantService.clear();
-    }
-
     public focusMain() {
         this.navigationCollapsed = true;
-        this.outputCollapsed = true;
     }
 }
