@@ -1,33 +1,9 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { ReplaySubject, BehaviorSubject } from 'rxjs';
+
 import { ServerService } from '../server/server.service';
 
-export class Chart {
-    title: string;
-    effects: Array<string>;
-    medications: Array<string>;
-}
-
-export class Question {
-    public text: string;
-    public options: Array<any>;
-}
-
-export class Quiz {
-    public id: string;
-    public title: string;
-    public description: string;
-    public points_to_pass: number;
-    public questions: Array<Question>;
-}
-
-export class Page {
-    public id: string;
-    public title: string;
-    public content: string;
-    public chart: Chart;
-    public quiz: Quiz;
-}
+import { Page, Quiz, Chart } from './page.service';
 
 export class Chapter {
     public id: string;

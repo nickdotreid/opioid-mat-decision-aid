@@ -18,6 +18,7 @@ import { ServerModule } from '../server/server.module';
 import { PageCreateComponent } from './page-create.component';
 import { PageNavigationComponent } from './page-navigation.component';
 import { ChaptersEditComponent } from './chapters-edit.component';
+import { PageService } from './page.service';
 
 @NgModule({
     declarations: [
@@ -55,6 +56,7 @@ import { ChaptersEditComponent } from './chapters-edit.component';
         ChapterResolver,
         ChapterService,
         ChapterRouter,
+        PageService,
         PageResolver
     ]
 })

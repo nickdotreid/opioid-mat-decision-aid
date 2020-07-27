@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { ChapterService, Chapter, Page } from './chapters.service';
+import { ChapterService, Chapter } from './chapters.service';
 import { MatDialog } from '@angular/material';
 import { PageCreateComponent } from './page-create.component';
+import { Page } from './page.service';
 
 
 @Component({

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ChapterService, Page } from './chapters.service';
+import { ChapterService } from './chapters.service';
 import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
+import { Page } from './page.service';
 
 @Injectable()
 export class PageResolver implements Resolve<Page> {

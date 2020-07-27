@@ -1,12 +1,29 @@
-<button (click)="createChapter()">Add Chapter</button>
-<ul>
-    <li *ngFor="let chapter of chapters">
-        {{chapter.title}}
+<nav>
+    <button (click)="createChapter()">Add Chapter</button>
+</nav>
+
+<section *ngFor="let chapter of chapters">
+    <h3>{{chapter.title}}</h3>
+    <nav>
         <button (click)="editChapter(chapter)">
             Edit
         </button>
         <button (click)="deleteChapter(chapter)">
             Delete
         </button>
-    </li>
-</ul>
+    </nav>
+    <ul>
+        <li *ngFor="let page of chapter.pages">
+            {{page.title}}
+            <button (click)="editPage(page)">
+                Edit
+            </button>
+            <button (click)="deletePage(page)">
+                Delete
+            </button>
+        </li>
+    </ul>
+    <button (click)="addPage(chapter)">
+        Add Page
+    </button>
+</section>

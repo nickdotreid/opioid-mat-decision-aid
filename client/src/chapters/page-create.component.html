@@ -1,5 +1,5 @@
 <form [formGroup]="form"
-    (ngSubmit)="create()"
+    (ngSubmit)="submit()"
     >
     <mat-form-field>
         <input matInput
@@ -7,5 +7,5 @@
             formControlName="title"
             />
     </mat-form-field>
-    <button mat-raised-button color="primary">Create</button>
+    <button mat-raised-button color="primary">{{submitLabel}}</button>
 </form>
