@@ -17,14 +17,14 @@ class PageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Page
-        fields = ('id', 'title', 'content', 'chart', 'quiz')
+        fields = ('id', 'title', 'published', 'content', 'chart', 'quiz')
 
 class ChapterSerializer(serializers.ModelSerializer):
     pages = PageSerializer(many=True, read_only=True)
 
     class Meta:
         model = Chapter
-        fields = ('id', 'title', 'pages')
+        fields = ('id', 'title', 'published', 'pages')
 
 class ListContent(APIView):
 
@@ -70,6 +70,7 @@ class ChapterDetailsView(APIView):
         serializer = ChapterSerializer(data = request.data)
         if serializer.is_valid():
             chapter.title = serializer.validated_data['title']
+            chapter.published = serializer.validated_data['published']
             chapter.save()
             serializer = ChapterSerializer(chapter)
             return Response(serializer.data)
@@ -131,6 +132,7 @@ class PageDetailsView(APIView):
         serialized = PageSerializer(data=request.data)
         if serialized.is_valid():
             page.title = serialized.validated_data['title']
+            page.published = serialized.validated_data['published']
             page.save()
             page_serialized = PageSerializer(page)
             return Response(page_serialized.data)

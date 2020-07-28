@@ -1,11 +1,20 @@
 <form [formGroup]="form"
     (ngSubmit)="submit()"
     >
-    <mat-form-field>
-        <input matInput
-            placeholder="Title"
-            formControlName="title"
-            />
-    </mat-form-field>
-    <button mat-raised-button color="primary">{{submitLabel}}</button>
+    <p *ngIf="error"
+        class="error"
+        >
+        {{error}}
+    </p>
+    <app-text-field
+        label="Title"
+        formControlName="title"
+        >
+    </app-text-field>
+    <app-boolean-field
+        formControlName="published"
+        >
+        Published
+    </app-boolean-field>
+    <button mat-raised-button color="primary">Save</button>
 </form>

@@ -8,6 +8,7 @@ import { Page, Quiz, Chart } from './page.service';
 export class Chapter {
     public id: string;
     public title: string;
+    public published: boolean;
     public pages: Array<Page>;
 
     constructor(
@@ -115,7 +116,8 @@ export class ChapterService {
 
     public updateChapter(chapter: Chapter): Promise<Chapter> {
         return this.serverService.post('chapters/' + chapter.id + '/', {
-            title: chapter.title
+            title: chapter.title,
+            published: chapter.published
         });
     }
 
@@ -126,7 +128,7 @@ export class ChapterService {
         });
     }
 
-    public createPage(chapter: Chapter, title: string): Promise<Page> {
+    public createPage(chapter: Chapter, title: string, published: boolean): Promise<Page> {
         return this.serverService.post('pages/', {
             chapterId: chapter.id,
             title: title
@@ -187,6 +189,7 @@ export class ChapterService {
         const chapter = new Chapter(this);
         chapter.id = data.id;
         chapter.title = data.title;
+        chapter.published = data.published;
         chapter.pages = [];
         if (data.pages && data.pages.length) {
             data.pages.forEach((element) => {
@@ -200,6 +203,7 @@ export class ChapterService {
         const page = new Page();
         page.id = String(data.id);
         page.title = data.title;
+        page.published = data.published;
         page.content = data.content;
         if (data.chart) {
             page.chart = new Chart();

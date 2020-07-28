@@ -12,7 +12,6 @@ import { FormModule } from '../form/form.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { MatDialogModule, MatInputModule } from '@angular/material';
-import { ChapterCreateComponent } from './chapter-create.component';
 import { ChapterRouter } from './chapter-router.service';
 import { ServerModule } from '../server/server.module';
 import { PageCreateComponent } from './page-create.component';
@@ -22,7 +21,6 @@ import { PageService } from './page.service';
 
 @NgModule({
     declarations: [
-        ChapterCreateComponent,
         ChapterPageComponent,
         ChapterNavigationComponent,
         ChaptersEditComponent,
@@ -30,7 +28,6 @@ import { PageService } from './page.service';
         PageNavigationComponent
     ],
     entryComponents: [
-        ChapterCreateComponent,
         PageCreateComponent
     ],
     exports: [

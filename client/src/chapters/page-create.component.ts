@@ -11,53 +11,36 @@ import { Page, PageService } from './page.service';
 export class PageCreateComponent {
 
     public form: FormGroup;
-    public page: Page;
-    public chapter: Chapter;
-
-    private updateLabel = 'Update';
-    private createLabel = 'Create';
-    public submitLabel: string;
+    public error: String;
 
     constructor(
-        private pageService: PageService,
         private dialog: MatDialogRef<PageCreateComponent>,
         @Inject(MAT_DIALOG_DATA) data: any
     ) {
         let title;
-        if (data && data.chapter) {
-            this.chapter = data.chapter;
-        }
-        if (data && data.page) {
-            this.page = data.page;
-            title = this.page.title;
-            this.submitLabel = this.updateLabel;
-        } else {
-            this.submitLabel = this.createLabel;
+        let published = true;
+        if (data) {
+            title = data.title;
+            published = data.published;
+            this.error = data.error;
         }
 
         this.form = new FormGroup({
-            title: new FormControl(title, Validators.required)
+            title: new FormControl(title, Validators.required),
+            published: new FormControl(published, Validators.required)
         });
     }
 
     public submit() {
         if (!this.form.invalid) {
             const title = this.form.get('title').value;
-            let promise;
-            if (this.page) {
-                this.page.title = title;
-                promise = this.pageService.update(this.page);
-            } else {
-                promise = this.pageService.create(this.chapter.id, title);
-            }
-            promise.then(() => {
-                this.dialog.close();
-            })
-            .catch((error) => {
-                console.error('Page create component', error);
+            const published = this.form.get('published').value;
+            this.dialog.close({
+                title: title,
+                published: published
             });
         } else {
-            console.error('Page create component', 'form is invalid');
+            this.error = 'Form is invalid';
         }
     }
 }

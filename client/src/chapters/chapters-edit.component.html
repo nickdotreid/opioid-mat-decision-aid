@@ -15,6 +15,7 @@
     <ul>
         <li *ngFor="let page of chapter.pages">
             {{page.title}}
+            <span *ngIf="!page.published">(Unpublished)</span>
             <button (click)="editPage(page)">
                 Edit
             </button>

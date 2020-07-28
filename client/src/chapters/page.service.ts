@@ -24,6 +24,7 @@ export class Quiz {
 export class Page {
     public id: string;
     public title: string;
+    public published: boolean;
     public content: string;
     public chart: Chart;
     public quiz: Quiz;
@@ -36,12 +37,13 @@ export class PageService {
         private serverService: ServerService
     ) {}
 
-    public create(chpater_id: string, title: string): Promise<Page> {
+    public create(chpater_id: string, title: string, published?: boolean): Promise<Page> {
         return this.serverService.post(
             'pages/',
             {
                 chapterId: chpater_id,
-                title: title
+                title: title,
+                published: published
             }
         );
     }
@@ -74,7 +76,8 @@ export class PageService {
     public serializePage(page: Page): any {
         return {
             id: page.id,
-            title: page.title
+            title: page.title,
+            published: page.published
         };
     }
 
@@ -82,6 +85,7 @@ export class PageService {
         const page = new Page();
         page.id = data['id'];
         page.title = data['title'];
+        page.published = data['published'];
         return page;
     }
 }
