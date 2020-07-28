@@ -110,3 +110,34 @@ class PageListView(APIView):
                 serializer.errors,
                 status = status.HTTP_400_BAD_REQUEST
             )
+
+class PageDetailsView(APIView):
+
+    def get_page(self, page_id):
+        try:
+            return Page.objects.get(id=page_id)
+        except Page.DoesNotExist:
+            raise Http404
+
+    def get(self, request, page_id):
+        page = self.get_page(page_id)
+        serialized = PageSerializer(page)
+        return Response(
+            serialized.data
+        )
+
+    def post(self, request, page_id):
+        page = self.get_page(page_id)
+        serialized = PageSerializer(data=request.data)
+        if serialized.is_valid():
+            page.title = serialized.validated_data['title']
+            page.save()
+            page_serialized = PageSerializer(page)
+            return Response(page_serialized.data)
+        else:
+            return Response(serialized.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, page_id):
+        page = self.get_page(page_id)
+        page.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
