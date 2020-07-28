@@ -71,6 +71,31 @@ export class ChapterService {
         });
     }
 
+    public getChapterForPage(page: Page): Promise<Chapter> {
+        return this.getAllChapters()
+        .then((chapters) => {
+            const chapter = chapters.find((_chapter) => {
+                const pageIds = _chapter.pages.map(_page => _page.id);
+                return pageIds.indexOf(page.id) >= 0;
+            });
+            return chapter;
+        });
+    }
+
+    public getPage(id: string): Promise<Page> {
+        return this.getAllChapters()
+        .then((chapters) => {
+            let pages = [];
+            chapters.forEach((_chapter) => {
+                pages = pages.concat(_chapter.pages);
+            });
+            const page = pages.find((_page) => {
+                return _page.id === id;
+            });
+            return page;
+        });
+    }
+
     public createChapter(title: string): Promise<Chapter> {
         return this.serverService.post('chapters/', {
             title: title
@@ -173,7 +198,7 @@ export class ChapterService {
 
     private deserializePage(data: any): Page {
         const page = new Page();
-        page.id = data.id;
+        page.id = String(data.id);
         page.title = data.title;
         page.content = data.content;
         if (data.chart) {

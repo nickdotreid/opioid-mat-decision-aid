@@ -1,9 +1,10 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { Chapter, Page, ChapterService } from './chapters.service';
+import { Chapter, ChapterService } from './chapters.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ChapterRouter } from './chapter-router.service';
+import { Page } from './page.service';
 
 
 @Component({
@@ -34,32 +35,29 @@ export class ChapterPageComponent {
         this.activatedRoute.data
         .subscribe((data) => {
             this.resetForm();
-            this.update(data.chapter, data.page);
+            if (data && data.page) {
+                const page = data.page;
+                this.chapterService.getChapterForPage(page)
+                .then((chapter) => {
+                    this.updatePage(page, chapter);
+                });
+            }
         });
     }
 
-    private update(chapter: Chapter, page: Page ) {
+    private updatePage(page: Page, chapter: Chapter ) {
+        this.page = page;
+        this.content = this.santizer.bypassSecurityTrustHtml(page.content);
 
-        if (chapter) {
-            this.chapter = chapter;
-            this.chapterService.setCurrentChapter(this.chapter);
-        } else {
-            this.chapter = undefined;
-        }
+        this.chapter = chapter;
+        this.chapterService.setCurrentChapter(this.chapter);
+        this.chapterService.setCurrentPage(this.page);
 
-        if (page) {
-            this.page = page;
-            this.content = this.santizer.bypassSecurityTrustHtml(page.content);
-            this.chapterService.setCurrentPage(this.page);
-
-            if (this.page.quiz) {
-                this.form = new FormGroup({});
-                this.page.quiz.questions.forEach((question, index) => {
-                    this.form.addControl(String(index), new FormControl());
-                });
-            }
-        } else {
-            this.page = undefined;
+        if (this.page.quiz) {
+            this.form = new FormGroup({});
+            this.page.quiz.questions.forEach((question, index) => {
+                this.form.addControl(String(index), new FormControl());
+            });
         }
     }
 

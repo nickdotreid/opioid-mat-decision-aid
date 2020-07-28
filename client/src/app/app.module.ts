@@ -8,7 +8,7 @@ import { MatSidenavModule } from '@angular/material';
 import { LoginModule } from '../login/login.module';
 import { ChapterPageComponent } from '../chapters/chapter-page.component';
 import { PageResolver, DefaultPageResolver } from '../chapters/page.resolver';
-import { ChapterResolver, DefaultChapterResolver } from '../chapters/chapter.resolver';
+import { ChapterResolver } from '../chapters/chapter.resolver';
 import { ChaptersEditComponent } from '../chapters/chapters-edit.component';
 import { TestPageComponent } from './test-page.component';
 
@@ -23,28 +23,25 @@ const routes: Array<Route> = [
     component: ChaptersEditComponent
   },
   {
-      path: ':chapter/:page',
-      component: ChapterPageComponent,
-      resolve: {
-          page: PageResolver,
-          chapter: ChapterResolver
-      }
+    path: 'chapters/:chapterId',
+    component: ChapterPageComponent,
+    resolve: {
+      page: ChapterResolver
+    }
   },
   {
-      path: ':chapter',
-      component: ChapterPageComponent,
-      resolve: {
-          page: DefaultPageResolver,
-          chapter: ChapterResolver
-      }
+    path: 'pages/:pageId',
+    component: ChapterPageComponent,
+    resolve: {
+      page: PageResolver
+    }
   },
   {
       path: '',
       pathMatch: 'full',
       component: ChapterPageComponent,
       resolve: {
-          page: DefaultPageResolver,
-          chapter: DefaultChapterResolver
+          page: DefaultPageResolver
       }
   }
 ];

@@ -1,25 +1,26 @@
 import { Injectable } from '@angular/core';
-import { Chapter, ChapterService } from './chapters.service';
+import { ChapterService } from './chapters.service';
 import { ActivatedRouteSnapshot, Resolve, Router } from '@angular/router';
+import { Page } from './page.service';
 
 
 
 @Injectable()
-export class ChapterResolver implements Resolve<Chapter> {
+export class ChapterResolver implements Resolve<Page> {
 
     constructor(
         private chapterService: ChapterService,
         private router: Router
     ) {}
 
-    public resolve(activatedRoute: ActivatedRouteSnapshot): Promise<Chapter> {
-        return this.chapterService.getChapter(activatedRoute.paramMap.get('chapter'))
+    public resolve(activatedRoute: ActivatedRouteSnapshot): Promise<Page> {
+        return this.chapterService.getChapter(activatedRoute.paramMap.get('chapterId'))
         .then((chapter) => {
-            return Promise.resolve(chapter);
+            return Promise.resolve(chapter.pages[0]);
         })
         .catch(() => {
             this.navigateToDefaultChapter();
-            return new Chapter();
+            return new Page();
         });
     }
 
@@ -27,21 +28,6 @@ export class ChapterResolver implements Resolve<Chapter> {
         this.chapterService.getFirstChapter()
         .then((chapter) => {
             this.router.navigate([chapter.id]);
-        });
-    }
-}
-
-@Injectable()
-export class DefaultChapterResolver implements Resolve<Chapter> {
-
-    constructor (
-        private chapterService: ChapterService
-    ) {}
-
-    resolve(): Promise<Chapter> {
-        return this.chapterService.getAllChapters()
-        .then((chapters) => {
-            return Promise.resolve(chapters[0]);
         });
     }
 }

@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ChapterNavigationComponent } from './chapter-navigation.component';
 import { ChapterService } from './chapters.service';
-import { RouterModule, Route } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ChapterPageComponent } from './chapter-page.component';
 import { PageResolver, DefaultPageResolver } from './page.resolver';
-import { ChapterResolver, DefaultChapterResolver } from './chapter.resolver';
+import { ChapterResolver } from './chapter.resolver';
 import { GridPageModule } from '@components/grid/grid.module';
 import { FormModule } from '../form/form.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -51,7 +51,6 @@ import { PageService } from './page.service';
         ServerModule
     ],
     providers: [
-        DefaultChapterResolver,
         DefaultPageResolver,
         ChapterResolver,
         ChapterService,

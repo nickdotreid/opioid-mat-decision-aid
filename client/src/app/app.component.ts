@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { ChapterService, Page, Chapter } from '../chapters/chapters.service';
+import { ChapterService, Chapter } from '../chapters/chapters.service';
 import { Router, NavigationStart, Event } from '@angular/router';
 import { LoginService } from '../login/login.service';
+import { Page } from 'chapters/page.service';
 
 @Component({
     selector: 'app-root',

@@ -12,24 +12,11 @@ export class ChapterRouter {
     ) {}
 
     public navigateToPage(chapter: Chapter, page: Page): Promise<boolean> {
-        return this.router.navigate(this.pageCommands(chapter, page));
+        return this.router.navigate(['pages', page.id]);
     }
 
     public navigateToChapter(chapter: Chapter): Promise<boolean> {
-        return this.router.navigate(this.chapterCommands(chapter));
-    }
-
-    public chapterCommands(chapter: Chapter): Array<any> {
-        return this.routerCommands([chapter.id]);
-    }
-
-    public pageCommands(chapter: Chapter, page: Page): Array<any> {
-        const commands = this.chapterCommands(chapter);
-        return commands.concat([page.id]);
-    }
-
-    public routerCommands(commands: Array<any>): Array<any> {
-        return commands;
+        return this.router.navigate(['chapters', chapter.id]);
     }
 
 }

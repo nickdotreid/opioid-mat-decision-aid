@@ -17,7 +17,6 @@ export class ChapterNavigationComponent implements OnInit, OnDestroy {
     private chapterSubscription: Subscription;
 
     constructor (
-        private chapterRouter: ChapterRouter,
         private chapterService: ChapterService,
         public dialog: MatDialog
     ) {}
@@ -39,7 +38,7 @@ export class ChapterNavigationComponent implements OnInit, OnDestroy {
     }
 
     public routerLink(chapter: Chapter) {
-        return this.chapterRouter.chapterCommands(chapter);
+        return ['/chapters', chapter.id];
     }
 
 }
