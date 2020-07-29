@@ -97,9 +97,10 @@ export class ChapterService {
         });
     }
 
-    public createChapter(title: string): Promise<Chapter> {
+    public createChapter(title: string, published: boolean): Promise<Chapter> {
         return this.serverService.post('chapters/', {
-            title: title
+            title: title,
+            published: published
         })
         .then((data: any) => {
             const chapter = new Chapter(this);

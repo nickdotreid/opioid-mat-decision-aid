@@ -3,7 +3,7 @@
     >
     <a [routerLink]="['/chapters', chapter.id]">{{chapter.title}}</a>
     <ul class="bullets">
-        <li *ngFor="let _page of chapter.pages">
+        <li *ngFor="let _page of pages">
             <a [routerLink]="['/pages', _page.id]"
                 [ngClass]="{active: (page && _page.id === page.id)}"
                 >

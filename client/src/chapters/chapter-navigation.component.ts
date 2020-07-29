@@ -19,7 +19,7 @@ export class ChapterNavigationComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.chapterSubscription = this.chapterService.chapters.subscribe((chapters) => {
-            this.chapters = chapters;
+            this.chapters = chapters.filter(chapter => chapter.published);
         });
     }
 

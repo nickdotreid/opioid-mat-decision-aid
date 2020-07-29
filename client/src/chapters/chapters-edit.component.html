@@ -4,6 +4,7 @@
 
 <section *ngFor="let chapter of chapters">
     <h3>{{chapter.title}}</h3>
+    <span *ngIf="!chapter.published">(Unpublished)</span>
     <nav>
         <button (click)="editChapter(chapter)">
             Edit

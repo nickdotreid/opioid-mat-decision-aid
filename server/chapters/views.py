@@ -29,7 +29,7 @@ class ChapterSerializer(serializers.ModelSerializer):
 class ListContent(APIView):
 
     def get(self, request):
-        chapters = Chapter.objects.filter(published=True).all()
+        chapters = Chapter.objects.all()
         serializer = ChapterSerializer(chapters, many=True)
         return Response(serializer.data)
 
