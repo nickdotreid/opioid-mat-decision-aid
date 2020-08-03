@@ -33,24 +33,6 @@ class ContentViewTest(APITestCase):
         self.assertEqual(first_chapter['pages'][0]['title'], 'First page')
         self.assertEqual(first_chapter['pages'][0]['content'], '<p>Example paragraph</p>')
 
-    def test_unpublished_chapters_not_listed(self):
-        Chapter.objects.create(
-            title = 'Example'
-        )
-        Chapter.objects.create(
-            title = 'Unpublished example',
-            published = False
-        )
-        Chapter.objects.create(
-            title = 'Test'
-        )
-
-        response = self.client.get(reverse('chapters-content'))
-
-        self.assertEqual(response.status_code, 200)
-        chapter_titles = [chapter['title'] for chapter in response.data]
-        self.assertEqual(chapter_titles, ['Example', 'Test'])
-
 class PageViewTests(APITestCase):
 
     def test_view_page_list(self):
