@@ -7,6 +7,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 
 from .models import Editor
+from .models import User
 
 class EditorAuthTokenSerializer(serializers.Serializer):
     email = serializers.EmailField()
@@ -29,16 +30,23 @@ class EditorLogin(APIView):
         email = serializer.validated_data['email']
         password = serializer.validated_data['password']
         try:
-            
-            editor = Editor.objects.get(user__email=email)
-        except Editor.DoesNotExist:
+            user = User.objects.get(email = email)
+        except User.DoesNotExist:
             return Response(
-                'Editor does not exist',
+                'User does not exist',
                 status = status.HTTP_401_UNAUTHORIZED
             )
+        if not user.is_staff:
+            try:
+                editor = Editor.objects.get(user__email=email)
+            except Editor.DoesNotExist:
+                return Response(
+                    'Editor does not exist',
+                    status = status.HTTP_401_UNAUTHORIZED
+                )
         user = authenticate(
             request=request,
-            username=editor.user.username,
+            username=user.username,
             password=password
         )
         if not user:
