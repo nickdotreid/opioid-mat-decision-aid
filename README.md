@@ -38,7 +38,7 @@ The root of the application is [client/src/app/app.component.ts](client/src/app/
 
 The CSS stylesheet used in the application is [client/src/styles.scss](client/src/styles.scss).
 
-Server Applicaiton
+## Server Applicaiton
 The best way to work with the server is to access the bash prompt within the server docker image. Use the following command `docker-compose run --service-ports server bash`
 
 Deployment
