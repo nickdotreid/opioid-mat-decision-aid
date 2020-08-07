@@ -1,9 +1,12 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.auth.views import PasswordResetView
+from django.contrib.auth.views import PasswordResetDoneView
+from django.contrib.auth.views import PasswordResetConfirmView
+from django.contrib.auth.views import PasswordResetCompleteView
 from django.urls import include
 from django.urls import path
-
 from rest_framework.authtoken.views import obtain_auth_token
 
 from chapters.views import ListContent
@@ -17,6 +20,10 @@ from medications.views import ListAllMedications
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('reset-password/<uidb64>/<token>/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('reset-password/complete/', PasswordResetConfirmView.as_view(), name='password_reset_complete'),
+    path('reset-password/sent/', PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('reset-password/', PasswordResetView.as_view()),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('api/chapters/<chapter_id>/', ChapterDetailsView.as_view(), name='chapters-detail'),
     path('api/chapters/', ListContent.as_view(), name='chapters-content'),
