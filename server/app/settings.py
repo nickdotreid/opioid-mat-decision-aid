@@ -25,6 +25,13 @@ else:
     }
 }
 
+if 'SENDGRID_USERNAME' in os.environ and 'SENDGRID_PASSWORD' in os.environ:
+    EMAIL_HOST = 'smtp.sendgrid.net'
+    EMAIL_HOST_USER = env.str('SENDGRID_USERNAME')
+    EMAIL_HOST_PASSWORD = env.str('SENDGRID_PASSWORD')
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+
 FIXTURE_DIRS = ['fixtures']
 
 # Application definition
