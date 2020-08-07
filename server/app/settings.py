@@ -25,10 +25,10 @@ else:
     }
 }
 
-if 'SENDGRID_USERNAME' in os.environ and 'SENDGRID_PASSWORD' in os.environ:
+if 'SENDGRID_API_KEY' in os.environ:
     EMAIL_HOST = 'smtp.sendgrid.net'
-    EMAIL_HOST_USER = env.str('SENDGRID_USERNAME')
-    EMAIL_HOST_PASSWORD = env.str('SENDGRID_PASSWORD')
+    EMAIL_HOST_USER = 'apikey'
+    EMAIL_HOST_PASSWORD = os.environ['SENDGRID_API_KEY']
     EMAIL_PORT = 587
     EMAIL_USE_TLS = True
 
