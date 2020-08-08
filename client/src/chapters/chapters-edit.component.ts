@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material';
 import { PageService, Page } from './page.service';
 import { PageCreateComponent } from './page-create.component';
+import { ReorderPagesComponent } from './reorder-pages.component';
 
 @Component({
     templateUrl: './chapters-edit.component.html'
@@ -83,6 +84,14 @@ export class ChaptersEditComponent implements OnInit, OnDestroy {
                 .catch((_error) => {
                     return this.editChapter(chapter, _error);
                 });
+            }
+        });
+    }
+
+    public reorderPages(chapter: Chapter) {
+        this.dialog.open(ReorderPagesComponent, {
+            data: {
+                pages: chapter.pages
             }
         });
     }

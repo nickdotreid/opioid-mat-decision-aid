@@ -1,0 +1,9 @@
+<p>Reorder pages</p>
+<ul #list class="sortable-list">
+    <li *ngFor="let page of pages"
+        id="{{page.id}}"
+        >
+        {{page.title}}
+    </li>
+</ul>
+<button (click)="save()">Save</button>
