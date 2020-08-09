@@ -13,6 +13,11 @@ Then, in the directory you want to work in, run the following commands:
 $ git clone git@github.com:nickdotreid/opioid-mat-decision-aid.git
 $ cd opioid-mat-decision-aid
 
+# Creates and updates server database
+$ docker-compose run server python manage.py migrate
+# Loads test data into the database using Django fixture
+$ docker-compose run server python manage.py loaddata test
+
 $ docker-compose up
 # Running docker-compose up will build and start the entire application
 # Starting the application will take some time the first time because base images need to be downloaded. 
@@ -39,7 +44,33 @@ The root of the application is [client/src/app/app.component.ts](client/src/app/
 The CSS stylesheet used in the application is [client/src/styles.scss](client/src/styles.scss).
 
 ## Server Applicaiton
-The best way to work with the server is to access the bash prompt within the server docker image. Use the following command `docker-compose run --service-ports server bash`
+The server application is written in Django and implements a REST Api that is consumed by the client application.
 
-Deployment
-#todo
+Here are some docker-compose commands that are useful when working with the Django server
+```
+# Create a database migration
+$ docker-compose run server python manage.py makemigrations
+
+# Update the database with created migrations
+$ docker-compose run server python manage.py migrate
+
+# Run unit test to ensure you didn't brake something
+$ docker-compose run server python manage.py test
+
+# Destroy the database when *something* brakes
+$ docker-compose run server python manage.py flush
+# This command removes the docker volume that stores the database
+# which should be used when something is really, REALLY broken
+$ docker volume rm opioid-mat-decision-aid_pg-data
+
+# Create a new app in Django
+$ docker-compose run server python manage.py startapp YOUR_APP_NAME
+
+# Enter command line, then run development server so you can access it at http://localhost:8080
+$ docker-compose run --service-ports server bash
+> honcho start dev
+
+```
+
+**Deployment**
+This application is currently deployed in Heroku, and creates a single docker image [using this Dockerfile.](Dockerfile). The file is set up to generate a static Angular application and run the Django server behind an nginx proxy. Nginx is responsible for serving all static files, and is [configured with this nginx.conf.](nginx.conf)
