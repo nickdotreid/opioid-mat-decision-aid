@@ -93,6 +93,21 @@ export class ChaptersEditComponent implements OnInit, OnDestroy {
             data: {
                 pages: chapter.pages
             }
+        }).afterClosed().toPromise()
+        .then((data) => {
+            if (data) {
+                const pages = data.map((_d) => {
+                    const page = new Page();
+                    page.id = _d.id;
+                    page.title = _d.title;
+                    page.published = _d.published;
+                    return page;
+                });
+                return this.chapterService.updateChapterPageOrder(chapter, pages)
+                .then(() => {
+                    this.chapterService.update();
+                });
+            }
         });
     }
 

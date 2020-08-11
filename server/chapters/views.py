@@ -81,6 +81,38 @@ class ChapterDetailsView(APIView):
         chapter.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+class ChapterPagesView(ChapterDetailsView):
+
+    def get(self, request, chapter_id):
+        chapter = self.get_chapter(chapter_id)
+        pages = []
+        for page in chapter.pages:
+            pages.append({
+                'id': page.id,
+                'title': page.title,
+                'published': page.published
+            })
+        return Response(pages, status=status.HTTP_200_OK)
+    
+    def post(self, request, chapter_id):
+        chapter = self.get_chapter(chapter_id)
+        if not isinstance(request.data, list):
+            return Response('Request must be list', status=status.HTTP_400_BAD_REQUEST)
+        pages = chapter.pages
+        page_order_by_id = {}
+        for _index, _page in enumerate(request.data):
+            if 'id' in _page:
+                _id = str(_page['id'])
+                page_order_by_id[_id] = _index + 1
+        if len(pages) != len(page_order_by_id.keys()):
+            return Response('Incorrect number of pages', status=status.HTTP_400_BAD_REQUEST)
+        for page in pages:
+            page_id = str(page.id)
+            if page_id in page_order_by_id:
+                page.order = page_order_by_id[page_id]
+                page.save()
+        return self.get(request, chapter_id)
+
 class PageListView(APIView):
 
     def get(self, request):
