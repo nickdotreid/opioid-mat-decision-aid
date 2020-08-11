@@ -39,7 +39,7 @@ export class ReorderPagesComponent implements AfterViewInit {
 
     public save() {
         const reorderedPages: Array<Page> = [];
-        Array.from(this.list.nativeElement.children).forEach((childNode:any) => {
+        Array.from(this.list.nativeElement.children).forEach((childNode: any) => {
             const page = this.pages.find((_page) => {
                 return _page.id.toString() === childNode.id;
             });
