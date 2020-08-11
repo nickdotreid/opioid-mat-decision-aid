@@ -2,7 +2,7 @@
 @include mat-core();
 
 $color-primary: #673AB7;
-$color-secondary: #FFC300;
+$color-secondary: #FFD740;
 
 $color-text: #333333;
 $color-link: #0078a4;
@@ -46,12 +46,11 @@ a {
 nav 
     a {
         color: $color-primary;
-        text-decoration: underline;
-        text-decoration-color: $color-secondary;
-}
+    }
 
-    a.active {
-        background-color: $color-background;
+    a:hover {
+        text-decoration: underline;
+    }
 }
 
 router-outlet {
@@ -119,10 +118,18 @@ app-root {
         }
     }
 
-    #sidenav {
-        text-decoration: underline;
-        text-decoration-color: $color-secondary;
+    #sidenav a {
+        border-bottom: 3px solid $color-secondary;
     }
+
+        a.active {
+        border-bottom: 3px solid $color-transparent;
+    }
+
+        a:hover {
+        border-bottom: 3px solid $color-transparent;
+    }
+
 
     #output {
         right: 0px;
@@ -158,8 +165,9 @@ app-root #blocker.output-opened {
     }
 }
 
-app-root nav {
+app-root header {
     background-color: $color-background-alternative; 
+    padding: 2em;
 }
 
 app-root nav > .bullets {
@@ -361,6 +369,7 @@ form label,
 form fieldset legend {
     display: block;
     font-weight: bold;
+    font-size: 1em;
 }
 
 form > * {
@@ -608,3 +617,5 @@ svg .bubble-outline {
     stroke: #AAA;
     stroke-width: 1;
 }
+
+// Chapter styles 
