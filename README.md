@@ -43,6 +43,17 @@ The root of the application is [client/src/app/app.component.ts](client/src/app/
 
 The CSS stylesheet used in the application is [client/src/styles.scss](client/src/styles.scss).
 
+Here are some docker-compose commands that are useful when working with the client
+```
+# How to install a new npm module
+$ docker-compose run client npm install PACKAGE_NAME_HERE --save
+
+# How to enter client command line, and turn on interactive development mode
+$ docker-compose run --service-ports client bash
+> npm run dev
+
+```
+
 ## Server Applicaiton
 The server application is written in Django and implements a REST Api that is consumed by the client application.
 
@@ -65,6 +76,10 @@ $ docker volume rm opioid-mat-decision-aid_pg-data
 
 # Create a new app in Django
 $ docker-compose run server python manage.py startapp YOUR_APP_NAME
+
+# Add new python library via pip, note that the second command saves the new package
+$ docker-compose run server pip install PACKAGE_NAME_HERE
+$ docker-compose run server pip freeze > requirements.txt
 
 # Enter command line, then run development server so you can access it at http://localhost:8080
 $ docker-compose run --service-ports server bash
