@@ -8,7 +8,7 @@ import { Page } from './page.service';
 
 
 @Component({
-    selector: 'app-page-content'
+    selector: 'app-page-content',
     templateUrl: './chapter-page.component.html',
     styleUrls: [
         './chapter-page.component.scss'
