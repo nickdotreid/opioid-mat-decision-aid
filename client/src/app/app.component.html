@@ -1,11 +1,6 @@
 <div id="main">
     <header>
         <nav>
-            <button class="sidebar-button"
-                (click)="navigationToggle()"
-                >
-                Navigation
-            </button>
             <app-login></app-login>
             <button *ngIf="isEditor"
                 (click)="editDecisionAid()"
@@ -13,14 +8,6 @@
                 Edit Decision Aid
             </button>
         </nav>
-        <app-page-navigation></app-page-navigation>
     </header>
-    <article id="content">
-        <router-outlet></router-outlet>
-    </article>
-</div>
-<div id="sidenav"
-    [ngClass]="{opened: !navigationCollapsed}"
-    >
-    <app-chapter-navigation></app-chapter-navigation>
+    <router-outlet></router-outlet>
 </div>

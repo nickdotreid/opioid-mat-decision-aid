@@ -6,15 +6,12 @@ import { Page } from 'chapters/page.service';
 
 @Component({
     selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    templateUrl: './app.component.html'
 })
 export class AppComponent {
     title = 'client';
 
     public isEditor: Boolean = false;
-
-    public navigationCollapsed = true;
 
     public currentPage: Page;
     public currentChapter: Chapter;
@@ -25,12 +22,6 @@ export class AppComponent {
         private loginService: LoginService
     ) {
         this.chapterService.update();
-
-        this.router.events.subscribe((event: Event) => {
-            if (event instanceof NavigationStart) {
-                this.focusMain();
-            }
-        });
 
         this.loginService.editor.subscribe((editor) => {
             if (editor) {
@@ -57,13 +48,5 @@ export class AppComponent {
 
     public editDecisionAid() {
         this.router.navigate(['chapters', 'edit']);
-    }
-
-    public navigationToggle() {
-        this.navigationCollapsed = !this.navigationCollapsed;
-    }
-
-    public focusMain() {
-        this.navigationCollapsed = true;
     }
 }

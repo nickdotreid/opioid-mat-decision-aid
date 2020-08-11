@@ -34,6 +34,7 @@ import { ReorderPagesComponent } from './reorder-pages.component';
         ReorderPagesComponent
     ],
     exports: [
+        ChapterPageComponent,
         ChapterNavigationComponent,
         ChaptersEditComponent,
         PageNavigationComponent

@@ -11,6 +11,7 @@ import { PageResolver, DefaultPageResolver } from '../chapters/page.resolver';
 import { ChapterResolver } from '../chapters/chapter.resolver';
 import { ChaptersEditComponent } from '../chapters/chapters-edit.component';
 import { TestPageComponent } from './test-page.component';
+import { PageComponent } from './page.component';
 
 
 const routes: Array<Route> = [
@@ -24,14 +25,14 @@ const routes: Array<Route> = [
   },
   {
     path: 'chapters/:chapterId',
-    component: ChapterPageComponent,
+    component: PageComponent,
     resolve: {
       page: ChapterResolver
     }
   },
   {
     path: 'pages/:pageId',
-    component: ChapterPageComponent,
+    component: PageComponent,
     resolve: {
       page: PageResolver
     }
@@ -39,7 +40,7 @@ const routes: Array<Route> = [
   {
       path: '',
       pathMatch: 'full',
-      component: ChapterPageComponent,
+      component: PageComponent,
       resolve: {
           page: DefaultPageResolver
       }
@@ -50,6 +51,7 @@ const routes: Array<Route> = [
 @NgModule({
   declarations: [
     AppComponent,
+    PageComponent,
     TestPageComponent
   ],
   imports: [
