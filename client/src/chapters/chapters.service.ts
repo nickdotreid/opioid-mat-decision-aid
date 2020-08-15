@@ -129,6 +129,22 @@ export class ChapterService {
         });
     }
 
+    public updateChapterOrder(chapters: Array<Chapter>): Promise<Array<Chapter>> {
+        const serialized_chapters = chapters.map((_chapter) => {
+            return {
+                'id': _chapter.id,
+                'title': _chapter.title,
+                'published': _chapter.published
+            };
+        });
+        return this.serverService.post(
+            'chapters/',
+            serialized_chapters
+        ).then(() => {
+            return chapters;
+        });
+    }
+
     public updateChapterPageOrder(chapter: Chapter, pages: Array<Page>): Promise<Chapter> {
         const serialized_pages = pages.map((_page) => {
             return {

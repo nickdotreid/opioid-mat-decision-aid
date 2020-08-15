@@ -33,6 +33,23 @@ export class ChaptersEditComponent implements OnInit, OnDestroy {
         }
     }
 
+    public reorderChapters() {
+        this.dialog.open(ReorderPagesComponent, {
+            data: {
+                pages: this.chapters
+            }
+        })
+        .afterClosed().toPromise()
+        .then((data) => {
+            if (data) {
+                this.chapterService.updateChapterOrder(data)
+                .then(() => {
+                    this.chapterService.update();
+                });
+            }
+        });
+    }
+
     public createChapter() {
         this.dialog.open(PageCreateComponent)
         .afterClosed().toPromise()

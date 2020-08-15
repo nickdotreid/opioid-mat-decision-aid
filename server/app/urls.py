@@ -9,7 +9,7 @@ from django.urls import include
 from django.urls import path
 from rest_framework.authtoken.views import obtain_auth_token
 
-from chapters.views import ListContent
+from chapters.views import ListChapters
 from chapters.views import ChapterDetailsView
 from chapters.views import PageListView
 from chapters.views import PageDetailsView
@@ -28,7 +28,7 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('api/chapters/<chapter_id>/pages/', ChapterPagesView.as_view(), name='chapters-pages-view'),
     path('api/chapters/<chapter_id>/', ChapterDetailsView.as_view(), name='chapters-detail'),
-    path('api/chapters/', ListContent.as_view(), name='chapters-content'),
+    path('api/chapters/', ListChapters.as_view(), name='chapters-content'),
     path('api/charts/', ListCharts.as_view(), name='charts-all'),
     path('api/login/', EditorLogin.as_view(), name='api-login'),
     path('api/medications/', ListAllMedications.as_view(), name='medications-all'),

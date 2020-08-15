@@ -26,7 +26,7 @@ class ChapterSerializer(serializers.ModelSerializer):
         model = Chapter
         fields = ('id', 'title', 'published', 'pages')
 
-class ListContent(APIView):
+class ListChapters(APIView):
 
     def get(self, request):
         chapters = Chapter.objects.all()
@@ -38,15 +38,22 @@ class ListContent(APIView):
             return Response(
                 status = status.HTTP_401_UNAUTHORIZED
             )
-        serializer = ChapterSerializer(data=request.data)
-        if serializer.is_valid():
-            chapter = serializer.save()
-            return Response(serializer.data)
-        else:
-            return Response(
-                serializer.errors,
-                status = status.HTTP_400_BAD_REQUEST
-            )
+        if not isinstance(request.data, list):
+            return Response('Request must be list', status=status.HTTP_400_BAD_REQUEST)
+        new_order_by_id = {}
+        for _index, _item in enumerate(request.data):
+            if 'id' in _item:
+                _id = str(_item['id'])
+                new_order_by_id[_id] = _index + 1
+        chapters = Chapter.objects.all()
+        if len(chapters) != len(new_order_by_id.keys()):
+            return Response('Incorrect number of chapters', status=status.HTTP_400_BAD_REQUEST)
+        for chapter in chapters:
+            item_id = str(chapter.id)
+            if item_id in new_order_by_id:
+                chapter.order = new_order_by_id[item_id]
+                chapter.save()
+        return self.get(request)
 
 class ChapterDetailsView(APIView):
 
