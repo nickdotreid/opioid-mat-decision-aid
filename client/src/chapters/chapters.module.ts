@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ChapterNavigationComponent } from './chapter-navigation.component';
 import { ChapterService } from './chapters.service';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,7 +14,6 @@ import { MatDialogModule, MatInputModule } from '@angular/material';
 import { ChapterRouter } from './chapter-router.service';
 import { ServerModule } from '../server/server.module';
 import { PageCreateComponent } from './page-create.component';
-import { PageNavigationComponent } from './page-navigation.component';
 import { ChaptersEditComponent } from './chapters-edit.component';
 import { PageService } from './page.service';
 import { ReorderPagesComponent } from './reorder-pages.component';
@@ -23,10 +21,8 @@ import { ReorderPagesComponent } from './reorder-pages.component';
 @NgModule({
     declarations: [
         ChapterPageComponent,
-        ChapterNavigationComponent,
         ChaptersEditComponent,
         PageCreateComponent,
-        PageNavigationComponent,
         ReorderPagesComponent
     ],
     entryComponents: [
@@ -35,9 +31,7 @@ import { ReorderPagesComponent } from './reorder-pages.component';
     ],
     exports: [
         ChapterPageComponent,
-        ChapterNavigationComponent,
-        ChaptersEditComponent,
-        PageNavigationComponent
+        ChaptersEditComponent
     ],
     imports: [
         BrowserModule,

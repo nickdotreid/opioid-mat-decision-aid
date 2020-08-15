@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ChapterService, Chapter } from './chapters.service';
+import { ChapterService, Chapter } from '../chapters/chapters.service';
 import { Subscription } from 'rxjs';
 
 

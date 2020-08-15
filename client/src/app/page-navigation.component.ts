@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { ChapterService, Chapter } from './chapters.service';
-import { MatDialog } from '@angular/material';
-import { PageCreateComponent } from './page-create.component';
-import { Page } from './page.service';
+import { ChapterService, Chapter } from '../chapters/chapters.service';
+import { Page } from '../chapters/page.service';
 
 
 @Component({
@@ -16,8 +14,7 @@ export class PageNavigationComponent {
     public page: Page;
 
     constructor(
-        private chapterService: ChapterService,
-        private dialog: MatDialog
+        private chapterService: ChapterService
     ) {
         this.chapterService.currentChapter.subscribe((chapter) => {
             this.chapter = chapter;
@@ -41,14 +38,6 @@ export class PageNavigationComponent {
         } else {
             this.pages = undefined;
         }
-    }
-
-    public createPage() {
-        this.dialog.open(PageCreateComponent, {
-            data: {
-                chapter: this.chapter
-            }
-        });
     }
 }
 

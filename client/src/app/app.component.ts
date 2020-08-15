@@ -46,6 +46,10 @@ export class AppComponent {
         this.router.navigate(['login']);
     }
 
+    public goHome() {
+        this.router.navigate(['']);
+    }
+
     public editDecisionAid() {
         this.router.navigate(['chapters', 'edit']);
     }

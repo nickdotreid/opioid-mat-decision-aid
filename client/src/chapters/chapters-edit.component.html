@@ -19,8 +19,10 @@
     </nav>
     <ul>
         <li *ngFor="let page of chapter.pages">
-            {{page.title}}
-            <span *ngIf="!page.published">(Unpublished)</span>
+            <a [routerLink]="['/pages', page.id, 'edit']" routerLinkActive="active" >
+                {{page.title}}
+                <span *ngIf="!page.published">(Unpublished)</span>
+            </a>
             <button (click)="editPage(page)">
                 Edit
             </button>

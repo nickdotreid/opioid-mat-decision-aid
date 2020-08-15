@@ -5,7 +5,7 @@
     <ul class="bullets">
         <li *ngFor="let _page of pages">
             <a [routerLink]="['/pages', _page.id]"
-                [ngClass]="{active: (page && _page.id === page.id)}"
+                routerLinkActive="active"
                 >
                 {{_page.title}}
             </a>

@@ -6,12 +6,14 @@ import { ChapterModule } from '../chapters/chapters.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSidenavModule } from '@angular/material';
 import { LoginModule } from '../login/login.module';
-import { ChapterPageComponent } from '../chapters/chapter-page.component';
 import { PageResolver, DefaultPageResolver } from '../chapters/page.resolver';
 import { ChapterResolver } from '../chapters/chapter.resolver';
 import { ChaptersEditComponent } from '../chapters/chapters-edit.component';
 import { TestPageComponent } from './test-page.component';
 import { PageComponent } from './page.component';
+import { PageNavigationComponent } from './page-navigation.component';
+import { ChapterNavigationComponent } from './chapter-navigation.component';
+import { EditableResolver } from './editable.resolver';
 
 
 const routes: Array<Route> = [
@@ -28,6 +30,14 @@ const routes: Array<Route> = [
     component: PageComponent,
     resolve: {
       page: ChapterResolver
+    }
+  },
+  {
+    path: 'pages/:pageId/edit',
+    component: PageComponent,
+    resolve: {
+      page: PageResolver,
+      isEditable: EditableResolver
     }
   },
   {
@@ -49,9 +59,12 @@ const routes: Array<Route> = [
 
 
 @NgModule({
+  bootstrap: [AppComponent],
   declarations: [
     AppComponent,
     PageComponent,
+    PageNavigationComponent,
+    ChapterNavigationComponent,
     TestPageComponent
   ],
   imports: [
@@ -61,6 +74,8 @@ const routes: Array<Route> = [
     MatSidenavModule,
     RouterModule.forRoot(routes)
   ],
-  bootstrap: [AppComponent]
+  providers: [
+    EditableResolver
+  ]
 })
 export class AppModule { }
