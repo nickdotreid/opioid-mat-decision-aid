@@ -57,7 +57,6 @@ router-outlet {
 }
 
 // Application Layout
-
 app-root {
     position: absolute;
     top: 0px;
@@ -282,10 +281,6 @@ app-root .content {
         font-size: 1.25em;
     }
 
-    > * {
-        
-    }
-
     > nav {
         display: flex;
         flex-direction: row;
@@ -296,29 +291,9 @@ app-root .content {
         }
     }
 
-    > .chart {
-        width: auto;
-        font-size: 1em;
-        > * {
-            width: 560px;
-            margin: 1em auto;
-        }
-    }
-    > .chart > app-grid {
-        display: block;
-        width: auto;
-        margin: 0em;
-    }
-
-
-}
-
-app-root header app-page-navigation {
-    font-weight: bold;
 }
 
 // Form Styles
-
 form .error {
     color: #CC0000;
     font-weight: bold;
@@ -549,7 +524,6 @@ tbody tr > *:first-child {
 
 
 // SVG chart styles
-
 svg .line {
     stroke: $color-text;
     stroke-width: 2;
@@ -576,5 +550,3 @@ svg .bubble-outline {
     stroke: #AAA;
     stroke-width: 1;
 }
-
-// Chapter styles 
