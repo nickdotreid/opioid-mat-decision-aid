@@ -1,24 +1,31 @@
-<nav>
-    <button (click)="createChapter()">Add Chapter</button>
-    <button (click)="reorderChapters()">Reorder Chapters</button>
-</nav>
+<div class="navigation-grouped">
+    <h2>Decision Aid</h2>
+    <nav>
+        <button (click)="createChapter()">Add Chapter</button>
+        <button (click)="reorderChapters()">Reorder Chapters</button>
+    </nav>
+</div>
 
 <section *ngFor="let chapter of chapters">
-    <h3>{{chapter.title}}</h3>
-    <span *ngIf="!chapter.published">(Unpublished)</span>
-    <nav>
-        <button (click)="editChapter(chapter)">
-            Edit
-        </button>
-        <button (click)="reorderPages(chapter)">
-            Reorder pages
-        </button>
-        <button (click)="deleteChapter(chapter)">
-            Delete
-        </button>
-    </nav>
+    <div class="navigation-grouped">
+        <h3>{{chapter.title}}</h3>
+        <span *ngIf="!chapter.published">(Unpublished)</span>
+        <nav>
+            <button (click)="editChapter(chapter)">
+                Edit
+            </button>
+            <button (click)="reorderPages(chapter)">
+                Reorder pages
+            </button>
+            <button (click)="deleteChapter(chapter)">
+                Delete
+            </button>
+        </nav>
+    </div>
     <ul>
-        <li *ngFor="let page of chapter.pages">
+        <li *ngFor="let page of chapter.pages"
+            class="navigation-grouped"
+            >
             <a [routerLink]="['/pages', page.id, 'edit']" routerLinkActive="active" >
                 {{page.title}}
                 <span *ngIf="!page.published">(Unpublished)</span>
