@@ -1,17 +1,18 @@
 <header>
-    <nav>
-        <button (click)="goHome()">Home</button>
-        <app-login></app-login>
-    </nav>
+    <div class="container">
+        <nav>
+            <div>
+                <button (click)="goHome()">Home</button>
+                <button *ngIf="isEditor"
+                    (click)="editDecisionAid()"
+                    >
+                    Edit Decision Aid
+                </button>
+            </div>
+            <app-login></app-login>
+        </nav>
+    </div>
 </header>
 <div class="content">
     <router-outlet></router-outlet>
 </div>
-<footer *ngIf="isEditor">
-    <nav>
-        <button (click)="editDecisionAid()">
-            Edit Decision Aid
-        </button>
-    </nav>
-</footer>
-

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ChapterService, Chapter } from '../chapters/chapters.service';
 import { Page } from '../chapters/page.service';
 
@@ -11,17 +11,18 @@ export class PageNavigationComponent {
 
     public chapter: Chapter;
     public pages: Array<Page>;
-    public page: Page;
+    public currentPage: Page;
 
     constructor(
         private chapterService: ChapterService
-    ) {
-        this.chapterService.currentChapter.subscribe((chapter) => {
+    ) {}
+
+    @Input() set page(page: Page) {
+        this.currentPage = page;
+        this.chapterService.getChapterForPage(page)
+        .then((chapter) => {
             this.chapter = chapter;
             this.updatePages();
-        });
-        this.chapterService.currentPage.subscribe((page) => {
-            this.page = page;
         });
     }
 

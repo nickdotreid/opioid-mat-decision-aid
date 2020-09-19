@@ -1,5 +1,13 @@
-<app-page-navigation></app-page-navigation>
-<article id="content">
-    <app-page-content></app-page-content>
+<app-page-navigation
+    [page]="page"
+    class="container"
+    >
+</app-page-navigation>
+<nav *ngIf="isEditable"
+    class="container"
+    >
+    Editor?
+</nav>
+<article id="content" class="container">
+    <app-page-content page="page"></app-page-content>
 </article>
-<app-chapter-navigation class="sidebar"></app-chapter-navigation>

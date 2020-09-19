@@ -1,6 +1,4 @@
-<nav *ngIf="chapter"
-    class="navigation-grouped"
-    >
+<nav *ngIf="chapter">
     <a [routerLink]="['/chapters', chapter.id]">{{chapter.title}}</a>
     <ul class="bullets">
         <li *ngFor="let _page of pages">

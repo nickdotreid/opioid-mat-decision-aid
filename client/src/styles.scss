@@ -59,6 +59,7 @@ router-outlet {
 
 .container {
     display: block;
+    position: relative;
     padding: 0.5em 2em;
 }
 
@@ -132,27 +133,6 @@ app-root {
     > footer {
         overflow: hidden;
         flex: 0 0 auto;
-    }
-}
-
-app-root > * > * {
-    @extend .container;
-}
-
-@media(min-width: 1000px) {
-    app-root > * > .full-width {
-        display: grid;
-        width: 100%;
-        padding: 0px;
-        grid-template-columns: 200px auto 560px auto 200px;
-        > * {
-            grid-column: 3;
-        }
-        > .sidebar {
-            grid-column: 1;
-            grid-row: 1 / span 2;
-            padding: 2em;
-        }
     }
 }
 
@@ -278,11 +258,6 @@ app-root > footer {
     background-color: $color-background-alternative;
     padding: 0.25em;
     border-top: 1px $color-text solid;
-}
-
-mat-sidenav > * {
-    display: block;
-    padding: 1em;
 }
 
 app-root nav {
