@@ -9,6 +9,7 @@ from charts.views import ChartSerializer
 from quizes.views import QuizSerializer
 
 from .models import Chapter
+from .models import OrderableContent
 from .models import Page
 
 class PageSerializer(serializers.ModelSerializer):
@@ -162,9 +163,17 @@ class PageDetailsView(APIView):
     def get(self, request, page_id):
         page = self.get_page(page_id)
         serialized = PageSerializer(page)
-        return Response(
-            serialized.data
-        )
+        serialized_contents = []
+        for content in page.contents:
+            serialized_contents.append({
+                'id': content.id,
+                'title': content.title,
+                'content_type': content.content_type
+            })
+        return Response({
+            **serialized.data,
+            'contents': serialized_contents
+        })
 
     def post(self, request, page_id):
         page = self.get_page(page_id)
@@ -182,3 +191,25 @@ class PageDetailsView(APIView):
         page = self.get_page(page_id)
         page.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+class PageContentView(PageDetailsView):
+
+    def get(self, request, page_id):
+        page = self.get_page(page_id)
+        serialized_contents = []
+        for content in page.contents:
+            serialized_contents.append({
+                'id': content.id,
+                'title': content.title,
+                'content_type': content.content_type
+            })
+        return Response(serialized_contents)
+
+    def post(self, request, page_id):
+        page = self.get_page(page_id)
+        OrderableContent.objects.create(
+            page = page,
+            title = 'Foo-y'
+        )
+        return Response({})
+

@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
 
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField 
@@ -69,8 +71,51 @@ class Page(Orderable):
             self.order = (total_pages + 1) * 10
         super().save(*args, **kwargs)
 
+    def get_contents(self):
+        return OrderableContent.objects.filter(
+            page = self
+        ).all()
+
+    @property
+    def contents(self):
+        if not hasattr(self, '__contents'):
+            self.__contents = self.get_contents()
+        return self.__contents
+
     def __str__(self):
         return "%s: %s" % (self.chapter.title, self.title)
+
+class OrderableContent(Orderable):
+
+    page = models.ForeignKey(
+        Page,
+        on_delete = models.CASCADE,
+        related_name = '+'
+    )
+    content_type = models.ForeignKey(
+        ContentType,
+        null = True,
+        on_delete = models.CASCADE,
+        related_name = '+'
+    )
+    object_id = models.PositiveIntegerField(
+        null = True
+    )
+    content_object = GenericForeignKey('content_type', 'object_id')
+
+    def save(self, *args, **kwargs):
+        if not self.order:
+            total_pages = OrderableContent.objects.filter(page=self.page).count()
+            self.order = (total_pages + 1) * 10
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return 'Orderable content {order} - {title} (page: {page_id})'.format({
+            'order': self.order,
+            'page_id': self.page_id,
+            'title': self.title
+        })
+
 
 class PageRedirect(models.Model):
     test_page = models.ForeignKey(

@@ -30,6 +30,14 @@ export class Page {
     public quiz: Quiz;
 }
 
+export class PageContent {
+    public id: string;
+    public title: string;
+    public published: boolean;
+    public contentType: string;
+    public data: any;
+}
+
 @Injectable()
 export class PageService {
 
@@ -87,5 +95,32 @@ export class PageService {
         page.title = data['title'];
         page.published = data['published'];
         return page;
+    }
+
+    public getPageContent(page: Page): Promise<Array<PageContent>> {
+        return this.serverService.get('pages/' + page.id + '/content/')
+        .then((data) => {
+            if (data) {
+                const contents: Array<PageContent> = data.map((content_data) => {
+                    const content = new PageContent();
+                    content.id = content_data.id;
+                    content.title = content_data.title;
+                    return content;
+                });
+                return contents;
+            } else {
+                return [];
+            }
+        })
+        .catch(() => {
+            return Promise.resolve([]);
+        });
+    }
+
+    public createPageContent(page: Page): Promise<Page> {
+        return this.serverService.post('pages/' + page.id + '/content/', {})
+        .then((data) => {
+            return page;
+        });
     }
 }

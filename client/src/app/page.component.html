@@ -6,8 +6,8 @@
 <nav *ngIf="isEditable"
     class="container"
     >
-    Editor?
+    <button (click)="addContent()" >Add content</button>
 </nav>
 <article id="content" class="container">
-    <app-page-content page="page"></app-page-content>
+    <app-page-content [page]="page"></app-page-content>
 </article>
