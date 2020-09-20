@@ -6,11 +6,21 @@
 <article id="content" class="container">
     <h1>{{page.title}}</h1>
     <div *ngFor="let content of pageContents">
-        <nav *ngIf="isEditable">
-            {{content.title}}
+        <nav *ngIf="isEditable"
+            class="navigation-grouped"
+            >
+            <span>
+                <em>{{content.id}}</em>
+                {{content.title}}
+            </span>
+            <button (click)="editContent(content)">Edit</button>
+            <button (click)="deleteContent(content)">Delete</button>
         </nav>
         <div *ngIf="content.contentType === 'button'">
-            <button>{{content.data.text}}</button>
+            <button>{{content.data.label}}</button>
+        </div>
+        <div *ngIf="content.contentType === 'text'">
+            <p>Text will go here.</p>
         </div>
     </div>
     <nav *ngIf="isEditable">

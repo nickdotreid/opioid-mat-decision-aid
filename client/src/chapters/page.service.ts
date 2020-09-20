@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ServerService } from '../server/server.service';
+import { title } from 'process';
 
 export class Chart {
     title: string;
@@ -120,10 +121,35 @@ export class PageService {
         });
     }
 
-    public createPageContent(page: Page, contentType: string, data: any): Promise<Page> {
-        return this.serverService.post('pages/' + page.id + '/content/', {})
+    public createPageContent(page: Page, contentTitle: string, contentType: string, contentData: any): Promise<Page> {
+        return this.serverService.post('pages/' + page.id + '/content/', {
+            title: contentTitle,
+            content_type: contentType,
+            data: contentData
+        })
         .then((response) => {
             return page;
+        });
+    }
+
+    public updatePageContent(page: Page, content: PageContent) {
+        const page_id = page.id;
+        const content_id = content.id;
+        return this.serverService.post(`pages/${page_id}/content/${content_id}`, {
+            title: content.title,
+            data: content.data
+        })
+        .then(() => {
+
+        })
+    }
+
+    public deletePageContent(page: Page, content: PageContent): Promise<void> {
+        const page_id = page.id;
+        const content_id = content.id;
+        return this.serverService.delete(`pages/${page_id}/content/${content_id}`)
+        .then(() => {
+            return undefined;
         });
     }
 }

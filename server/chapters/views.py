@@ -198,7 +198,7 @@ class PageDetailsView(APIView):
         page.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-class PageContentView(PageDetailsView):
+class PageContentListView(PageDetailsView):
 
     def get(self, request, page_id):
         page = self.get_page(page_id)
@@ -207,13 +207,41 @@ class PageContentView(PageDetailsView):
 
     def post(self, request, page_id):
         page = self.get_page(page_id)
-        content = OrderableContent.objects.create(
-            page = page,
-            content_type = 'button',
-            data = {
-                'action': 'next-page',
-                'text': 'Next'
-            }
-        )
+        serialized = OrderableContentSerialzer(data=request.data)
+        if serialized.is_valid():
+            content = serialized.save(page=page)
+            serialized = OrderableContentSerialzer(content)
+            return Response(serialized.data)
+        else:
+            return Response(serialized.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class PageContentDetailView(APIView):
+
+    def get_content(self, page_id, content_id):
+        try:
+            return OrderableContent.objects.get(
+                page_id = page_id,
+                id = content_id
+            )
+        except OrderableContent.DoesNotExist:
+            raise Http404
+
+    def get(self, request, page_id, content_id):
+        content = self.get_content(page_id, content_id)
         serialized = OrderableContentSerialzer(content)
         return Response(serialized.data)
+
+    def post(self, request, page_id, content_id):
+        content = self.get_content(page_id, content_id)
+        serialized_request = OrderableContentSerialzer(data=request.data)
+        if serialized_request.is_valid():
+            content.title = serialized_request['title']
+            content.published = serialized_request['published']
+            content.data = serialized_request['data']
+        else:
+            return Response(serialized_request.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, page_id, content_id):
+        content = self.get_content(page_id, content_id)
+        content.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

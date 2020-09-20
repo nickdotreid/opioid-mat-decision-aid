@@ -14,6 +14,9 @@ import { PageComponent } from './page.component';
 import { PageNavigationComponent } from './page-navigation.component';
 import { ChapterNavigationComponent } from './chapter-navigation.component';
 import { EditableResolver } from './editable.resolver';
+import { ButtonEditComponent } from './button-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormModule } from 'form/form.module';
 
 
 const routes: Array<Route> = [
@@ -62,16 +65,22 @@ const routes: Array<Route> = [
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
+    ButtonEditComponent,
     PageComponent,
     PageNavigationComponent,
     ChapterNavigationComponent,
     TestPageComponent
   ],
+  entryComponents: [
+    ButtonEditComponent
+  ],
   imports: [
     BrowserModule,
+    FormModule,
     LoginModule,
     ChapterModule,
     MatSidenavModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [
