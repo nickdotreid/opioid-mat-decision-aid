@@ -3,11 +3,19 @@
     class="container"
     >
 </app-page-navigation>
-<nav *ngIf="isEditable"
-    class="container"
-    >
-    <button (click)="addContent()" >Add content</button>
-</nav>
 <article id="content" class="container">
-    <app-page-content [page]="page"></app-page-content>
+    <h1>{{page.title}}</h1>
+    <div *ngFor="let content of pageContents">
+        <nav *ngIf="isEditable">
+            {{content.title}}
+        </nav>
+        <div *ngIf="content.contentType === 'button'">
+            <button>{{content.data.text}}</button>
+        </div>
+    </div>
+    <nav *ngIf="isEditable">
+        <button (click)="addText()" >Add Text</button>
+        <button (click)="addButton()" >Add Button</button>
+        <button (click)="addQuestion()">Add Question</button>
+    </nav>
 </article>

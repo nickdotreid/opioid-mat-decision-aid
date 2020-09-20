@@ -27,6 +27,12 @@ class ChapterSerializer(serializers.ModelSerializer):
         model = Chapter
         fields = ('id', 'title', 'published', 'pages')
 
+class OrderableContentSerialzer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = OrderableContent
+        fields = ('id', 'content_type', 'title', 'published', 'data')
+
 class ListChapters(APIView):
 
     def get(self, request):
@@ -196,20 +202,18 @@ class PageContentView(PageDetailsView):
 
     def get(self, request, page_id):
         page = self.get_page(page_id)
-        serialized_contents = []
-        for content in page.contents:
-            serialized_contents.append({
-                'id': content.id,
-                'title': content.title,
-                'content_type': content.content_type
-            })
-        return Response(serialized_contents)
+        serialized = OrderableContentSerialzer(page.contents, many=True)
+        return Response(serialized.data)
 
     def post(self, request, page_id):
         page = self.get_page(page_id)
-        OrderableContent.objects.create(
+        content = OrderableContent.objects.create(
             page = page,
-            title = 'Foo-y'
+            content_type = 'button',
+            data = {
+                'action': 'next-page',
+                'text': 'Next'
+            }
         )
-        return Response({})
-
+        serialized = OrderableContentSerialzer(content)
+        return Response(serialized.data)

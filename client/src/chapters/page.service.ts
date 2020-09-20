@@ -105,6 +105,9 @@ export class PageService {
                     const content = new PageContent();
                     content.id = content_data.id;
                     content.title = content_data.title;
+                    content.contentType = content_data.content_type;
+                    content.published = content_data.published;
+                    content.data = content_data.data;
                     return content;
                 });
                 return contents;
@@ -117,9 +120,9 @@ export class PageService {
         });
     }
 
-    public createPageContent(page: Page): Promise<Page> {
+    public createPageContent(page: Page, contentType: string, data: any): Promise<Page> {
         return this.serverService.post('pages/' + page.id + '/content/', {})
-        .then((data) => {
+        .then((response) => {
             return page;
         });
     }

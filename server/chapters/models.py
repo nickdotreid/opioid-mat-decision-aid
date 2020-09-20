@@ -1,6 +1,5 @@
 from django.db import models
-from django.contrib.contenttypes.fields import GenericForeignKey
-from django.contrib.contenttypes.models import ContentType
+from django.contrib.postgres.fields import JSONField
 
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField 
@@ -92,21 +91,15 @@ class OrderableContent(Orderable):
         on_delete = models.CASCADE,
         related_name = '+'
     )
-    content_type = models.ForeignKey(
-        ContentType,
-        null = True,
-        on_delete = models.CASCADE,
-        related_name = '+'
-    )
-    object_id = models.PositiveIntegerField(
-        null = True
-    )
-    content_object = GenericForeignKey('content_type', 'object_id')
+    content_type = models.CharField(max_length=150)
+    data = JSONField()
 
     def save(self, *args, **kwargs):
         if not self.order:
             total_pages = OrderableContent.objects.filter(page=self.page).count()
             self.order = (total_pages + 1) * 10
+        if not self.title:
+            self.title = self.content_type
         super().save(*args, **kwargs)
 
     def __str__(self):
