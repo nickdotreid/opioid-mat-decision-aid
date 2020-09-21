@@ -20,7 +20,7 @@
             <button>{{content.data.label}}</button>
         </div>
         <div *ngIf="content.contentType === 'text'">
-            <p>Text will go here.</p>
+            <app-text [html]="content.data.text"></app-text>
         </div>
     </div>
     <nav *ngIf="isEditable">

@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material';
 import { PageCreateComponent } from 'chapters/page-create.component';
 import { Button } from 'protractor';
 import { ButtonEditComponent } from './button-edit.component';
+import { TextEditComponent } from './text-edit.component';
 
 @Component({
     templateUrl: './page.component.html'
@@ -59,7 +60,12 @@ export class PageComponent implements OnDestroy {
     }
 
     public editContent(content: PageContent) {
-        this.dialog.open(ButtonEditComponent, {
+        let dialogComponent: any = ButtonEditComponent;
+        if (content.contentType === 'text') {
+            dialogComponent = TextEditComponent;
+        }
+
+        this.dialog.open(dialogComponent, {
             data: content.data
         })
         .afterClosed().toPromise()
@@ -82,7 +88,15 @@ export class PageComponent implements OnDestroy {
     }
 
     public addText() {
-        console.error('Not implemented...');
+        this.dialog.open(TextEditComponent, {
+            data: { text: 'Example text' }
+        })
+        .afterClosed().toPromise()
+        .then((data) => {
+            if (data) {
+                this.createPageContent('text', data);
+            }
+        });
     }
 
     public addButton() {

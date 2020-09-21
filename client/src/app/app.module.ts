@@ -17,6 +17,8 @@ import { EditableResolver } from './editable.resolver';
 import { ButtonEditComponent } from './button-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormModule } from 'form/form.module';
+import { TextEditComponent } from './text-edit.component';
+import { TextComponent } from './text.compontent';
 
 
 const routes: Array<Route> = [
@@ -66,13 +68,17 @@ const routes: Array<Route> = [
   declarations: [
     AppComponent,
     ButtonEditComponent,
+    TextComponent,
+    TextEditComponent,
     PageComponent,
     PageNavigationComponent,
     ChapterNavigationComponent,
     TestPageComponent
   ],
   entryComponents: [
-    ButtonEditComponent
+    ButtonEditComponent,
+    TextComponent,
+    TextEditComponent
   ],
   imports: [
     BrowserModule,

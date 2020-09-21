@@ -235,9 +235,12 @@ class PageContentDetailView(APIView):
         content = self.get_content(page_id, content_id)
         serialized_request = OrderableContentSerialzer(data=request.data)
         if serialized_request.is_valid():
-            content.title = serialized_request['title']
-            content.published = serialized_request['published']
-            content.data = serialized_request['data']
+            content.title = serialized_request.validated_data['title']
+            content.published = serialized_request.validated_data['published']
+            content.data = serialized_request.validated_data['data']
+            content.save()
+            serialized = OrderableContentSerialzer(content)
+            return Response(serialized.data)
         else:
             return Response(serialized_request.errors, status=status.HTTP_400_BAD_REQUEST)
 

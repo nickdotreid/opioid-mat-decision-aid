@@ -8,6 +8,7 @@ import { ListFieldComponent } from './list-field.component';
 import { FieldComponent } from './field.component';
 import { TextFieldComponent } from './text-field.component';
 import { PasswordFieldComponent } from './password-field.component';
+import { RichTextEditorComponent } from './rich-text-editor.component';
 
 
 
@@ -18,6 +19,7 @@ import { PasswordFieldComponent } from './password-field.component';
         FieldComponent,
         ListFieldComponent,
         PasswordFieldComponent,
+        RichTextEditorComponent,
         TextFieldComponent
     ],
     imports: [
@@ -35,6 +37,7 @@ import { PasswordFieldComponent } from './password-field.component';
         FieldComponent,
         ListFieldComponent,
         PasswordFieldComponent,
+        RichTextEditorComponent,
         TextFieldComponent
     ]
 })

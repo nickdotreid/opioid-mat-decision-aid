@@ -46,12 +46,12 @@ export class PageService {
         private serverService: ServerService
     ) {}
 
-    public create(chpater_id: string, title: string, published?: boolean): Promise<Page> {
+    public create(chpater_id: string, _title: string, published?: boolean): Promise<Page> {
         return this.serverService.post(
             'pages/',
             {
                 chapterId: chpater_id,
-                title: title,
+                title: _title,
                 published: published
             }
         );
@@ -132,16 +132,18 @@ export class PageService {
         });
     }
 
-    public updatePageContent(page: Page, content: PageContent) {
+    public updatePageContent(page: Page, content: PageContent): Promise<PageContent> {
         const page_id = page.id;
         const content_id = content.id;
         return this.serverService.post(`pages/${page_id}/content/${content_id}`, {
+            published: content.published,
             title: content.title,
+            content_type: content.contentType,
             data: content.data
         })
         .then(() => {
-
-        })
+            return content;
+        });
     }
 
     public deletePageContent(page: Page, content: PageContent): Promise<void> {
