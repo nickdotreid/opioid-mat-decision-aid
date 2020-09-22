@@ -25,8 +25,10 @@ export class BooleanFieldComponent implements ControlValueAccessor {
     constructor() {}
 
     public update(value: boolean) {
-        this.onChange(value);
-        this.onTouch();
+        if (this.onChange && this.onTouch) {
+            this.onChange(value);
+            this.onTouch();
+        }
     }
 
     public writeValue(value) {

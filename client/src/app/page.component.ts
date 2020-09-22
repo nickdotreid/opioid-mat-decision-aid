@@ -110,7 +110,13 @@ export class PageComponent implements OnDestroy {
     }
 
     public addQuestion() {
-        console.error('Not implemented...');
+        this.dialog.open(ButtonEditComponent, {})
+        .afterClosed().toPromise()
+        .then((data) => {
+            if (data) {
+                this.createPageContent('question', data);
+            }
+        });
     }
 
     ngOnDestroy() {

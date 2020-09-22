@@ -22,6 +22,9 @@
         <div *ngIf="content.contentType === 'text'">
             <app-text [html]="content.data.text"></app-text>
         </div>
+        <div *ngIf="content.contentType === 'question'">
+            <app-boolean-field>{{content.data.label}}</app-boolean-field>
+        </div>
     </div>
     <nav *ngIf="isEditable">
         <button (click)="addText()" >Add Text</button>
