@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Page, PageService, PageContent } from 'chapters/page.service';
 import { MatDialog } from '@angular/material';
@@ -7,22 +7,29 @@ import { ButtonEditComponent } from './button-edit.component';
 import { TextEditComponent } from './text-edit.component';
 import { QuestionEditComponent } from './question-edit.component';
 import { Button } from 'protractor';
+import { Chapter, ChapterService } from 'chapters/chapters.service';
+import { LoginService } from 'login/login.service';
 
 @Component({
     templateUrl: './page.component.html'
 })
 export class PageComponent implements OnDestroy {
 
+    public chapter: Chapter;
     public page: Page;
     public pageContents: Array<PageContent> = [];
     public isEditable: boolean;
+    public isEditor: boolean;
 
     private routeSubscription: Subscription;
 
     constructor(
+        private chapterService: ChapterService,
         private pageService: PageService,
         private route: ActivatedRoute,
-        private dialog: MatDialog
+        private router: Router,
+        private dialog: MatDialog,
+        private loginService: LoginService
     ) {
         this.routeSubscription = this.route.data.subscribe((data) => {
             if (data.page) {
@@ -38,9 +45,20 @@ export class PageComponent implements OnDestroy {
                 this.isEditable = false;
             }
         });
+        this.loginService.editor.subscribe((editor) => {
+            if (editor) {
+                this.isEditor = true;
+            } else {
+                this.isEditor = false;
+            }
+        });
     }
 
     private updateContent() {
+        this.chapterService.getChapterForPage(this.page)
+        .then((chapter) => {
+            this.chapter = chapter;
+        });
         this.pageService.getPageContent(this.page)
         .then((contents) => {
             this.pageContents = contents;
@@ -117,6 +135,17 @@ export class PageComponent implements OnDestroy {
 
     public addQuestion() {
         this.addContent('question');
+    }
+
+    public buttonAction(content: PageContent) {
+        this.chapterService.getNextPage(this.page)
+        .then((page: Page) => {
+            if (this.isEditable) {
+                this.router.navigate(['pages', page.id, 'edit']);
+            } else {
+                this.router.navigate(['pages', page.id]);
+            }
+        });
     }
 
     ngOnDestroy() {

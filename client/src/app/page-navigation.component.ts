@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { ChapterService, Chapter } from '../chapters/chapters.service';
 import { Page } from '../chapters/page.service';
 
@@ -13,8 +14,12 @@ export class PageNavigationComponent {
     public pages: Array<Page>;
     public currentPage: Page;
 
+    @Input() editing: boolean;
+    @Input() editable: boolean;
+
     constructor(
-        private chapterService: ChapterService
+        private chapterService: ChapterService,
+        private routerService: Router
     ) {}
 
     @Input() set page(page: Page) {
@@ -24,6 +29,18 @@ export class PageNavigationComponent {
             this.chapter = chapter;
             this.updatePages();
         });
+    }
+
+    public goToPage(page: Page) {
+        this.routerService.navigate(['pages', page.id]);
+    }
+
+    public viewCurrentPage() {
+        this.routerService.navigate(['pages', this.currentPage.id]);
+    }
+
+    public editCurrentPage() {
+        this.routerService.navigate(['pages', this.currentPage.id, 'edit']);
     }
 
     private updatePages() {

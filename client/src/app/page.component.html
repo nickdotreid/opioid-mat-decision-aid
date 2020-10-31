@@ -1,5 +1,7 @@
 <app-page-navigation
     [page]="page"
+    [editing]="isEditable"
+    [editable]="isEditor"
     class="container"
     >
 </app-page-navigation>
@@ -17,7 +19,7 @@
             <button (click)="deleteContent(content)">Delete</button>
         </nav>
         <div *ngIf="content.contentType === 'button'">
-            <button>{{content.data.label}}</button>
+            <button (click)="buttonAction(content)">{{content.data.label}}</button>
         </div>
         <div *ngIf="content.contentType === 'text'">
             <app-text [html]="content.data.text"></app-text>

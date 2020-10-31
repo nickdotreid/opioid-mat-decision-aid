@@ -211,6 +211,31 @@ export class ChapterService {
         }
     }
 
+    public getNextPage(page: Page): Promise<Page> {
+        return this.getChapterForPage(page)
+        .then((chapter) => {
+            const pageIndex = chapter.pages.findIndex((_page) => {
+                return _page.id === page.id;
+            });
+            if (pageIndex === -1) {
+                return Promise.reject('Page not found in chapter');
+            }
+            if (pageIndex + 1 < chapter.pages.length) {
+                return chapter.pages[pageIndex + 1];
+            } else {
+                return this.getChapterAfter(chapter)
+                .then((nextChapter) => {
+                    return nextChapter.pages.find((_page) => {
+                        return _page.published;
+                    });
+                })
+                .catch(() => {
+                    return Promise.reject('No next page');
+                });
+            }
+        });
+    }
+
     public setCurrentPage(page: Page) {
         this.currentPage.next(page);
     }
