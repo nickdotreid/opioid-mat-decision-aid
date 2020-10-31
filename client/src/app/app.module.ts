@@ -19,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormModule } from 'form/form.module';
 import { TextEditComponent } from './text-edit.component';
 import { TextComponent } from './text.compontent';
+import { QuestionEditComponent } from './question-edit.component';
 
 
 const routes: Array<Route> = [
@@ -73,12 +74,14 @@ const routes: Array<Route> = [
     PageComponent,
     PageNavigationComponent,
     ChapterNavigationComponent,
-    TestPageComponent
+    TestPageComponent,
+    QuestionEditComponent
   ],
   entryComponents: [
     ButtonEditComponent,
     TextComponent,
-    TextEditComponent
+    TextEditComponent,
+    QuestionEditComponent
   ],
   imports: [
     BrowserModule,

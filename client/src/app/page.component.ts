@@ -3,10 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Page, PageService, PageContent } from 'chapters/page.service';
 import { MatDialog } from '@angular/material';
-import { PageCreateComponent } from 'chapters/page-create.component';
-import { Button } from 'protractor';
 import { ButtonEditComponent } from './button-edit.component';
 import { TextEditComponent } from './text-edit.component';
+import { QuestionEditComponent } from './question-edit.component';
+import { Button } from 'protractor';
 
 @Component({
     templateUrl: './page.component.html'
@@ -59,12 +59,21 @@ export class PageComponent implements OnDestroy {
         }
     }
 
-    public editContent(content: PageContent) {
-        let dialogComponent: any = ButtonEditComponent;
-        if (content.contentType === 'text') {
-            dialogComponent = TextEditComponent;
+    private getContentEditComponent(contentType: string) {
+        const contentTypeEditorMap = {
+            'button': ButtonEditComponent,
+            'text': TextEditComponent,
+            'question': QuestionEditComponent
+        };
+        if (contentTypeEditorMap[contentType]) {
+            return contentTypeEditorMap[contentType];
+        } else {
+            return ButtonEditComponent;
         }
+    }
 
+    public editContent(content: PageContent) {
+        const dialogComponent = this.getContentEditComponent(content.contentType);
         this.dialog.open(dialogComponent, {
             data: content.data
         })
@@ -87,36 +96,27 @@ export class PageComponent implements OnDestroy {
         });
     }
 
-    public addText() {
-        this.dialog.open(TextEditComponent, {
-            data: { text: 'Example text' }
-        })
+    private addContent(contentType: string) {
+        const dialogComponent = this.getContentEditComponent(contentType);
+        this.dialog.open(dialogComponent)
         .afterClosed().toPromise()
         .then((data) => {
             if (data) {
-                this.createPageContent('text', data);
+                this.createPageContent(contentType, data);
             }
         });
+    }
+
+    public addText() {
+        this.addContent('text');
     }
 
     public addButton() {
-        this.dialog.open(ButtonEditComponent, {})
-        .afterClosed().toPromise()
-        .then((data) => {
-            if (data) {
-                this.createPageContent('button', data);
-            }
-        });
+        this.addContent('button');
     }
 
     public addQuestion() {
-        this.dialog.open(ButtonEditComponent, {})
-        .afterClosed().toPromise()
-        .then((data) => {
-            if (data) {
-                this.createPageContent('question', data);
-            }
-        });
+        this.addContent('question');
     }
 
     ngOnDestroy() {

@@ -1,0 +1,15 @@
+<form [formGroup]="form"
+    (ngSubmit)="submit()"
+    >
+    <app-text-field
+        label = "Question label"
+        formControlName='label'
+        >
+    </app-text-field>
+    <app-text-field
+        label = "Participant Property"
+        formControlName='label'
+        >
+    </app-text-field>
+    <input type="submit" value="Save" />
+</form>
