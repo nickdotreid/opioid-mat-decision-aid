@@ -54,6 +54,24 @@ export class PageComponent implements OnDestroy {
         });
     }
 
+    public editCurrentPage() {
+        this.router.navigate(['pages', this.page.id, 'edit']);
+    }
+
+    public viewCurrentPage() {
+        this.router.navigate(['pages', this.page.id]);
+    }
+
+    public publishPage() {
+        this.page.published = true;
+        this.pageService.update(this.page);
+    }
+
+    public unpublishPage() {
+        this.page.published = false;
+        this.pageService.update(this.page);
+    }
+
     private updateContent() {
         this.chapterService.getChapterForPage(this.page)
         .then((chapter) => {

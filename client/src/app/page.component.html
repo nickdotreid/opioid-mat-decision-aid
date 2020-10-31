@@ -1,3 +1,38 @@
+<nav *ngIf="isEditor"
+    class="container navigation-grouped"
+    >
+    <p>
+        Page {{page.id}}
+        <em *ngIf="page.published">Published</em>
+        <em *ngIf="!page.published">Unublished</em>
+    </p>
+    <button (click)="editTitle()">
+        Edit Title
+    </button>
+    <button *ngIf="!page.published"
+        (click)="publishPage()"
+        >
+        Publish
+    </button>
+    <button *ngIf="page.published"
+        (click)="unpublishPage()"
+        >
+        Unpublish
+    </button>
+    <button (click)="reorderPageContent">
+        Reorder Page Content
+    </button>
+    <button *ngIf="isEditable"
+        (click)="viewCurrentPage()"
+        >
+        View Page
+    </button>
+    <button *ngIf="!isEditable"
+        (click)="editCurrentPage()"    
+        >
+        Edit Page
+    </button>
+</nav>
 <app-page-navigation
     [page]="page"
     [editing]="isEditable"

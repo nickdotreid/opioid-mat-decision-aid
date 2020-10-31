@@ -1,7 +1,5 @@
 <nav *ngIf="chapter">
     <a (click)="goToChapter(chapter)">{{chapter.title}}</a>
-    <a *ngIf="editable && editing" (click)="viewCurrentPage()">View Page</a>
-    <a *ngIf="editable && !editing" (click)="editCurrentPage()">Edit Page</a>
     <ul class="bullets">
         <li *ngFor="let _page of pages">
             <a (click)="goToPage(_page)"
