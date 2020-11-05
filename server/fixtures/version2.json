@@ -1,23 +1,5 @@
 [
 {
-    "model": "auth.user",
-    "pk": 1,
-    "fields": {
-        "password": "pbkdf2_sha256$150000$8CRwei0G4RAa$F73DtweC/JOYHPeXFc+gRZdN3bApJes4fXt6tFbQ0gE=",
-        "last_login": "2020-04-24T02:07:42.875Z",
-        "is_superuser": true,
-        "username": "admin",
-        "first_name": "",
-        "last_name": "",
-        "email": "admin@nickreid.com",
-        "is_staff": true,
-        "is_active": true,
-        "date_joined": "2019-05-14T01:01:09.879Z",
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
     "model": "chapters.chapter",
     "pk": 2,
     "fields": {
@@ -50,7 +32,7 @@
     "fields": {
         "order": 50,
         "title": "Parking lot",
-        "published": true
+        "published": false
     }
 },
 {
@@ -730,2087 +712,1169 @@
     }
 },
 {
-    "model": "medications.medication",
-    "pk": 1,
+    "model": "chapters.orderablecontent",
+    "pk": 52,
     "fields": {
-        "name": "Buprenorphine",
-        "slug": "buprenorphine"
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 6,
+        "content_type": "text",
+        "data": {
+            "text": "<p>We know from research that <strong>medications have&nbsp;the most success</strong> for treating opioid use disorder.</p>\r\n\r\n<ul>\r\n</ul>"
+        }
     }
 },
 {
-    "model": "medications.medication",
-    "pk": 2,
-    "fields": {
-        "name": "Naltrexone",
-        "slug": "naltrexone"
-    }
-},
-{
-    "model": "medications.medication",
-    "pk": 3,
-    "fields": {
-        "name": "Methadone",
-        "slug": "methadone"
-    }
-},
-{
-    "model": "medications.medication",
-    "pk": 4,
-    "fields": {
-        "name": "No Medicine",
-        "slug": "no-medicine"
-    }
-},
-{
-    "model": "medications.medication",
-    "pk": 5,
-    "fields": {
-        "name": "Continue Using",
-        "slug": "continue-using"
-    }
-},
-{
-    "model": "medications.effect",
-    "pk": 1,
-    "fields": {
-        "name": "Symptom Relief",
-        "slug": "symptom-relief",
-        "category": "icon",
-        "description": "<p>When stopping opioids you can get cravings for the drug and withdrawal symptoms:&nbsp; body aches, anxiety, fatigue, sweating, fatigue, nausea, vomiting and diarrhea.</p>\r\n\r\n<p>Methadone and buprenorphine stop withdrawal symptoms and reduce cravings.&nbsp;Naltrexone does not stop withdrawal but helps a little bit with craving in the long term.</p>"
-    }
-},
-{
-    "model": "medications.effect",
-    "pk": 2,
-    "fields": {
-        "name": "Where do I take the medication?",
-        "slug": "location",
-        "category": null,
-        "description": null
-    }
-},
-{
-    "model": "medications.effect",
-    "pk": 3,
-    "fields": {
-        "name": "How does medicine get in my body?",
-        "slug": "treatment",
-        "category": "icon",
-        "description": ""
-    }
-},
-{
-    "model": "medications.effect",
-    "pk": 4,
-    "fields": {
-        "name": "Where do I take the medicine for the first 3 months?",
-        "slug": "refill",
-        "category": "icon",
-        "description": "<p>In the beginning, methadone must be supervised - you must come into the clinic everyday to receive your dose. If you are stable after 3 months you can begin to take it at home&nbsp;</p>\r\n\r\n<p>Buprenorphine can be taken at home after you are stable in a few days.&nbsp;</p>\r\n\r\n<p>Naltrexone injection must be given in a clinic, but its given every month</p>"
-    }
-},
-{
-    "model": "medications.effect",
-    "pk": 5,
-    "fields": {
-        "name": "How do I start treatment?",
-        "slug": "starting",
-        "category": null,
-        "description": "<p>Methadone can be started immediately.&nbsp;</p>\r\n\r\n<p>Buprenorphine requires several hours of being away from opioids before starting</p>\r\n\r\n<p>Naltrexone requires complete detoxification from opioids before starting. You will be offered other medications for relief during this time.&nbsp;</p>"
-    }
-},
-{
-    "model": "medications.effect",
-    "pk": 7,
-    "fields": {
-        "name": "Common side effects",
-        "slug": "side-effects",
-        "category": "icon",
-        "description": "<p><img alt=\"undefined\" src=\"https://storage.googleapis.com/opioid-mat-static/CACHE/images/icons/sleepy/c3466c90638bc16a64e43b3c2fb07514.png?Expires=1561638360&amp;GoogleAccessId=opioid-mat-server%40opioid-mat.iam.gserviceaccount.com&amp;Signature=A3VBnCVP%2By%2Fl2vauYtRW2kgCBE63Sc%2FJs5scdJOfRvDdIMekJN8ZbnTy6R9tnGNnudx%2FdL%2BAlhZrJsjJj%2Fax4cZB%2FsWP7SeKgXn8yhnEeB54TPt4LfyGmTVIF7OJh4dk9%2FfHsjghWXbybX4S%2BJr5lqRLPVhBSR5rQ%2B8zXFSBRUiO6mwUrF2O%2BZxrJYolY9JMUYOlbn%2BvfeDuSfQLZNfCHI3nbdaIloRaKTTnFTbQfL3emHFxhW7O7YHdJmYb81HHVdOBelLdH7gWaTxa84dxaWbLBlNOrccjeNG78pt9xWScMJLRZVya9Fs7hHLNS941eZfDdtHYVOAmse%2FCAaUnYg%3D%3D\" />&nbsp;sleeping problems (too sleepy or insomnia) is most common in methadone, bupenorphine&nbsp;and opioids like heroin&nbsp;</p>\r\n\r\n<p><img alt=\"undefined\" src=\"https://storage.googleapis.com/opioid-mat-static/CACHE/images/icons/gain-weight/2249d577159bd5c5f9b216cf909cc8d9.png?Expires=1561638360&amp;GoogleAccessId=opioid-mat-server%40opioid-mat.iam.gserviceaccount.com&amp;Signature=B2K8UiD1mR3G2nYs1%2FLlHH0P4VeazkjijCwKCN2iacxf%2BhCw00Sb2TyskUKsQT%2FDZruE%2B1zk%2FkbWOeAWwvkT2c8yoJ2tvwPZ9vr26109wix%2ByAif1E8L6WikPf6E6QmKy97R83UXHqdOUAWu2oCbxsEqzH6MGmL0HJKWAoYgUlmFZfMBGMglQorrUPvU1I4NVIsGkDxYHxbK0nTt%2F5dxHaxWrsLAnEyBC1onyrbfZdde2AgRaH39goSzpoKfPtR9EIZJz1VFFyXo8SVf8EOkKB6Ncqf%2Bp%2B4oEXB5subWbXrDMSdsFtEWjm69uw8iTg2ZY6bSFVSRMExA63%2FLiEeJPw%3D%3D\" />weight gain is most common in methadone</p>\r\n\r\n<p><img alt=\"undefined\" src=\"https://storage.googleapis.com/opioid-mat-static/CACHE/images/icons/constipation/4de4e25d828f4922762598580f416a8f.png?Expires=1561638360&amp;GoogleAccessId=opioid-mat-server%40opioid-mat.iam.gserviceaccount.com&amp;Signature=QF53%2B8Yh2wrXNP9hUl0prTPLiIncqBUg82dogBlGY3853%2FR9PEmnfqqEms4M59pv6wchpaDS%2B%2BgY7cxDLdSLvR25F4H5RNqNC9B7RDENGXBUHkBH5laACsWlihfdIfLG4sPYln%2F0PwRixyK1DQhoBWVgKD9VtfdBXwuvYjZ%2FZ0MVQP2fUPKF2dQqdP%2FsKBC2UNotWVq%2F%2BILcwbbNTeQa%2Fj8o%2BcxPcYpkm6svwudUC3KwKV8Qy9Uao8Tfm%2FswnMD2W1y53678cd8JhjB%2B%2FNI%2FuXx0BqirLHqaIeOxbB9g5PgVMbESADGJlEIN8PM0UQtpOKMVMm2MI4PHUXjUd1peVw%3D%3D\" />constipation is most common in methadone and opioids like heroin</p>\r\n\r\n<p><img alt=\"undefined\" src=\"https://storage.googleapis.com/opioid-mat-static/CACHE/images/icons/sex/a1f4056e5ae4315b378a6ed2829d5e75.png?Expires=1561638360&amp;GoogleAccessId=opioid-mat-server%40opioid-mat.iam.gserviceaccount.com&amp;Signature=NoFYrBO%2BsUzKdIqye2vtwpZwHdMrTbIFhPEagoXZRLaAXT6zLO7XXJB2yKBLrPABY3qg8jy8WXz9O7nF1C24ZfxKSl0kZzyomKJMl4hHZbxSLAyVnL1xGrZTgqHTUySVhG0zSHNGIsNxvwq3oUorFitoFkuRRTzzIDFFtuhVCTpGcr9SG7tKOXv4lflWU7Qrb6ouJtwh8n1fgovEw2RvMYdQOtH7lTOWjxYP7lnxnJ6iDReLjo9vtGpA2tNirp%2FdgHDJVHRz7NuF1hlzGQEwzRpnr%2F6C7jYfGdnLGjIYNoDV5gbDryQ6jB4ntYI4a1c27Lcmaus%2BZD4YVpY7p72wbg%3D%3D\" />sexual side effects are most common in methadone and opioids like heroin&nbsp;</p>\r\n\r\n<p><img alt=\"undefined\" src=\"https://storage.googleapis.com/opioid-mat-static/CACHE/images/icons/headache/ff6af1a202812ab678dcc8066f3d5498.png?Expires=1561638361&amp;GoogleAccessId=opioid-mat-server%40opioid-mat.iam.gserviceaccount.com&amp;Signature=xHGnOV7SwI2k0VsDxN%2B5ou%2BdZsjbMv%2BGucZ0ajN9F8rLL9sW2OMV0wWScBsy5I6g3wrgw2vMPaI4ofG%2BkWKj7myPINARcXLaWp6pZ2uzQE1OnFmXRVLLq82bR0bfEAarRCYWXjCcr44GzPOAHTpgVINvPC59taGBSc4D8hnoog%2F69YMFovUArr4dG4TYFHXOBq1dk0u43VwejNaufqut9aubSQpTWxE6%2BhyQk8dSXJZ%2B9QULf%2F9V7M0xj3yOBetRa76dHTdP5hYHd0X0iBuuwt5SEWi4GD5ScmyGI0ik4JaBpKdPOv2ws70Y4F5Dk0fxFcnpJvVLn9Zdi8o6eRoaOw%3D%3D\" />&nbsp;headaches are most common in buprenorphine&nbsp;</p>\r\n\r\n<p><img alt=\"undefined\" src=\"https://storage.googleapis.com/opioid-mat-static/CACHE/images/icons/injection-pain/6250717b74f19c64dacba901ed0a183e.png?Expires=1561638361&amp;GoogleAccessId=opioid-mat-server%40opioid-mat.iam.gserviceaccount.com&amp;Signature=NCfIe3kj3VuOOrRFp1VkQReXdqLujZ2wjVoHzLlQfw4alYIl%2FhVPDzcErvrEZ7KK8Mhn3PyIRKposMsd7%2BFFlVzBTiu93MLUM1CEaypoLr7%2BAuda3vNTh4V6qtEwpRFLKC49F9y8%2B%2BusYid9N3FXPQUhYkI2g9XPsnqN%2FQtKg%2FXgcwZkEblKXrEK0KNTErnK9M2dOio1DBiw6lybFy4vM3xX1ODhEBc9yj88EKYQ%2FWK5P0Tp4ySzUKYMmtUpfT5CK%2FQnBUNvuGB1KK5%2FGzew%2BkR43j%2B%2F%2FJsNDqeA9KrqWbbfq5eUugKQTz5i5yHvLtI1moVztFKiAUfMYfJe%2BT6TDQ%3D%3D\" />&nbsp;injection pain is most common with naltrexone and opioids like heroin if injected</p>"
-    }
-},
-{
-    "model": "medications.effect",
-    "pk": 8,
-    "fields": {
-        "name": "Cost without insurance",
-        "slug": "cost",
-        "category": null,
-        "description": "<p>Methadone: $300 per month (much lower with insurance)&nbsp;</p>\r\n\r\n<p>Buprenorphine sublingual: $200 per month (lower with insurance)&nbsp;</p>\r\n\r\n<p>Naltrexone: $1350 per month (may be lower with insurance)&nbsp;</p>\r\n\r\n<p>No medication: $1800 per month, estimated&nbsp;</p>\r\n\r\n<p>&nbsp;</p>"
-    }
-},
-{
-    "model": "medications.effect",
-    "pk": 10,
-    "fields": {
-        "name": "Discomfort",
-        "slug": "discomfort",
-        "category": null,
-        "description": null
-    }
-},
-{
-    "model": "medications.effect",
-    "pk": 11,
-    "fields": {
-        "name": "Risk of Death Without Treatment",
-        "slug": "mortality",
-        "category": "icon",
-        "description": ""
-    }
-},
-{
-    "model": "medications.effect",
-    "pk": 12,
-    "fields": {
-        "name": "Risk of relapse",
-        "slug": "relapse",
-        "category": null,
-        "description": "<p>The longer you stay on medications like methadone and buprenorphine, the&nbsp;longer you are able to stay off opioids like heroin.</p>\r\n\r\n<p>Naltrexone also helps you staff off opioids as long as you continue to use it. Some people have trouble staying on this medication.&nbsp;</p>"
-    }
-},
-{
-    "model": "medications.effect",
-    "pk": 13,
-    "fields": {
-        "name": "Intensity of withdrawal if you stop",
-        "slug": "stoppingWithdrawl",
-        "category": "circle",
-        "description": "<p>Methadone: intense as opioids like heroin, lasts 6 weeks</p>\r\n\r\n<p>Buprenorphine: milder than opioids like heroin, lasts 1 week</p>\r\n\r\n<p>Naltrexone: no withdrawal&nbsp;</p>\r\n\r\n<p>Stopping without medication: no withdrawal but high risk of relapse</p>\r\n\r\n<p>Using opioids like heroin: intense, lasts 1 week&nbsp;</p>\r\n\r\n<p>&nbsp;</p>"
-    }
-},
-{
-    "model": "medications.effect",
-    "pk": 14,
-    "fields": {
-        "name": "Risk of death right after stopping",
-        "slug": "stoppingMortality",
-        "category": "timeline",
-        "description": "<p>Stopping methadone:&nbsp;High, then goes down, higher than using.&nbsp;</p>\r\n\r\n<p>Stopping buprenorphine:&nbsp;High, then goes down, higher than using.</p>\r\n\r\n<p>Stopping Naltrexone:&nbsp;High, then goes down, higher than using.</p>\r\n\r\n<p>No medicine: Can be higher than continuing to use</p>\r\n\r\n<p>Continuing to Use: HIgher than being on medicine&nbsp;</p>\r\n\r\n<p>&nbsp;</p>"
-    }
-},
-{
-    "model": "medications.effect",
-    "pk": 15,
-    "fields": {
-        "name": "Life saving",
-        "slug": "life-saving",
-        "category": "icon",
-        "description": "<p>Opioid use disorder increases the risk of death, from overdose, infection and other problems.</p>\r\n\r\n<p>In a room of 30 people with opioid use disorder, 3 people can die.&nbsp;&nbsp;</p>\r\n\r\n<p>Medications help save lives by reducing this risk by&nbsp;half</p>\r\n\r\n<p>&nbsp;</p>"
-    }
-},
-{
-    "model": "medications.effect",
-    "pk": 16,
-    "fields": {
-        "name": "Stop Relapse",
-        "slug": "relapsePrevention",
-        "category": "icon",
-        "description": "<p>The longer you stay on medications like methadone and buprenorphine, the&nbsp;longer you are able to stay off opioids like heroin.</p>\r\n\r\n<p>Naltrexone also helps you staff off opioids as long as you continue to use it. Some people have trouble staying on this medication.&nbsp;</p>\r\n\r\n<p>Stopping opioid use without medication has a high risk of relapse.&nbsp;</p>"
-    }
-},
-{
-    "model": "medications.effect",
-    "pk": 19,
-    "fields": {
-        "name": "Life Function",
-        "slug": "legal",
-        "category": "icon",
-        "description": "<p>Research shows medication&nbsp;can improve your abilities for day-to-day life</p>\r\n\r\n<p>(1)&nbsp;&darr; Legal problems - you will less likely be arrested&nbsp;</p>\r\n\r\n<p>(2)&nbsp;&uarr; Relationships - you will&nbsp;improve your relationships with friends or family&nbsp;</p>\r\n\r\n<p>(3)&nbsp;&uarr; Employment - you will more likely be able to work&nbsp;</p>\r\n\r\n<p>Stopping opioid use without medication you will get&nbsp;better at first, but there is a high risk of relapse and then getting worse.&nbsp;</p>"
-    }
-},
-{
-    "model": "medications.effect",
-    "pk": 20,
-    "fields": {
-        "name": "How the medicine gets in the body",
-        "slug": "medicine-in-body",
-        "category": "list",
-        "description": "<p>Methadone is a liquid taken by mouth&nbsp;</p>\r\n\r\n<p>Buprenorphine is a pill or dissolvable tab taken by mouth</p>\r\n\r\n<p>Naltrexone is an injection in the buttocks</p>\r\n\r\n<p>Opioids like heroin can be taken as pills by mouth, snorting, or by injection</p>"
-    }
-},
-{
-    "model": "medications.effect",
-    "pk": 21,
-    "fields": {
-        "name": "How long is withdrawal if you stop",
-        "slug": "withdrawal-duration",
-        "category": null,
-        "description": "<p>Expand: pics&nbsp;</p>\r\n\r\n<p>mmt wd</p>\r\n\r\n<p>bpn wd</p>\r\n\r\n<p>heroin wd</p>\r\n\r\n<p>&nbsp;</p>"
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 1,
-    "fields": {
-        "medication": 1,
-        "effect": 1,
-        "icon": 19,
-        "label": null,
-        "value": "4",
-        "comparison": "4",
-        "day": null,
-        "order": null
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 2,
-    "fields": {
-        "medication": 3,
-        "effect": 1,
-        "icon": 19,
-        "label": null,
-        "value": "4",
-        "comparison": "4",
-        "day": null,
-        "order": null
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 3,
-    "fields": {
-        "medication": 2,
-        "effect": 1,
-        "icon": 18,
-        "label": null,
-        "value": "1",
-        "comparison": "4",
-        "day": null,
-        "order": null
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 4,
-    "fields": {
-        "medication": 4,
-        "effect": 1,
-        "icon": 18,
-        "label": null,
-        "value": "0",
-        "comparison": "4",
-        "day": null,
-        "order": null
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 5,
-    "fields": {
-        "medication": 5,
-        "effect": 1,
-        "icon": 19,
-        "label": null,
-        "value": "0",
-        "comparison": "4",
-        "day": null,
-        "order": null
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 6,
-    "fields": {
-        "medication": 3,
-        "effect": 15,
-        "icon": 20,
-        "label": null,
-        "value": "3",
-        "comparison": "4",
-        "day": null,
-        "order": null
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 7,
-    "fields": {
-        "medication": 1,
-        "effect": 15,
-        "icon": 20,
-        "label": null,
-        "value": "3",
-        "comparison": "4",
-        "day": null,
-        "order": null
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 8,
-    "fields": {
-        "medication": 2,
-        "effect": 15,
-        "icon": 20,
-        "label": null,
-        "value": "2",
-        "comparison": "4",
-        "day": null,
-        "order": null
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 9,
-    "fields": {
-        "medication": 4,
-        "effect": 15,
-        "icon": 18,
-        "label": null,
-        "value": "0",
-        "comparison": "4",
-        "day": null,
-        "order": null
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 10,
-    "fields": {
-        "medication": 5,
-        "effect": 15,
-        "icon": 18,
-        "label": null,
-        "value": "0",
-        "comparison": "4",
-        "day": null,
-        "order": null
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 11,
-    "fields": {
-        "medication": 3,
-        "effect": 2,
-        "icon": null,
-        "label": null,
-        "value": "home",
-        "comparison": null,
-        "day": null,
-        "order": 10
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 12,
-    "fields": {
-        "medication": 3,
-        "effect": 3,
-        "icon": 1,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 10
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 13,
-    "fields": {
-        "medication": 3,
-        "effect": 4,
-        "icon": 6,
-        "label": null,
-        "value": "Every day",
-        "comparison": null,
-        "day": null,
-        "order": 10
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 14,
-    "fields": {
-        "medication": 3,
-        "effect": 5,
-        "icon": null,
-        "label": null,
-        "value": "Start immediately",
-        "comparison": null,
-        "day": null,
-        "order": 10
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 16,
-    "fields": {
-        "medication": 3,
-        "effect": 7,
-        "icon": 26,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 10
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 20,
-    "fields": {
-        "medication": 3,
-        "effect": 8,
-        "icon": null,
-        "label": null,
-        "value": "$",
-        "comparison": null,
-        "day": null,
-        "order": 10
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 22,
-    "fields": {
-        "medication": 3,
-        "effect": 10,
-        "icon": null,
-        "label": null,
-        "value": "None",
-        "comparison": null,
-        "day": null,
-        "order": 10
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 23,
-    "fields": {
-        "medication": 3,
-        "effect": 11,
-        "icon": null,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 10
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 24,
-    "fields": {
-        "medication": 3,
-        "effect": 13,
-        "icon": null,
-        "label": null,
-        "value": "5",
-        "comparison": "5",
-        "day": null,
-        "order": 10
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 25,
-    "fields": {
-        "medication": 3,
-        "effect": 14,
-        "icon": null,
-        "label": null,
-        "value": "2",
-        "comparison": "8",
-        "day": 1,
-        "order": 10
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 26,
-    "fields": {
-        "medication": 3,
-        "effect": 16,
-        "icon": 22,
-        "label": null,
-        "value": "0",
-        "comparison": "10",
-        "day": 1,
-        "order": 10
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 27,
-    "fields": {
-        "medication": 1,
-        "effect": 19,
-        "icon": 23,
-        "label": null,
-        "value": "Better",
-        "comparison": null,
-        "day": null,
-        "order": 10
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 28,
-    "fields": {
-        "medication": 2,
-        "effect": 19,
-        "icon": 23,
-        "label": null,
-        "value": "Better",
-        "comparison": null,
-        "day": null,
-        "order": 10
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 29,
-    "fields": {
-        "medication": 4,
-        "effect": 19,
-        "icon": 24,
-        "label": null,
-        "value": "Better at first, but then worse",
-        "comparison": null,
-        "day": null,
-        "order": 10
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 30,
-    "fields": {
-        "medication": 5,
-        "effect": 19,
-        "icon": 25,
-        "label": null,
-        "value": "Worse",
-        "comparison": null,
-        "day": null,
-        "order": 10
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 31,
-    "fields": {
-        "medication": 3,
-        "effect": 19,
-        "icon": 23,
-        "label": null,
-        "value": "Better",
-        "comparison": null,
-        "day": null,
-        "order": 10
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 42,
-    "fields": {
-        "medication": 1,
-        "effect": 16,
-        "icon": 22,
-        "label": null,
-        "value": "0",
-        "comparison": "10",
-        "day": 1,
-        "order": 10
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 43,
-    "fields": {
-        "medication": 2,
-        "effect": 16,
-        "icon": 22,
-        "label": null,
-        "value": "0",
-        "comparison": "10",
-        "day": 1,
-        "order": 10
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 44,
-    "fields": {
-        "medication": 4,
-        "effect": 16,
-        "icon": 18,
-        "label": null,
-        "value": "10",
-        "comparison": "0",
-        "day": 1,
-        "order": 10
-    }
-},
-{
-    "model": "medications.medicationeffect",
-    "pk": 45,
-    "fields": {
-        "medication": 5,
-        "effect": 16,
-        "icon": 18,
-        "label": null,
-        "value": "0",
-        "comparison": "100",
-        "day": 1,
-        "order": 10
-    }
-},
-{
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 53,
     "fields": {
-        "medication": 1,
-        "effect": 11,
-        "icon": null,
-        "label": "smile1",
-        "value": "smile1",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 67,
+        "content_type": "text",
+        "data": {
+            "text": "<p>This&nbsp;decision aid will help you learn which treatment for opioid use disorder is right for you</p>\r\n\r\n<p>The goal&nbsp; is to help you understand your choices so you can work with your doctor to find which option is best for you.&nbsp;</p>\r\n\r\n<p>Some words are <span style=\"background-color:#f1c40f\">highlighted</span>. Click on those words to learn more information.&nbsp;</p>\r\n\r\n<p>When you are ready to move to the next page, click &quot;NEXT.&quot;</p>\r\n\r\n<p>You can keep track of what options and concerns are most important to you in the side menu.&nbsp;</p>\r\n\r\n<p>[ big arrow to link ]&nbsp;</p>\r\n\r\n<p>When you are done, you can print these notes to discuss with your doctor.</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 54,
     "fields": {
-        "medication": 1,
-        "effect": 5,
-        "icon": null,
-        "label": null,
-        "value": "Start after 6-12 hours of withdrawal",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 41,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Opioid Use Disorder is sometimes called Addiction.&nbsp;</p>\r\n\r\n<p>It is a medical illness of the brain, one that can be managed successfully with treatment.</p>\r\n\r\n<p>&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 55,
     "fields": {
-        "medication": 2,
-        "effect": 5,
-        "icon": null,
-        "label": null,
-        "value": "Start after 7 days of withdrawal (with medical support)",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 76,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Because opioid use disorder is a <strong>chronic condition</strong>&nbsp;(like asthma or diabetes) most patients need at least&nbsp;<strong>3-5 years&nbsp;</strong>to let the brain heal, and some need much longer. You will work with your doctor to decide what is right for you.&nbsp;</p>\r\n\r\n<p>&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 56,
     "fields": {
-        "medication": 4,
-        "effect": 5,
-        "icon": null,
-        "label": null,
-        "value": "Stop opioid, withdrawal for 7 days, cravings for many months",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 10,
+        "content_type": "text",
+        "data": {
+            "text": "<p>This chapter explains differences among your treatment options.&nbsp;</p>\r\n\r\n<p>Many patients find that even though treatment has&nbsp;side effects, costs, and requirements, that using opioids of addiction (such as heroin), have similar or worse side effects, costs, and requirements. They find life overall to be easier on medications.&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 57,
     "fields": {
-        "medication": 5,
-        "effect": 5,
-        "icon": null,
-        "label": null,
-        "value": "not applicable",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 11,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Most patients need to stay in treatment for <strong>at least 3-5 years</strong>.&nbsp;</p>\r\n\r\n<p>If you have had opioid use disorder for a longer time, you may need an even longer time to heal.&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
+    "pk": 58,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 69,
+        "content_type": "text",
+        "data": {
+            "text": "<p>[ output quiz ]&nbsp;</p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 59,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 4,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Opioids are a type of drug that includes heroin and prescription pain medications.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>[Button] Click *here* to see examples of opioids [</p>\r\n\r\n<ul>\r\n\t<li>heroin</li>\r\n\t<li>Percocet</li>\r\n\t<li>Vicodin</li>\r\n\t<li>oxycodone</li>\r\n\t<li>Oxycontin</li>\r\n\t<li>Dilaudid</li>\r\n\t<li>Fentanyl]</li>\r\n</ul>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 60,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 7,
+        "content_type": "text",
+        "data": {
+            "text": "<p><strong>Medications have&nbsp;the most success</strong>&nbsp;for treating opioid use disorder. These&nbsp;are the&nbsp;3&nbsp;options proven to help:&nbsp;</p>\r\n\r\n<p>(1) [Button]<strong> Methadone&nbsp;</strong>[This medication reduces withdrawal and cravings, You take it as a liquid everyday. In the first 3 months you will need to take it in a specialty clinic, but if you are stable you can take it at home]</p>\r\n\r\n<p>(2) [Button]&nbsp;<strong>Buprenorphine </strong>(also known as Suboxone, Subutex, or others) [This medication reduces withdrawals and cravings. You take it as a dissolvable tab or pill, usually everyday. After visiting your doctor and getting a stable dose within the first few days, you can take this medicine at home]</p>\r\n\r\n<p>(3) [Button]&nbsp;<strong>Naltrexone </strong>injection (also known as Vivitrol)&nbsp; [This medication does&nbsp;<em>not</em>&nbsp;reduce withdrawals - you will receive other medications to help during detox before you start. It can&nbsp;reduce cravings a small amount You take it as an injection, every month, in a clinic]</p>\r\n\r\n<p>[Question: which medications have you tried?]</p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
     "pk": 61,
     "fields": {
-        "medication": 1,
-        "effect": 20,
-        "icon": 1,
-        "label": null,
-        "value": "Take a dissolving tab by mouth every day",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 27,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Treatment with medication will help you</p>\r\n\r\n<p><strong>* feel better<br />\r\n*&nbsp;save your life<br />\r\n*&nbsp;improve your&nbsp;health&nbsp;<br />\r\n* improve your&nbsp;day-to-day life abilities&nbsp;</strong></p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 62,
     "fields": {
-        "medication": 2,
-        "effect": 20,
-        "icon": null,
-        "label": null,
-        "value": "Get an injection once a month in the buttock",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 36,
+        "content_type": "text",
+        "data": {
+            "text": "<p>If you and your doctor decide it is time to end treatment, this can be done slowly to avoid withdrawal symptoms.&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 63,
     "fields": {
-        "medication": 4,
-        "effect": 20,
-        "icon": null,
-        "label": null,
-        "value": "No medication to take",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 46,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Each medication has a different way to start. Click to find out how each medication is started.&nbsp;</p>\r\n\r\n<p>[Button] <strong>Methadone </strong>[you can start&nbsp;right away]</p>\r\n\r\n<p>[Button] <strong>Buprenorphine</strong> [you must wait 6-12 hours after using before starting if you use&nbsp;opioids like heroin]</p>\r\n\r\n<p>[Button] <strong>Naltrexone&nbsp;</strong>[you must stop using any opioids for 7 days before starting. Your doctor can help you feel better during this time with other medications to treat your withdrawal.]</p>\r\n\r\n<p>&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 64,
     "fields": {
-        "medication": 5,
-        "effect": 20,
-        "icon": null,
-        "label": null,
-        "value": "Taking by pill, injection, or snorting daily or multiple times a day",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 66,
+        "content_type": "text",
+        "data": {
+            "text": "<p>It is important for you to have all the information so you&nbsp;can make a decision that works for you. In this section we will discuss</p>\r\n\r\n<p>- how to start a treatment</p>\r\n\r\n<p>- where to get treatment</p>\r\n\r\n<p>- how treatment gets in the body</p>\r\n\r\n<p>- side effects</p>\r\n\r\n<p>- cost</p>\r\n\r\n<p>We will also compare treatment to continuing use of opioids of addiction, like heroin.&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 65,
     "fields": {
-        "medication": 3,
-        "effect": 20,
-        "icon": null,
-        "label": null,
-        "value": "Take a liquid by mouth everyday",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 43,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Over time, some people need to continue taking these drugs just to feel normal, even if it causes problems or even if it takes over their life.</p>\r\n\r\n<p>They can find it difficult to quit on their own.</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 66,
     "fields": {
-        "medication": 1,
-        "effect": 4,
-        "icon": 7,
-        "label": null,
-        "value": "pick up every week or month",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 33,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Medication options will help you:&nbsp;</p>\r\n\r\n<p><em>Click to see more info</em></p>\r\n\r\n<p><strong>* [feel better]<br />\r\n* [save your life]<br />\r\n* [improve your&nbsp;health]&nbsp;<br />\r\n* [improve your&nbsp;day-to-day life abilities]&nbsp;</strong></p>\r\n\r\n<p><strong>[feel better:&nbsp;</strong>Medications&nbsp;calm the body&rsquo;s system as it&nbsp;gets used to being away from the drug. Two medication options (methadone and buprenorphine)&nbsp;<strong>treat *withdrawal* symptoms and decrease *cravings</strong>.*&nbsp;[Inline clicking]&nbsp;*withdrawal*&nbsp;[Withdrawal symptoms can start several hours after your body has used an opioid. It can feel like a very severe flu, with fatigue, seating, nausea, diarrhea, and other symptoms.]<br />\r\n[Inline clicking] *cravings* [Cravings are a strong desire to take the drug. These are strongest during the first several days of stopping the opioid, and slowly decrease with time. However they can last several months or longer.]<strong> </strong></p>\r\n\r\n<p>Naltrexone does not* treat withdrawals or cravings, but other treatment&nbsp;can be provided<strong>]</strong></p>\r\n\r\n<p><br />\r\n<strong>[save your life: </strong>Getting stable on medication means you will be safer from death.&nbsp;Medications protect you from overdose death and&nbsp;life-threatening infections.If you have other medical conditions (like heart disease, HIV, or depression), medications help you&nbsp;get stable to get the care you need.]</p>\r\n\r\n<p><br />\r\n<strong>[improve your&nbsp;health: </strong>Medications will improve your mental and physical health. Treatment will improve</p>\r\n\r\n<p>[Inline] Mood [Medications improve&nbsp;your mood by decreasing anxiety and depression, and helping you feel more even]</p>\r\n\r\n<p>[inline] Infection [Medications can lower&nbsp;injection behavior and improve your immune system, which means less risk for infections]</p>\r\n\r\n<p>[inline] Get Care [Medications can stabilize&nbsp;your&nbsp;life so you can get medical and psychological care you need]<strong>]&nbsp;</strong></p>\r\n\r\n<p><strong>&nbsp;</strong></p>\r\n\r\n<p><strong>[improve your&nbsp;day-to-day life abilities: </strong>Medication lowers your risk of arrest and legal problems. It&nbsp;stabilizes you so you can connect to your family, relationships, and work.&nbsp;<strong>]&nbsp;</strong></p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 67,
     "fields": {
-        "medication": 2,
-        "effect": 4,
-        "icon": 6,
-        "label": null,
-        "value": "Once a month",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 37,
+        "content_type": "text",
+        "data": {
+            "text": "<p>If treatment is stopped quickly, on your own or because of things outside your control, you can have withdrawal symptoms.&nbsp;</p>\r\n\r\n<p>&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 68,
     "fields": {
-        "medication": 4,
-        "effect": 4,
-        "icon": null,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 75,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Opioid Use Disorder (also called addiction)&nbsp;is a medical illness of the brain, one that can be managed successfully with treatment.</p>\r\n\r\n<p>Opioids are a type of drug that includes heroin and prescription pain medications. <span style=\"background-color:#f1c40f\">Examples</span></p>\r\n\r\n<p>Over time, some people need to continue taking these drugs just to feel normal, even if it causes problems or even if it takes over their life.&nbsp;They can find it difficult to quit on their own.</p>\r\n\r\n<p>Opioid use disorder&nbsp;is a&nbsp;<strong>chronic&nbsp;</strong>disease, similar to diabetes and asthma. That means it can take time to get stable and for the brain to heal. Most&nbsp;patients need at least&nbsp;<strong>3-5 years</strong> of treatment&nbsp;to let the brain heal, and some need much longer. You will work with your doctor to decide what is right for you</p>\r\n\r\n<p>Similar to other medical conditions,&nbsp;you may get better, but then start using opioids again (<strong>relapse)</strong>, and have to restart or adjust your treatment to become stable again (<strong>remit</strong>).Recovery can have&nbsp;ups and downs - you might be be better for a long time, then have a relapse.&nbsp;<strong>This is very common</strong>. It may even happen multiple times.&nbsp;</p>\r\n\r\n<p>The good news is that even if you have a relapse, treatment can get you better again, and help you remain stable over time.&nbsp;</p>\r\n\r\n<p>[Examples: heroin, Percocet, Vicodin, oxycodone, Oxycontin, Dilaudid, Fentanyl]&nbsp;&nbsp;</p>\r\n\r\n<p>&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 69,
     "fields": {
-        "medication": 5,
-        "effect": 4,
-        "icon": 8,
-        "label": null,
-        "value": "Daily or many times a day",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 78,
+        "content_type": "text",
+        "data": {
+            "text": "<p><strong>Methadone</strong> and <strong>buprenorphine</strong> help withdrawals and cravings.&nbsp;</p>\r\n\r\n<p><strong>Naltrexone</strong> does&nbsp;<strong>not</strong>&nbsp;(you will get other medications and support to help during detox).&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 70,
     "fields": {
-        "medication": 1,
-        "effect": 3,
-        "icon": 1,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 57,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Most people find the benefits of treatment is worth the side effects, costs and requirements.</p>\r\n\r\n<p>Patients often find there are&nbsp;less side effects, costs, and difficulties for treatment compared to using opioids of addiction.&nbsp;</p>\r\n\r\n<p>In this section we will also compare treatment options to continuing to use opioids like heroin.&nbsp;</p>\r\n\r\n<p>&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 71,
     "fields": {
-        "medication": 2,
-        "effect": 3,
-        "icon": 5,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 54,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Medications&nbsp;calm the body&rsquo;s system as it&nbsp;gets used to being away from the drug. Two medication options&nbsp;<strong>treat *withdrawal* symptoms and decrease *cravings</strong>.*</p>\r\n\r\n<p>[Inline clicking]&nbsp;*withdrawal*&nbsp;[Withdrawal symptoms can start several hours after your body has used an opioid. It can feel like a very severe flu, with fatigue, seating, nausea, diarrhea, and other symptoms.]<br />\r\n[Inline clicking] *cravings* [Cravings are a strong desire to take the drug. These are strongest during the first several days of stopping the opioid, and slowly decrease with time. However they can last several months or longer.]</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 72,
     "fields": {
-        "medication": 4,
-        "effect": 3,
-        "icon": null,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 53,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Opioid use disorder&nbsp;is a&nbsp;<strong>chronic&nbsp;</strong>disease, similar to diabetes and asthma. That means it can take time to get stable and for the brain to heal.&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>[question: how long have you had issues with opioid dependence?]</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 73,
     "fields": {
-        "medication": 5,
-        "effect": 3,
-        "icon": 5,
-        "label": null,
-        "value": "or",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 44,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Getting stable on medication means you will be safer from death.&nbsp;</p>\r\n\r\n<p>[Button] Decrease Risks [Medications help you protect&nbsp;yourself from overdose death and&nbsp;life-threatening infections.]</p>\r\n\r\n<p>[Button] Get Care [If you have other medical conditions (like heart disease, HIV, or depression), medications help you&nbsp;get stable to get the care you need.]</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 74,
     "fields": {
-        "medication": 1,
-        "effect": 7,
-        "icon": 30,
-        "label": null,
-        "value": "headaches",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 47,
+        "content_type": "text",
+        "data": {
+            "text": "<p>In the first three months, getting the medications will be different. Click to find out how they are different.&nbsp;</p>\r\n\r\n<p>[buttons]</p>\r\n\r\n<p>[Button]&nbsp;<strong>Methadone</strong>&nbsp;[In the beginning must come into a specialized&nbsp;clinic almost every day to receive your dose. If you are stable after 3 months you will be able to take medications at home]&nbsp;</p>\r\n\r\n<p>[Button]&nbsp;<strong>Buprenorphine</strong>&nbsp;[In the beginning you go to clinic to get started. Within 1-3 days, this medication can be picked up from the pharmacy and taken at home. You may need to come to clinic every week in the beginning to make sure the dose is right and that you are stable]&nbsp;</p>\r\n\r\n<p>[Button]&nbsp;<strong>Naltrexone</strong>&nbsp;[once you are stable on this medication, you come into the clinic once a month to get an injection]&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 75,
     "fields": {
-        "medication": 1,
-        "effect": 7,
-        "icon": 26,
-        "label": null,
-        "value": "sleep changes",
-        "comparison": null,
-        "day": null,
-        "order": 20
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 52,
+        "content_type": "text",
+        "data": {
+            "text": "<p><strong>Stopping treatment suddenly means your risk of death goes up,</strong> especially from overdose if you start using again.</p>\r\n\r\n<p>For all treatment,<strong> the risk of death is especially high in the first 2 weeks after you stop treatment,</strong> then goes down over time. There is a high risk of relapse to opioid use like heroin.</p>\r\n\r\n<p>When it is time to end treatment, work closely with your doctor to monitor how you are doing.&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 76,
     "fields": {
-        "medication": 2,
-        "effect": 7,
-        "icon": 31,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 63,
+        "content_type": "text",
+        "data": {
+            "text": "<p>After you stop using opioids or medications,&nbsp;<strong>your&nbsp;<em>tolerance&nbsp;</em>to&nbsp;opioids go down</strong>&nbsp;- that means your body is not used to the opioids anymore. That means if there is relapse and you use again,&nbsp;there is a higher risk of overdose.&nbsp;&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 77,
     "fields": {
-        "medication": 4,
-        "effect": 7,
-        "icon": null,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 56,
+        "content_type": "text",
+        "data": {
+            "text": "<p>[ new graphical chart here ]&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 78,
     "fields": {
-        "medication": 5,
-        "effect": 7,
-        "icon": 32,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 48,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Each medication is taken into the body in different ways.&nbsp;</p>\r\n\r\n<p>[Button]&nbsp;<strong>Methadone&nbsp;</strong>[this is a liquid that you swallow by mouth every day]</p>\r\n\r\n<p>[Button]&nbsp;<strong>Buprenorphine</strong>&nbsp;[usually this is a tab that dissolves in the mouth or is a pill that is swallowed by mouth every day]</p>\r\n\r\n<p>[Button]&nbsp;<strong>Naltrexone&nbsp;</strong>[this is an injection in the buttock every month]</p>\r\n\r\n<p>&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 79,
     "fields": {
-        "medication": 5,
-        "effect": 7,
-        "icon": 27,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 20
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 38,
+        "content_type": "text",
+        "data": {
+            "text": ""
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 80,
     "fields": {
-        "medication": 5,
-        "effect": 7,
-        "icon": 29,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 30
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 28,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Medications will improve your mental and physical health. Treatment will</p>\r\n\r\n<p>[Button] Mood [Medications improve&nbsp;your mood by decreasing anxiety and depression, and helping you feel more even]</p>\r\n\r\n<p>[Button] Infection [Medications can lower&nbsp;injection behavior and improve your immune system, which means less risk for infections]</p>\r\n\r\n<p>[Button] Get Care [Medications can stabilize&nbsp;your&nbsp;life so you can get medical and psychological care you need]<br />\r\n<br />\r\n&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 81,
     "fields": {
-        "medication": 5,
-        "effect": 7,
-        "icon": 31,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 40
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 42,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Opioid use disorder can&nbsp;<strong>relapse and remit</strong>.</p>\r\n\r\n<p>This means that you may get better, but then start using opioids again (<strong>relapse)</strong>, and have to restart or adjust your treatment to become stable again (<strong>remit</strong>).</p>\r\n\r\n<p>This also happens in other medical conditions, like high blood pressure.&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>[Question: have you previously been on treatment then stopped?&nbsp;</p>\r\n\r\n<p>How many times have you had treatment before?]</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 82,
     "fields": {
-        "medication": 1,
-        "effect": 8,
-        "icon": null,
-        "label": null,
-        "value": "$$",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 65,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Recovery often has&nbsp;ups and downs - you might be be better for a long time, then have a relapse.&nbsp;<strong>This is very common</strong>. It may even happen multiple times.&nbsp;</p>\r\n\r\n<p>The good news is that even if you have a relapse, treatment can get you better again, and help you remain stable over time.&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 83,
     "fields": {
-        "medication": 2,
-        "effect": 8,
-        "icon": null,
-        "label": null,
-        "value": "$$$",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 45,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Treatment lowers your risk of arrest and legal problems.&nbsp;</p>\r\n\r\n<p>Treatment stabilizes you so you can connect to your family, relationships, and work.&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 84,
     "fields": {
-        "medication": 4,
-        "effect": 8,
-        "icon": null,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 49,
+        "content_type": "text",
+        "data": {
+            "text": "<p>All medications can have side effects. Everyone can be affected differently. Most people will experience similar or worse side effects from opioids of addiciton, such as heroin. Click to read&nbsp;the most common effects of medications.</p>\r\n\r\n<p>[Button]&nbsp;<strong>Methadone</strong>&nbsp;[sleeping problems, weight gain, constipation, sexual side effects [graphic: icon vs infographics (3 out of 12 etc)]&nbsp;</p>\r\n\r\n<p>[Button]&nbsp;<strong>Buprenorphine&nbsp;</strong>[sleeping problems, headaches]</p>\r\n\r\n<p>[Button]&nbsp;<strong>Naltrexone</strong>&nbsp;[irritation at the injection site]</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 85,
     "fields": {
-        "medication": 5,
-        "effect": 8,
-        "icon": null,
-        "label": null,
-        "value": "$$",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 64,
+        "content_type": "text",
+        "data": {
+            "text": "<p>[ new table ]</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 86,
     "fields": {
-        "medication": 1,
-        "effect": 13,
-        "icon": null,
-        "label": null,
-        "value": "3",
-        "comparison": "5",
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 5,
+        "content_type": "text",
+        "data": {
+            "text": "<p>[break up questions into more pages]&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 87,
     "fields": {
-        "medication": 2,
-        "effect": 13,
-        "icon": null,
-        "label": null,
-        "value": "0",
-        "comparison": "5",
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 29,
+        "content_type": "text",
+        "data": {
+            "text": "<div>Methadone is a liquid&nbsp;<strong>taken by mouth, once a day</strong>.</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<p>In the first 3 months,&nbsp;<strong>go to a clinic every day</strong> to take your&nbsp;medication. As you get stable, you may be able to take medication at home.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>This medicine helps you feel better by&nbsp;<strong>treating&nbsp;withdrawal and cravings.</strong></p>\r\n\r\n<p>&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 88,
     "fields": {
-        "medication": 4,
-        "effect": 13,
-        "icon": null,
-        "label": null,
-        "value": "0",
-        "comparison": "5",
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 77,
+        "content_type": "text",
+        "data": {
+            "text": "<p><strong>Methadone</strong> and <strong>buprenorphine</strong> help withdrawals</p>\r\n\r\n<p><strong>Naltrexone</strong> does&nbsp;<strong>not</strong>&nbsp;(you will get other medications and support to help during detox).&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 89,
     "fields": {
-        "medication": 5,
-        "effect": 13,
-        "icon": null,
-        "label": null,
-        "value": "5",
-        "comparison": "5",
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 50,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Public insurance (Husky) covers all of medication options, usually with very little cost to you. Private insurance usually covers all&nbsp;medication options, but the cost depends on the insurance. Most people find medications cheaper than using opioids of addiction (which can cost $1800 a month or more) Click to see costs of medications with <strong>no</strong> insurance.&nbsp;</p>\r\n\r\n<p>[Button]&nbsp;<strong>Methadone&nbsp;</strong>[$300 per month]</p>\r\n\r\n<p>[Button]&nbsp;<strong>Buprenorphine</strong>&nbsp;[$200 per month]</p>\r\n\r\n<p>[Button]&nbsp;<strong>Naltrexone</strong>&nbsp;[$1350 per month]</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 90,
     "fields": {
-        "medication": 1,
-        "effect": 21,
-        "icon": null,
-        "label": null,
-        "value": "starts in 1 day, peaks in 3 days, lasts 1 week, cravings can last months.",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 12,
+        "content_type": "text",
+        "data": {
+            "text": "<p>[output results are missing]</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 91,
     "fields": {
-        "medication": 2,
-        "effect": 21,
-        "icon": null,
-        "label": null,
-        "value": "no withdrawal symptoms, cravings from previous opioid use can last months or years",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 40,
+        "content_type": "text",
+        "data": {
+            "text": ""
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 92,
     "fields": {
-        "medication": 4,
-        "effect": 21,
-        "icon": null,
-        "label": null,
-        "value": "no withdrawal symptoms, cravings from previous opioid use can last months or years",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 31,
+        "content_type": "text",
+        "data": {
+            "text": "<div>Buprenorphine forms include Suboxone (dissolving tab) or Subutex (pill). It is usually<strong> taken by mouth, once a day</strong>.</div>\r\n\r\n<p>In the beginning <strong>you will need to stop using opioids like heroin for several hours</strong>,&nbsp;then you can start this medicine. You will go to a clinic to get started and for check-ups, but you can take this medication at home.&nbsp;</p>\r\n\r\n<p>This medicine helps you feel better by&nbsp;<strong>treating&nbsp;withdrawal and cravings.</strong></p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 93,
     "fields": {
-        "medication": 5,
-        "effect": 21,
-        "icon": null,
-        "label": null,
-        "value": "starts in 6-12 hours, peaks in 1-3 days, lasts 1 week. Cravings can last months or years, decrease with time.",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 55,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Medications must be taken at the<strong> right dose,&nbsp;</strong>which you can figure out with your doctor</p>\r\n\r\n<p>Most patients need <strong>3-5 years&nbsp;</strong>to let the brain heal, some need&nbsp;longer.</p>\r\n\r\n<p>&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 94,
     "fields": {
-        "medication": 3,
-        "effect": 21,
-        "icon": null,
-        "label": null,
-        "value": "starts 2 days, peaks 3-5 days, lasts 4-6 weeks, cravings can last months or years",
-        "comparison": null,
-        "day": null,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 32,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Naltrexone is an injection that is also called Vivitrol. It is&nbsp;<strong>taken as&nbsp;an injection, in the buttocks, once a month</strong>.</p>\r\n\r\n<p>The pill version does not work as well&nbsp;for opioid disorder, only for alcohol.</p>\r\n\r\n<p><strong>You must stop using any opioids for at least 7 days before starting</strong> this medication. You can get the injection in the clinic every month.</p>\r\n\r\n<p>This medicine does <strong>not </strong>treat withdrawals; it helps a little bit with&nbsp;cravings. Instead you will get different medicines during the first 7 days to help with detox. This medicine blocks opioids like heroin.&nbsp;</p>\r\n\r\n<p>&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 95,
     "fields": {
-        "medication": 1,
-        "effect": 14,
-        "icon": null,
-        "label": null,
-        "value": "2",
-        "comparison": "8",
-        "day": 1,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 51,
+        "content_type": "text",
+        "data": {
+            "text": "<p>If you and your doctor decide it is time to end treatment, this can be done slowly to avoid withdrawal symptoms.&nbsp;Stopping some medications suddenly on your own can cause withdrawal symptoms [button: withdrawal symptom def]. Click to read more about&nbsp;each medication&nbsp;</p>\r\n\r\n<p>[Button]&nbsp;<strong>Methadone </strong>[withdrawal is as intense as opioids like heroin, but lasts longer, for 6 weeks]</p>\r\n\r\n<p>[Button]&nbsp;<strong>Buprenorphine</strong>&nbsp;[withdrawal is less intense than opioids like heroin, and lasts 1 week]</p>\r\n\r\n<p>[Button]&nbsp;<strong>Naltrexone&nbsp;[</strong>there is no withdrawal]&nbsp;</p>\r\n\r\n<p>&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 96,
     "fields": {
-        "medication": 2,
-        "effect": 14,
-        "icon": null,
-        "label": null,
-        "value": "2",
-        "comparison": "8",
-        "day": 1,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 68,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Methadone and buprenorphine help withdrawals, but naltrexone does&nbsp;<strong>not</strong>&nbsp;(you will get other medications to help during detox).&nbsp;</p>\r\n\r\n<p>We will discuss more differences in the next chapter.&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 97,
     "fields": {
-        "medication": 4,
-        "effect": 14,
-        "icon": null,
-        "label": null,
-        "value": "1",
-        "comparison": "10",
-        "day": 1,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 34,
+        "content_type": "text",
+        "data": {
+            "text": "<p>You can compare different medications and no medication. The bigger the solid circle, the bigger the benefit for that option and category.&nbsp;</p>\r\n\r\n<p><em>Click on the row to learn more.&nbsp;</em></p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 98,
     "fields": {
-        "medication": 5,
-        "effect": 14,
-        "icon": null,
-        "label": null,
-        "value": "10",
-        "comparison": "10",
-        "day": 1,
-        "order": 10
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 62,
+        "content_type": "text",
+        "data": {
+            "text": "<p>[ summary chart ]&nbsp;</p>"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 99,
     "fields": {
-        "medication": 4,
-        "effect": 14,
-        "icon": null,
-        "label": null,
-        "value": "5",
-        "comparison": "10",
-        "day": 20,
-        "order": 20
+        "order": 20,
+        "title": "button",
+        "published": true,
+        "page": 67,
+        "content_type": "button",
+        "data": {
+            "label": "Next"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 100,
     "fields": {
-        "medication": 5,
-        "effect": 14,
-        "icon": null,
-        "label": null,
-        "value": "10",
-        "comparison": "10",
-        "day": 90,
-        "order": 20
+        "order": 20,
+        "title": "button",
+        "published": true,
+        "page": 75,
+        "content_type": "button",
+        "data": {
+            "label": "Next"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 101,
     "fields": {
-        "medication": 3,
-        "effect": 14,
-        "icon": null,
-        "label": null,
-        "value": "1",
-        "comparison": "8",
-        "day": 90,
-        "order": 20
+        "order": 20,
+        "title": "button",
+        "published": true,
+        "page": 5,
+        "content_type": "button",
+        "data": {
+            "label": "Next"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 102,
     "fields": {
-        "medication": 2,
-        "effect": 14,
-        "icon": null,
-        "label": null,
-        "value": "1",
-        "comparison": "8",
-        "day": 90,
-        "order": 20
+        "order": 20,
+        "title": "button",
+        "published": true,
+        "page": 12,
+        "content_type": "button",
+        "data": {
+            "label": "Next"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 103,
     "fields": {
-        "medication": 1,
-        "effect": 14,
-        "icon": null,
-        "label": null,
-        "value": "1",
-        "comparison": "8",
-        "day": 90,
-        "order": 20
+        "order": 20,
+        "title": "button",
+        "published": true,
+        "page": 7,
+        "content_type": "button",
+        "data": {
+            "label": "Next"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 104,
     "fields": {
-        "medication": 3,
-        "effect": 3,
-        "icon": 9,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 20
+        "order": 20,
+        "title": "button",
+        "published": true,
+        "page": 33,
+        "content_type": "button",
+        "data": {
+            "label": "Next"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 105,
     "fields": {
-        "medication": 5,
-        "effect": 3,
-        "icon": 10,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 20
+        "order": 20,
+        "title": "button",
+        "published": true,
+        "page": 52,
+        "content_type": "button",
+        "data": {
+            "label": "Next"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 106,
     "fields": {
-        "medication": 5,
-        "effect": 3,
-        "icon": 9,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 30
+        "order": 20,
+        "title": "button",
+        "published": true,
+        "page": 56,
+        "content_type": "button",
+        "data": {
+            "label": "Next"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 107,
     "fields": {
-        "medication": 2,
-        "effect": 3,
-        "icon": 3,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 20
+        "order": 20,
+        "title": "button",
+        "published": true,
+        "page": 10,
+        "content_type": "button",
+        "data": {
+            "label": "Next"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 108,
     "fields": {
-        "medication": 1,
-        "effect": 3,
-        "icon": 9,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 20
+        "order": 20,
+        "title": "button",
+        "published": true,
+        "page": 46,
+        "content_type": "button",
+        "data": {
+            "label": "Next"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
+    "pk": 109,
+    "fields": {
+        "order": 20,
+        "title": "button",
+        "published": true,
+        "page": 78,
+        "content_type": "button",
+        "data": {
+            "label": "Next"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
     "pk": 110,
     "fields": {
-        "medication": 3,
-        "effect": 7,
-        "icon": 28,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 20
+        "order": 20,
+        "title": "button",
+        "published": true,
+        "page": 47,
+        "content_type": "button",
+        "data": {
+            "label": "Next"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 111,
     "fields": {
-        "medication": 3,
-        "effect": 7,
-        "icon": 27,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 30
+        "order": 20,
+        "title": "button",
+        "published": true,
+        "page": 48,
+        "content_type": "button",
+        "data": {
+            "label": "Next"
+        }
     }
 },
 {
-    "model": "medications.medicationeffect",
+    "model": "chapters.orderablecontent",
     "pk": 112,
     "fields": {
-        "medication": 3,
-        "effect": 7,
-        "icon": 29,
-        "label": null,
-        "value": null,
-        "comparison": null,
-        "day": null,
-        "order": 40
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 1,
-    "fields": {
-        "name": "Pills",
-        "image": "icons/medicine.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 2,
-    "fields": {
-        "name": "open-mouth",
-        "image": "icons/open-mouth.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 3,
-    "fields": {
-        "name": "buttocks",
-        "image": "icons/buttocks.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 4,
-    "fields": {
-        "name": "nose",
-        "image": "icons/nose.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 5,
-    "fields": {
-        "name": "injection",
-        "image": "icons/injection.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 6,
-    "fields": {
-        "name": "clinic",
-        "image": "icons/clinic.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 7,
-    "fields": {
-        "name": "house",
-        "image": "icons/house.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 8,
-    "fields": {
-        "name": "street",
-        "image": "icons/street.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 9,
-    "fields": {
-        "name": "mouth",
-        "image": "icons/open-mouth.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 10,
-    "fields": {
-        "name": "nose",
-        "image": "icons/nose.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 11,
-    "fields": {
-        "name": "mouth",
-        "image": "icons/open-mouth.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 12,
-    "fields": {
-        "name": "buttocks",
-        "image": "icons/buttocks.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 13,
-    "fields": {
-        "name": "family",
-        "image": "icons/family.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 14,
-    "fields": {
-        "name": "muscle",
-        "image": "icons/muscle.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 15,
-    "fields": {
-        "name": "yoga",
-        "image": "icons/yoga.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 16,
-    "fields": {
-        "name": "justice-scale",
-        "image": "icons/justice-scale.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 17,
-    "fields": {
-        "name": "justice-scale",
-        "image": "icons/justice-scale.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 18,
-    "fields": {
-        "name": "cancel",
-        "image": "icons/cancel.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 19,
-    "fields": {
-        "name": "relief",
-        "image": "icons/relief.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 20,
-    "fields": {
-        "name": "first-aid-kit",
-        "image": "icons/first-aid-kit.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 21,
-    "fields": {
-        "name": "shield",
-        "image": "icons/shield.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 22,
-    "fields": {
-        "name": "shield 2",
-        "image": "icons/shield_2.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 23,
-    "fields": {
-        "name": "up-arrow",
-        "image": "icons/up-arrow.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 24,
-    "fields": {
-        "name": "up then down",
-        "image": "icons/up_then_down.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 25,
-    "fields": {
-        "name": "down arrow",
-        "image": "icons/down-arrow.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 26,
-    "fields": {
-        "name": "sleepy",
-        "image": "icons/sleepy.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 27,
-    "fields": {
-        "name": "constipation",
-        "image": "icons/constipation.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 28,
-    "fields": {
-        "name": "gain weight",
-        "image": "icons/gain-weight.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 29,
-    "fields": {
-        "name": "sex",
-        "image": "icons/sex.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 30,
-    "fields": {
-        "name": "headache",
-        "image": "icons/headache.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 31,
-    "fields": {
-        "name": "injection pain",
-        "image": "icons/injection-pain.png"
-    }
-},
-{
-    "model": "medication_icons.icon",
-    "pk": 32,
-    "fields": {
-        "name": "alarm (death)",
-        "image": "icons/alarm.png"
-    }
-},
-{
-    "model": "quizes.quiz",
-    "pk": 1,
-    "fields": {
-        "title": "Have you ever taken any of the following drugs?",
-        "slug": "have-you-ever-taken-any-of-the-following-drugs",
-        "description": "Have you ever taken any of the following drugs"
-    }
-},
-{
-    "model": "quizes.quiz",
-    "pk": 3,
-    "fields": {
-        "title": "Do I have opioid use disorder?",
-        "slug": "do-i-have-opioid-use-disorder",
-        "description": "Based on your previous use of opioids, answer the following questions:"
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 1,
-    "fields": {
-        "text": "Heroin",
-        "quiz": 1,
-        "order": 10
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 2,
-    "fields": {
-        "text": "Methadone",
-        "quiz": 1,
-        "order": 20
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 3,
-    "fields": {
-        "text": "Buprenorphine",
-        "quiz": 1,
-        "order": 30
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 4,
-    "fields": {
-        "text": "Morphine",
-        "quiz": 1,
-        "order": 40
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 5,
-    "fields": {
-        "text": "MS Contin",
-        "quiz": 1,
-        "order": 50
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 6,
-    "fields": {
-        "text": "Oxycontin",
-        "quiz": 1,
-        "order": 60
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 7,
-    "fields": {
-        "text": "Oxycodone",
-        "quiz": 1,
-        "order": 70
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 8,
-    "fields": {
-        "text": "Other opioid analgesics",
-        "quiz": 1,
-        "order": 80
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 9,
-    "fields": {
-        "text": "Did you ever need to use more opioids to get the same high as when you first started using opioids?",
-        "quiz": 3,
-        "order": 10
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 10,
-    "fields": {
-        "text": "Did the idea of missing a fix (or dose) ever make you anxious or worried?",
-        "quiz": 3,
-        "order": 20
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 11,
-    "fields": {
-        "text": "In the morning, did you ever use opioids to keep from feeling \"dope sick\" or did you ever feel \"dope sick\"?",
-        "quiz": 3,
-        "order": 30
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 12,
-    "fields": {
-        "text": "Did you worry about your use of opioids?",
-        "quiz": 3,
-        "order": 40
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 13,
-    "fields": {
-        "text": "Did you find it difficult to stop or not use opioids?",
-        "quiz": 3,
-        "order": 50
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 14,
-    "fields": {
-        "text": "Did you ever need to spend a lot of time/energy on finding opioids or recovering from feeling high?",
-        "quiz": 3,
-        "order": 60
-    }
-},
-{
-    "model": "quizes.question",
-    "pk": 15,
-    "fields": {
-        "text": "Did you ever miss important things like doctor's appointments, family/friend activities, or other things because of opioids?",
-        "quiz": 3,
-        "order": 70
-    }
-},
-{
-    "model": "charts.chart",
-    "pk": 1,
-    "fields": {
-        "title": "Benefits of Medication",
-        "slug": "benefits-of-medication",
-        "description": ""
-    }
-},
-{
-    "model": "charts.chart",
-    "pk": 2,
-    "fields": {
-        "title": "Burdens of Medication",
-        "slug": "burdens-of-medication",
-        "description": ""
-    }
-},
-{
-    "model": "charts.chart",
-    "pk": 3,
-    "fields": {
-        "title": "What happens if you stop medication on your own",
-        "slug": "stopping",
-        "description": ""
-    }
-},
-{
-    "model": "charts.charteffect",
-    "pk": 1,
-    "fields": {
-        "chart": 1,
-        "order": 10,
-        "effect": 1
-    }
-},
-{
-    "model": "charts.charteffect",
-    "pk": 2,
-    "fields": {
-        "chart": 1,
         "order": 20,
-        "effect": 15
+        "title": "button",
+        "published": true,
+        "page": 49,
+        "content_type": "button",
+        "data": {
+            "label": "Next"
+        }
     }
 },
 {
-    "model": "charts.charteffect",
-    "pk": 3,
+    "model": "chapters.orderablecontent",
+    "pk": 113,
     "fields": {
-        "chart": 1,
+        "order": 20,
+        "title": "button",
+        "published": true,
+        "page": 77,
+        "content_type": "button",
+        "data": {
+            "label": "Next"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 114,
+    "fields": {
+        "order": 20,
+        "title": "button",
+        "published": true,
+        "page": 50,
+        "content_type": "button",
+        "data": {
+            "label": "Next"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 115,
+    "fields": {
+        "order": 20,
+        "title": "button",
+        "published": true,
+        "page": 51,
+        "content_type": "button",
+        "data": {
+            "label": "Next"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 116,
+    "fields": {
+        "order": 20,
+        "title": "button",
+        "published": true,
+        "page": 62,
+        "content_type": "button",
+        "data": {
+            "label": "Next"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 117,
+    "fields": {
+        "order": 20,
+        "title": "button",
+        "published": true,
+        "page": 69,
+        "content_type": "button",
+        "data": {
+            "label": "Next"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 118,
+    "fields": {
         "order": 30,
-        "effect": 16
+        "title": "question",
+        "published": true,
+        "page": 5,
+        "content_type": "question",
+        "data": {
+            "label": "Heroin"
+        }
     }
 },
 {
-    "model": "charts.charteffect",
-    "pk": 6,
+    "model": "chapters.orderablecontent",
+    "pk": 119,
     "fields": {
-        "chart": 1,
+        "order": 40,
+        "title": "question",
+        "published": true,
+        "page": 5,
+        "content_type": "question",
+        "data": {
+            "label": "Heroin"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 120,
+    "fields": {
+        "order": 50,
+        "title": "question",
+        "published": true,
+        "page": 5,
+        "content_type": "question",
+        "data": {
+            "label": "Methadone"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 121,
+    "fields": {
         "order": 60,
-        "effect": 19
+        "title": "question",
+        "published": true,
+        "page": 5,
+        "content_type": "question",
+        "data": {
+            "label": "Buprenorphine"
+        }
     }
 },
 {
-    "model": "charts.charteffect",
-    "pk": 7,
+    "model": "chapters.orderablecontent",
+    "pk": 122,
     "fields": {
-        "chart": 2,
-        "order": 10,
-        "effect": 5
+        "order": 70,
+        "title": "question",
+        "published": true,
+        "page": 5,
+        "content_type": "question",
+        "data": {
+            "label": "Morphine"
+        }
     }
 },
 {
-    "model": "charts.charteffect",
-    "pk": 9,
+    "model": "chapters.orderablecontent",
+    "pk": 123,
     "fields": {
-        "chart": 2,
-        "order": 40,
-        "effect": 7
+        "order": 80,
+        "title": "question",
+        "published": true,
+        "page": 5,
+        "content_type": "question",
+        "data": {
+            "label": "MS Contin"
+        }
     }
 },
 {
-    "model": "charts.charteffect",
-    "pk": 10,
+    "model": "chapters.orderablecontent",
+    "pk": 124,
     "fields": {
-        "chart": 2,
-        "order": 50,
-        "effect": 8
+        "order": 90,
+        "title": "question",
+        "published": true,
+        "page": 5,
+        "content_type": "question",
+        "data": {
+            "label": "Oxycontin"
+        }
     }
 },
 {
-    "model": "charts.charteffect",
-    "pk": 11,
+    "model": "chapters.orderablecontent",
+    "pk": 125,
     "fields": {
-        "chart": 3,
-        "order": 10,
-        "effect": 13
+        "order": 100,
+        "title": "question",
+        "published": true,
+        "page": 5,
+        "content_type": "question",
+        "data": {
+            "label": "Oxycodone"
+        }
     }
 },
 {
-    "model": "charts.charteffect",
-    "pk": 12,
+    "model": "chapters.orderablecontent",
+    "pk": 126,
     "fields": {
-        "chart": 3,
-        "order": 20,
-        "effect": 14
+        "order": 110,
+        "title": "question",
+        "published": true,
+        "page": 5,
+        "content_type": "question",
+        "data": {
+            "label": "Other opioid analgesics"
+        }
     }
 },
 {
-    "model": "charts.charteffect",
-    "pk": 13,
+    "model": "chapters.orderablecontent",
+    "pk": 127,
     "fields": {
-        "chart": 2,
-        "order": 20,
-        "effect": 4
-    }
-},
-{
-    "model": "charts.charteffect",
-    "pk": 14,
-    "fields": {
-        "chart": 2,
         "order": 30,
-        "effect": 3
+        "title": "question",
+        "published": true,
+        "page": 12,
+        "content_type": "question",
+        "data": {
+            "label": "Did you ever need to use more opioids to get the same high as when you first started using opioids?"
+        }
     }
 },
 {
-    "model": "charts.chartmedication",
+    "model": "chapters.orderablecontent",
+    "pk": 128,
+    "fields": {
+        "order": 40,
+        "title": "question",
+        "published": true,
+        "page": 12,
+        "content_type": "question",
+        "data": {
+            "label": "Did the idea of missing a fix (or dose) ever make you anxious or worried?"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 129,
+    "fields": {
+        "order": 50,
+        "title": "question",
+        "published": true,
+        "page": 12,
+        "content_type": "question",
+        "data": {
+            "label": "In the morning, did you ever use opioids to keep from feeling \"dope sick\" or did you ever feel \"dope sick\"?"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 130,
+    "fields": {
+        "order": 60,
+        "title": "question",
+        "published": true,
+        "page": 12,
+        "content_type": "question",
+        "data": {
+            "label": "Did you worry about your use of opioids?"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 131,
+    "fields": {
+        "order": 70,
+        "title": "question",
+        "published": true,
+        "page": 12,
+        "content_type": "question",
+        "data": {
+            "label": "Did you find it difficult to stop or not use opioids?"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 132,
+    "fields": {
+        "order": 80,
+        "title": "question",
+        "published": true,
+        "page": 12,
+        "content_type": "question",
+        "data": {
+            "label": "Did you ever need to spend a lot of time/energy on finding opioids or recovering from feeling high?"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 133,
+    "fields": {
+        "order": 90,
+        "title": "question",
+        "published": true,
+        "page": 12,
+        "content_type": "question",
+        "data": {
+            "label": "Did you ever miss important things like doctor's appointments, family/friend activities, or other things because of opioids?"
+        }
+    }
+},
+{
+    "model": "auth.user",
     "pk": 1,
     "fields": {
-        "chart": 1,
-        "order": 10,
-        "medication": 3
-    }
-},
-{
-    "model": "charts.chartmedication",
-    "pk": 2,
-    "fields": {
-        "chart": 1,
-        "order": 20,
-        "medication": 1
-    }
-},
-{
-    "model": "charts.chartmedication",
-    "pk": 3,
-    "fields": {
-        "chart": 1,
-        "order": 30,
-        "medication": 2
-    }
-},
-{
-    "model": "charts.chartmedication",
-    "pk": 4,
-    "fields": {
-        "chart": 1,
-        "order": 40,
-        "medication": 4
-    }
-},
-{
-    "model": "charts.chartmedication",
-    "pk": 5,
-    "fields": {
-        "chart": 1,
-        "order": 50,
-        "medication": 5
-    }
-},
-{
-    "model": "charts.chartmedication",
-    "pk": 6,
-    "fields": {
-        "chart": 2,
-        "order": 10,
-        "medication": 3
-    }
-},
-{
-    "model": "charts.chartmedication",
-    "pk": 7,
-    "fields": {
-        "chart": 2,
-        "order": 20,
-        "medication": 1
-    }
-},
-{
-    "model": "charts.chartmedication",
-    "pk": 8,
-    "fields": {
-        "chart": 2,
-        "order": 30,
-        "medication": 2
-    }
-},
-{
-    "model": "charts.chartmedication",
-    "pk": 9,
-    "fields": {
-        "chart": 2,
-        "order": 40,
-        "medication": 4
-    }
-},
-{
-    "model": "charts.chartmedication",
-    "pk": 10,
-    "fields": {
-        "chart": 2,
-        "order": 50,
-        "medication": 5
-    }
-},
-{
-    "model": "charts.chartmedication",
-    "pk": 11,
-    "fields": {
-        "chart": 3,
-        "order": 10,
-        "medication": 3
-    }
-},
-{
-    "model": "charts.chartmedication",
-    "pk": 12,
-    "fields": {
-        "chart": 3,
-        "order": 20,
-        "medication": 1
-    }
-},
-{
-    "model": "charts.chartmedication",
-    "pk": 13,
-    "fields": {
-        "chart": 3,
-        "order": 30,
-        "medication": 2
-    }
-},
-{
-    "model": "charts.chartmedication",
-    "pk": 14,
-    "fields": {
-        "chart": 3,
-        "order": 40,
-        "medication": 4
-    }
-},
-{
-    "model": "charts.chartmedication",
-    "pk": 15,
-    "fields": {
-        "chart": 3,
-        "order": 50,
-        "medication": 5
+        "password": "pbkdf2_sha256$150000$8CRwei0G4RAa$F73DtweC/JOYHPeXFc+gRZdN3bApJes4fXt6tFbQ0gE=",
+        "last_login": "2020-04-24T02:07:42.875Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@nickreid.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2019-05-14T01:01:09.879Z",
+        "groups": [],
+        "user_permissions": []
     }
 }
 ]
