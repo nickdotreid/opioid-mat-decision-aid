@@ -10,6 +10,7 @@ import { Button } from 'protractor';
 import { Chapter, ChapterService } from 'chapters/chapters.service';
 import { LoginService } from 'login/login.service';
 import { ReorderPagesComponent } from 'chapters/reorder-pages.component';
+import { AccordionEditComponent } from './accordion-edit.component';
 
 @Component({
     templateUrl: './page.component.html'
@@ -98,6 +99,7 @@ export class PageComponent implements OnDestroy {
 
     private getContentEditComponent(contentType: string) {
         const contentTypeEditorMap = {
+            'accordion': AccordionEditComponent,
             'button': ButtonEditComponent,
             'text': TextEditComponent,
             'question': QuestionEditComponent
@@ -154,6 +156,10 @@ export class PageComponent implements OnDestroy {
 
     public addQuestion() {
         this.addContent('question');
+    }
+
+    public addAccordion() {
+        this.addContent('accordion');
     }
 
     public buttonAction(content: PageContent) {

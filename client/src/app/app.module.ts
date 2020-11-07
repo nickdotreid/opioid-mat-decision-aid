@@ -20,6 +20,7 @@ import { FormModule } from 'form/form.module';
 import { TextEditComponent } from './text-edit.component';
 import { TextComponent } from './text.compontent';
 import { QuestionEditComponent } from './question-edit.component';
+import { AccordionEditComponent } from './accordion-edit.component';
 
 
 const routes: Array<Route> = [
@@ -68,6 +69,7 @@ const routes: Array<Route> = [
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
+    AccordionEditComponent,
     ButtonEditComponent,
     TextComponent,
     TextEditComponent,
@@ -78,6 +80,7 @@ const routes: Array<Route> = [
     QuestionEditComponent
   ],
   entryComponents: [
+    AccordionEditComponent,
     ButtonEditComponent,
     TextComponent,
     TextEditComponent,

@@ -62,10 +62,17 @@
         <div *ngIf="content.contentType === 'question'">
             <app-boolean-field>{{content.data.label}}</app-boolean-field>
         </div>
+        <div *ngIf="content.contentType === 'accordion'">
+            <div *ngFor="let item of content.data.items">
+                <p>{{item.title}}</p>
+                <app-text [html]="item.text"></app-text>
+            </div>
+        </div>
     </div>
     <nav *ngIf="isEditable">
         <button (click)="addText()" >Add Text</button>
         <button (click)="addButton()" >Add Button</button>
         <button (click)="addQuestion()">Add Question</button>
+        <button (click)="addAccordion()">Add Accordion</button>
     </nav>
 </article>

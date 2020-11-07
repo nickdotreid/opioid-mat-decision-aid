@@ -1,0 +1,16 @@
+<div *ngFor="let item of items"
+    [formGroup]="item"
+    >
+    <app-text-field
+        label = "Title"
+        formControlName='title'
+        >
+    </app-text-field>
+    <app-rich-text-editor
+        formControlName="text"
+        label="Cool label"
+        >
+    </app-rich-text-editor>
+</div>
+<button type="button" (click)="addItemGroup()">Add item</button>
+<button type="button" (click)="submit()">Submit</button>
