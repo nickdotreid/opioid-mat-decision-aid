@@ -207,13 +207,28 @@ class PageContentListView(PageDetailsView):
 
     def post(self, request, page_id):
         page = self.get_page(page_id)
-        serialized = OrderableContentSerialzer(data=request.data)
-        if serialized.is_valid():
-            content = serialized.save(page=page)
-            serialized = OrderableContentSerialzer(content)
+        if 'contents' in request.data and isinstance(request.data['contents'], list):
+            request_page_contents = request.data['contents']
+            if len(request.data['contents']) != len(page.contents):
+                return Response('Contents list does not match page contents list length', status=status.HTTP_400_BAD_REQUEST)
+            request_content_ids = [_content['id'] for _content in request_page_contents if 'id' in _content]
+            for content in page.contents:
+                try:
+                    new_index = request_content_ids.index(content.id)
+                    content.order = new_index + 1
+                    content.save()
+                except ValueError:
+                    return Response('Existing page content ID not found in request', stats=status.HTTP_400_BAD_REQUEST)
+            serialized = OrderableContentSerialzer(page.contents, many=True)
             return Response(serialized.data)
         else:
-            return Response(serialized.errors, status=status.HTTP_400_BAD_REQUEST)
+            serialized = OrderableContentSerialzer(data=request.data)
+            if serialized.is_valid():
+                content = serialized.save(page=page)
+                serialized = OrderableContentSerialzer(content)
+                return Response(serialized.data)
+            else:
+                return Response(serialized.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class PageContentDetailView(APIView):
 

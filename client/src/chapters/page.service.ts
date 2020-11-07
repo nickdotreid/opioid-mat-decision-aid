@@ -154,4 +154,30 @@ export class PageService {
             return undefined;
         });
     }
+
+    public reorderPageContent(page: Page, contents: Array<PageContent>): Promise<Array<PageContent>> {
+        const pageId = page.id;
+        return this.serverService.post(`pages/${pageId}/content/`, {
+            'contents': contents.map((content) => {
+                return {
+                    'id': content.id
+                };
+            })
+        })
+        .then((data) => {
+            if (data && Array.isArray(data)) {
+                return data.map((content_data) => {
+                    const content = new PageContent();
+                    content.id = content_data.id;
+                    content.title = content_data.title;
+                    content.contentType = content_data.content_type;
+                    content.published = content_data.published;
+                    content.data = content_data.data;
+                    return content;
+                });
+            } else {
+                return Promise.reject('Could not parse returned response');
+            }
+        });
+    }
 }

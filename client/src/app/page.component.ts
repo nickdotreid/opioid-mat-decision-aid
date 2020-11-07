@@ -9,6 +9,7 @@ import { QuestionEditComponent } from './question-edit.component';
 import { Button } from 'protractor';
 import { Chapter, ChapterService } from 'chapters/chapters.service';
 import { LoginService } from 'login/login.service';
+import { ReorderPagesComponent } from 'chapters/reorder-pages.component';
 
 @Component({
     templateUrl: './page.component.html'
@@ -168,5 +169,22 @@ export class PageComponent implements OnDestroy {
 
     ngOnDestroy() {
         this.routeSubscription.unsubscribe();
+    }
+
+    public reorderPageContent() {
+        this.dialog.open(ReorderPagesComponent, {
+            data: {
+                pages: this.pageContents
+            }
+        })
+        .afterClosed().toPromise()
+        .then((data) => {
+            if (data) {
+                this.pageService.reorderPageContent(this.page, data)
+                .then((updatedPageContents) => {
+                    this.pageContents = updatedPageContents;
+                });
+            }
+        });
     }
 }
