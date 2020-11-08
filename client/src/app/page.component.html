@@ -33,6 +33,14 @@
         Edit Page
     </button>
 </nav>
+<nav class="sidebar">
+    <a *ngFor="let _chapter of chapters"
+        [href]="'/chapters/'+_chapter.id"
+        [ngClass]="{ active: chapter.id === _chapter.id }"
+        >
+        {{_chapter.title}}
+    </a>
+</nav>
 <app-page-navigation
     [page]="page"
     [editing]="isEditable"

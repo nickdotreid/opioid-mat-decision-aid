@@ -73,6 +73,33 @@ router-outlet {
     }
 }
 
+.sidebar {
+    display:none;
+}
+@media(min-width: 900px) {
+    .sidebar {
+        display: block;
+        position: absolute;
+        top: 110px;
+        left: 0px;
+        width: 200px;
+        padding: 1em;
+        font-size: 0.8em;
+        > * {
+            display: block;
+            margin-top: 0.5em;
+            padding: 0em;
+            &:first-child {
+                margin-top: 0em;
+            }
+        }
+        > *.active {
+            color: $color-primary;
+            text-decoration: none;
+        }
+    }
+}
+
 ul {
     display: block;
     list-style: none;

@@ -6,7 +6,6 @@ import { MatDialog } from '@angular/material';
 import { ButtonEditComponent } from './button-edit.component';
 import { TextEditComponent } from './text-edit.component';
 import { QuestionEditComponent } from './question-edit.component';
-import { Button } from 'protractor';
 import { Chapter, ChapterService } from 'chapters/chapters.service';
 import { LoginService } from 'login/login.service';
 import { ReorderPagesComponent } from 'chapters/reorder-pages.component';
@@ -17,6 +16,7 @@ import { AccordionEditComponent } from './accordion-edit.component';
 })
 export class PageComponent implements OnDestroy {
 
+    public chapters: Array<Chapter>;
     public chapter: Chapter;
     public page: Page;
     public pageContents: Array<PageContent> = [];
@@ -24,6 +24,8 @@ export class PageComponent implements OnDestroy {
     public isEditor: boolean;
 
     private routeSubscription: Subscription;
+    private chapterSubscription: Subscription;
+    private editorSubscription: Subscription;
 
     constructor(
         private chapterService: ChapterService,
@@ -47,12 +49,17 @@ export class PageComponent implements OnDestroy {
                 this.isEditable = false;
             }
         });
-        this.loginService.editor.subscribe((editor) => {
+        this.editorSubscription = this.loginService.editor.subscribe((editor) => {
             if (editor) {
                 this.isEditor = true;
             } else {
                 this.isEditor = false;
             }
+        });
+        this.chapterSubscription = this.chapterService.chapters.subscribe((chapters) => {
+            this.chapters = chapters.filter((chapter) => {
+                return chapter.published;
+            });
         });
     }
 
@@ -175,6 +182,8 @@ export class PageComponent implements OnDestroy {
 
     ngOnDestroy() {
         this.routeSubscription.unsubscribe();
+        this.editorSubscription.unsubscribe();
+        this.chapterSubscription.unsubscribe();
     }
 
     public reorderPageContent() {
