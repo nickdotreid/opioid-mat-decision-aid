@@ -555,3 +555,23 @@ svg .bubble-outline {
     stroke: #AAA;
     stroke-width: 1;
 }
+
+.app-accordion {
+
+    > * {
+        .header {
+            display: block;
+            background-color: $color-background-alternative;
+        }
+        .body {
+            display: none;
+        }
+    }
+
+    > *.open {
+        .body {
+            display: block;
+        }
+    }
+}
+

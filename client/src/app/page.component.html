@@ -70,10 +70,28 @@
         <div *ngIf="content.contentType === 'question'">
             <app-boolean-field>{{content.data.label}}</app-boolean-field>
         </div>
-        <div *ngIf="content.contentType === 'accordion'">
-            <div *ngFor="let item of content.data.items">
-                <p>{{item.title}}</p>
-                <app-text [html]="item.text"></app-text>
+        <div *ngIf="content.contentType === 'accordion'"
+            class="app-accordion"
+            >
+            <div *ngFor="let item of content.data.items"
+                [ngClass]="{open: item.open}"
+                >
+                <div class="header">
+                    <span class="title">{{item.title}}</span>
+                    <button *ngIf="item.open"
+                        (click)="item.open = false"
+                        >
+                        Close
+                    </button>
+                    <button *ngIf="!item.open"
+                        (click)="item.open = true"
+                        >
+                        Open
+                    </button>
+                </div>
+                <div class="body">
+                    <app-text [html]="item.text"></app-text>
+                </div>
             </div>
         </div>
     </div>
