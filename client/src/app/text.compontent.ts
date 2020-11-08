@@ -15,7 +15,6 @@ export class TextComponent {
     ) {}
 
     @Input('html') set setHtml(value) {
-        console.log(value);
         this.safeHtml = this.domSanatizer.bypassSecurityTrustHtml(value);
     }
 }
