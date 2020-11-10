@@ -94,11 +94,26 @@
                 </div>
             </div>
         </div>
+        <div *ngIf="content.contentType === 'gallery'"
+            class="app-gallery"
+            >
+            <div *ngFor="let item of content.data.items"
+                [ngClass]="{open: item.open}"
+                >
+                <button (click)="item.open = !item.open">
+                    {{item.title}}
+                </button>
+                <div class="popover">
+                    <app-text [html]="item.text"></app-text>
+                </div>
+            </div>
+        </div>
     </div>
     <nav *ngIf="isEditable">
         <button (click)="addText()" >Add Text</button>
         <button (click)="addButton()" >Add Button</button>
         <button (click)="addQuestion()">Add Question</button>
         <button (click)="addAccordion()">Add Accordion</button>
+        <button (click)="addGallery()">Add Gallery</button>
     </nav>
 </article>

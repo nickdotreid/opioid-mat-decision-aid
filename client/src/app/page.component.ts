@@ -108,8 +108,9 @@ export class PageComponent implements OnDestroy {
         const contentTypeEditorMap = {
             'accordion': AccordionEditComponent,
             'button': ButtonEditComponent,
-            'text': TextEditComponent,
-            'question': QuestionEditComponent
+            'gallery': AccordionEditComponent,
+            'question': QuestionEditComponent,
+            'text': TextEditComponent
         };
         if (contentTypeEditorMap[contentType]) {
             return contentTypeEditorMap[contentType];
@@ -167,6 +168,10 @@ export class PageComponent implements OnDestroy {
 
     public addAccordion() {
         this.addContent('accordion');
+    }
+
+    public addGallery() {
+        this.addContent('gallery');
     }
 
     public buttonAction(content: PageContent) {
