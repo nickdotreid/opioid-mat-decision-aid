@@ -1,6 +1,6 @@
 @import '~@angular/material/theming';
 @include mat-core();
-
+@import 'tippy.js/dist/tippy.css'; 
 @import 'medium-editor/dist/css/medium-editor.css';
 
 $color-primary: #673AB7;
@@ -583,33 +583,18 @@ svg .bubble-outline {
     padding-bottom: 0.5em;
 
     > * {
-        position: relative;
         display: block;
         margin: 0em 0.25em;
         padding: 0.25em;
         border: 1px #000 solid;
+        height: 75px;
+        min-width: 150px;
+        text-align: center;
+        box-shadow: 0px 0px 0.25em #000;
 
-        &.open {
-            > .popover {
-                display: block;
-            }
+        &:hover {
+            box-shadow: 0px 0px 0.1em #333;
         }
-    }
-
-    .popover {
-        display: none;
-    }
-
-    .popover {
-        position: absolute;
-        top: 0px;
-        left: 50%;
-        box-shadow: 0px 0px 3px black;
-        background-color: #ffffff;
-        transform: translate(-50%,-100%);
-        border: 1px #000 solid;
-        border-radius: 15px;
-        padding: 0.5em;
     }
 }
 

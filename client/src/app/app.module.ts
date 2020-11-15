@@ -21,6 +21,8 @@ import { TextEditComponent } from './text-edit.component';
 import { TextComponent } from './text.compontent';
 import { QuestionEditComponent } from './question-edit.component';
 import { AccordionEditComponent } from './accordion-edit.component';
+import { PopoverButtonComponent } from './popover-button.component';
+import { PopoverGalleryComponent } from './popover-gallery.component';
 
 
 const routes: Array<Route> = [
@@ -77,14 +79,18 @@ const routes: Array<Route> = [
     PageNavigationComponent,
     ChapterNavigationComponent,
     TestPageComponent,
-    QuestionEditComponent
+    QuestionEditComponent,
+    PopoverButtonComponent,
+    PopoverGalleryComponent
   ],
   entryComponents: [
     AccordionEditComponent,
     ButtonEditComponent,
     TextComponent,
     TextEditComponent,
-    QuestionEditComponent
+    QuestionEditComponent,
+    PopoverGalleryComponent,
+    PopoverButtonComponent
   ],
   imports: [
     BrowserModule,
