@@ -120,20 +120,9 @@ export class PageComponent implements OnDestroy {
     }
 
     public editContent(content: PageContent) {
-        const dialogComponent = this.getContentEditComponent(content.contentType);
-        this.dialog.open(dialogComponent, {
-            data: content.data
-        })
-        .afterClosed().toPromise()
-        .then((data) => {
-            if (data) {
-                content.data = data;
-                this.pageService.updatePageContent(this.page, content)
-                .then(() => {
-                    this.updateContent();
-                });
-            }
-        });
+        const contentId = content.id;
+        const pageId = this.page.id;
+        this.router.navigate([{ outlets: { modal: `content-edit/${pageId}/${contentId}`}}]);
     }
 
     public deleteContent(content: PageContent) {

@@ -23,12 +23,19 @@ import { QuestionEditComponent } from './question-edit.component';
 import { AccordionEditComponent } from './accordion-edit.component';
 import { PopoverButtonComponent } from './popover-button.component';
 import { PopoverGalleryComponent } from './popover-gallery.component';
+import { ContentEditComponent } from './content-edit.component';
+import { PageContentModule } from 'page-contents/page-contents.module';
 
 
 const routes: Array<Route> = [
   {
     path: 'test',
     component: TestPageComponent
+  },
+  {
+    path: 'content-edit/:pageId/:contentId',
+    component: ContentEditComponent,
+    outlet: 'modal'
   },
   {
     path: 'chapters/edit',
@@ -81,7 +88,8 @@ const routes: Array<Route> = [
     TestPageComponent,
     QuestionEditComponent,
     PopoverButtonComponent,
-    PopoverGalleryComponent
+    PopoverGalleryComponent,
+    ContentEditComponent
   ],
   entryComponents: [
     AccordionEditComponent,
@@ -90,7 +98,8 @@ const routes: Array<Route> = [
     TextEditComponent,
     QuestionEditComponent,
     PopoverGalleryComponent,
-    PopoverButtonComponent
+    PopoverButtonComponent,
+    ContentEditComponent
   ],
   imports: [
     BrowserModule,

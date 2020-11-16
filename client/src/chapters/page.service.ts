@@ -132,6 +132,21 @@ export class PageService {
         });
     }
 
+    public getPageContentItem(pageId: string, contentId: string): Promise<PageContent> {
+        const page_id = pageId;
+        const content_id = contentId;
+        return this.serverService.get(`pages/${page_id}/content/${content_id}`)
+        .then((data) => {
+            const content = new PageContent();
+            content.id = data.id;
+            content.title = data.title;
+            content.contentType = data.content_type;
+            content.published = data.published;
+            content.data = data.data;
+            return content;
+        });
+    }
+
     public updatePageContent(page: Page, content: PageContent): Promise<PageContent> {
         const page_id = page.id;
         const content_id = content.id;
