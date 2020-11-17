@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { ChapterService, Chapter } from '../chapters/chapters.service';
-import { Router, NavigationStart, Event } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { LoginService } from '../login/login.service';
 import { Page } from 'chapters/page.service';
+import { filter } from 'rxjs/operators';
 
 @Component({
     selector: 'app-root',
@@ -15,6 +16,10 @@ export class AppComponent {
 
     public currentPage: Page;
     public currentChapter: Chapter;
+
+    public bottomOpen: Boolean = false;
+    public modalOpen: Boolean = false;
+    public outputOpen: Boolean = false;
 
     constructor(
         private chapterService: ChapterService,
@@ -40,6 +45,16 @@ export class AppComponent {
             this.currentPage = page;
         });
 
+        this.router.events
+        .pipe(
+            filter(_event => _event instanceof NavigationEnd)
+        )
+        .subscribe((_event: NavigationEnd) => {
+            this.bottomOpen = _event.url.includes('bottom');
+            this.modalOpen = _event.url.includes('modal');
+            this.outputOpen = _event.url.includes('output');
+        });
+
     }
 
     public login() {
@@ -51,6 +66,18 @@ export class AppComponent {
     }
 
     public editDecisionAid() {
-        this.router.navigate(['chapters', 'edit']);
+        this.router.navigate([{ outlets: {bottom: 'chapters'}}]);
+    }
+
+    public showOutput() {
+        this.router.navigate([{ outlets: {output: 'output'}}]);
+    }
+
+    public closeOutput() {
+        this.router.navigate([{ outlets: {output: null}}]);
+    }
+
+    public closeBottom() {
+        this.router.navigate([{ outlets: { bottom: null }}]);
     }
 }

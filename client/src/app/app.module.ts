@@ -24,7 +24,6 @@ import { AccordionEditComponent } from './accordion-edit.component';
 import { PopoverButtonComponent } from './popover-button.component';
 import { PopoverGalleryComponent } from './popover-gallery.component';
 import { ContentEditComponent } from './content-edit.component';
-import { PageContentModule } from 'page-contents/page-contents.module';
 
 
 const routes: Array<Route> = [
@@ -38,8 +37,14 @@ const routes: Array<Route> = [
     outlet: 'modal'
   },
   {
-    path: 'chapters/edit',
-    component: ChaptersEditComponent
+    path: 'chapters',
+    component: ChaptersEditComponent,
+    outlet: 'bottom'
+  },
+  {
+    path: 'output',
+    component: ChaptersEditComponent,
+    outlet: 'output'
   },
   {
     path: 'chapters/:chapterId',

@@ -141,7 +141,7 @@ ul.sortable-list > li:first-child {
 }
 
 // Application Layout
-app-root {
+.app {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -154,18 +154,85 @@ app-root {
     position: relative;
 
     > * {
+        overflow: hidden;
+        flex: 0 0 auto;
+    }
+
+    > .content {
         flex: 1 1 auto;
         overflow: auto;
     }
 
-    > header,
-    > footer {
-        overflow: hidden;
-        flex: 0 0 auto;
+    > .bottom,
+    > .output {
+        display: none;
+        &.isOpen {
+            display: block;
+        }
+
+        background-color: $color-background-alternative;
+        overflow: auto;
+        flex-direction: column;
+
+        > * {
+            display: block;
+            overflow: auto;
+            flex: 1 1 auto;
+            margin: 2em;
+        }
+
+        > nav {
+            display: flex;
+            flex-direction: row;
+            position: fixed;
+            top: 25%;
+            width: 100%;
+            height: 70px;
+            margin: 0px;
+            flex: 0 0 auto;
+            justify-content: end;
+        }
+
+        > router-outlet {
+            display: none;
+        }
+    }
+
+    > .bottom {
+        position: absolute;
+        top: 25%;
+        left: 0px;
+        width: 100%;
+        height: 75%;
+        z-index: 2;
+   }
+
+   > .output {
+        position: absolute;
+        top: 0%;
+        right: 0px;
+        width: 75%;
+        height: 100%;
+        z-index: 2;
+    }
+
+    &.isProtected {
+        &:after {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            opacity: 0.7;
+        }
     }
 }
 
-.navigation-grouped {
+.navigation-grouped,
+.app .navigation-grouped {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -232,14 +299,15 @@ ul.bullets > li {
 }
 
 // Header
-app-root header {
+.app header {
     background-color: $color-background-alternative; 
     padding: 1em 2em;
     border-bottom: 1px $color-text solid;
 }
 
-app-root > footer nav,
-app-root > header nav {
+.app > footer nav,
+.app > header nav,
+.app > .bottom > nav {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -250,12 +318,12 @@ app-root > header nav {
     }
 }
 
-app-root > header nav.chapter-navigation {
+.app > header nav.chapter-navigation {
     justify-content: start;
 }
 
-app-root > footer button,
-app-root > header button {
+.app > footer button,
+.app > header button {
     display: block;
     background-color: transparent;
     color: $color-primary;
@@ -264,7 +332,7 @@ app-root > header button {
     border: 0px;
 }
 
-app-root > header nav {
+.app > header nav {
     
     > * {
         display: block;
@@ -283,13 +351,13 @@ app-root > header nav {
     }
 }
 
-app-root > footer {
+.app > footer {
     background-color: $color-background-alternative;
     padding: 0.25em;
     border-top: 1px $color-text solid;
 }
 
-app-root nav {
+.app nav {
     display: flex;
     flex-direction: column;
 
