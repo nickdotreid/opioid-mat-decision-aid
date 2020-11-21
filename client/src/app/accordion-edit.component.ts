@@ -1,30 +1,39 @@
 import { Component, Inject } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ControlValueAccessor, FormArray, FormControl, FormGroup, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { PageContent } from 'chapters/page.service';
 import { ButtonEditComponent } from './button-edit.component';
 
 
 @Component({
-    templateUrl: './accordion-edit.component.html'
+    selector: 'app-accordion-edit',
+    templateUrl: './accordion-edit.component.html',
+    providers: [{
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: AccordionEditComponent,
+        multi: true
+      }]
 })
-export class AccordionEditComponent {
+export class AccordionEditComponent implements ControlValueAccessor {
 
-    public form: FormGroup;
+    private data: any;
+
     public error: String;
 
     public items: Array<FormGroup>;
 
-    constructor(
-        private dialog: MatDialogRef<ButtonEditComponent>,
-        @Inject(MAT_DIALOG_DATA) data: any
-    ) {
-        let title;
-        if (data && data['title']) {
-            title = data['title'];
+    private onChange: Function;
+    private onTouch: Function;
+
+    public disabled: boolean;
+
+    constructor() {}
+
+    private update() {
+        let data = {};
+        if (this.data) {
+            data = this.data;
         }
-        this.form = new FormGroup({
-            title: new FormControl(title)
-        });
 
         this.items = [];
         if (data && data['items'] && Array.isArray(data['items'])) {
@@ -34,35 +43,40 @@ export class AccordionEditComponent {
         }
     }
 
+    private change() {
+        const itemValues = this.items.map((itemFormGroup) => {
+            return itemFormGroup.value;
+        });
+        this.onChange({
+            'items': itemValues
+        });
+    }
+
+    public writeValue(value) {
+        this.data = value;
+        this.update();
+    }
+
+    public registerOnChange(fn) {
+        this.onChange = fn;
+    }
+
+    public registerOnTouched(fn) {
+        this.onTouch = fn;
+    }
+
+    public setDisabledState(disabled: boolean) {
+        this.disabled = disabled;
+    }
+
     public addItemGroup(title, text) {
         const itemGroup = new FormGroup({
             title: new FormControl(title, Validators.required),
             text: new FormControl(text, Validators.required)
         });
-        this.items.push(itemGroup);
-    }
-
-    private areItemFormsValid() {
-        let valid = true;
-        this.items.forEach((itemForm) => {
-            if (!itemForm.valid) {
-                valid = false;
-            }
+        itemGroup.valueChanges.subscribe(() => {
+            this.change();
         });
-        return valid;
-    }
-
-    public submit() {
-        if (this.areItemFormsValid()) {
-            const items = this.items.map((_item) => {
-                return {
-                    title: _item.get('title').value,
-                    text: _item.get('text').value
-                };
-            });
-            this.dialog.close({
-                items: items
-            });
-        }
+        this.items.push(itemGroup);
     }
 }

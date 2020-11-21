@@ -104,21 +104,6 @@ export class PageComponent implements OnDestroy {
         }
     }
 
-    private getContentEditComponent(contentType: string) {
-        const contentTypeEditorMap = {
-            'accordion': AccordionEditComponent,
-            'button': ButtonEditComponent,
-            'gallery': AccordionEditComponent,
-            'question': QuestionEditComponent,
-            'text': TextEditComponent
-        };
-        if (contentTypeEditorMap[contentType]) {
-            return contentTypeEditorMap[contentType];
-        } else {
-            return ButtonEditComponent;
-        }
-    }
-
     public editContent(content: PageContent) {
         const contentId = content.id;
         const pageId = this.page.id;
@@ -133,14 +118,8 @@ export class PageComponent implements OnDestroy {
     }
 
     private addContent(contentType: string) {
-        const dialogComponent = this.getContentEditComponent(contentType);
-        this.dialog.open(dialogComponent)
-        .afterClosed().toPromise()
-        .then((data) => {
-            if (data) {
-                this.createPageContent(contentType, data);
-            }
-        });
+        const pageId = this.page.id;
+        this.router.navigate([{ outlets: { modal: `content-add/${pageId}/${contentType}`}}]);
     }
 
     public addText() {

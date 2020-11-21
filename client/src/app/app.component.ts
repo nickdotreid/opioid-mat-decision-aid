@@ -69,14 +69,6 @@ export class AppComponent {
         this.router.navigate([{ outlets: {bottom: 'chapters'}}]);
     }
 
-    public showOutput() {
-        this.router.navigate([{ outlets: {output: 'output'}}]);
-    }
-
-    public closeOutput() {
-        this.router.navigate([{ outlets: {output: null}}]);
-    }
-
     public closeBottom() {
         this.router.navigate([{ outlets: { bottom: null }}]);
     }

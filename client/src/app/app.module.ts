@@ -15,7 +15,7 @@ import { PageNavigationComponent } from './page-navigation.component';
 import { ChapterNavigationComponent } from './chapter-navigation.component';
 import { EditableResolver } from './editable.resolver';
 import { ButtonEditComponent } from './button-edit.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormModule } from 'form/form.module';
 import { TextEditComponent } from './text-edit.component';
 import { TextComponent } from './text.compontent';
@@ -40,11 +40,6 @@ const routes: Array<Route> = [
     path: 'chapters',
     component: ChaptersEditComponent,
     outlet: 'bottom'
-  },
-  {
-    path: 'output',
-    component: ChaptersEditComponent,
-    outlet: 'output'
   },
   {
     path: 'chapters/:chapterId',
@@ -112,6 +107,7 @@ const routes: Array<Route> = [
     LoginModule,
     ChapterModule,
     MatSidenavModule,
+    FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],

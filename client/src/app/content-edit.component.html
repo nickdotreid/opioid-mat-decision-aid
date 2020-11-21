@@ -1,4 +1,18 @@
-<div>
-    <button (click)="close()">Close</button>
-    <p>This is a great game!</p>
-</div>
+<article *ngIf="form">
+    <header>
+        <nav>
+            <button (click)="close()">Close</button>
+        </nav>
+    </header>
+
+    {{contentType}}
+    <form [formGroup]="form"
+        (ngSubmit)="submit()"
+        >
+        <app-accordion-edit *ngIf="contentType=='gallery'"
+            formControlName="data"
+            >
+        </app-accordion-edit>
+        <button type="submit">Update</button>
+    </form>
+</article>

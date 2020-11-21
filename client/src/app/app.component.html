@@ -1,5 +1,5 @@
 <div class="app"
-    [ngClass]="{isProtected: bottomOpen || outputOpen}"
+    [ngClass]="{ isProtected: bottomOpen }"
     >
     <header>
         <div class="container">
@@ -12,12 +12,6 @@
     </header>
     <div class="content">
         <router-outlet></router-outlet>
-    </div>
-    <div class="output"
-        [ngClass]="{isOpen: outputOpen}"
-        >
-        <button (click)="closeOutput()">Close</button>
-        <router-outlet name="output"></router-outlet>
     </div>
     <div class="bottom"
         [ngClass]="{isOpen: bottomOpen}"
