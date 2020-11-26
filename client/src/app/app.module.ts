@@ -14,16 +14,10 @@ import { PageComponent } from './page.component';
 import { PageNavigationComponent } from './page-navigation.component';
 import { ChapterNavigationComponent } from './chapter-navigation.component';
 import { EditableResolver } from './editable.resolver';
-import { ButtonEditComponent } from './button-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormModule } from 'form/form.module';
-import { TextEditComponent } from './text-edit.component';
-import { TextComponent } from './text.compontent';
-import { QuestionEditComponent } from './question-edit.component';
-import { AccordionEditComponent } from './accordion-edit.component';
-import { PopoverButtonComponent } from './popover-button.component';
-import { PopoverGalleryComponent } from './popover-gallery.component';
 import { ContentEditComponent } from './content-edit.component';
+import { PageContentModule } from 'page-content/page-content.module';
 
 
 const routes: Array<Route> = [
@@ -78,27 +72,13 @@ const routes: Array<Route> = [
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
-    AccordionEditComponent,
-    ButtonEditComponent,
-    TextComponent,
-    TextEditComponent,
     PageComponent,
     PageNavigationComponent,
     ChapterNavigationComponent,
     TestPageComponent,
-    QuestionEditComponent,
-    PopoverButtonComponent,
-    PopoverGalleryComponent,
     ContentEditComponent
   ],
   entryComponents: [
-    AccordionEditComponent,
-    ButtonEditComponent,
-    TextComponent,
-    TextEditComponent,
-    QuestionEditComponent,
-    PopoverGalleryComponent,
-    PopoverButtonComponent,
     ContentEditComponent
   ],
   imports: [
@@ -109,7 +89,8 @@ const routes: Array<Route> = [
     MatSidenavModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    PageContentModule
   ],
   providers: [
     EditableResolver

@@ -3,13 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Page, PageService, PageContent } from 'chapters/page.service';
 import { MatDialog } from '@angular/material';
-import { ButtonEditComponent } from './button-edit.component';
-import { TextEditComponent } from './text-edit.component';
-import { QuestionEditComponent } from './question-edit.component';
 import { Chapter, ChapterService } from 'chapters/chapters.service';
 import { LoginService } from 'login/login.service';
 import { ReorderPagesComponent } from 'chapters/reorder-pages.component';
-import { AccordionEditComponent } from './accordion-edit.component';
 
 @Component({
     templateUrl: './page.component.html'
@@ -90,18 +86,6 @@ export class PageComponent implements OnDestroy {
         .then((contents) => {
             this.pageContents = contents;
         });
-    }
-
-    private createPageContent(contentType, data) {
-        const defaultTitle = contentType;
-        if (this.page) {
-            this.pageService.createPageContent(this.page, defaultTitle, contentType, data)
-            .then(() => {
-                this.updateContent();
-            });
-        } else {
-            console.error('No page to add content to');
-        }
     }
 
     public editContent(content: PageContent) {
