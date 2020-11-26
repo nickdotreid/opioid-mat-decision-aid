@@ -14,20 +14,31 @@ export class ContentEditComponent {
     public contentType: string;
     public form: FormGroup;
 
+    public create: Boolean;
+
     constructor(
         private activatedRoute: ActivatedRoute,
         private pageService: PageService,
         private router: Router
     ) {
         this.activatedRoute.params.subscribe((params) => {
-            if (params['contentId'] && params['pageId']) {
+            if (params['pageId']) {
                 this.pageService.get(params['pageId'])
                 .then((page) => {
                     this.page = page;
-                    return this.pageService.getPageContentItem(page.id, params['contentId']);
-                })
-                .then((pageContent) => {
-                    this.update(pageContent);
+                    if (params['contentId']) {
+                        return this.pageService.getPageContentItem(page.id, params['contentId'])
+                        .then((pageContent) => {
+                            this.update(pageContent);
+                        });
+                    } else if (params['contentType']) {
+                        const pageContent = new PageContent();
+                        pageContent.title = params['contentType'];
+                        pageContent.contentType = params['contentType'];
+                        this.update(pageContent);
+                    } else {
+                        return Promise.reject('Unknow parameters');
+                    }
                 })
                 .catch(() => {
                     this.close();
@@ -54,10 +65,18 @@ export class ContentEditComponent {
             updatedContent.published = this.pageContent.published;
             updatedContent.title = this.pageContent.title;
             updatedContent.data = this.form.get('data').value;
-            this.pageService.updatePageContent(this.page, updatedContent)
-            .then(() => {
-                this.close();
-            });
+
+            if (updatedContent.id) {
+                this.pageService.updatePageContent(this.page, updatedContent)
+                .then(() => {
+                    this.close();
+                });
+            } else {
+                this.pageService.createPageContent(this.page, updatedContent)
+                .then(() => {
+                    this.close();
+                });
+            }
         }
     }
 

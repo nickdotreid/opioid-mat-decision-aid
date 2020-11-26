@@ -36,11 +36,14 @@ export class TextEditComponent implements ControlValueAccessor {
         this.form = new FormGroup({
             text: new FormControl(text)
         });
+        this.form.valueChanges.subscribe(() => {
+            this.change();
+        });
     }
 
     private change() {
         this.onChange({
-            text: this.data.text
+            text: this.form.get('text').value
         });
     }
 

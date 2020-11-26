@@ -26,6 +26,11 @@ const routes: Array<Route> = [
     component: TestPageComponent
   },
   {
+    path: 'content-add/:pageId/:contentType',
+    component: ContentEditComponent,
+    outlet: 'modal'
+  },
+  {
     path: 'content-edit/:pageId/:contentId',
     component: ContentEditComponent,
     outlet: 'modal'

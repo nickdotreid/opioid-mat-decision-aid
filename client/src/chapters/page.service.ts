@@ -121,11 +121,11 @@ export class PageService {
         });
     }
 
-    public createPageContent(page: Page, contentTitle: string, contentType: string, contentData: any): Promise<Page> {
+    public createPageContent(page: Page, pageContent: PageContent): Promise<Page> {
         return this.serverService.post('pages/' + page.id + '/content/', {
-            title: contentTitle,
-            content_type: contentType,
-            data: contentData
+            title: pageContent.title,
+            content_type: pageContent.contentType,
+            data: pageContent.data
         })
         .then((response) => {
             return page;
