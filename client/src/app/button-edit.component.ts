@@ -1,36 +1,63 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-    templateUrl: './button-edit.component.html'
+    selector: 'app-button-edit',
+    templateUrl: './button-edit.component.html',
+    providers: [{
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: ButtonEditComponent,
+        multi: true
+    }]
 })
-export class ButtonEditComponent {
+export class ButtonEditComponent implements ControlValueAccessor {
+
+    private label: string;
 
     public form: FormGroup;
     public error: String;
 
-    constructor(
-        private dialog: MatDialogRef<ButtonEditComponent>,
-        @Inject(MAT_DIALOG_DATA) data: any
-    ) {
-        let label;
-        if (data && data.label) {
-            label = data.label;
-        }
+    private onChange: Function;
+    private onTouch: Function;
 
+    public disabled: boolean;
+
+    constructor() {}
+
+    private update() {
         this.form = new FormGroup({
-            label: new FormControl(label, Validators.required)
+            label: new FormControl(this.label, Validators.required)
+        });
+        this.form.valueChanges.subscribe(() => {
+            this.change();
         });
     }
 
-    public submit() {
-        if (this.form.valid) {
-            this.dialog.close({
+    private change() {
+        if (this.form) {
+            this.onChange({
                 label: this.form.get('label').value
             });
-        } else {
-            this.error = 'Form is invalid';
         }
+    }
+
+    public writeValue(data: any) {
+        if (data && data['label']) {
+            this.label = data['label'];
+        }
+        this.update();
+    }
+
+    public registerOnChange(fn) {
+        this.onChange = fn;
+    }
+
+    public registerOnTouched(fn) {
+        this.onTouch = fn;
+    }
+
+    public setDisabledState(disabled: boolean) {
+        this.disabled = disabled;
     }
 }

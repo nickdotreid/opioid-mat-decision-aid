@@ -1,5 +1,5 @@
-<form [formGroup]="form"
-    (ngSubmit)="submit()"
+<form *ngIf="form"
+    [formGroup]="form"
     >
     <app-text-field
         label = "Question label"
@@ -11,5 +11,4 @@
         formControlName='label'
         >
     </app-text-field>
-    <input type="submit" value="Save" />
 </form>

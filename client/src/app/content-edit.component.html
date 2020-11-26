@@ -4,15 +4,29 @@
             <button (click)="close()">Close</button>
         </nav>
     </header>
-
-    {{contentType}}
     <form [formGroup]="form"
         (ngSubmit)="submit()"
         >
+        <app-button-edit *ngIf="contentType=='button'"
+            formControlName="data"
+            >
+        </app-button-edit>
+        <app-text-edit *ngIf="contentType=='text'"
+            formControlName="data"
+            >
+        </app-text-edit>
+        <app-accordion-edit *ngIf="contentType=='accordion'"
+            formControlName="data"
+            >
+        </app-accordion-edit>
         <app-accordion-edit *ngIf="contentType=='gallery'"
             formControlName="data"
             >
         </app-accordion-edit>
+        <app-question-edit *ngIf="contentType=='question'"
+            formControlName="data"
+            >
+        </app-question-edit>
         <button type="submit">Update</button>
     </form>
 </article>
