@@ -1,7 +1,5 @@
-<div class="app-gallery">
-    <app-popover-button *ngFor="let item of items"
-        [content]="item.text"
-        >
+<ul class="app-gallery">
+    <li *ngFor="let item of items">
         {{item.title}}
-    </app-popover-button>
-</div>
+    </li>
+</ul>

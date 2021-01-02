@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormModule } from 'form/form.module';
 import { AccordionEditComponent } from './accordion-edit.component';
 import { ButtonEditComponent } from './button-edit.component';
-import { PopoverButtonComponent } from './popover-button.component';
 import { PopoverGalleryComponent } from './popover-gallery.component';
 import { QuestionEditComponent } from './question-edit.component';
 import { TextEditComponent } from './text-edit.component';
@@ -18,7 +17,6 @@ import { TextComponent } from './text.compontent';
         TextComponent,
         TextEditComponent,
         QuestionEditComponent,
-        PopoverButtonComponent,
         PopoverGalleryComponent
     ],
     exports: [
@@ -27,7 +25,6 @@ import { TextComponent } from './text.compontent';
         TextComponent,
         TextEditComponent,
         QuestionEditComponent,
-        PopoverButtonComponent,
         PopoverGalleryComponent
     ],
     imports: [
