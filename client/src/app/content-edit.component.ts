@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Chapter, ChapterService } from 'chapters/chapters.service';
 import { Page, PageContent, PageService } from 'chapters/page.service';
+import { ContentService } from './content.service';
 
 @Component({
     'templateUrl': './content-edit.component.html'
 })
 export class ContentEditComponent {
+
+    private parentContent: PageContent;
+    private content: PageContent;
 
     private page: Page;
     private pageContent: PageContent;
@@ -19,6 +24,7 @@ export class ContentEditComponent {
     constructor(
         private activatedRoute: ActivatedRoute,
         private pageService: PageService,
+        private chapterService: ChapterService,
         private router: Router
     ) {
         this.activatedRoute.params.subscribe((params) => {
@@ -27,7 +33,7 @@ export class ContentEditComponent {
                 .then((page) => {
                     this.page = page;
                     if (params['contentId']) {
-                        return this.pageService.getPageContentItem(page.id, params['contentId'])
+                        return this.pageService.getPageContentItem(this.page.id, params['contentId'])
                         .then((pageContent) => {
                             this.update(pageContent);
                         });
@@ -38,6 +44,24 @@ export class ContentEditComponent {
                         this.update(pageContent);
                     } else {
                         return Promise.reject('Unknow parameters');
+                    }
+                })
+                .catch(() => {
+                    const currentPage = this.chapterService.currentPage.getValue();
+                    if (currentPage) {
+                        this.page = currentPage;
+                        return this.pageService.getPageContentItem(this.page.id, params['pageId'])
+                        .then((content) => {
+                            this.parentContent = content;
+                            if (params['contentType']) {
+                                const pageContent = new PageContent();
+                                pageContent.title = params['contentType'];
+                                pageContent.contentType = params['contentType'];
+                                this.update(pageContent);
+                            }
+                        });
+                    } else {
+                        return Promise.reject('No current page');
                     }
                 })
                 .catch(() => {

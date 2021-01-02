@@ -18,6 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormModule } from 'form/form.module';
 import { ContentEditComponent } from './content-edit.component';
 import { PageContentModule } from 'page-content/page-content.module';
+import { PageGalleryComponent } from './page-gallery.component';
+import { ContentService } from './content.service';
 
 
 const routes: Array<Route> = [
@@ -78,6 +80,7 @@ const routes: Array<Route> = [
   declarations: [
     AppComponent,
     PageComponent,
+    PageGalleryComponent,
     PageNavigationComponent,
     ChapterNavigationComponent,
     TestPageComponent,
@@ -98,7 +101,8 @@ const routes: Array<Route> = [
     PageContentModule
   ],
   providers: [
-    EditableResolver
+    EditableResolver,
+    ContentService
   ]
 })
 export class AppModule { }

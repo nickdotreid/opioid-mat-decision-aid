@@ -94,18 +94,18 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="content.contentType === 'gallery'">
-            <app-popover-gallery
-                [items]="content.data.items"
+        <div *ngIf="content.contentType === 'page-gallery'">
+            <app-page-gallery
+                [content]="content"
+                isEditable="isEditable"
                 >
-            </app-popover-gallery>
+            </app-page-gallery>
         </div>
     </div>
     <nav *ngIf="isEditable">
         <button (click)="addText()" >Add Text</button>
         <button (click)="addButton()" >Add Button</button>
         <button (click)="addQuestion()">Add Question</button>
-        <button (click)="addAccordion()">Add Accordion</button>
-        <button (click)="addGallery()">Add Gallery</button>
+        <button (click)="addPageGallery()">Add Page Gallery</button>
     </nav>
 </article>

@@ -35,6 +35,7 @@ export class PageComponent implements OnDestroy {
             if (data.page) {
                 this.page = data.page;
                 this.updateContent();
+                this.chapterService.currentPage.next(this.page);
             } else {
                 this.page = undefined;
                 this.pageContents = [];
@@ -118,12 +119,15 @@ export class PageComponent implements OnDestroy {
         this.addContent('question');
     }
 
-    public addAccordion() {
-        this.addContent('accordion');
-    }
-
-    public addGallery() {
-        this.addContent('gallery');
+    public addPageGallery() {
+        const pageGallery = new PageContent();
+        pageGallery.contentType = 'page-gallery';
+        pageGallery.title = 'Page Gallery';
+        pageGallery.data = {};
+        this.pageService.createPageContent(this.page, pageGallery)
+        .then(() => {
+            this.updateContent();
+        });
     }
 
     public buttonAction(content: PageContent) {
