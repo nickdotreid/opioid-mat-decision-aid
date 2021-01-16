@@ -37,4 +37,8 @@ export class PageGalleryComponent {
             }
         }]);
     }
+
+    public editPage() {
+        
+    }
 }

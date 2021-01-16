@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ServerService } from '../server/server.service';
-import { title } from 'process';
 
 export class Chart {
     title: string;
@@ -52,6 +51,15 @@ export class PageService {
             {
                 chapterId: chpater_id,
                 title: _title,
+                published: published
+            }
+        );
+    }
+
+    public createSinglePage(title: string, published?: boolean): Promise<Page> {
+        return this.serverService.post(
+            'pages/', {
+                title: title,
                 published: published
             }
         );

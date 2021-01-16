@@ -27,6 +27,10 @@
             formControlName="data"
             >
         </app-question-edit>
+        <app-page-edit *ngIf="contentType=='page'"
+            formControlName="page"
+            >
+        </app-page-edit>
         <button type="submit">Update</button>
     </form>
 </article>

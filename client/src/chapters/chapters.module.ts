@@ -17,21 +17,25 @@ import { PageCreateComponent } from './page-create.component';
 import { ChaptersEditComponent } from './chapters-edit.component';
 import { PageService } from './page.service';
 import { ReorderPagesComponent } from './reorder-pages.component';
+import { PageEditComponent } from './page-edit.component';
 
 @NgModule({
     declarations: [
         ChapterPageComponent,
         ChaptersEditComponent,
         PageCreateComponent,
-        ReorderPagesComponent
+        ReorderPagesComponent,
+        PageEditComponent
     ],
     entryComponents: [
         PageCreateComponent,
+        PageEditComponent,
         ReorderPagesComponent
     ],
     exports: [
         ChapterPageComponent,
-        ChaptersEditComponent
+        ChaptersEditComponent,
+        PageEditComponent
     ],
     imports: [
         BrowserModule,

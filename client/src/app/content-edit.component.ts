@@ -1,8 +1,10 @@
+import { unescapeIdentifier } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Chapter, ChapterService } from 'chapters/chapters.service';
 import { Page, PageContent, PageService } from 'chapters/page.service';
+import { isArray } from 'util';
 import { ContentService } from './content.service';
 
 @Component({
@@ -52,12 +54,17 @@ export class ContentEditComponent {
                         this.page = currentPage;
                         return this.pageService.getPageContentItem(this.page.id, params['pageId'])
                         .then((content) => {
+                            console.log("Loaded page content", content);
                             this.parentContent = content;
                             if (params['contentType']) {
-                                const pageContent = new PageContent();
-                                pageContent.title = params['contentType'];
-                                pageContent.contentType = params['contentType'];
-                                this.update(pageContent);
+                                if (params['contentType'] === 'page') {
+                                    this.showAddPage();
+                                } else {
+                                    const pageContent = new PageContent();
+                                    pageContent.title = params['contentType'];
+                                    pageContent.contentType = params['contentType'];
+                                    this.update(pageContent);
+                                }
                             }
                         });
                     } else {
@@ -81,8 +88,44 @@ export class ContentEditComponent {
         });
     }
 
+    private showAddPage() {
+        this.contentType = 'page';
+        this.form = new FormGroup({
+            page: new FormControl(new Page(), Validators.required)
+        });
+    }
+
     public submit() {
-        if (this.form && this.form.valid) {
+        if (this.contentType === 'page') {
+            if (this.form && this.form.valid) {
+                const _page = this.form.get('page').value;
+                this.pageService.createSinglePage(
+                    _page.title,
+                    _page.published
+                ).then((page: Page) => {
+                    console.log('Created page', page);
+                    console.log('Has partent content', this.parentContent);
+                    if (this.parentContent) {
+                        if (this.parentContent.data) {
+                            if (this.parentContent.data.pages && isArray(this.parentContent.data.pages)) {
+                                this.parentContent.data.pages.push(page);
+                            } else {
+                                this.parentContent.data.pages = [page];
+                            }
+                        } else {
+                            this.parentContent.data = {
+                                pages: [page]
+                            };
+                        }
+                        console.log("SAVING???");
+                        this.pageService.updatePageContent(this.page, this.parentContent)
+                        .then(() => {
+                            this.close();
+                        });
+                    }
+                });
+            }
+        } else if (this.form && this.form.valid) {
             const updatedContent = new PageContent();
             updatedContent.id = this.pageContent.id;
             updatedContent.contentType = this.pageContent.contentType;
@@ -90,17 +133,16 @@ export class ContentEditComponent {
             updatedContent.title = this.pageContent.title;
             updatedContent.data = this.form.get('data').value;
 
+            let _promise;
             if (updatedContent.id) {
-                this.pageService.updatePageContent(this.page, updatedContent)
-                .then(() => {
-                    this.close();
-                });
+                _promise = this.pageService.updatePageContent(this.page, updatedContent);
             } else {
-                this.pageService.createPageContent(this.page, updatedContent)
-                .then(() => {
-                    this.close();
-                });
+                _promise = this.pageService.createPageContent(this.page, updatedContent);
             }
+
+            _promise.then(() => {
+                this.close();
+            });
         }
     }
 

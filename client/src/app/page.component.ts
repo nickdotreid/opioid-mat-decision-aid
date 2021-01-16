@@ -12,7 +12,7 @@ import { ReorderPagesComponent } from 'chapters/reorder-pages.component';
 })
 export class PageComponent implements OnDestroy {
 
-    public chapters: Array<Chapter>;
+    public chapters: Array<Chapter> = [];
     public chapter: Chapter;
     public page: Page;
     public pageContents: Array<PageContent> = [];
@@ -31,7 +31,9 @@ export class PageComponent implements OnDestroy {
         private dialog: MatDialog,
         private loginService: LoginService
     ) {
+        console.log('Page component start');
         this.routeSubscription = this.route.data.subscribe((data) => {
+            console.log('Page component, router change', data);
             if (data.page) {
                 this.page = data.page;
                 this.updateContent();
@@ -60,22 +62,16 @@ export class PageComponent implements OnDestroy {
         });
     }
 
+    public editPage() {
+        this.router.navigate([{outlets: { modal: ['edit', 'page', this.page.id]}}]);
+    }
+
     public editCurrentPage() {
         this.router.navigate(['pages', this.page.id, 'edit']);
     }
 
     public viewCurrentPage() {
         this.router.navigate(['pages', this.page.id]);
-    }
-
-    public publishPage() {
-        this.page.published = true;
-        this.pageService.update(this.page);
-    }
-
-    public unpublishPage() {
-        this.page.published = false;
-        this.pageService.update(this.page);
     }
 
     private updateContent() {

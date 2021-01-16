@@ -6,7 +6,7 @@ import { ChapterModule } from '../chapters/chapters.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSidenavModule } from '@angular/material';
 import { LoginModule } from '../login/login.module';
-import { PageResolver, DefaultPageResolver } from '../chapters/page.resolver';
+import { DefaultPageResolver } from '../chapters/page.resolver';
 import { ChapterResolver } from '../chapters/chapter.resolver';
 import { ChaptersEditComponent } from '../chapters/chapters-edit.component';
 import { TestPageComponent } from './test-page.component';
@@ -20,6 +20,7 @@ import { ContentEditComponent } from './content-edit.component';
 import { PageContentModule } from 'page-content/page-content.module';
 import { PageGalleryComponent } from './page-gallery.component';
 import { ContentService } from './content.service';
+import { PageResolver } from './page.resolver';
 
 
 const routes: Array<Route> = [
@@ -55,14 +56,16 @@ const routes: Array<Route> = [
     resolve: {
       page: PageResolver,
       isEditable: EditableResolver
-    }
+    },
+    runGuardsAndResolvers: 'always'
   },
   {
     path: 'pages/:pageId',
     component: PageComponent,
     resolve: {
       page: PageResolver
-    }
+    },
+    runGuardsAndResolvers: 'always'
   },
   {
       path: '',
@@ -101,8 +104,9 @@ const routes: Array<Route> = [
     PageContentModule
   ],
   providers: [
+    ContentService,
     EditableResolver,
-    ContentService
+    PageResolver
   ]
 })
 export class AppModule { }

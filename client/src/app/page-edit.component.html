@@ -1,0 +1,20 @@
+<form [formGroup]="form"
+    (ngSubmit)="submit()"
+    >
+    <p *ngIf="error"
+        class="error"
+        >
+        {{error}}
+    </p>
+    <app-text-field
+        label="Title"
+        formControlName="title"
+        >
+    </app-text-field>
+    <app-boolean-field
+        formControlName="published"
+        >
+        Published
+    </app-boolean-field>
+    <button mat-raised-button color="primary">Save</button>
+</form>

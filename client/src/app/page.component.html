@@ -6,18 +6,10 @@
         <em *ngIf="page.published">Published</em>
         <em *ngIf="!page.published">Unublished</em>
     </p>
-    <button (click)="editTitle()">
-        Edit Title
-    </button>
-    <button *ngIf="!page.published"
-        (click)="publishPage()"
+    <button
+        (click)="editPage()"
         >
-        Publish
-    </button>
-    <button *ngIf="page.published"
-        (click)="unpublishPage()"
-        >
-        Unpublish
+        Edit Page Meta Data
     </button>
     <button (click)="reorderPageContent()">
         Reorder Page Content
@@ -33,7 +25,9 @@
         Edit Page
     </button>
 </nav>
-<nav class="sidebar">
+<nav *ngIf="chapter"
+    class="sidebar"
+    >
     <a *ngFor="let _chapter of chapters"
         [href]="'/chapters/'+_chapter.id"
         [ngClass]="{ active: chapter.id === _chapter.id }"

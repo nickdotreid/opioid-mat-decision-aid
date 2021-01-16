@@ -139,13 +139,12 @@ class PageListView(APIView):
             return Response(
                 status = status.HTTP_401_UNAUTHORIZED
             )
+        chapter = None
         if 'chapterId' in request.data:
             try:
                 chapter = Chapter.objects.get(id = request.data['chapterId'])
             except Chapter.DoesNotExist:
                 return Response('Chapter does not exist', status=status.HTTP_400_BAD_REQUEST)
-        else:
-             return Response('chapterId not specified', status=status.HTTP_400_BAD_REQUEST)
         serializer = PageSerializer(data=request.data)
         if serializer.is_valid():
             page = serializer.save(

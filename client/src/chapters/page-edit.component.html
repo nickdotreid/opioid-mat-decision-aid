@@ -1,0 +1,17 @@
+<form [formGroup]="form">
+    <p *ngIf="error"
+        class="error"
+        >
+        {{error}}
+    </p>
+    <app-text-field
+        label="Title"
+        formControlName="title"
+        >
+    </app-text-field>
+    <app-boolean-field
+        formControlName="published"
+        >
+        Published
+    </app-boolean-field>
+</form>
