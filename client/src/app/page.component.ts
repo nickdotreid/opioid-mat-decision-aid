@@ -15,6 +15,7 @@ export class PageComponent implements OnDestroy {
     public chapters: Array<Chapter> = [];
     public chapter: Chapter;
     public page: Page;
+    public parentPage: Page;
     public pageContents: Array<PageContent> = [];
     public isEditable: boolean;
     public isEditor: boolean;
@@ -34,8 +35,16 @@ export class PageComponent implements OnDestroy {
         console.log('Page component start');
         this.routeSubscription = this.route.data.subscribe((data) => {
             console.log('Page component, router change', data);
-            if (data.page) {
+            if (data.page && data.childPage) {
+                console.log('has child page', data.childPage);
+                this.page = data.childPage;
+                this.parentPage = data.page;
+                this.updateContent();
+                this.chapterService.currentPage.next(data.page);
+            } else if (data.page) {
+                console.log('loading normal page');
                 this.page = data.page;
+                this.parentPage = undefined;
                 this.updateContent();
                 this.chapterService.currentPage.next(this.page);
             } else {
@@ -75,10 +84,17 @@ export class PageComponent implements OnDestroy {
     }
 
     private updateContent() {
-        this.chapterService.getChapterForPage(this.page)
-        .then((chapter) => {
-            this.chapter = chapter;
-        });
+        if (this.parentPage && this.page) {
+            this.chapterService.getChapterForPage(this.parentPage)
+            .then((chapter) => {
+                this.chapter = chapter;
+            });
+        } else {
+            this.chapterService.getChapterForPage(this.page)
+            .then((chapter) => {
+                this.chapter = chapter;
+            });
+        }
         this.pageService.getPageContent(this.page)
         .then((contents) => {
             this.pageContents = contents;
@@ -127,14 +143,26 @@ export class PageComponent implements OnDestroy {
     }
 
     public buttonAction(content: PageContent) {
-        this.chapterService.getNextPage(this.page)
-        .then((page: Page) => {
+        if (this.parentPage && this.page) {
             if (this.isEditable) {
-                this.router.navigate(['pages', page.id, 'edit']);
+                this.router.navigate(['pages', this.parentPage.id, 'edit']);
             } else {
-                this.router.navigate(['pages', page.id]);
+                this.router.navigate(['pages', this.parentPage.id]);
             }
-        });
+        } else {
+            this.chapterService.getNextPage(this.page)
+            .then((page: Page) => {
+                if (this.isEditable) {
+                    this.router.navigate(['pages', page.id, 'edit']);
+                } else {
+                    this.router.navigate(['pages', page.id]);
+                }
+            });
+        }
+    }
+
+    public goToChildPage(childPage: Page) {
+        this.router.navigate(['pages', this.page.id, childPage.id]);
     }
 
     ngOnDestroy() {

@@ -24,17 +24,18 @@ export class PageEditComponent implements ControlValueAccessor {
     }
 
     public writeValue(data: any) {
-        let label;
-        let property;
-        if (data && data.label) {
-            label = data.label;
+        let title;
+        let published;
+        console.log(data);
+        if (data && data.title) {
+            title = data.title;
         }
-        if (data && data.property) {
-            property = data.property;
+        if (data && data.published !== undefined) {
+            published = data.published;
         }
         this.form = new FormGroup({
-            title: new FormControl(label, Validators.required),
-            published: new FormControl(property)
+            title: new FormControl(title, Validators.required),
+            published: new FormControl(published)
         });
         this.form.valueChanges.subscribe(() => {
             this.onChange({

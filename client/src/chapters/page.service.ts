@@ -100,7 +100,7 @@ export class PageService {
 
     public deserializePage(data: any): Page {
         const page = new Page();
-        page.id = data['id'];
+        page.id = String(data['id']);
         page.title = data['title'];
         page.published = data['published'];
         return page;

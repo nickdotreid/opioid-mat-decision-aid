@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { Page, PageContent, PageService } from 'chapters/page.service';
+import { Page, PageContent } from 'chapters/page.service';
 
 @Component({
     selector: 'app-page-gallery',
@@ -13,8 +13,9 @@ export class PageGalleryComponent {
     public pages: Array<Page>;
     @Input('isEditable') isEditable: boolean;
 
+    @Output('navigateToPage') navigateToPage: EventEmitter<Page> = new EventEmitter();
+
     constructor(
-        private pageService: PageService,
         private router: Router
     ) {}
 
@@ -38,7 +39,16 @@ export class PageGalleryComponent {
         }]);
     }
 
-    public editPage() {
-        
+    public editPage(page) {
+        const parentId = this.contentObject.id;
+        this.router.navigate([{
+            outlets: {
+                modal: `content-edit/${parentId}/${page.id}`
+            }
+        }]);
+    }
+
+    public goToPage(page) {
+        this.navigateToPage.emit(page);
     }
 }

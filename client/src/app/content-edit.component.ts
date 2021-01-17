@@ -1,11 +1,9 @@
-import { unescapeIdentifier } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Chapter, ChapterService } from 'chapters/chapters.service';
+import { ChapterService } from 'chapters/chapters.service';
 import { Page, PageContent, PageService } from 'chapters/page.service';
 import { isArray } from 'util';
-import { ContentService } from './content.service';
 
 @Component({
     'templateUrl': './content-edit.component.html'
@@ -14,6 +12,7 @@ export class ContentEditComponent {
 
     private parentContent: PageContent;
     private content: PageContent;
+    private contentPage: Page;
 
     private page: Page;
     private pageContent: PageContent;
@@ -54,9 +53,13 @@ export class ContentEditComponent {
                         this.page = currentPage;
                         return this.pageService.getPageContentItem(this.page.id, params['pageId'])
                         .then((content) => {
-                            console.log("Loaded page content", content);
                             this.parentContent = content;
-                            if (params['contentType']) {
+                            if (params['contentId']) {
+                                return this.pageService.get(params['contentId'])
+                                .then((page) => {
+                                    this.editPage(page);
+                                });
+                            } else if (params['contentType']) {
                                 if (params['contentType'] === 'page') {
                                     this.showAddPage();
                                 } else {
@@ -85,6 +88,14 @@ export class ContentEditComponent {
         this.contentType = this.pageContent.contentType;
         this.form = new FormGroup({
             data: new FormControl(this.pageContent.data, Validators.required)
+        });
+    }
+
+    private editPage(page: Page) {
+        console.log('Show edit page', page);
+        this.contentType = 'page';
+        this.form = new FormGroup({
+            page: new FormControl(page, Validators.required)
         });
     }
 
@@ -117,7 +128,6 @@ export class ContentEditComponent {
                                 pages: [page]
                             };
                         }
-                        console.log("SAVING???");
                         this.pageService.updatePageContent(this.page, this.parentContent)
                         .then(() => {
                             this.close();

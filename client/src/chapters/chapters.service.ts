@@ -79,7 +79,11 @@ export class ChapterService {
                 const pageIds = _chapter.pages.map(_page => _page.id);
                 return pageIds.indexOf(page.id) >= 0;
             });
-            return chapter;
+            if (chapter) {
+                return chapter;
+            } else {
+                return Promise.reject('Not chapter for page');
+            }
         });
     }
 

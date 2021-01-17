@@ -20,7 +20,7 @@ import { ContentEditComponent } from './content-edit.component';
 import { PageContentModule } from 'page-content/page-content.module';
 import { PageGalleryComponent } from './page-gallery.component';
 import { ContentService } from './content.service';
-import { PageResolver } from './page.resolver';
+import { ChildPageResolver, PageResolver } from './page.resolver';
 
 
 const routes: Array<Route> = [
@@ -56,6 +56,16 @@ const routes: Array<Route> = [
     resolve: {
       page: PageResolver,
       isEditable: EditableResolver
+    },
+    runGuardsAndResolvers: 'always'
+  },
+  {
+    path: 'pages/:pageId/:childPageId',
+    component: PageComponent,
+    resolve: {
+      page: PageResolver,
+      isEditable: EditableResolver,
+      childPage: ChildPageResolver
     },
     runGuardsAndResolvers: 'always'
   },
@@ -104,6 +114,7 @@ const routes: Array<Route> = [
     PageContentModule
   ],
   providers: [
+    ChildPageResolver,
     ContentService,
     EditableResolver,
     PageResolver

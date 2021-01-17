@@ -1,6 +1,14 @@
 <ul>
     <li *ngFor="let page of pages">
-        {{page.title}}
+        <a (click)="goToPage(page)"
+            >
+            {{page.title}}
+        </a>
+        <button *ngIf="isEditable"
+            (click)="editPage(page)"
+            >
+            Edit {{page.title}}
+        </button>
     </li>
 </ul>
 <button *ngIf="isEditable"

@@ -14,3 +14,17 @@ export class PageResolver implements Resolve<Page> {
     }
 }
 
+@Injectable()
+export class ChildPageResolver implements Resolve<Page> {
+
+    constructor(
+        private pageService: PageService
+    ) {}
+
+    resolve(route: ActivatedRouteSnapshot): Promise<Page> {
+        const pageId = route.paramMap.get('childPageId');
+        return this.pageService.get(pageId);
+    }
+
+}
+

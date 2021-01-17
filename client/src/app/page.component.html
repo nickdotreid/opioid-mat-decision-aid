@@ -91,7 +91,8 @@
         <div *ngIf="content.contentType === 'page-gallery'">
             <app-page-gallery
                 [content]="content"
-                isEditable="isEditable"
+                [isEditable]="isEditable"
+                (navigateToPage)="goToChildPage($event)"
                 >
             </app-page-gallery>
         </div>
