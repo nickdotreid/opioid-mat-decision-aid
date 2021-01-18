@@ -73,23 +73,28 @@ export class ChapterService {
     }
 
     public getChapterForPage(page: Page): Promise<Chapter> {
-        return this.getAllChapters()
-        .then((chapters) => {
-            const chapter = chapters.find((_chapter) => {
-                const pageIds = _chapter.pages.map(_page => _page.id);
-                return pageIds.indexOf(page.id) >= 0;
+        return new Promise((resolve, reject) => {
+            this.getAllChapters()
+            .then((chapters) => {
+                const chapter = chapters.find((_chapter) => {
+                    const pageIds = _chapter.pages.map(_page => _page.id);
+                    return pageIds.indexOf(page.id) >= 0;
+                });
+                if (chapter) {
+                    resolve(chapter);
+                } else {
+                    reject('Not chapter for page');
+                }
+            })
+            .catch((error) => {
+                reject(error);
             });
-            if (chapter) {
-                return chapter;
-            } else {
-                return Promise.reject('Not chapter for page');
-            }
         });
     }
 
     public getPage(id: string): Promise<Page> {
         return this.getAllChapters()
-        .then((chapters) => {
+        .then((chapters: Array<Chapter>) => {
             let pages = [];
             chapters.forEach((_chapter) => {
                 pages = pages.concat(_chapter.pages);

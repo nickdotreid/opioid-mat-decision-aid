@@ -6,12 +6,14 @@
         <em *ngIf="page.published">Published</em>
         <em *ngIf="!page.published">Unublished</em>
     </p>
-    <button
+    <button *ngIf="isEditable"
         (click)="editPage()"
         >
         Edit Page Meta Data
     </button>
-    <button (click)="reorderPageContent()">
+    <button *ngIf="isEditable"
+        (click)="reorderPageContent()"
+        >
         Reorder Page Content
     </button>
     <button *ngIf="isEditable"
@@ -34,6 +36,11 @@
         >
         {{_chapter.title}}
     </a>
+</nav>
+<nav *ngIf="parentPage"
+    class="container"
+    >
+    <a (click)="goToParentPage()">{{parentPage.title}}</a>
 </nav>
 <app-page-navigation
     [page]="page"
@@ -97,10 +104,17 @@
             </app-page-gallery>
         </div>
     </div>
-    <nav *ngIf="isEditable">
-        <button (click)="addText()" >Add Text</button>
-        <button (click)="addButton()" >Add Button</button>
-        <button (click)="addQuestion()">Add Question</button>
-        <button (click)="addPageGallery()">Add Page Gallery</button>
+    <nav *ngIf="nextButtonText">
+        <button (click)="goToNextPage()">
+            {{nextButtonText}}
+        </button>
     </nav>
 </article>
+<nav *ngIf="isEditable"
+    class="container"
+    >
+    <button (click)="addText()" >Add Text</button>
+    <button (click)="addButton()" >Add Button</button>
+    <button (click)="addQuestion()">Add Question</button>
+    <button (click)="addPageGallery()">Add Page Gallery</button>
+</nav>

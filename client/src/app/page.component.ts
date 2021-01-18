@@ -20,6 +20,8 @@ export class PageComponent implements OnDestroy {
     public isEditable: boolean;
     public isEditor: boolean;
 
+    public nextButtonText: string;
+
     private routeSubscription: Subscription;
     private chapterSubscription: Subscription;
     private editorSubscription: Subscription;
@@ -75,12 +77,28 @@ export class PageComponent implements OnDestroy {
         this.router.navigate([{outlets: { modal: ['edit', 'page', this.page.id]}}]);
     }
 
+    public goToParentPage() {
+        if (this.isEditable) {
+            this.router.navigate(['pages', this.parentPage.id, 'edit']);
+        } else {
+            this.router.navigate(['pages', this.parentPage.id]);
+        }
+    }
+
     public editCurrentPage() {
-        this.router.navigate(['pages', this.page.id, 'edit']);
+        if (this.parentPage && this.page) {
+            this.router.navigate(['pages', this.parentPage.id, this.page.id, 'edit']);
+        } else {
+            this.router.navigate(['pages', this.page.id, 'edit']);
+        }
     }
 
     public viewCurrentPage() {
-        this.router.navigate(['pages', this.page.id]);
+        if (this.parentPage && this.page) {
+            this.router.navigate(['pages', this.parentPage.id, this.page.id]);
+        } else {
+            this.router.navigate(['pages', this.page.id]);
+        }
     }
 
     private updateContent() {
@@ -99,6 +117,16 @@ export class PageComponent implements OnDestroy {
         .then((contents) => {
             this.pageContents = contents;
         });
+
+        this.nextButtonText = undefined;
+        if (this.parentPage) {
+            this.nextButtonText = 'Back';
+        } else {
+            this.chapterService.getNextPage(this.page)
+            .then((page: Page) => {
+                this.nextButtonText = 'Next';
+            });
+        }
     }
 
     public editContent(content: PageContent) {
@@ -156,6 +184,27 @@ export class PageComponent implements OnDestroy {
                     this.router.navigate(['pages', page.id, 'edit']);
                 } else {
                     this.router.navigate(['pages', page.id]);
+                }
+            });
+        }
+    }
+
+    public goToNextPage() {
+        if (this.parentPage) {
+            if (this.isEditable) {
+                this.router.navigate(['pages', this.parentPage.id, 'edit']);
+            } else {
+                this.router.navigate(['pages', this.parentPage.id]);
+            }
+            window.scroll(0, 0);
+        } else {
+            this.chapterService.getNextPage(this.page)
+            .then((nextPage: Page) => {
+                window.scroll(0, 0);
+                if (this.isEditable) {
+                    this.router.navigate(['pages', nextPage.id, 'edit']);
+                } else {
+                    this.router.navigate(['pages', nextPage.id]);
                 }
             });
         }

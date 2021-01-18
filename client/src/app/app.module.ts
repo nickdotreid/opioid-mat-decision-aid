@@ -51,6 +51,16 @@ const routes: Array<Route> = [
     }
   },
   {
+    path: 'pages/:pageId/:childPageId/edit',
+    component: PageComponent,
+    resolve: {
+      childPage: ChildPageResolver,
+      page: PageResolver,
+      isEditable: EditableResolver
+    },
+    runGuardsAndResolvers: 'always'
+  },
+  {
     path: 'pages/:pageId/edit',
     component: PageComponent,
     resolve: {
@@ -64,7 +74,6 @@ const routes: Array<Route> = [
     component: PageComponent,
     resolve: {
       page: PageResolver,
-      isEditable: EditableResolver,
       childPage: ChildPageResolver
     },
     runGuardsAndResolvers: 'always'
