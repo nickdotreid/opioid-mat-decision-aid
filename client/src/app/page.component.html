@@ -69,7 +69,14 @@
             <app-text [html]="content.data.text"></app-text>
         </div>
         <div *ngIf="content.contentType === 'question'">
-            <app-boolean-field>{{content.data.label}}</app-boolean-field>
+            <fieldset>
+                <legend>{{content.data.label}}</legend>
+                <label *ngFor="let option of content.data.options">
+                    <input *ngIf="content.data.format === 'radio'" type="radio" name="content.id" value="{{index}}" />
+                    <input *ngIf="content.data.format === 'checkbox'" type="checkbox" name="content.id" value="{{index}}" />
+                    {{option}}
+                </label>
+            </fieldset>
         </div>
         <div *ngIf="content.contentType === 'accordion'"
             class="app-accordion"
@@ -100,6 +107,7 @@
                 [content]="content"
                 [isEditable]="isEditable"
                 (navigateToPage)="goToChildPage($event)"
+                (updatedContent)="updatedContent($event)"
                 >
             </app-page-gallery>
         </div>

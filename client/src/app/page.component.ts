@@ -159,6 +159,10 @@ export class PageComponent implements OnDestroy {
         this.addContent('question');
     }
 
+    public updatedContent(content: PageContent) {
+        this.pageService.updatePageContent(this.page, content);
+    }
+
     public addPageGallery() {
         const pageGallery = new PageContent();
         pageGallery.contentType = 'page-gallery';

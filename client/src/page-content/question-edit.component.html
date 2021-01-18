@@ -1,14 +1,23 @@
 <form *ngIf="form"
     [formGroup]="form"
     >
-    <app-text-field
-        label = "Question label"
-        formControlName='label'
-        >
-    </app-text-field>
-    <app-text-field
-        label = "Participant Property"
-        formControlName='label'
-        >
-    </app-text-field>
+    <label for="label">Question Label</label>
+    <input id="label" type="text" formControlName="label" />
+    <fieldset>
+        <legend>Question Format</legend>
+        <label *ngFor="let option of formatOptions">
+            <input type="radio" [value]="option.value" formControlName="format" />
+            {{option.name}}
+        </label>
+    </fieldset>
+    <ul #options >
+        <li *ngFor="let _optionFormGroup of optionFormGroups; index as index"
+            [formGroup]="_optionFormGroup"
+            >
+            <label for="option-label-{{index}}">Option Label</label>
+            <input id="option-label-{{index}}" formControlName="label" type="text" />
+            <button (click)="removeOption(index)">Remove</button>
+        </li>
+    </ul>
+    <button type="button" (click)="addOption()">Add Option</button>
 </form>
