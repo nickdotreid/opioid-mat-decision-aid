@@ -6,7 +6,6 @@ import { AccordionEditComponent } from './accordion-edit.component';
 import { ButtonEditComponent } from './button-edit.component';
 import { PopoverGalleryComponent } from './popover-gallery.component';
 import { QuestionEditComponent } from './question-edit.component';
-import { QuestionComponent } from './question.component';
 import { TextEditComponent } from './text-edit.component';
 import { TextComponent } from './text.compontent';
 
@@ -18,8 +17,7 @@ import { TextComponent } from './text.compontent';
         TextComponent,
         TextEditComponent,
         QuestionEditComponent,
-        PopoverGalleryComponent,
-        QuestionComponent
+        PopoverGalleryComponent
     ],
     exports: [
         AccordionEditComponent,
@@ -27,8 +25,7 @@ import { TextComponent } from './text.compontent';
         TextComponent,
         TextEditComponent,
         QuestionEditComponent,
-        PopoverGalleryComponent,
-        QuestionComponent
+        PopoverGalleryComponent
     ],
     imports: [
         BrowserModule,
