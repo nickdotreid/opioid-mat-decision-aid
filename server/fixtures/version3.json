@@ -1,0 +1,936 @@
+[
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$LV0SP5AEgNly$OtSAdwRJfz0RBm2Z1GaxNZ31Va5Lwq2BBNR0fgsVQuA=",
+        "last_login": null,
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@nickreid.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2021-01-25T00:17:38.487Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "chapters.chapter",
+    "pk": 1,
+    "fields": {
+        "order": 10,
+        "title": "Introduction",
+        "published": true
+    }
+},
+{
+    "model": "chapters.chapter",
+    "pk": 2,
+    "fields": {
+        "order": 20,
+        "title": "Opioid Use Disorder and Treatment",
+        "published": true
+    }
+},
+{
+    "model": "chapters.chapter",
+    "pk": 3,
+    "fields": {
+        "order": 30,
+        "title": "Medication Differences",
+        "published": true
+    }
+},
+{
+    "model": "chapters.chapter",
+    "pk": 4,
+    "fields": {
+        "order": 40,
+        "title": "Summary",
+        "published": true
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 1,
+    "fields": {
+        "order": 10,
+        "title": "A Decision Aid for Opioid Use Disorder Treatment",
+        "published": true,
+        "content": null,
+        "chapter": 1,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 2,
+    "fields": {
+        "order": 10,
+        "title": "What is Opioid Use Disorder",
+        "published": true,
+        "content": null,
+        "chapter": 2,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 3,
+    "fields": {
+        "order": 20,
+        "title": "What is treatment for Opioid Use Disorder like?",
+        "published": true,
+        "content": null,
+        "chapter": 2,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 4,
+    "fields": {
+        "order": 30,
+        "title": "How can medication help?",
+        "published": true,
+        "content": null,
+        "chapter": 2,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 5,
+    "fields": {
+        "order": 40,
+        "title": "If I don't like treatment, will I be able to quit on my own?",
+        "published": true,
+        "content": null,
+        "chapter": 2,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 6,
+    "fields": {
+        "order": 10,
+        "title": "Which medication is right for me?",
+        "published": true,
+        "content": null,
+        "chapter": 3,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 7,
+    "fields": {
+        "order": 20,
+        "title": "Which medication is right for me?",
+        "published": true,
+        "content": null,
+        "chapter": 3,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 8,
+    "fields": {
+        "order": 10,
+        "title": "Summary",
+        "published": true,
+        "content": null,
+        "chapter": 4,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 9,
+    "fields": {
+        "order": 10,
+        "title": "Can I start treatment if I have been using?",
+        "published": true,
+        "content": null,
+        "chapter": null,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 10,
+    "fields": {
+        "order": 20,
+        "title": "Where do I get my medication?",
+        "published": true,
+        "content": null,
+        "chapter": null,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 11,
+    "fields": {
+        "order": 30,
+        "title": "Will there be side effects?",
+        "published": true,
+        "content": null,
+        "chapter": null,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 12,
+    "fields": {
+        "order": 40,
+        "title": "If I quit treatment, will I have withdrawal?",
+        "published": true,
+        "content": null,
+        "chapter": null,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 13,
+    "fields": {
+        "order": 50,
+        "title": "here do I get my medication?",
+        "published": true,
+        "content": null,
+        "chapter": null,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 14,
+    "fields": {
+        "order": 60,
+        "title": "How much will medication cost?",
+        "published": true,
+        "content": null,
+        "chapter": null,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 15,
+    "fields": {
+        "order": 70,
+        "title": "Will it treat my withdrawal and cravings?",
+        "published": true,
+        "content": null,
+        "chapter": null,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 1,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 1,
+        "content_type": "text",
+        "data": {
+            "text": "<p>There are three medical treatment options for opioid use disorder: (1) Methadone, (2) Buprenorphine, and (3) Naltrexone. All 3 treatment options help people with opioid addiction get better. <br></p><p>But even though treatment works, people who start treatment don\u2019t always stick with it. Maybe you or someone you know has done this. <br></p><p>One of the biggest reasons why people stop a certain medical treatment is because *that treatment was not right fit for them!*</p><p>All treatment options are different. They differ in how you take them, where you get them, how they make you feel, and so on. . .</p><p>This decision aid will give you all the information you need to know about your treatment options, and how they differ, so that you can decide which treatment is right for you. <br></p><p>At the end of this decision aid, you will be given a print out to take to your doctor to discuss what you\u2019ve learned. </p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 2,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 2,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Opioids are a type of drug that includes heroin and prescription pain medications like percocet, vicodin, oxycodone, oxycontin, and fentanyl.</p><p>Opioid Use Disorder, also called \u201copioid addiction\u201d, is a medical condition that develops when a person uses opioids to the point that it becomes harmful to their physical and mental health.</p><p>Opioid Use Disorder is not the same for everyone. Some people need these drugs just to feel normal, even if it causes problems or takes over their life. Others may be able to maintain a normal life but still find it very difficult to quit--even when they really want to. <br></p><p>No matter what your opioid use looks like, medical treatment can help you quit using and live a life without drugs. </p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 3,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 3,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Opioid Use Disorder is a *chronic disease*, which means it can take time to get stable and for the brain to heal. Most patients need at least *3-5 years* of treatment, and some need much longer. You will work with your doctor to decide what is right for you.</p><p>Recovery will have ups and downs--some patients get better, then start using opioids again *(relapse)*, and have to restart or adjust their treatment to become stable again *(remit)*. *This is very common* and may even happen multiple times.</p><p>The good news is that even if you relapse, treatment can get you better again, and help you remain stable over time. </p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 4,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 4,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Medication Makes Quitting Easier</h3><div><p>Medications like *Methadone* and *Buprenorphine* help you quit because they treat *withdrawal* symptons and decrease *cravings*, making it eaiser to trasnition away from using drugs. Other medications like *Naltrexone* do not treat withdrawal or cravings, but other treatment can be provided.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 5,
+    "fields": {
+        "order": 20,
+        "title": "text",
+        "published": true,
+        "page": 4,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Medication Will Save Your Life</h3><div><p>Getting stable on medication means you will be protected from overdose and life-threatening infections that come with drug use. If you have other medical conditions (like heart disease, HIV, or depression), being linked to treatment makes it easier to get medical care for other ailments.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 6,
+    "fields": {
+        "order": 30,
+        "title": "text",
+        "published": true,
+        "page": 4,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Medication Will Improve Your Health</h3><div><p>Patients who get stable on medication report improvements in their mental and physical health. Some of these improvements include:</p><p>*Better Mood*: Medications improve your mood by decreasing anxiety and depression, and helping you feel more even.</p><p>*Fewer Infections*: Medications can lower injection behavior and\timprove your immune system, which means less risk for infections.</p><p>*Better Access to Care*: Medications can stabilize your life so you\tcan get medical and psychological care you need</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 7,
+    "fields": {
+        "order": 40,
+        "title": "text",
+        "published": true,
+        "page": 4,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Medication Will Improve Your Day-To-Day Life</h3><div><p>Medication lowers your risk of arrest and legal problems. It stabilizes you so you can connect to your family, relationships, and work.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 8,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 5,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Stopping treatment suddently on your own is dangerous!</p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 9,
+    "fields": {
+        "order": 20,
+        "title": "text",
+        "published": true,
+        "page": 5,
+        "content_type": "text",
+        "data": {
+            "text": "<p>For all forms of treatment, stopping suddenly on your own increases your risk of death, *especially during the first 2 weeks after stopping*.</p><p>The two weeks after suddenly quitting treatment are especially dangerous because people are more likely to return to opioid use, and are more likely to overdose if they do.</p><p>Whenever you feel it\u2019s time to stop treatment, you are strongly encouraged to work with your doctor to figure out a plan to do so safely.</p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 10,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 6,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Methadone, Buprenorphine, and Naltrexone are all effective treatments for opioid use disorder. <br></p><p>These three treatments differ in how they\u2019re taken, where you go to get it, side effects, etc... Most patients find that one of these medications fits better with their preferences compared to others. <br></p><p>On the next page, you will be able to look over these differences to figure out which medication is right for you.   </p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 11,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 7,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Touch any one of the boxes below to learn more information about how different treatments for OUD fit in with your lifestyle. Once you have looked over all of the information, you will be provided a summary on the next page.</p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 12,
+    "fields": {
+        "order": 20,
+        "title": "Page Gallery",
+        "published": true,
+        "page": 7,
+        "content_type": "page-gallery",
+        "data": {
+            "pages": [
+                {
+                    "id": 9,
+                    "quiz": null,
+                    "chart": null,
+                    "title": "Can I start treatment if I have been using?",
+                    "content": null,
+                    "published": true
+                },
+                {
+                    "id": 10,
+                    "quiz": null,
+                    "chart": null,
+                    "title": "Where do I get my medication?",
+                    "content": null,
+                    "published": true
+                },
+                {
+                    "id": 11,
+                    "quiz": null,
+                    "chart": null,
+                    "title": "Will there be side effects?",
+                    "content": null,
+                    "published": true
+                },
+                {
+                    "id": 12,
+                    "quiz": null,
+                    "chart": null,
+                    "title": "If I quit treatment, will I have withdrawal?",
+                    "content": null,
+                    "published": true
+                },
+                {
+                    "id": 13,
+                    "quiz": null,
+                    "chart": null,
+                    "title": "here do I get my medication?",
+                    "content": null,
+                    "published": true
+                },
+                {
+                    "id": 14,
+                    "quiz": null,
+                    "chart": null,
+                    "title": "How much will medication cost?",
+                    "content": null,
+                    "published": true
+                },
+                {
+                    "id": 15,
+                    "quiz": null,
+                    "chart": null,
+                    "title": "Will it treat my withdrawal and cravings?",
+                    "content": null,
+                    "published": true
+                }
+            ]
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 13,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 9,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Methadone</h3><div><p>You can start Methadone treatment immediately, even if you have been using.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 14,
+    "fields": {
+        "order": 20,
+        "title": "text",
+        "published": true,
+        "page": 9,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Buprenorphine</h3><p>You can start Buprenorphine as long as you haven\u2019t used in the last 12-24 hours.</p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 15,
+    "fields": {
+        "order": 30,
+        "title": "text",
+        "published": true,
+        "page": 9,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Naltrexone</h3><div><p>You must wait 7 days from you last use before starting Naltrexone. Your doctor can prescribe medications to help you manage withdrawal and cravings during this time. <br></p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 16,
+    "fields": {
+        "order": 40,
+        "title": "question",
+        "published": true,
+        "page": 9,
+        "content_type": "question",
+        "data": {
+            "label": "Are you willing to wait between stoping opioids and starting treatment?",
+            "format": "radio",
+            "options": [
+                "No I want to start treatment right away",
+                "I'm willing to wait up to 24 hours",
+                "I am willing to wait up to 7 days, with help"
+            ]
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 17,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 10,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Methadone</h3><div><p>You will go to a specialized clinic almost every day to receive your dose. After 3 months you may be allowed to take medications at home.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 18,
+    "fields": {
+        "order": 20,
+        "title": "text",
+        "published": true,
+        "page": 10,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Buprenorphine</h3><div><p>You will start taking Buprenorphine at a clinic. After 1-3 days, you will be able to pick it up from the pharmacy and take it at home. You may need to come to clinic every week in the beginning to make sure the dose is right and that you are stable.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 19,
+    "fields": {
+        "order": 30,
+        "title": "text",
+        "published": true,
+        "page": 10,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Naltrexone</h3><div><p>You may need to meet with your doctor until you feel stable, after that, you come into the clinic once a month to get an injection.<br></p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 20,
+    "fields": {
+        "order": 40,
+        "title": "question",
+        "published": true,
+        "page": 10,
+        "content_type": "question",
+        "data": {
+            "label": "I'd like to get my medications from...",
+            "format": "radio",
+            "options": [
+                "At a clinic on a daily basis",
+                "A pharmacy and then take them home",
+                "A clinic once a month"
+            ]
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 21,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 11,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Methadone</h3><div><p>Side effects from methadone include: sleeping problems, weight gain, constipation, nausea, forgetfulness.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 22,
+    "fields": {
+        "order": 20,
+        "title": "text",
+        "published": true,
+        "page": 11,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Buprenorphine</h3><div><p>Side effects from buprenorphine include: sleeping problems, headaches</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 23,
+    "fields": {
+        "order": 30,
+        "title": "text",
+        "published": true,
+        "page": 11,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Naltrexone</h3><div><p>Side effects from naltrexone include: irritation where you get the injection.<br></p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 24,
+    "fields": {
+        "order": 40,
+        "title": "question",
+        "published": true,
+        "page": 11,
+        "content_type": "question",
+        "data": {
+            "label": "Of the side effects listed below, are there any that you absolutely will not deal with?",
+            "format": "checkbox",
+            "options": [
+                "Sleeping problems",
+                "Weight gain",
+                "Constipation",
+                "Nausea",
+                "Forgetfulness",
+                "Headaches",
+                "Skin irritation"
+            ]
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 25,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 12,
+        "content_type": "text",
+        "data": {
+            "text": "<p>People who quit treatment suddenly without the help of their doctor will experience medication withdrawal. Withdrawal is worse for some medications than others.</p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 26,
+    "fields": {
+        "order": 20,
+        "title": "text",
+        "published": true,
+        "page": 12,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Methadone</h3><div><p>Methadone withdrawal is as intense as opioids like heroin, but lasts longer, for 6 weeks</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 27,
+    "fields": {
+        "order": 30,
+        "title": "text",
+        "published": true,
+        "page": 12,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Buprenorphine</h3><div><p>Buprenorphine withdrawal is less intense than opioids like heroin, and lasts 1 week<br></p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 28,
+    "fields": {
+        "order": 40,
+        "title": "text",
+        "published": true,
+        "page": 12,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Naltrexone</h3><div><p>No, there is no withdrawal with naltrexone.<br></p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 29,
+    "fields": {
+        "order": 50,
+        "title": "question",
+        "published": true,
+        "page": 12,
+        "content_type": "question",
+        "data": {
+            "label": "If you decide the medication you are taking isn\u2019t right for you, how willing are you to work with your doctor to make a plan for stopping?",
+            "format": "radio",
+            "options": [
+                "Very willing",
+                "Somewhat willing",
+                "I don't want to have to work with my doctor"
+            ]
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 30,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 14,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Public insurance (Husky) covers all medications with little cost to you. Private insurances usually cover medication, but cost may differ. Even without insurance, the cost of medication is less than drugs.</p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 31,
+    "fields": {
+        "order": 20,
+        "title": "text",
+        "published": true,
+        "page": 14,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Methadone</h3><div><p>Without insurance, methadone will cost you $300 per month.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 32,
+    "fields": {
+        "order": 30,
+        "title": "text",
+        "published": true,
+        "page": 14,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Buprenorphine</h3><div><p>Without insurance, buprenorphine will cost you $200 per month.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 33,
+    "fields": {
+        "order": 40,
+        "title": "text",
+        "published": true,
+        "page": 14,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Naltrexone</h3><div><p>Without insurance, naltrexone will cost you $1350 per month.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 34,
+    "fields": {
+        "order": 50,
+        "title": "question",
+        "published": true,
+        "page": 14,
+        "content_type": "question",
+        "data": {
+            "label": "How much are you willing to pay for your medications?",
+            "format": "radio",
+            "options": [
+                "$200",
+                "$300",
+                "$1,350"
+            ]
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 35,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 15,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Methadone</h3><div><p>Methadone will treat your opioid withdrawal and cravings.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 36,
+    "fields": {
+        "order": 20,
+        "title": "text",
+        "published": true,
+        "page": 15,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Buprenorphine</h3><div><p>Buprenorphine will treat your opioid withdrawal and cravings.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 37,
+    "fields": {
+        "order": 30,
+        "title": "text",
+        "published": true,
+        "page": 15,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Naltrexone</h3><div><p>Naltrexone does not treat opioid withdrawal or cravings. Your doctor will prescribe other medications to help treat these symptoms. </p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 38,
+    "fields": {
+        "order": 40,
+        "title": "question",
+        "published": true,
+        "page": 15,
+        "content_type": "question",
+        "data": {
+            "label": "Would you like for your medication to treat your withdrawal and cravings?",
+            "format": "radio",
+            "options": [
+                "Yes",
+                "I am okay with getting other meds for that"
+            ]
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 39,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 8,
+        "content_type": "text",
+        "data": {
+            "text": "<p>At the end of each medication difference page, we asked you about your preference for getting medications, side effects, and so on... Your answers are summarized below. Please print this summary at take it to your doctor or treatment professional to discuss which treatment may be right for you. </p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 40,
+    "fields": {
+        "order": 20,
+        "title": "button",
+        "published": true,
+        "page": 8,
+        "content_type": "button",
+        "data": {
+            "label": "Print Summary"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 41,
+    "fields": {
+        "order": 30,
+        "title": "text",
+        "published": true,
+        "page": 8,
+        "content_type": "text",
+        "data": {
+            "text": "<p>[Add Summary Here]<br></p>"
+        }
+    }
+}
+]
