@@ -329,6 +329,7 @@ ul.bullets > li {
     padding: 0px;
     margin: 0px;
     border: 0px;
+    text-align: left;
 }
 
 .app > header nav {
@@ -376,6 +377,17 @@ form fieldset legend {
     display: block;
     font-weight: bold;
     font-size: 1em;
+}
+
+form {
+    input[type='radio'],
+    input[type='checkbox'] {
+        float: left;
+    }
+    input[type='radio'] + label,
+    input[type='checkbox'] + label {
+        font-weight: normal;
+    }    
 }
 
 form > * {
@@ -665,6 +677,32 @@ svg .bubble-outline {
     }
 }
 
+.page-gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    > * {
+        width: 45%;
+        margin: 0.25em;
+        flex: 0 1 auto;
+        border: 1px $color-text solid;
+        padding: 0.25em;
+        padding-bottom: 1.5em;
+        position: relative;
+
+        > button:last-child {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            white-space: nowrap;
+            display: block;
+            overflow: hidden;
+            width: 100%;
+        }
+    }
+}
+
 .modal-container {
 
     > * {
@@ -706,4 +744,18 @@ svg .bubble-outline {
 
 }
 
+
+#content {
+    > nav:last-child {
+        
+        > button {
+            background-color: $color-primary;
+            color: #ffffff;
+            font-weight: bold;
+            border-width: 0px;
+            box-shadow: 0px 0px 0.25em $color-text;
+            margin: 1em 0em;
+        }
+    }
+}
 
