@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material';
 import { Chapter, ChapterService } from 'chapters/chapters.service';
 import { LoginService } from 'login/login.service';
 import { ReorderPagesComponent } from 'chapters/reorder-pages.component';
+import { ParticipantService } from 'participant/participant.service';
 
 @Component({
     templateUrl: './page.component.html'
@@ -32,7 +33,8 @@ export class PageComponent implements OnDestroy {
         private route: ActivatedRoute,
         private router: Router,
         private dialog: MatDialog,
-        private loginService: LoginService
+        private loginService: LoginService,
+        private participantService: ParticipantService
     ) {
         console.log('Page component start');
         this.routeSubscription = this.route.data.subscribe((data) => {
@@ -99,6 +101,14 @@ export class PageComponent implements OnDestroy {
         } else {
             this.router.navigate(['pages', this.page.id]);
         }
+    }
+
+    public getAnswer(key: any) {
+        return this.participantService.getAnswer(key);
+    }
+
+    public updateAnswer(key: string, answer: any) {
+        this.participantService.updateAnswer(key, answer);
     }
 
     private updateContent() {

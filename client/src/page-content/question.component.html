@@ -1,0 +1,23 @@
+<form>
+    <fieldset>
+        <legend>{{label}}</legend>
+        <div *ngFor="let option of options; index as index">
+            <input *ngIf="format === 'radio'"
+                id="{{key}}-{{index}}"
+                type="radio"
+                name="{{key}}"
+                value="{{index}}"
+                [checked]="isChecked(index)"
+                (change)="updateValue(index)"
+                />
+            <input *ngIf="format === 'checkbox'"
+                type="checkbox"
+                id="{{key}}-{{index}}"
+                name="{{key}}"
+                value="{{index}}"
+                [checked]="isChecked(index)"
+                />
+            <label for="{{key}}-{{index}}">{{option}}</label>
+        </div>
+    </fieldset>
+</form>

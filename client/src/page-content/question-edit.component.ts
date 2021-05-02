@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, ElementRef, Inject, ViewChild } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Sortable } from '@shopify/draggable';
 import { FormGroup, FormControl, Validators, ControlValueAccessor, NG_VALUE_ACCESSOR, FormArray } from '@angular/forms';
 
@@ -54,11 +53,15 @@ export class QuestionEditComponent implements ControlValueAccessor, AfterViewIni
     public writeValue(data: any) {
         let label;
         let format;
+        let key;
         if (data && data.label) {
             label = data.label;
         }
         if (data && data.format) {
             format = data.format;
+        }
+        if (data && data.key) {
+            key = data.key;
         }
         if (data && data.options && Array.isArray(data.options)) {
             data.options.forEach((option) => {
@@ -66,6 +69,7 @@ export class QuestionEditComponent implements ControlValueAccessor, AfterViewIni
             });
         }
         this.form = new FormGroup({
+            key: new FormControl(key, Validators.required),
             label: new FormControl(label, Validators.required),
             format: new FormControl(format, Validators.required),
         });
@@ -76,6 +80,7 @@ export class QuestionEditComponent implements ControlValueAccessor, AfterViewIni
 
     private changeValues() {
         this.onChange({
+            key: this.form.get('key').value,
             label: this.form.get('label').value,
             format: this.form.get('format').value,
             options: this.optionFormGroups.map((optionFG) => {

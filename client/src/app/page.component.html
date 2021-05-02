@@ -69,26 +69,15 @@
             <app-text [html]="content.data.text"></app-text>
         </div>
         <div *ngIf="content.contentType === 'question'">
-            <form>
-                <fieldset>
-                    <legend>{{content.data.label}}</legend>
-                    <div *ngFor="let option of content.data.options; index as index">
-                        <input *ngIf="content.data.format === 'radio'"
-                            id="{{content.id}}-{{index}}"
-                            type="radio"
-                            name="{{content.id}}"
-                            value="{{index}}"
-                            />
-                        <input *ngIf="content.data.format === 'checkbox'"
-                            type="checkbox"
-                            id="{{content.id}}-{{index}}"
-                            name="{{content.id}}"
-                            value="{{index}}"
-                            />
-                        <label for="{{content.id}}-{{index}}">{{option}}</label>
-                    </div>
-                </fieldset>
-            </form>
+            <app-question
+                [key]="content.data.key"
+                [value]="getAnswer(content.data.key)"
+                [label]="content.data.label"
+                [format]="content.data.format"
+                [options]="content.data.options"
+                (answerChanged)="updateAnswer(content.data.key, $event)"
+                >
+            </app-question>
         </div>
         <div *ngIf="content.contentType === 'accordion'"
             class="app-accordion"

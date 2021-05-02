@@ -21,6 +21,7 @@ import { PageContentModule } from 'page-content/page-content.module';
 import { PageGalleryComponent } from './page-gallery.component';
 import { ContentService } from './content.service';
 import { ChildPageResolver, PageResolver } from './page.resolver';
+import { ParticipantModule } from 'participant/participant.module';
 
 
 const routes: Array<Route> = [
@@ -116,6 +117,7 @@ const routes: Array<Route> = [
     FormModule,
     LoginModule,
     ChapterModule,
+    ParticipantModule,
     MatSidenavModule,
     FormsModule,
     ReactiveFormsModule,
