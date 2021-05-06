@@ -1,0 +1,8 @@
+
+
+<section *ngFor="let question of summarizedQuestions">
+    <p>{{question.label}}</p>
+    <p *ngIf="question.answer">
+        {{question.answer}}
+    </p>
+</section>

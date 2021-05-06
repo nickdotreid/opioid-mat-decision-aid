@@ -16,6 +16,7 @@ from chapters.views import PageDetailsView
 from chapters.views import PageContentDetailView
 from chapters.views import PageContentListView
 from chapters.views import ChapterPagesView
+from chapters.views import QuestionListView
 from charts.views import ListCharts
 from editors.views import EditorLogin
 from medications.views import ListAllMedications
@@ -37,5 +38,6 @@ urlpatterns = [
     path('api/pages/<page_id>/content/<content_id>', PageContentDetailView.as_view(), name='page-content-detail'),
     path('api/pages/<page_id>/content/', PageContentListView.as_view(), name='page-content-list'),
     path('api/pages/<page_id>/', PageDetailsView.as_view(), name='page-details'),
-    path('api/pages/', PageListView.as_view(), name='page-list')
+    path('api/pages/', PageListView.as_view(), name='page-list'),
+    path('api/questions/', QuestionListView.as_view(), name='question-list')
 ] + static(settings.MEDIA_URL_DEFAULT, document_root=settings.MEDIA_ROOT)

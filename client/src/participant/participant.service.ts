@@ -49,9 +49,6 @@ export class ParticipantService {
     }
 
     public getAnswer(key): any {
-        console.log('answers', this.answers);
-        console.log('getting answer', key);
-        console.log('returning', this.answers[key]);
         return this.answers[key];
     }
 

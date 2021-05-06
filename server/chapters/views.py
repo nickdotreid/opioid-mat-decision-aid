@@ -271,3 +271,12 @@ class PageContentDetailView(APIView):
         content = self.get_content(page_id, content_id)
         content.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+class QuestionListView(APIView):
+
+    def get(self, request):
+        questions = OrderableContent.objects.filter(
+            content_type = 'question'
+        )
+        serialized = OrderableContentSerialzer(questions, many=True)
+        return Response(serialized.data)

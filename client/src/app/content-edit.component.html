@@ -31,6 +31,10 @@
             formControlName="page"
             >
         </app-page-edit>
+        <app-summary-edit *ngIf="contentType=='summary'"
+            formControlName="data"
+            >
+        </app-summary-edit>
         <button type="submit">Update</button>
     </form>
 </article>

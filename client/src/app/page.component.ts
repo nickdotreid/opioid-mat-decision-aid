@@ -169,6 +169,10 @@ export class PageComponent implements OnDestroy {
         this.addContent('question');
     }
 
+    public addSummary() {
+        this.addContent('summary');
+    }
+
     public updatedContent(content: PageContent) {
         this.pageService.updatePageContent(this.page, content);
     }

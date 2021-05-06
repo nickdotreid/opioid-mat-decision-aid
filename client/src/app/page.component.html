@@ -103,6 +103,9 @@
                 </div>
             </div>
         </div>
+        <div *ngIf="content.contentType =='summary'">
+            <app-summary [selectedQuestionIDs]="content.data.selectedQuestionIDs"></app-summary>
+        </div>
         <div *ngIf="content.contentType === 'page-gallery'">
             <app-page-gallery
                 [content]="content"
@@ -125,5 +128,6 @@
     <button (click)="addText()" >Add Text</button>
     <button (click)="addButton()" >Add Button</button>
     <button (click)="addQuestion()">Add Question</button>
+    <button (click)="addSummary()">Add Summary</button>
     <button (click)="addPageGallery()">Add Page Gallery</button>
 </nav>
