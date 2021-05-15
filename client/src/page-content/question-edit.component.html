@@ -18,6 +18,8 @@
             >
             <label for="option-label-{{index}}">Option Label</label>
             <input id="option-label-{{index}}" formControlName="label" type="text" />
+            <label for="option-value-{{index}}">Option Value</label>
+            <input id="option-value-{{index}}" formControlName="value" type="text" />
             <button (click)="removeOption(index)">Remove</button>
         </li>
     </ul>

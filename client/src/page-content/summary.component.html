@@ -1,8 +1,13 @@
 
 
 <section *ngFor="let question of summarizedQuestions">
-    <p>{{question.label}}</p>
-    <p *ngIf="question.answer">
-        {{question.answer}}
-    </p>
+    <h3>Title</h3>
+    <dl>
+        <dt>Question</dt>
+        <dd>{{question.label}}</dd>
+        <dt *ngIf="question.answer">Answer</dt>
+        <dd *ngIf="question.answer">{{question.answer.label}}</dd>
+        <dt *ngIf="question.answer">We recommend</dt>
+        <dd *ngIf="question.answer">{{question.answer.value}}</dd>
+    </dl>
 </section>

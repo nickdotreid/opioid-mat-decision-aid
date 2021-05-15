@@ -65,7 +65,7 @@ export class QuestionEditComponent implements ControlValueAccessor, AfterViewIni
         }
         if (data && data.options && Array.isArray(data.options)) {
             data.options.forEach((option) => {
-                this.addOption(option);
+                this.addOption(option.label, option.value);
             });
         }
         this.form = new FormGroup({
@@ -84,7 +84,10 @@ export class QuestionEditComponent implements ControlValueAccessor, AfterViewIni
             label: this.form.get('label').value,
             format: this.form.get('format').value,
             options: this.optionFormGroups.map((optionFG) => {
-                return optionFG.get('label').value;
+                return {
+                    label: optionFG.get('label').value,
+                    value: optionFG.get('value').value
+                };
             })
         });
     }
@@ -101,9 +104,10 @@ export class QuestionEditComponent implements ControlValueAccessor, AfterViewIni
         this.disabled = disabled;
     }
 
-    public addOption(optionLabel) {
+    public addOption(label: string, value: string) {
         const formGroup = new FormGroup({
-            label: new FormControl(optionLabel, Validators.required)
+            label: new FormControl(label, Validators.required),
+            value: new FormControl(value)
         });
         formGroup.valueChanges.subscribe(() => {
             this.changeValues();
