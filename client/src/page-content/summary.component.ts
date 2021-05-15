@@ -48,6 +48,17 @@ export class SummaryComponent implements OnChanges {
                     });
                 }
             });
+            summaryQuestions.sort((a, b) => {
+                const a_position = this.selectedQuestionIDs.indexOf(a.id);
+                const b_position = this.selectedQuestionIDs.indexOf(b.id);
+                if (b_position < 0 || a_position > b_position) {
+                    return 1;
+                }
+                if (a_position < 0 || b_position > a_position ) {
+                    return -1;
+                }
+                return 0;
+            });
             this.summarizedQuestions = summaryQuestions;
         });
     }

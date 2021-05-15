@@ -1,13 +1,19 @@
-<fieldset class="checkboxes">
-    <legend>Questions to Summarize</legend>
-    <label *ngFor="let question of questions">
-        <input type="checkbox"
-            [value]="question.id"
-            [checked]="isSelected(question.id)"
-            (change)="toggleSelection(question.id)"
-            name="questions"
-            />
-        {{question.id}}
-        {{question.label}}
-    </label>
+<section #selectedQuestionsList>
+    <h3>Question Summaries</h3>
+    <fieldset *ngFor="let question of selectedQuestions">
+        <legend>{{question.id}} {{question.label}}</legend>
+        <label for="summary-title-{{question.id}}">Title</label>
+        <input id="summary-title-{{question.id}}" type="text" />
+        <button type="button" (click)="remove(question)">Remove from summary</button>
+    </fieldset>
+</section>
+
+<fieldset>
+    <legend>Unselected Questions</legend>
+    <ul>
+        <li *ngFor="let question of unselectedQuestions">
+            {{question.label}}
+            <button type="button" (click)="add(question)" >Add question to summary</button>
+        </li>
+    </ul>
 </fieldset>
