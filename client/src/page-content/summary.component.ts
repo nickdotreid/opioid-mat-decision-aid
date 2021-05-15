@@ -10,6 +10,7 @@ import { ServerService } from 'server/server.service';
 export class SummaryComponent implements OnChanges {
 
     @Input() selectedQuestionIDs: Array<string>;
+    @Input() questionData: any;
     public summarizedQuestions: Array<any> = [];
 
     constructor(
@@ -21,17 +22,27 @@ export class SummaryComponent implements OnChanges {
         this.update();
     }
 
+    private getQuestionData(question): any {
+        if (this.questionData && this.questionData[question.id]) {
+            return this.questionData[question.id];
+        } else {
+            return {};
+        }
+    }
+
     private update() {
         this.serverService.get('questions')
         .then((questions) => {
             const summaryQuestions = [];
             questions.forEach((question) => {
                 if (this.selectedQuestionIDs.includes(question.id)) {
+                    const questionData = this.getQuestionData(question);
                     summaryQuestions.push({
                         id: question.id,
                         key: question.data.key,
                         label: question.data.label,
-                        options: question.data.options
+                        options: question.data.options,
+                        title: questionData['title']
                     });
                 }
             });

@@ -1,7 +1,8 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 import { ServerService } from 'server/server.service';
 import { Sortable } from '@shopify/draggable';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -19,6 +20,9 @@ export class SummaryEditComponent implements ControlValueAccessor, AfterViewInit
     private selectedQuestionIDs: Array<string> = [];
     public selectedQuestions: Array<any> = [];
     public unselectedQuestions: Array<any> = [];
+    private formGroupsByQuestionId: any = {};
+    private subscriptions: Array<Subscription> = [];
+    private questionDataByQestionId: any = {};
     @ViewChild('selectedQuestionsList') public selectedQuestionsListElement: ElementRef;
 
     public disabled: boolean;
@@ -59,15 +63,6 @@ export class SummaryEditComponent implements ControlValueAccessor, AfterViewInit
         }
     }
 
-    public toggleSelection(questionID) {
-        if (this.isSelected(questionID)) {
-            console.log('aready selected');
-        } else {
-            this.selectedQuestionIDs.push(questionID);
-        }
-        this.updateValue();
-    }
-
     public add(question) {
         if (!this.isSelected(question)) {
             this.selectedQuestionIDs.push(question.id);
@@ -96,6 +91,9 @@ export class SummaryEditComponent implements ControlValueAccessor, AfterViewInit
     }
 
     public writeValue(data: any) {
+        if (data && data.questionData) {
+            this.questionDataByQestionId = data.questionData;
+        }
         if (data && data.selectedQuestionIDs) {
             this.selectedQuestionIDs = data.selectedQuestionIDs;
             this.updateSelectedQuestions();
@@ -106,8 +104,22 @@ export class SummaryEditComponent implements ControlValueAccessor, AfterViewInit
         this.onChange({
             selectedQuestionIDs: this.selectedQuestionIDs.map((id) => {
                 return id;
-            })
+            }),
+            questionData: this.getQuestionDataByQuestionId()
         });
+    }
+
+    private getQuestionDataByQuestionId(): any {
+        const questionData = {};
+        this.selectedQuestionIDs.forEach((questionId) => {
+            if (this.formGroupsByQuestionId[questionId]) {
+                const formGroup: FormGroup = this.formGroupsByQuestionId[questionId];
+                questionData[questionId] = {
+                    title: formGroup.get('title').value
+                };
+            }
+        });
+        return questionData;
     }
 
     private updateSelectedQuestions() {
@@ -131,8 +143,33 @@ export class SummaryEditComponent implements ControlValueAccessor, AfterViewInit
             }
             return 0;
         });
+        this.subscriptions.forEach((subscription) => {
+            subscription.unsubscribe();
+        });
+        const formGroupsByQuestionId = {};
+        selectedQuestions.forEach((question) => {
+            const questionData = {};
+            if (this.questionDataByQestionId[question.id]) {
+                Object.keys(this.questionDataByQestionId[question.id]).forEach((key) => {
+                    questionData[key] = this.questionDataByQestionId[question.id][key];
+                });
+            }
+            const formGroup = new FormGroup({
+                title: new FormControl(questionData['title'], Validators.required)
+            });
+            const subscription = formGroup.valueChanges.subscribe(() => {
+                this.updateValue();
+            });
+            this.subscriptions.push(subscription);
+            formGroupsByQuestionId[question.id] = formGroup;
+        });
+        this.formGroupsByQuestionId = formGroupsByQuestionId;
         this.selectedQuestions = selectedQuestions;
         this.unselectedQuestions = unselectedQuestions;
+    }
+
+    public getFormGroup(question): FormGroup {
+        return this.formGroupsByQuestionId[question.id];
     }
 
     public registerOnChange(fn: Function) {

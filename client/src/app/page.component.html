@@ -104,7 +104,10 @@
             </div>
         </div>
         <div *ngIf="content.contentType =='summary'">
-            <app-summary [selectedQuestionIDs]="content.data.selectedQuestionIDs"></app-summary>
+            <app-summary [selectedQuestionIDs]="content.data.selectedQuestionIDs"
+                [questionData]="content.data.questionData"
+                >
+            </app-summary>
         </div>
         <div *ngIf="content.contentType === 'page-gallery'">
             <app-page-gallery

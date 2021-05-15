@@ -1,9 +1,17 @@
 <section #selectedQuestionsList>
     <h3>Question Summaries</h3>
-    <fieldset *ngFor="let question of selectedQuestions">
+    <fieldset *ngFor="let question of selectedQuestions"
+        [formGroup]="getFormGroup(question)"
+        >
         <legend>{{question.id}} {{question.label}}</legend>
-        <label for="summary-title-{{question.id}}">Title</label>
-        <input id="summary-title-{{question.id}}" type="text" />
+        <label for="summary-title-{{question.id}}"
+            >
+            Title
+        </label>
+        <input id="summary-title-{{question.id}}"
+            type="text"
+            formControlName="title"
+            />
         <button type="button" (click)="remove(question)">Remove from summary</button>
     </fieldset>
 </section>
