@@ -69,7 +69,6 @@ export class QuestionEditComponent implements ControlValueAccessor, AfterViewIni
             });
         }
         this.form = new FormGroup({
-            key: new FormControl(key, Validators.required),
             label: new FormControl(label, Validators.required),
             format: new FormControl(format, Validators.required),
         });
@@ -80,7 +79,6 @@ export class QuestionEditComponent implements ControlValueAccessor, AfterViewIni
 
     private changeValues() {
         this.onChange({
-            key: this.form.get('key').value,
             label: this.form.get('label').value,
             format: this.form.get('format').value,
             options: this.optionFormGroups.map((optionFG) => {
