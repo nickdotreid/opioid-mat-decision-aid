@@ -70,12 +70,12 @@
         </div>
         <div *ngIf="content.contentType === 'question'">
             <app-question
-                [key]="content.data.key"
-                [value]="getAnswer(content.data.key)"
+                [key]="content.id"
+                [value]="getAnswer(content.id)"
                 [label]="content.data.label"
                 [format]="content.data.format"
                 [options]="content.data.options"
-                (answerChanged)="updateAnswer(content.data.key, $event)"
+                (answerChanged)="updateAnswer(content.id, $event)"
                 >
             </app-question>
         </div>

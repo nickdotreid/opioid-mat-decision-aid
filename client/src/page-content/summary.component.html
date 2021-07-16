@@ -1,13 +1,20 @@
 
 
 <section *ngFor="let question of summarizedQuestions">
-    <h3>{{question.title}}</h3>
-    <dl>
-        <dt>Question</dt>
-        <dd>{{question.label}}</dd>
-        <dt *ngIf="question.answer">Answer</dt>
-        <dd *ngIf="question.answer">{{question.answer.label}}</dd>
-        <dt *ngIf="question.answer">We recommend</dt>
-        <dd *ngIf="question.answer">{{question.answer.value}}</dd>
+    <h3 *ngIf="question.title">
+        {{question.title}}
+    </h3>
+    <app-question
+        [key]="question.id"
+        [value]="question.answer"
+        [label]="question.label"
+        [format]="question.format"
+        [options]="question.options"
+        (answerChanged)="updateAnswer(question.id, $event)"
+        >
+    </app-question>
+    <dl *ngIf="question.recommendation">
+        <dt>We recommend</dt>
+        <dd>{{question.recommendation}}</dd>
     </dl>
 </section>

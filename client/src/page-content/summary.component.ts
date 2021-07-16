@@ -30,6 +30,13 @@ export class SummaryComponent implements OnChanges {
         }
     }
 
+    public updateAnswer(question_id, valueIndex) {
+        this.participantService.updateAnswer(question_id, valueIndex)
+        .then(() => {
+            this.update();
+        });
+    }
+
     private update() {
         this.serverService.get('questions')
         .then((questions) => {
@@ -39,9 +46,9 @@ export class SummaryComponent implements OnChanges {
                     const questionData = this.getQuestionData(question);
                     summaryQuestions.push({
                         id: question.id,
-                        key: question.data.key,
                         label: question.data.label,
                         options: question.data.options,
+                        format: question.data.format,
                         title: questionData['title']
                     });
                 }
@@ -51,9 +58,10 @@ export class SummaryComponent implements OnChanges {
                 for (const [key, value] of Object.entries(answers)) {
                     const valueIndex = Number(value);
                     summaryQuestions.forEach((question) => {
-                        if (question.key === key) {
-                            if (question.options && question.options[valueIndex]) {
-                                question.answer = question.options[valueIndex];
+                        if (String(question.id) === String(key)) {
+                            question.answer = valueIndex;
+                            if (question.options && question.options[question.answer] && question.options[question.answer]['value']) {
+                                question.recommendation = question.options[question.answer]['value'];
                             }
                         }
                     });
