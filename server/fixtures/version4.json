@@ -1,0 +1,1842 @@
+[
+{
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": 1,
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": 1,
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": 1,
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": 1,
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+        "name": "Can add permission",
+        "content_type": 2,
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+        "name": "Can change permission",
+        "content_type": 2,
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": 2,
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+        "name": "Can view permission",
+        "content_type": 2,
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+        "name": "Can add group",
+        "content_type": 3,
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+        "name": "Can change group",
+        "content_type": 3,
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+        "name": "Can delete group",
+        "content_type": 3,
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+        "name": "Can view group",
+        "content_type": 3,
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+        "name": "Can add user",
+        "content_type": 4,
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+        "name": "Can change user",
+        "content_type": 4,
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+        "name": "Can delete user",
+        "content_type": 4,
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+        "name": "Can view user",
+        "content_type": 4,
+        "codename": "view_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+        "name": "Can add content type",
+        "content_type": 5,
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+        "name": "Can change content type",
+        "content_type": 5,
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": 5,
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+        "name": "Can view content type",
+        "content_type": 5,
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+        "name": "Can add session",
+        "content_type": 6,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+        "name": "Can change session",
+        "content_type": 6,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+        "name": "Can delete session",
+        "content_type": 6,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+        "name": "Can view session",
+        "content_type": 6,
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+        "name": "Can add Token",
+        "content_type": 7,
+        "codename": "add_token"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+        "name": "Can change Token",
+        "content_type": 7,
+        "codename": "change_token"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+        "name": "Can delete Token",
+        "content_type": 7,
+        "codename": "delete_token"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+        "name": "Can view Token",
+        "content_type": 7,
+        "codename": "view_token"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+        "name": "Can add editor",
+        "content_type": 8,
+        "codename": "add_editor"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+        "name": "Can change editor",
+        "content_type": 8,
+        "codename": "change_editor"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+        "name": "Can delete editor",
+        "content_type": 8,
+        "codename": "delete_editor"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+        "name": "Can view editor",
+        "content_type": 8,
+        "codename": "view_editor"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+        "name": "Can add effect",
+        "content_type": 9,
+        "codename": "add_effect"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+        "name": "Can change effect",
+        "content_type": 9,
+        "codename": "change_effect"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+        "name": "Can delete effect",
+        "content_type": 9,
+        "codename": "delete_effect"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+        "name": "Can view effect",
+        "content_type": 9,
+        "codename": "view_effect"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+        "name": "Can add medication",
+        "content_type": 10,
+        "codename": "add_medication"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+        "name": "Can change medication",
+        "content_type": 10,
+        "codename": "change_medication"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+        "name": "Can delete medication",
+        "content_type": 10,
+        "codename": "delete_medication"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+        "name": "Can view medication",
+        "content_type": 10,
+        "codename": "view_medication"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+        "name": "Can add medication effect",
+        "content_type": 11,
+        "codename": "add_medicationeffect"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+        "name": "Can change medication effect",
+        "content_type": 11,
+        "codename": "change_medicationeffect"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+        "name": "Can delete medication effect",
+        "content_type": 11,
+        "codename": "delete_medicationeffect"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+        "name": "Can view medication effect",
+        "content_type": 11,
+        "codename": "view_medicationeffect"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+        "name": "Can add icon",
+        "content_type": 12,
+        "codename": "add_icon"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+        "name": "Can change icon",
+        "content_type": 12,
+        "codename": "change_icon"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+        "name": "Can delete icon",
+        "content_type": 12,
+        "codename": "delete_icon"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+        "name": "Can view icon",
+        "content_type": 12,
+        "codename": "view_icon"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+        "name": "Can add chart",
+        "content_type": 13,
+        "codename": "add_chart"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+        "name": "Can change chart",
+        "content_type": 13,
+        "codename": "change_chart"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+        "name": "Can delete chart",
+        "content_type": 13,
+        "codename": "delete_chart"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+        "name": "Can view chart",
+        "content_type": 13,
+        "codename": "view_chart"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+        "name": "Can add chart medication",
+        "content_type": 14,
+        "codename": "add_chartmedication"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+        "name": "Can change chart medication",
+        "content_type": 14,
+        "codename": "change_chartmedication"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+        "name": "Can delete chart medication",
+        "content_type": 14,
+        "codename": "delete_chartmedication"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+        "name": "Can view chart medication",
+        "content_type": 14,
+        "codename": "view_chartmedication"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+        "name": "Can add chart effect",
+        "content_type": 15,
+        "codename": "add_charteffect"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+        "name": "Can change chart effect",
+        "content_type": 15,
+        "codename": "change_charteffect"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+        "name": "Can delete chart effect",
+        "content_type": 15,
+        "codename": "delete_charteffect"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+        "name": "Can view chart effect",
+        "content_type": 15,
+        "codename": "view_charteffect"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+        "name": "Can add quiz",
+        "content_type": 16,
+        "codename": "add_quiz"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+        "name": "Can change quiz",
+        "content_type": 16,
+        "codename": "change_quiz"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+        "name": "Can delete quiz",
+        "content_type": 16,
+        "codename": "delete_quiz"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 64,
+    "fields": {
+        "name": "Can view quiz",
+        "content_type": 16,
+        "codename": "view_quiz"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 65,
+    "fields": {
+        "name": "Can add question",
+        "content_type": 17,
+        "codename": "add_question"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 66,
+    "fields": {
+        "name": "Can change question",
+        "content_type": 17,
+        "codename": "change_question"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 67,
+    "fields": {
+        "name": "Can delete question",
+        "content_type": 17,
+        "codename": "delete_question"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 68,
+    "fields": {
+        "name": "Can view question",
+        "content_type": 17,
+        "codename": "view_question"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 69,
+    "fields": {
+        "name": "Can add chapter",
+        "content_type": 18,
+        "codename": "add_chapter"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 70,
+    "fields": {
+        "name": "Can change chapter",
+        "content_type": 18,
+        "codename": "change_chapter"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 71,
+    "fields": {
+        "name": "Can delete chapter",
+        "content_type": 18,
+        "codename": "delete_chapter"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 72,
+    "fields": {
+        "name": "Can view chapter",
+        "content_type": 18,
+        "codename": "view_chapter"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 73,
+    "fields": {
+        "name": "Can add page",
+        "content_type": 19,
+        "codename": "add_page"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 74,
+    "fields": {
+        "name": "Can change page",
+        "content_type": 19,
+        "codename": "change_page"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 75,
+    "fields": {
+        "name": "Can delete page",
+        "content_type": 19,
+        "codename": "delete_page"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 76,
+    "fields": {
+        "name": "Can view page",
+        "content_type": 19,
+        "codename": "view_page"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 77,
+    "fields": {
+        "name": "Can add page redirect",
+        "content_type": 20,
+        "codename": "add_pageredirect"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 78,
+    "fields": {
+        "name": "Can change page redirect",
+        "content_type": 20,
+        "codename": "change_pageredirect"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 79,
+    "fields": {
+        "name": "Can delete page redirect",
+        "content_type": 20,
+        "codename": "delete_pageredirect"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 80,
+    "fields": {
+        "name": "Can view page redirect",
+        "content_type": 20,
+        "codename": "view_pageredirect"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 81,
+    "fields": {
+        "name": "Can add page redirect condition",
+        "content_type": 21,
+        "codename": "add_pageredirectcondition"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 82,
+    "fields": {
+        "name": "Can change page redirect condition",
+        "content_type": 21,
+        "codename": "change_pageredirectcondition"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 83,
+    "fields": {
+        "name": "Can delete page redirect condition",
+        "content_type": 21,
+        "codename": "delete_pageredirectcondition"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 84,
+    "fields": {
+        "name": "Can view page redirect condition",
+        "content_type": 21,
+        "codename": "view_pageredirectcondition"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 85,
+    "fields": {
+        "name": "Can add orderable content",
+        "content_type": 22,
+        "codename": "add_orderablecontent"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 86,
+    "fields": {
+        "name": "Can change orderable content",
+        "content_type": 22,
+        "codename": "change_orderablecontent"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 87,
+    "fields": {
+        "name": "Can delete orderable content",
+        "content_type": 22,
+        "codename": "delete_orderablecontent"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 88,
+    "fields": {
+        "name": "Can view orderable content",
+        "content_type": 22,
+        "codename": "view_orderablecontent"
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$LV0SP5AEgNly$OtSAdwRJfz0RBm2Z1GaxNZ31Va5Lwq2BBNR0fgsVQuA=",
+        "last_login": null,
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@nickreid.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2021-01-25T00:17:38.487Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "chapters.chapter",
+    "pk": 1,
+    "fields": {
+        "order": 10,
+        "title": "Introduction",
+        "published": true
+    }
+},
+{
+    "model": "chapters.chapter",
+    "pk": 2,
+    "fields": {
+        "order": 20,
+        "title": "Opioid Use Disorder and Treatment",
+        "published": true
+    }
+},
+{
+    "model": "chapters.chapter",
+    "pk": 3,
+    "fields": {
+        "order": 30,
+        "title": "Medication Differences",
+        "published": true
+    }
+},
+{
+    "model": "chapters.chapter",
+    "pk": 4,
+    "fields": {
+        "order": 40,
+        "title": "Summary",
+        "published": true
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 1,
+    "fields": {
+        "order": 10,
+        "title": "A Decision Aid for Opioid Use Disorder Treatment",
+        "published": true,
+        "content": null,
+        "chapter": 1,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 2,
+    "fields": {
+        "order": 10,
+        "title": "What is Opioid Use Disorder",
+        "published": true,
+        "content": null,
+        "chapter": 2,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 3,
+    "fields": {
+        "order": 20,
+        "title": "What is treatment for Opioid Use Disorder like?",
+        "published": true,
+        "content": null,
+        "chapter": 2,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 4,
+    "fields": {
+        "order": 30,
+        "title": "How can medication help?",
+        "published": true,
+        "content": null,
+        "chapter": 2,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 5,
+    "fields": {
+        "order": 40,
+        "title": "If I don't like treatment, will I be able to quit on my own?",
+        "published": true,
+        "content": null,
+        "chapter": 2,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 6,
+    "fields": {
+        "order": 10,
+        "title": "Which medication is right for me?",
+        "published": true,
+        "content": null,
+        "chapter": 3,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 7,
+    "fields": {
+        "order": 20,
+        "title": "Which medication is right for me?",
+        "published": true,
+        "content": null,
+        "chapter": 3,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 8,
+    "fields": {
+        "order": 10,
+        "title": "Summary",
+        "published": true,
+        "content": null,
+        "chapter": 4,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 9,
+    "fields": {
+        "order": 10,
+        "title": "Can I start treatment if I have been using?",
+        "published": true,
+        "content": null,
+        "chapter": null,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 10,
+    "fields": {
+        "order": 20,
+        "title": "Where do I get my medication?",
+        "published": true,
+        "content": null,
+        "chapter": null,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 11,
+    "fields": {
+        "order": 30,
+        "title": "Will there be side effects?",
+        "published": true,
+        "content": null,
+        "chapter": null,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 12,
+    "fields": {
+        "order": 40,
+        "title": "If I quit treatment, will I have withdrawal?",
+        "published": true,
+        "content": null,
+        "chapter": null,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 13,
+    "fields": {
+        "order": 50,
+        "title": "Where do I get my medication?",
+        "published": true,
+        "content": null,
+        "chapter": null,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 14,
+    "fields": {
+        "order": 60,
+        "title": "How much will medication cost?",
+        "published": true,
+        "content": null,
+        "chapter": null,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 15,
+    "fields": {
+        "order": 70,
+        "title": "Will it treat my withdrawal and cravings?",
+        "published": true,
+        "content": null,
+        "chapter": null,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.page",
+    "pk": 16,
+    "fields": {
+        "order": 80,
+        "title": "Where do I get my medication?",
+        "published": true,
+        "content": null,
+        "chapter": null,
+        "next_page": null,
+        "chart": null,
+        "quiz": null
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 1,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 1,
+        "content_type": "text",
+        "data": {
+            "text": "<p>There are three medical treatment options for opioid use disorder: (1) Methadone, (2) Buprenorphine, and (3) Naltrexone. All 3 treatment options help people with opioid addiction get better. <br></p><p>But even though treatment works, people who start treatment don\u2019t always stick with it. Maybe you or someone you know has done this. <br></p><p>One of the biggest reasons why people stop a certain medical treatment is because *that treatment was not right fit for them!*</p><p>All treatment options are different. They differ in how you take them, where you get them, how they make you feel, and so on. . .</p><p>This decision aid will give you all the information you need to know about your treatment options, and how they differ, so that you can decide which treatment is right for you. <br></p><p>At the end of this decision aid, you will be given a print out to take to your doctor to discuss what you\u2019ve learned. </p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 2,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 2,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Opioids are a type of drug that includes heroin and prescription pain medications like percocet, vicodin, oxycodone, oxycontin, and fentanyl.</p><p>Opioid Use Disorder, also called \u201copioid addiction\u201d, is a medical condition that develops when a person uses opioids to the point that it becomes harmful to their physical and mental health.</p><p>Opioid Use Disorder is not the same for everyone. Some people need these drugs just to feel normal, even if it causes problems or takes over their life. Others may be able to maintain a normal life but still find it very difficult to quit--even when they really want to. <br></p><p>No matter what your opioid use looks like, medical treatment can help you quit using and live a life without drugs. </p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 3,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 3,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Opioid Use Disorder is a *chronic disease*, which means it can take time to get stable and for the brain to heal. Most patients need at least *3-5 years* of treatment, and some need much longer. You will work with your doctor to decide what is right for you.</p><p>Recovery will have ups and downs--some patients get better, then start using opioids again *(relapse)*, and have to restart or adjust their treatment to become stable again *(remit)*. *This is very common* and may even happen multiple times.</p><p>The good news is that even if you relapse, treatment can get you better again, and help you remain stable over time. </p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 4,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 4,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Medication Makes Quitting Easier</h3><div><p>Medications like *Methadone* and *Buprenorphine* help you quit because they treat *withdrawal* symptons and decrease *cravings*, making it eaiser to trasnition away from using drugs. Other medications like *Naltrexone* do not treat withdrawal or cravings, but other treatment can be provided.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 5,
+    "fields": {
+        "order": 20,
+        "title": "text",
+        "published": true,
+        "page": 4,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Medication Will Save Your Life</h3><div><p>Getting stable on medication means you will be protected from overdose and life-threatening infections that come with drug use. If you have other medical conditions (like heart disease, HIV, or depression), being linked to treatment makes it easier to get medical care for other ailments.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 6,
+    "fields": {
+        "order": 30,
+        "title": "text",
+        "published": true,
+        "page": 4,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Medication Will Improve Your Health</h3><div><p>Patients who get stable on medication report improvements in their mental and physical health. Some of these improvements include:</p><p>*Better Mood*: Medications improve your mood by decreasing anxiety and depression, and helping you feel more even.</p><p>*Fewer Infections*: Medications can lower injection behavior and\timprove your immune system, which means less risk for infections.</p><p>*Better Access to Care*: Medications can stabilize your life so you\tcan get medical and psychological care you need</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 7,
+    "fields": {
+        "order": 40,
+        "title": "text",
+        "published": true,
+        "page": 4,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Medication Will Improve Your Day-To-Day Life</h3><div><p>Medication lowers your risk of arrest and legal problems. It stabilizes you so you can connect to your family, relationships, and work.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 8,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 5,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Stopping treatment suddently on your own is dangerous!</p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 9,
+    "fields": {
+        "order": 20,
+        "title": "text",
+        "published": true,
+        "page": 5,
+        "content_type": "text",
+        "data": {
+            "text": "<p>For all forms of treatment, stopping suddenly on your own increases your risk of death, *especially during the first 2 weeks after stopping*.</p><p>The two weeks after suddenly quitting treatment are especially dangerous because people are more likely to return to opioid use, and are more likely to overdose if they do.</p><p>Whenever you feel it\u2019s time to stop treatment, you are strongly encouraged to work with your doctor to figure out a plan to do so safely.</p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 10,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 6,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Methadone, Buprenorphine, and Naltrexone are all effective treatments for opioid use disorder. <br></p><p>These three treatments differ in how they\u2019re taken, where you go to get it, side effects, etc... Most patients find that one of these medications fits better with their preferences compared to others. <br></p><p>On the next page, you will be able to look over these differences to figure out which medication is right for you.   </p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 11,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 7,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Touch any one of the boxes below to learn more information about how different treatments for OUD fit in with your lifestyle. Once you have looked over all of the information, you will be provided a summary on the next page.</p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 12,
+    "fields": {
+        "order": 20,
+        "title": "Page Gallery",
+        "published": true,
+        "page": 7,
+        "content_type": "page-gallery",
+        "data": {
+            "pages": [
+                {
+                    "id": 10,
+                    "quiz": null,
+                    "chart": null,
+                    "title": "Where do I get my medication?",
+                    "content": null,
+                    "published": true
+                },
+                {
+                    "id": 9,
+                    "quiz": null,
+                    "chart": null,
+                    "title": "Can I start treatment if I have been using?",
+                    "content": null,
+                    "published": true
+                },
+                {
+                    "id": 12,
+                    "quiz": null,
+                    "chart": null,
+                    "title": "If I quit treatment, will I have withdrawal?",
+                    "content": null,
+                    "published": true
+                },
+                {
+                    "id": 11,
+                    "quiz": null,
+                    "chart": null,
+                    "title": "Will there be side effects?",
+                    "content": null,
+                    "published": true
+                },
+                {
+                    "id": 14,
+                    "quiz": null,
+                    "chart": null,
+                    "title": "How much will medication cost?",
+                    "content": null,
+                    "published": true
+                },
+                {
+                    "id": 15,
+                    "quiz": null,
+                    "chart": null,
+                    "title": "Will it treat my withdrawal and cravings?",
+                    "content": null,
+                    "published": true
+                }
+            ]
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 13,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 9,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Methadone</h3><div><p>You can start Methadone treatment immediately, even if you have been using.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 14,
+    "fields": {
+        "order": 20,
+        "title": "text",
+        "published": true,
+        "page": 9,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Buprenorphine</h3><p>You can start Buprenorphine as long as you haven\u2019t used in the last 12-24 hours.</p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 15,
+    "fields": {
+        "order": 30,
+        "title": "text",
+        "published": true,
+        "page": 9,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Naltrexone</h3><div><p>You must wait 7 days from you last use before starting Naltrexone. Your doctor can prescribe medications to help you manage withdrawal and cravings during this time. <br></p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 16,
+    "fields": {
+        "order": 40,
+        "title": "question",
+        "published": true,
+        "page": 9,
+        "content_type": "question",
+        "data": {
+            "label": "Are you willing to wait between stoping opioids and starting treatment?",
+            "format": "radio",
+            "options": [
+                {
+                    "label": "No, I want to start treatment right away",
+                    "value": "Methadone"
+                },
+                {
+                    "label": "I'm willing to wait up to 24 hours",
+                    "value": "Buprenorphine"
+                },
+                {
+                    "label": "I'm willing to wait up to 7 days, with help",
+                    "value": "Naltrexone"
+                }
+            ]
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 17,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 10,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Methadone</h3><div><p>You will go to a specialized clinic almost every day to receive your dose. After 3 months you may be allowed to take medications at home.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 18,
+    "fields": {
+        "order": 20,
+        "title": "text",
+        "published": true,
+        "page": 10,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Buprenorphine</h3><div><p>You will start taking Buprenorphine at a clinic. After 1-3 days, you will be able to pick it up from the pharmacy and take it at home. You may need to come to clinic every week in the beginning to make sure the dose is right and that you are stable.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 19,
+    "fields": {
+        "order": 30,
+        "title": "text",
+        "published": true,
+        "page": 10,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Naltrexone</h3><div><p>You may need to meet with your doctor until you feel stable, after that, you come into the clinic once a month to get an injection.<br></p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 20,
+    "fields": {
+        "order": 40,
+        "title": "question",
+        "published": true,
+        "page": 10,
+        "content_type": "question",
+        "data": {
+            "label": "I'd like to get my medications from...",
+            "format": "radio",
+            "options": [
+                {
+                    "label": "At a clinic on a daily basis",
+                    "value": "Methadone"
+                },
+                {
+                    "label": "A pharmacy and then take them home",
+                    "value": "Buprenorphine"
+                },
+                {
+                    "label": "A clinic once a month",
+                    "value": "Naltrexone"
+                }
+            ]
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 21,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 11,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Methadone</h3><div><p>Side effects from methadone include: sleeping problems, weight gain, constipation, nausea, forgetfulness.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 22,
+    "fields": {
+        "order": 20,
+        "title": "text",
+        "published": true,
+        "page": 11,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Buprenorphine</h3><div><p>Side effects from buprenorphine include: sleeping problems, headaches</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 23,
+    "fields": {
+        "order": 30,
+        "title": "text",
+        "published": true,
+        "page": 11,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Naltrexone</h3><div><p>Side effects from naltrexone include: irritation where you get the injection.<br></p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 24,
+    "fields": {
+        "order": 40,
+        "title": "question",
+        "published": true,
+        "page": 11,
+        "content_type": "question",
+        "data": {
+            "label": "Would you like to talk to a doctor about medication side effects?",
+            "format": "radio",
+            "options": [
+                {
+                    "label": "Yes",
+                    "value": null
+                },
+                {
+                    "label": "No",
+                    "value": null
+                }
+            ]
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 25,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 12,
+        "content_type": "text",
+        "data": {
+            "text": "<p>People who quit treatment suddenly without the help of their doctor will experience medication withdrawal. Withdrawal is worse for some medications than others.</p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 26,
+    "fields": {
+        "order": 20,
+        "title": "text",
+        "published": true,
+        "page": 12,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Methadone</h3><div><p>Methadone withdrawal is as intense as opioids like heroin, but lasts longer, for 6 weeks</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 27,
+    "fields": {
+        "order": 30,
+        "title": "text",
+        "published": true,
+        "page": 12,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Buprenorphine</h3><div><p>Buprenorphine withdrawal is less intense than opioids like heroin, and lasts 1 week<br></p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 28,
+    "fields": {
+        "order": 40,
+        "title": "text",
+        "published": true,
+        "page": 12,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Naltrexone</h3><div><p>No, there is no withdrawal with naltrexone.<br></p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 29,
+    "fields": {
+        "order": 50,
+        "title": "question",
+        "published": true,
+        "page": 12,
+        "content_type": "question",
+        "data": {
+            "label": "If you decide the medication you are taking isn\u2019t right for you, how willing are you to work with your doctor to make a plan for stopping?",
+            "format": "radio",
+            "options": [
+                {
+                    "label": "Very willing",
+                    "value": "Methadone"
+                },
+                {
+                    "label": "Somewhat willing",
+                    "value": "Buprenorphine"
+                },
+                {
+                    "label": "I don't want to have to work with my doctor",
+                    "value": "Naltrexone"
+                }
+            ]
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 30,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 14,
+        "content_type": "text",
+        "data": {
+            "text": "<p>Public insurance (Husky) covers all medications with little cost to you. Private insurances usually cover medication, but cost may differ. Even without insurance, the cost of medication is less than drugs.</p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 31,
+    "fields": {
+        "order": 20,
+        "title": "text",
+        "published": true,
+        "page": 14,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Methadone</h3><div><p>Without insurance, methadone will cost you $300 per month.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 32,
+    "fields": {
+        "order": 30,
+        "title": "text",
+        "published": true,
+        "page": 14,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Buprenorphine</h3><div><p>Without insurance, buprenorphine will cost you $200 per month.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 33,
+    "fields": {
+        "order": 40,
+        "title": "text",
+        "published": true,
+        "page": 14,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Naltrexone</h3><div><p>Without insurance, naltrexone will cost you $1350 per month.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 34,
+    "fields": {
+        "order": 50,
+        "title": "question",
+        "published": true,
+        "page": 14,
+        "content_type": "question",
+        "data": {
+            "label": "Do you have medical insurance?",
+            "format": "radio",
+            "options": [
+                {
+                    "label": "Yes",
+                    "value": null
+                },
+                {
+                    "label": "No",
+                    "value": null
+                }
+            ]
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 35,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 15,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Methadone</h3><div><p>Methadone will treat your opioid withdrawal and cravings.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 36,
+    "fields": {
+        "order": 20,
+        "title": "text",
+        "published": true,
+        "page": 15,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Buprenorphine</h3><div><p>Buprenorphine will treat your opioid withdrawal and cravings.</p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 37,
+    "fields": {
+        "order": 30,
+        "title": "text",
+        "published": true,
+        "page": 15,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Naltrexone</h3><div><p>Naltrexone does not treat opioid withdrawal or cravings. Your doctor will prescribe other medications to help treat these symptoms. </p></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 38,
+    "fields": {
+        "order": 40,
+        "title": "question",
+        "published": true,
+        "page": 15,
+        "content_type": "question",
+        "data": {
+            "label": "Would you like for your medication to treat your withdrawal and cravings?",
+            "format": "radio",
+            "options": [
+                {
+                    "label": "Yes",
+                    "value": null
+                },
+                {
+                    "label": "I'm okay with getting other medications to treat withdrawal and cravings",
+                    "value": null
+                }
+            ]
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 39,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 8,
+        "content_type": "text",
+        "data": {
+            "text": "<p>At the end of each medication difference page, we asked you about your preference for getting medications, side effects, and so on... Your answers are summarized below. Please print this summary at take it to your doctor or treatment professional to discuss which treatment may be right for you. </p>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 42,
+    "fields": {
+        "order": 30,
+        "title": "summary",
+        "published": true,
+        "page": 8,
+        "content_type": "summary",
+        "data": {
+            "questionData": {
+                "24": {
+                    "title": ""
+                },
+                "44": {
+                    "title": ""
+                }
+            },
+            "selectedQuestionIDs": [
+                24,
+                44
+            ]
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 43,
+    "fields": {
+        "order": 10,
+        "title": "text",
+        "published": true,
+        "page": 13,
+        "content_type": "text",
+        "data": {
+            "text": "<h3>Methadone</h3><p>You will go to a specialized clinic almost every day to receive your dose.</p><p>After 3 months you may be allowed to take medications at home.</p><h3>Buprenorphine</h3><div><p>You will start taking Buprenorphine at a clinic. After 1-3 days, you will be able to pick it up from the pharmacy and take it at home. You may need to come to clinic every week in the beginning to make sure the dose is right and that you are stable.</p><h3>Naltrexone</h3><div><p>You may need to meet with your doctor until you feel stable, after that, you come into the clinic once a month to get an injection.<br></p></div></div>"
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 44,
+    "fields": {
+        "order": 20,
+        "title": "question",
+        "published": true,
+        "page": 13,
+        "content_type": "question",
+        "data": {
+            "label": "I'd like to get my medications from...",
+            "format": "radio",
+            "options": [
+                {
+                    "label": "At a clinic on a daily basis",
+                    "value": "Methadone"
+                },
+                {
+                    "label": "A pharmacy and then take them home",
+                    "value": "Buprenorphine"
+                },
+                {
+                    "label": "A clinic once a month",
+                    "value": "Naltrexone"
+                }
+            ]
+        }
+    }
+},
+{
+    "model": "chapters.orderablecontent",
+    "pk": 45,
+    "fields": {
+        "order": 40,
+        "title": "summary",
+        "published": true,
+        "page": 8,
+        "content_type": "summary",
+        "data": {
+            "questionData": {
+                "24": {
+                    "title": null
+                },
+                "34": {
+                    "title": null
+                },
+                "38": {
+                    "title": null
+                }
+            },
+            "selectedQuestionIDs": [
+                34,
+                24,
+                38
+            ]
+        }
+    }
+}
+]
