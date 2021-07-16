@@ -1,14 +1,6 @@
 <div class="app"
     [ngClass]="{ isProtected: bottomOpen }"
     >
-    <header>
-        <div class="container">
-            <nav class="navigation-grouped">
-                <button (click)="goHome()">Home</button>
-                <app-login></app-login>
-            </nav>
-        </div>
-    </header>
     <div class="content">
         <router-outlet></router-outlet>
     </div>
@@ -20,9 +12,14 @@
         </nav>
         <router-outlet name="bottom"></router-outlet>
     </div>
-    <footer *ngIf="isEditor">
+    <footer>
         <nav>
-            <button (click)="editDecisionAid()">Edit Chapters</button>
+            <app-login></app-login>
+            <button *ngIf="isEditor"
+                (click)="editDecisionAid()"
+                >
+                Edit Chapters
+            </button>
         </nav>
     </footer>
 </div>
